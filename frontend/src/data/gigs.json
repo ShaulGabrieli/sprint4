@@ -452,20 +452,20 @@
         "title": "I will design and develop an e-commerce website",
         "price": 40,
         "owner": {
-        "_id": "u118",
-        "fullname": "Abigail Martinez",
-        "imgUrl": "url",
-        "level": "premium",
-        "rate": 5
+            "_id": "u118",
+            "fullname": "Abigail Martinez",
+            "imgUrl": "url",
+            "level": "premium",
+            "rate": 5
         },
         "daysToMake": 14,
         "description": "I will design and develop a fully-functional e-commerce website that will help you sell your products online.",
         "imgUrl": "url",
         "tags": [
-        "e-commerce",
-        "web-development",
-        "shopping-cart",
-        "payment-gateway"
+            "e-commerce",
+            "web-development",
+            "shopping-cart",
+            "payment-gateway"
         ],
         "likedByUsers": [
             {
@@ -474,85 +474,82 @@
             }
         ],
         "totalLikes": 1
-        },
-
-{
-        "_id": "i119",
-"title": "I will create a presentation for your business",
-"price": 25,
-"owner": {
-"_id": "u119",
-"fullname": "Avery Hernandez",
-"imgUrl": "url",
-"level": "basic",
-"rate": 4
-},
-"daysToMake": 5,
-"description": "I will create an engaging and informative presentation for your business that will help you effectively communicate your message.",
-"imgUrl": "url",
-"tags": [
-"presentation-design",
-"business-communication",
-"powerpoint",
-"keynote"
-],
-"likedByUsers": [
+    },
     {
-        "_id": "u101",
-        "name": "John Doe"
-    }
-],
-"totalLikes": 1
-},
-
-{
-    "_id": "i120",
-    "title": "I will create a customer service chatbot",
-    "price": 35,
-    "owner": {
-    "_id": "u120",
-    "fullname": "Emily Anderson",
-    "imgUrl": "url",
-    "level": "premium",
-    "rate": 5
+        "_id": "i119",
+        "title": "I will create a presentation for your business",
+        "price": 25,
+        "owner": {
+            "_id": "u119",
+            "fullname": "Avery Hernandez",
+            "imgUrl": "url",
+            "level": "basic",
+            "rate": 4
+        },
+        "daysToMake": 5,
+        "description": "I will create an engaging and informative presentation for your business that will help you effectively communicate your message.",
+        "imgUrl": "url",
+        "tags": [
+            "presentation-design",
+            "business-communication",
+            "powerpoint",
+            "keynote"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
     },
-    "daysToMake": 10,
-    "description": "I will design and develop a customer service chatbot that will help you handle customer inquiries and provide quick and efficient assistance.",
-    "imgUrl": "url",
-    "tags": [
-    "chatbot",
-    "customer-service",
-    "AI",
-    "automation"
-    ],
-    "likedByUsers": [
-        {
-            "_id": "u101",
-            "name": "John Doe"
-        }
-    ],
-    "totalLikes": 1
+    {
+        "_id": "i120",
+        "title": "I will create a customer service chatbot",
+        "price": 35,
+        "owner": {
+            "_id": "u120",
+            "fullname": "Emily Anderson",
+            "imgUrl": "url",
+            "level": "premium",
+            "rate": 5
+        },
+        "daysToMake": 10,
+        "description": "I will design and develop a customer service chatbot that will help you handle customer inquiries and provide quick and efficient assistance.",
+        "imgUrl": "url",
+        "tags": [
+            "chatbot",
+            "customer-service",
+            "AI",
+            "automation"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
     },
-
     {
         "_id": "i121",
         "title": "I will create a mobile game",
         "price": 40,
         "owner": {
-        "_id": "u121",
-        "fullname": "Michael Perez",
-        "imgUrl": "url",
-        "level": "basic",
-        "rate": 4
+            "_id": "u121",
+            "fullname": "Michael Perez",
+            "imgUrl": "url",
+            "level": "basic",
+            "rate": 4
         },
         "daysToMake": 14,
         "description": "I will design and develop a fully-functional mobile game that will provide entertainment and engagement for your audience.",
         "imgUrl": "url",
         "tags": [
-        "mobile-game",
-        "development",
-        "entertainment",
-        "engagement"
+            "mobile-game",
+            "development",
+            "entertainment",
+            "engagement"
         ],
         "likedByUsers": [
             {
@@ -561,5 +558,5 @@
             }
         ],
         "totalLikes": 1
-        }
+    }
 ]
