@@ -1,4 +1,7 @@
 // Colors
+//main background color
+$clr-1: #ffffff;
+
 //main font color
 $clr1: #404145;
 
@@ -30,6 +33,13 @@ $clr8: #ff62ad;
 //  bg-color
 $clr10: white;
 
+$clr11: #222325;
+
+//search
+$clr12: #c5c6c9;
+
+$clr13: #b5b6ba;
+
 //old colors
 // $clr1: #ce2e6c;
 // $clr2: #4f3a65;
@@ -38,6 +48,11 @@ $clr10: white;
 // $clr5: #dff0ea;
 // $clr6: #fff;
 // $clr7: #222;
+
+// Breakpoints
+$mobile-breakpoint: 460px;
+$narrow-breakpoint: 720px;
+$normal-breakpoint: 1400px;
 
 // Breakpoints
 $mobile-breakpoint: 460px;
