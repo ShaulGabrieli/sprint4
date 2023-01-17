@@ -1,11 +1,27 @@
 // Colors
-$clr1: #ce2e6c;
-$clr2: #4f3a65;
-$clr3: #574f7d;
-$clr4: #95adbe;
-$clr5: #dff0ea;
-$clr6: #fff;
-$clr7: #222;
+
+$main-font-color: #404145;
+/* (used for: logo-dot,btns, hovers,add to cart) */
+$main-green: #1dbf73;
+$main-header-gray:  #74767e;
+/* used in "suggested" */
+$sub-header-gray: #62646a;
+/* used in main header */
+$chosen-category-blue: #62646a;
+/* used for stars and top rated seller font color */
+$star-yellow: #ffbe5b;
+/* used in product page */
+$url-blue:#446ee7;
+$new-btn-pink: #ff62ad;
+
+//old colors
+// $clr1: #ce2e6c;
+// $clr2: #4f3a65;
+// $clr3: #574f7d;
+// $clr4: #95adbe;
+// $clr5: #dff0ea;
+// $clr6: #fff;
+// $clr7: #222;
 
 
 // Breakpoints
