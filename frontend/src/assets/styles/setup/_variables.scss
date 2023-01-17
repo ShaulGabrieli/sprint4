@@ -1,18 +1,32 @@
 // Colors
+//main font color
+$clr1: #404145;
 
-$main-font-color: #404145;
-/* (used for: logo-dot,btns, hovers,add to gigt) */
-$main-green: #1dbf73;
-$main-header-gray:  #74767e;
+//main green
+/* (used for: logo-dot,btns, hovers,add to cart) */
+$clr2: #1dbf73;
+
+//main header color
+$clr3:  #74767e;
+
+//sub header color
 /* used in "suggested" */
-$sub-header-gray: #62646a;
+$clr4: #62646a;
+
+
 /* used in main header */
-$chosen-category-blue: #62646a;
+$clr5: #62646a;
 /* used for stars and top rated seller font color */
-$star-yellow: #ffbe5b;
+
+//used in starred elements
+$clr6: #ffbe5b;
 /* used in product page */
-$url-blue:#446ee7;
-$new-btn-pink: #ff62ad;
+
+//used in urls
+$clr7:#446ee7;
+
+//used in new-btn
+$clr8: #ff62ad;
 
 //old colors
 // $clr1: #ce2e6c;
