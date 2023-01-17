@@ -7,6 +7,8 @@ import { store } from './store/store'
 import { RootCmp } from './root-cmp'
 import './assets/styles/main.scss'
 
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
