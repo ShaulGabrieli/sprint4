@@ -3,18 +3,18 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 
-import { removeFromCart, checkout } from '../store/car.actions'
+import { removeFromGigt, checkout } from '../store/gig.actions'
 import { UserMsg } from './user-msg.jsx'
 
 export function AppFooter() {
-    const [isCartShown, setIsCartShown] = useState(false)
-    const cart = useSelector(storeState => storeState.carModule.cart)
+    const [isGigtShown, setIsGigtShown] = useState(false)
+    const gigt = useSelector(storeState => storeState.gigModule.gigt)
     const count = useSelector(storeState => storeState.userModule.count)
-    const cartTotal = cart.reduce((acc, car) => acc + car.price, 0)
+    const gigtTotal = gigt.reduce((acc, gig) => acc + gig.price, 0)
 
     async function onCheckout() {
         try {
-            const score = await checkout(cartTotal)
+            const score = await checkout(gigtTotal)
             showSuccessMsg(`Charged, your new score: ${score.toLocaleString()}`)
         } catch(err) {
             showErrorMsg('Cannot checkout')
@@ -26,31 +26,31 @@ export function AppFooter() {
             <p>
                 coffeerights - count: {count}
             </p>
-            {cart.length > 0 &&
+            {gigt.length > 0 &&
                 <h5>
-                    <span>{cart.length}</span> Products in your Cart
+                    <span>{gigt.length}</span> Products in your Gigt
                     <button className="btn-link" onClick={(ev) => {
                         ev.preventDefault();
-                        setIsCartShown(!isCartShown)
+                        setIsGigtShown(!isGigtShown)
                     }}>
-                        ({(isCartShown) ? 'hide' : 'show'})
+                        ({(isGigtShown) ? 'hide' : 'show'})
                     </button>
                 </h5>
             }
 
-            {isCartShown && cart.length > 0 && <section className="cart" >
-                <h5>Your Cart</h5>
+            {isGigtShown && gigt.length > 0 && <section className="gigt" >
+                <h5>Your Gigt</h5>
                 <ul>
                     {
-                        cart.map((car, idx) => <li key={idx}>
+                        gigt.map((gig, idx) => <li key={idx}>
                             <button onClick={() => {
-                                removeFromCart(car._id)
+                                removeFromGigt(gig._id)
                             }}>x</button>
-                            {car.vendor}
+                            {gig.vendor}
                         </li>)
                     }
                 </ul>
-                <p>Total: ${cartTotal.toLocaleString()} </p>
+                <p>Total: ${gigtTotal.toLocaleString()} </p>
                 <button onClick={onCheckout}>Checkout</button>
             </section>}
             <UserMsg />
