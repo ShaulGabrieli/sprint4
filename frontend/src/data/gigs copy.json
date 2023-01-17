@@ -1,0 +1,562 @@
+[
+    {
+        "_id": "i102",
+        "title": "I will create a website for you",
+        "price": 20,
+        "owner": {
+            "_id": "u102",
+            "fullname": "Sara Smith",
+            "imgUrl": "url",
+            "level": "premium",
+            "rate": 5
+        },
+        "daysToMake": 7,
+        "description": "Design and develop a fully-functional website that meets your needs and specifications.",
+        "imgUrl": "url",
+        "tags": [
+            "website-design",
+            "development",
+            "responsive",
+            "e-commerce"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i103",
+        "title": "I will write an ebook for you",
+        "price": 15,
+        "owner": {
+            "_id": "u103",
+            "fullname": "John Doe",
+            "imgUrl": "url",
+            "level": "basic",
+            "rate": 4
+        },
+        "daysToMake": 14,
+        "description": "I will write a high-quality ebook on any topic of your choice",
+        "imgUrl": "url",
+        "tags": [
+            "ebook-writing",
+            "creative-writing",
+            "non-fiction",
+            "fiction"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i104",
+        "title": "I will create a professional video animation",
+        "price": 25,
+        "owner": {
+            "_id": "u104",
+            "fullname": "Jessica Johnson",
+            "imgUrl": "url",
+            "level": "premium",
+            "rate": 5
+        },
+        "daysToMake": 5,
+        "description": "I will create a professional, high-quality animation video to promote your business or product.",
+        "imgUrl": "url",
+        "tags": [
+            "animation",
+            "video-production",
+            "promotion",
+            "marketing"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i105",
+        "title": "I will do your data entry work",
+        "price": 10,
+        "owner": {
+            "_id": "u105",
+            "fullname": "Robert Rodriguez",
+            "imgUrl": "url",
+            "level": "basic",
+            "rate": 4
+        },
+        "daysToMake": 2,
+        "description": "I will efficiently and accurately handle your data entry needs, including data entry, data cleaning, and data analysis",
+        "imgUrl": "",
+        "tags": [
+            "data-entry",
+            "data-cleaning",
+            "data-analysis",
+            "excel"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i106",
+        "title": "I will design a professional business card",
+        "price": 15,
+        "owner": {
+            "_id": "u106",
+            "fullname": "Emily Edwards",
+            "imgUrl": "url",
+            "level": "premium",
+            "rate": 5
+        },
+        "daysToMake": 3,
+        "description": "I will design a professional and visually appealing business card that accurately reflects your brand and identity.",
+        "imgUrl": "url",
+        "tags": [
+            "business-card",
+            "graphic-design",
+            "branding",
+            "print"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i107",
+        "title": "I will write SEO optimized content for your website",
+        "price": 20,
+        "owner": {
+            "_id": "u107",
+            "fullname": "Michael Miller",
+            "imgUrl": "url",
+            "level": "basic",
+            "rate": 4
+        },
+        "daysToMake": 5,
+        "description": "I will write high-quality, SEO optimized content for your website to help improve your search engine rankings and drive more traffic.",
+        "imgUrl": "",
+        "tags": [
+            "SEO",
+            "content-writing",
+            "website-optimization",
+            "copywriting"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i108",
+        "title": "I will create a social media marketing strategy",
+        "price": 30,
+        "owner": {
+            "_id": "u108",
+            "fullname": "Ashley Anderson",
+            "imgUrl": "url",
+            "level": "premium",
+            "rate": 5
+        },
+        "daysToMake": 7,
+        "description": "I will create a comprehensive social media marketing strategy to help promote your business and increase engagement with your audience.",
+        "imgUrl": "url",
+        "tags": [
+            "social-media-marketing",
+            "strategy",
+            "promotion",
+            "engagement"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i109",
+        "title": "I will transcribe audio and video files",
+        "price": 15,
+        "owner": {
+            "_id": "u109",
+            "fullname": "Matthew Martinez",
+            "imgUrl": "url",
+            "level": "basic",
+            "rate": 4
+        },
+        "daysToMake": 3,
+        "description": "I will transcribe your audio and video files accurately and efficiently, providing you with written text in the format of your choice.",
+        "imgUrl": "",
+        "tags": [
+            "transcription",
+            "audio",
+            "video",
+            "typing"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i110",
+        "title": "I will optimize and speed up your website",
+        "price": 25,
+        "owner": {
+            "_id": "u110",
+            "fullname": "Joshua Jackson",
+            "imgUrl": "url",
+            "level": "premium",
+            "rate": 5
+        },
+        "daysToMake": 5,
+        "description": "I will optimize your website's code and images to improve its speed and performance, resulting in a better user experience.",
+        "imgUrl": "url",
+        "tags": [
+            "website-optimization",
+            "speed-up",
+            "performance",
+            "user-experience"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i111",
+        "title": "I will provide virtual assistance services",
+        "price": 20,
+        "owner": {
+            "_id": "u111",
+            "fullname": "Jacob Johnson",
+            "imgUrl": "url",
+            "level": "basic",
+            "rate": 4
+        },
+        "daysToMake": 2,
+        "description": "I will provide virtual assistance services such as scheduling, email management, data entry, and research.",
+        "imgUrl": "",
+        "tags": [
+            "virtual-assistance",
+            "scheduling",
+            "email-management",
+            "data-entry"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i112",
+        "title": "I will create a landing page for your business",
+        "price": 30,
+        "owner": {
+            "_id": "u112",
+            "fullname": "Isabella Rodriguez",
+            "imgUrl": "url",
+            "level": "premium",
+            "rate": 5
+        },
+        "daysToMake": 7,
+        "description": "I will design and develop a high-converting landing page for your business that will help increase conversions and sales.",
+        "imgUrl": "url",
+        "tags": [
+            "landing-page",
+            "web-development",
+            "conversions",
+            "sales"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i113",
+        "title": "I will create an explainer video for your product or service",
+        "price": 25,
+        "owner": {
+            "_id": "u113",
+            "fullname": "Ethan Perez",
+            "imgUrl": "url",
+            "level": "basic",
+            "rate": 4
+        },
+        "daysToMake": 5,
+        "description": "I will create an engaging and informative explainer video to help explain and promote your product or service.",
+        "imgUrl": "url",
+        "tags": [
+            "explainer-video",
+            "animation",
+            "promotion",
+            "marketing"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i114",
+        "title": "I will create a mobile app for your business",
+        "price": 40,
+        "owner": {
+            "_id": "u114",
+            "fullname": "Alyssa Garcia",
+            "imgUrl": "url",
+            "level": "premium",
+            "rate": 5
+        },
+        "daysToMake": 14,
+        "description": "I will design and develop a fully-functional mobile app for your business that will help increase engagement and sales.",
+        "imgUrl": "url",
+        "tags": [
+            "mobile-app",
+            "development",
+            "engagement",
+            "sales"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i115",
+        "title": "I will do your online research",
+        "price": 15,
+        "owner": {
+            "_id": "u115",
+            "fullname": "Noah Hernandez",
+            "imgUrl": "url",
+            "level": "basic",
+            "rate": 4
+        },
+        "daysToMake": 3,
+        "description": "I will conduct thorough online research on any topic of your choice and provide you with a detailed report.",
+        "imgUrl": "",
+        "tags": [
+            "online-research",
+            "data-collection",
+            "report-writing",
+            "investigation"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i116",
+        "title": "I will create a brand guidelines document",
+        "price": 20,
+        "owner": {
+            "_id": "u116",
+            "fullname": "Madison Perez",
+            "imgUrl": "url",
+            "level": "premium",
+            "rate": 5
+        },
+        "daysToMake": 5,
+        "description": "I will create a comprehensive brand guidelines document that outlines your brand's visual identity, messaging and voice.",
+        "imgUrl": "url",
+        "tags": [
+            "brand-guideline",
+            "branding",
+            "visual-identity",
+            "messaging"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i117",
+        "title": "I will create a marketing plan for your business",
+        "price": 30,
+        "owner": {
+            "_id": "u117",
+            "fullname": "Elizabeth Gonzalez",
+            "imgUrl": "url",
+            "level": "basic",
+            "rate": 4
+        },
+        "daysToMake": 7,
+        "description": "I will create a comprehensive marketing plan for your business that will help increase brand awareness and drive more sales.",
+        "imgUrl": "url",
+        "tags": [
+            "marketing-plan",
+            "brand-awareness",
+            "sales",
+            "strategy"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i118",
+        "title": "I will design and develop an e-commerce website",
+        "price": 40,
+        "owner": {
+            "_id": "u118",
+            "fullname": "Abigail Martinez",
+            "imgUrl": "url",
+            "level": "premium",
+            "rate": 5
+        },
+        "daysToMake": 14,
+        "description": "I will design and develop a fully-functional e-commerce website that will help you sell your products online.",
+        "imgUrl": "url",
+        "tags": [
+            "e-commerce",
+            "web-development",
+            "shopping-cart",
+            "payment-gateway"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i119",
+        "title": "I will create a presentation for your business",
+        "price": 25,
+        "owner": {
+            "_id": "u119",
+            "fullname": "Avery Hernandez",
+            "imgUrl": "url",
+            "level": "basic",
+            "rate": 4
+        },
+        "daysToMake": 5,
+        "description": "I will create an engaging and informative presentation for your business that will help you effectively communicate your message.",
+        "imgUrl": "url",
+        "tags": [
+            "presentation-design",
+            "business-communication",
+            "powerpoint",
+            "keynote"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i120",
+        "title": "I will create a customer service chatbot",
+        "price": 35,
+        "owner": {
+            "_id": "u120",
+            "fullname": "Emily Anderson",
+            "imgUrl": "url",
+            "level": "premium",
+            "rate": 5
+        },
+        "daysToMake": 10,
+        "description": "I will design and develop a customer service chatbot that will help you handle customer inquiries and provide quick and efficient assistance.",
+        "imgUrl": "url",
+        "tags": [
+            "chatbot",
+            "customer-service",
+            "AI",
+            "automation"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+        "_id": "i121",
+        "title": "I will create a mobile game",
+        "price": 40,
+        "owner": {
+            "_id": "u121",
+            "fullname": "Michael Perez",
+            "imgUrl": "url",
+            "level": "basic",
+            "rate": 4
+        },
+        "daysToMake": 14,
+        "description": "I will design and develop a fully-functional mobile game that will provide entertainment and engagement for your audience.",
+        "imgUrl": "url",
+        "tags": [
+            "mobile-game",
+            "development",
+            "entertainment",
+            "engagement"
+        ],
+        "likedByUsers": [
+            {
+                "_id": "u101",
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    }
+]
