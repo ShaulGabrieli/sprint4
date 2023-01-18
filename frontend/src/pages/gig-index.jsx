@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { loadGigs, addGig, updateGig, removeGig, addToGigt } from '../store/gig.actions.js'
-
+import {Link} from 'react-router-dom'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { gigService } from '../services/gig.service.js'
+import { GigPreview } from '../cmps/gig-preview.jsx'
 
 export function GigIndex() {
 
@@ -60,20 +61,8 @@ export function GigIndex() {
             <main>
                 <button onClick={onAddGig}>Add Gig ⛐</button>
                 <ul className="gig-list">
-                    {gigs.map(gig =>
-                        <li className="gig-preview" key={gig._id}>
-                            <h4>{gig.vendor}</h4>
-                            <h1>⛐</h1>
-                            <p>Price: <span>${gig.price.toLocaleString()}</span></p>
-                            <p>Owner: <span>{gig.owner && gig.owner.fullname}</span></p>
-                            <div>
-                                <button onClick={() => { onRemoveGig(gig._id) }}>x</button>
-                                <button onClick={() => { onUpdateGig(gig) }}>Edit</button>
-                            </div>
-
-                            <button onClick={() => { onAddGigMsg(gig) }}>Add gig msg</button>
-                            <button className="buy" onClick={() => { onAddToGigt(gig) }}>Add to gigt</button>
-                        </li>)
+                    {gigs.map((gig , idx) =>
+                       <GigPreview id={idx} gig={gig} onRemoveGig={onRemoveGig} onUpdateGig={onUpdateGig} onAddGigMsg={onAddGigMsg} onAddToGigt={onAddToGigt}/>)
                     }
                 </ul>
             </main>

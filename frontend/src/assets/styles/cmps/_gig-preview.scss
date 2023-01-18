@@ -1,0 +1,115 @@
+.gig-preview{
+    width: em(250px);
+    background-color: $clr-1;
+    border: 1px solid $clr14;
+    margin:19px;
+    color: $clr11;
+    flex-direction: column;
+    
+
+    img{
+        width: em(248px);
+        height: em(156px); 
+        margin: 0;
+    }
+
+    h4{
+        display: inline-block;
+        font-size: em(14px);
+        line-height: 1.285;
+        font-family: Macan-Bold;
+        margin: 22px 0 18px 0;
+       
+    }
+
+    .seller-icon{
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        margin: 17px 8px 13px 12px;
+      
+    }
+
+    .seller-info{
+        display: flex;
+    }
+
+    p{
+        padding: 0 12px 5px 12px;
+        &:hover{
+            color: $clr2;
+        }
+    }
+
+    .rate{
+        font-size: em(14px);
+        color: $clr6;
+        font-weight: 700;
+    }
+
+    .gig-preview-footer{
+        display: flex;
+        padding: 0;
+        align-items: center;
+
+        svg:first-child{
+            margin: 0 5px 0 12px;
+        }
+    }
+
+    hr{
+        width: 100%;
+        border: none;
+        border-top: 1px solid $clr14;
+        
+    }
+
+    .star-box{
+        margin: 0 1px 11px 12px;
+
+    }
+
+    .rate{
+        font-size: em(14px);
+    }
+
+    .total-likes{
+        font-size: em(14px);
+        color: $clr13;
+    }
+    
+    .price-container{
+
+        flex-direction: column;
+        padding: 7px 12px 0 0;
+    }
+
+
+    .price-preview{
+        color: $clr5;
+        line-height: 1.25;
+        font-family: Macan-Bold;
+        font-size: em(10px);
+    }
+
+    .price-tag{
+        line-height: 1.25;
+        font-size: em(18px);
+        align-self: flex-end;
+    }
+
+    
+}
+
+.gig-preview-star{
+    fill: $clr6; 
+    // margin: 0 1px 11px 12px;
+}
+.gig-preview-opt-clr{
+    fill: $clr13; 
+    width: 16px;
+    height: 16px;
+    
+    
+}
+

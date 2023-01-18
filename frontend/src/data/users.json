@@ -1,0 +1,37 @@
+[
+    {
+      "_id": "u111",
+      "fullname": "John Doe",
+      "imgUrl": "/img/img1.jpg",
+      "username": "Jacob Johnson",
+      "password": "secret",
+      "level": "basic/premium",
+      "reviews": [
+        {
+          "id": "r101",
+          "gig": "i111",
+          "txt": "Very kind and works fast",
+          "rate": 4,
+          "createdAt" : 1611234567890,
+          "by": {
+            "_id": "u110",
+            "fullname": "Nicole White",
+            "imgUrl": "/img/img2.jpg"
+          }
+        },
+
+        {
+          "id": "r102",
+          "gig": "i111",
+          "txt": "awsome job!",
+          "rate": 5,
+          "createdAt" : 1611234567890,
+          "by": {  
+            "_id": "u120", 
+            "fullname": "Emily Anderson",
+            "imgUrl": "/img/img2.jpg"
+          }
+        }
+      ]
+    }
+  ]

@@ -1,10 +1,10 @@
 
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
-import { userService } from './user.service.js'
+import { userService } from './user.service.local.js'
 
 const STORAGE_KEY = 'gig'
-
+_createGigs()
 export const gigService = {
     query,
     getById,
@@ -25,11 +25,35 @@ async function query(filterBy = { txt: '', price: 0 }) {
     if (filterBy.price) {
         gigs = gigs.filter(gig => gig.price <= filterBy.price)
     }
+
     return gigs
 }
 
-function getById(gigId) {
-    return storageService.get(STORAGE_KEY, gigId)
+function _createGigs() {
+    let gigs = utilService.loadFromStorage(STORAGE_KEY)
+    if (!gigs || !gigs.length) {
+        gigs = require('../data/gigs.json')
+        console.log('gigs', gigs)
+        gigs = gigs.map(gig => {
+            gig.createdAt = Date.now() - utilService.getRandomIntInclusive(0, 1000 * 60 * 60 * 24 * 7)
+            // gig._id = utilService.makeId()
+            return gig
+        })
+        utilService.saveToStorage(STORAGE_KEY, gigs)
+    }
+    // return gigs
+}
+
+async function getById(gigId) {
+    try {
+        let gig = await storageService.get(STORAGE_KEY, gigId)
+        const user = await userService.getById(gig.owner._id)
+        gig.reviews = user.reviews
+        return gig
+    } catch (err) {
+        console.log('cant get gig', err)
+        throw err
+    }
 }
 
 async function remove(gigId) {
