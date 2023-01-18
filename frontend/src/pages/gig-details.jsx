@@ -11,6 +11,8 @@ import { ReviewPreview } from '../cmps/review-preview.jsx'
 
 import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import { PaymentTabs } from '../cmps/payment-tabs.jsx'
+
 
 export function GigDetails() {
     const [gig, setGig] = useState(null)
@@ -45,7 +47,7 @@ export function GigDetails() {
                     <div className="seller-overview">🙂<span className="seller-name" > {gig.owner.fullname}</span> +<span className="seller-rate"> top rated seller</span> {'⭐'.repeat(gig.owner.rate)} + amount of raters</div>
                 </div>
                 <div className="gig-gallery">
-                    <Carousel  >
+                    <Carousel showIndicators={false}  >
                         <div>
                             <img src={require(`../assets/img/details/demo-details2.jpg`)} />
                             <p className="legend">to add review</p>
@@ -58,7 +60,7 @@ export function GigDetails() {
                             <img src={require(`../assets/img/details/demo-details4.jpg`)} />
                             <p className="legend">to add review and style</p>
                         </div>
-                    </Carousel>
+                    </Carousel >
                 </div>
                 <div className="reviews-snippet ">
                     <div className="head-mini-reviews flex space-between">
@@ -70,7 +72,7 @@ export function GigDetails() {
                     </div>
                     <div className="reviews-carusel">
 
-                        <Carousel >
+                        <Carousel showIndicators={false} showThumbs={false}>
                             {gig.reviews.map(review => {
                                 return (
                                     <div>
@@ -105,8 +107,8 @@ export function GigDetails() {
                     <div className="seller-card">
                         <div className="profile-info flex">
                             <div className="profile-img">
-                            <img src={require(`../assets/img/details/user-demo.jpg`)} />
-                            
+                                <img src={require(`../assets/img/details/user-demo.jpg`)} />
+
                             </div>
                             <div className="about-user-info">
                                 <div className="about-user-name">{gig.owner.fullname}</div>
@@ -130,64 +132,15 @@ export function GigDetails() {
                 {/* <div className="payment-area">
                     <div className="basic"></div>
                 </div> */}
-                <div className="main-package-container flex column ">
-                    <div className="package-container flex column">
+                <div className="main-package-container  ">
+                    {/* <div className="package-container flex column"> */}
 
-                        <div className="price-basic-container flex row  ">
-                            <h3>
-                                <b>Basic</b>
-                                <div className="price-wrapper">
-                                    <span className="price">$ {gig.price}.00  </span>
-                                </div>
-                            </h3>
-                        </div>
-                        <article>
-                            <div className="additional-info">
-
-                                <div className="delivery-wrapper">
-                                    <span className="delivery-icon">🕒</span>
-                                    <b className="delivery">2 days delivery</b>
-                                </div>
-                                <div className="revisions-wrapper">
-                                    <span className="revisions-icon">🔁</span>
-                                    <b className="revisions">5 revisions</b>
-                                </div></div>
-                            <ul className="features">
-                                <li>
-                                    <span className="feature-icon">✅</span>
-                                    text1
-                                </li>
-                                <li>
-                                    <span className="feature-icon">✅</span>
-                                    text2
-                                </li>
-                                <li>
-                                    <span className="feature-icon">✅</span>
-                                    text3
-                                </li>
-                                <li>
-                                    <span className="feature-icon">✅</span>
-                                    text4
-                                </li>
-                                <li>
-                                    <span className="feature-icon">✅</span>
-                                    text5
-                                </li>
-                            </ul>
-
-                        </article>
-                    </div>
-                    <footer className="payment">
-                        <button className="continue-btn">Continue
-                            <span className="continue-arrow">➡️</span>
-                        </button>
-                        {/* <button className="compare-packages">compare-packages</button> */}
-                    </footer>
+                    <PaymentTabs gig={gig} />
 
                 </div>
-                <div className="contact-seller">
+                <div className="contact-seller flex column">
                     <div className="contact-seller-wrapper">
-                        <button className="contact-seller-btn"> Contact Seller</button>
+                        <div className="contact-seller-btn"> Contact Seller</div>
                     </div>
                 </div>
                 <div className="highly-responsive">
