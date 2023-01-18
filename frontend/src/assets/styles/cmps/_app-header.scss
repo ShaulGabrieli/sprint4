@@ -57,17 +57,28 @@
         height: em(42px);
         color: $clr4;
         line-height: 24;
-        padding: 10px 2px 10px 16px;
-        font-size: 1rem;
+        padding: em(10px) em(2px) em(10px) em(16px);
+        font-size: em(16px);
         border: solid 1px $clr12;
         border-radius: 4px 0px 0px 4px;
         box-shadow: none;
         margin: em(20px) 0;
 
+        &:focus{
+            outline: none;
+            border: solid 1px $clr11;
+        }
+        &::placeholder{
+            color: $clr3;
+            line-height: 24;
+            font-weight: 400;
+            letter-spacing: normal;
+        }
+
     }
 
     .header-logo{
-        width: em(89px, 24px);
+        // width: em(89px, 24px);
         height: em(27px, 24px);
         display: inline-block;
         margin: em(25px, 24px) em(32px, 24px) em(29px, 24px) 0; 
@@ -82,13 +93,19 @@
         justify-content: center;
         align-items: center;
         margin: em(20px) 0;
+        border-radius: 0px 4px 4px 0px;
+        cursor: pointer;
+
+        &:hover{
+            background-color: rgba(34, 35, 37, 0.834);
+        }
         
       
     }
 
     .search-icon{
         color: $clr-1;
-        font-size: em(20px);
+        font-size: em(24px);
         
     }
     hr{
