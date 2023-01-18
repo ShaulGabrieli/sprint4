@@ -5,7 +5,8 @@ export const utilService = {
     debounce,
     randomPastTime,
     saveToStorage,
-    loadFromStorage
+    loadFromStorage,
+    formatDate
 }
 
 function makeId(length = 6) {
@@ -40,9 +41,36 @@ function randomPastTime() {
     const HOUR = 1000 * 60 * 60
     const DAY = 1000 * 60 * 60 * 24
     const WEEK = 1000 * 60 * 60 * 24 * 7
+    const MONTH = 1000 * 60 * 60 * 24 * 30
 
     const pastTime = getRandomIntInclusive(HOUR, WEEK)
     return Date.now() - pastTime
+}
+
+// FORMAT date to 2 months ago
+function formatDate(timestamp) {
+
+    let diff = (new Date()).getTime() - timestamp;
+    console.log(diff)
+
+    let months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30))
+    let timePeriod
+    if (months === 0){
+        months =Math.floor(diff / (1000 * 60 * 60 * 24))
+        timePeriod = "days"
+    }
+    if (months / 12 > 1)
+    {
+        months = Math.floor(months / 12);
+       timePeriod = "years"
+
+    }
+    else{
+        timePeriod = "months"
+    }
+    
+    return months + " " + timePeriod + " ago"
+    
 }
 
 function debounce(func, timeout = 300){

@@ -6,6 +6,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom'
 // import { gigService } from '../services/gig.service.js'
 import { gigService } from '../services/gig.service.local.js'
 import { showErrorMsg } from '../services/event-bus.service.js'
+import { ReviewPreview } from '../cmps/review-preview.jsx'
 
 
 import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css"; 
@@ -67,15 +68,16 @@ export function GigDetails() {
                     <div className="reviews-carusel">
                         
              <Carousel >
-                <div>
-                 <p> Review 1</p>
-                </div>
-                <div>
-                <p> Review 2</p>
-                </div>
-                <div>
-                <p> Review 3</p>
-                </div>
+                {gig.reviews.map(review => {
+                    return (
+                        <div>
+                            {/* <img src={require(`../assets/img/details/demo-details2.jpg`)} /> */}
+                            {/* <p className="review-preview">{review.txt}</p> */}
+                            <ReviewPreview review={review}  />
+
+                        </div>
+                    )
+                })}
             </Carousel>
                         {/* reviews-carousel-wrapper" */}
 
