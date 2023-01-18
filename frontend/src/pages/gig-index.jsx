@@ -56,10 +56,10 @@ export function GigIndex() {
     }
 
     return (
-        <div>
-            <h3>Gigs App</h3>
+        <div className='gig-index'>
             <main>
-                <button onClick={onAddGig}>Add Gig ⛐</button>
+            <h2>Most popular Gigs</h2>
+                {/* <button onClick={onAddGig}>Add Gig ⛐</button> */}
                 <ul className="gig-list">
                     {gigs.map((gig , idx) =>
                        <GigPreview id={idx} gig={gig} onRemoveGig={onRemoveGig} onUpdateGig={onUpdateGig} onAddGigMsg={onAddGigMsg} onAddToGigt={onAddToGigt}/>)
