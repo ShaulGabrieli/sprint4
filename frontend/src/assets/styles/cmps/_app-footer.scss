@@ -3,4 +3,34 @@
   color: $clr3;
   text-align: center;
   height: 55px;
+  font-family: Macan-regular;
+  bottom: 0;
+  left: 0;
+
+  .footer-container {
+    display: flex;
+    .title {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    .copy-rights {
+      font-size: 0.875rem;
+      margin-left: 30px;
+      align-self: center;
+      color: $clr14;
+    }
+
+    .logo-footer {
+      font-family: Macan-bold;
+      font-size: 1.875rem;
+    }
+
+    .social-links {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-between;
+      max-width: 450px;
+    }
+  }
 }
