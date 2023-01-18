@@ -1,8 +1,106 @@
-.control-dots{
+.gig-details-page {
+    padding-left: 22px;
+    color: $clr1;
+}
+
+.gig-details {
+    width: 60%;
+    margin-right: 111px;
+}
+
+.gig-breadcrumbs {
+    color: $clr7;
+    font-size: em(14px);
+    padding-bottom: 10px;
+}
+
+.gig-title,
+.seller-name {
+    color: $clr1;
+}
+
+.gig-title {
+    font-size: em(28px);
+}
+
+.seller-overview {
+    font-size: em(14px);
+    padding-bottom: 25px;
+}
+
+.seller-name span {
+    font-size: em(14px);
+    font-weight: 800;
+    font-family: Macan-Bold;
+}
+
+.seller-rate {
+    color: $clr6;
+}
+
+.seller-rev-head,
+.about-the-seller {
+    font-size: em(20px);
+    padding-bottom: 13px;
+}
+
+.mini-review-btn {
+    font-size: em(14px);
+    color: $clr2;
+}
+
+.section-title {
+    font-size: em(20px);
+    margin-top: 30px;
+    padding-bottom: 13px;
+}
+
+.description-content {
+    font-size: em(16px);
+    line-height: 1.5;
+}
+
+.about-the-seller {
+    padding-top: 30px;
+}
+
+.about-user-name {
+    font-size: em(16px);
+}
+
+.about-user-name,
+.about-seller-rate {
+    padding-bottom: 5px;
+}
+
+.about-user-info {
+    padding-left: 15px;
+}
+
+.profile-img {
+    img {
+        border-radius: 50%;
+        height: 110px;
+    }
+}
+
+.contact-me-btn {
+    padding: 12px 24px;
+    margin-top: 20px;
+    font-size: em(14px);
+    border: 1px solid $clr1;
+    width: 130px;
+    height: 40px;
+    border-radius: 4px;
+    font-weight: 600;
+
+}
+
+.control-dots {
     display: none;
 }
 
-.gig-gallery{
+.gig-gallery {
     padding-left: 32px;
 }
 
@@ -15,116 +113,6 @@
     border-radius: 5px;
     border: 1px solid $clr4;
     padding: 20px;
-}
-
-.carousel-status{
-    display: none;
-}
-
-
-.price-basic-container{
-    font-size: em(16px);
-    line-height: 1.5;
-    // font-weight: 600px;
-    // justify-content: end;
-}
-
-.price{
-        font-size: em(20px);  
-}
-.revisions-wrapper{
-    margin-left:16px;
-}
-.additional-info{
-    font-size: em(14px);
-    font-weight: 700;
-    flex-direction: column;
-    
-}
-
-.features li{
-    list-style-type: none;
-    padding: 4px;
-}
-
-.features{
-    font-size: em(14px);  
-    color: $clr15;
-    // padding: 15px 15px 15px 0px;
-}
-.additional-info-wrapper{
-    margin-bottom: 10px;
-}
-
-.features-desc{
-    padding-bottom: 8px;
-}
-
-.feature-icon{
-    margin-right : 3px;
-    color: $clr2;
-}
-
- .continue-btn {
-    background-color: $clr2;
-    font-size: em(16px);  
-    font-weight: 600;
-    padding:12px;
-    border-radius: 4px;
-    // width: 364px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-}
-
-.continue-btn:hover{
-    background-color: $clr16;
-    color: white;
-}
-.contact-seller-wrapper{
-    padding: 10px 0px;
-}
-.contact-seller-btn
-{
-    padding:12px;
-    
-    border-radius: 4px;
-    // width: 364px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    border: 1px solid $clr1;
-}
-.contact-seller-btn:hover{
-    background-color: $clr1;
-    color: white;
-}
-.continue-arrow{
-    color : white
-}
-
-.continue-word {
-    color : white
-}
-
-.control-arrow{
-    color: $clr1;
-    display: block;
-}
-
-.react-tabs__tab--selected{
-    color: $clr2;
-  
-}
-
-.reviewer-rate{
-    color: $clr6;
-}
-.reviewer-item{
-    padding-bottom: 3px;
-    margin-right: 5px;
 }
 
 .carousel-status {

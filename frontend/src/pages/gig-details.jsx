@@ -1,6 +1,6 @@
 
 
-import { useEffect,useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 // import { gigService } from '../services/gig.service.js'
@@ -9,7 +9,7 @@ import { showErrorMsg } from '../services/event-bus.service.js'
 import { ReviewPreview } from '../cmps/review-preview.jsx'
 
 
-import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css"; 
+import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { PaymentTabs } from '../cmps/payment-tabs.jsx'
 
@@ -39,12 +39,12 @@ export function GigDetails() {
     if (!gig) return <div>Loading...</div>
     return (
 
-        <section className="gig-details-page">
+        <section className="gig-details-page flex">
             <div className="gig-details">
                 <div className="gig-overview">
                     <div className="gig-breadcrumbs">breadcrumbs</div>
-                    <h1> {gig.title}</h1>
-                    <div className="seller-overview">{gig.owner.fullname} + top rated seller {'⭐'.repeat(gig.owner.rate)} + amount of raters</div>
+                    <h1 className="gig-title"> {gig.title}</h1>
+                    <div className="seller-overview">🙂<span className="seller-name" > {gig.owner.fullname}</span> +<span className="seller-rate"> top rated seller</span> {'⭐'.repeat(gig.owner.rate)} + amount of raters</div>
                 </div>
                 <div className="gig-gallery">
                     <Carousel showIndicators={false}  >
@@ -62,11 +62,14 @@ export function GigDetails() {
                         </div>
                     </Carousel >
                 </div>
-                <div className="reviews-snippet">
-                    <header>
-                        <h2>what people love about the seller</h2>
-                        <button>see all reviews</button>
-                    </header>
+                <div className="reviews-snippet ">
+                    <div className="head-mini-reviews flex space-between">
+
+                        {/* <header> */}
+                        <h2 className="seller-rev-head">What people loved about the seller</h2>
+                        <div className="mini-review-btn">see all reviews</div>
+                        {/* </header> */}
+                    </div>
                     <div className="reviews-carusel">
 
                         <Carousel showIndicators={false} showThumbs={false}>
@@ -77,10 +80,10 @@ export function GigDetails() {
                                         {/* <p className="review-preview">{review.txt}</p> */}
                                         <ReviewPreview review={review} />
 
-                        </div>
-                    )
-                })}
-            </Carousel>
+                                    </div>
+                                )
+                            })}
+                        </Carousel>
                         {/* reviews-carousel-wrapper" */}
 
                     </div>
