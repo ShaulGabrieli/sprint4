@@ -1,0 +1,22 @@
+.details-nav{
+    list-style-type: none;
+    padding: 4px;
+    // position: sticky;
+    // top: 10px;
+    // flex-shrink: 0;
+}
+
+.top-nav-details-item{
+    font-size: em(14px);  
+    color: $clr15;
+    font-weight: 700;
+    margin-right: 24px;
+    &:hover{
+        color: $clr4;
+    }
+}
+
+.top-nav-details-selected {
+    color: $clr2;
+    border-bottom: 2px solid $clr2;
+}
