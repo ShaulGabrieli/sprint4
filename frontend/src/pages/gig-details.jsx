@@ -1,6 +1,7 @@
 // import {ReactComponent} from 'react'
 import { ReactComponent as Lightning } from '../assets/img/details/lightning.svg'
 
+
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useParams, useNavigate } from 'react-router-dom'
@@ -42,7 +43,7 @@ export function GigDetails() {
     return (
         <div className="main-content">
             <div className="top-nav sticky">
-                < DetailsNav />
+                < DetailsNav gig={gig}/>
             </div>
             <section className="gig-details-page flex">
                 <div className="gig-details">
