@@ -9,6 +9,7 @@ import { gigService } from '../services/gig.service.local.js'
 import { showErrorMsg } from '../services/event-bus.service.js'
 import { ReviewPreview } from '../cmps/review-preview.jsx'
 import { DetailsNav } from '../cmps/details-nav.jsx'
+import { StarsRating } from '../cmps/stars-rating.jsx'
 
 import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
@@ -48,22 +49,31 @@ export function GigDetails() {
                     <div id="overview" className="gig-overview">
                         <div className="gig-breadcrumbs">breadcrumbs</div>
                         <h1 className="gig-title"> {gig.title}</h1>
-                        <div className="seller-overview">🙂<span className="seller-name" > {gig.owner.fullname}</span> +<span className="seller-rate"> top rated seller</span> {'⭐'.repeat(gig.owner.rate)} + amount of raters</div>
+                        <div className="seller-overview">🙂<span className="seller-name" > {gig.owner.fullname}</span>  <StarsRating rate={gig.owner.rate}/></div>
                     </div>
                     <div className="gig-gallery">
                         <Carousel showIndicators={false}  >
-                            <div>
-                                <img src={require(`../assets/img/details/demo-details2.jpg`)} />
-                                <p className="legend">to add review</p>
-                            </div>
-                            <div>
+                            {gig.imgUrls.map(imgUrl => {
+                                return (
+                                    <div>
+                                        <img src={imgUrl} />
+                                        <p className="legend">to add review</p>
+                                    </div>
+                                )
+                            })
+                            }
+                            {/* // <div>
+                            //     <img src={require(`../assets/img/details/demo-details2.jpg`)} />
+                            //     <p className="legend">to add review</p>
+                            // </div>
+                            /* <div>
                                 <img src={require(`../assets/img/details/demo-details1.jpg`)} />
                                 <p className="legend">to add review and style</p>
                             </div>
                             <div>
                                 <img src={require(`../assets/img/details/demo-details4.jpg`)} />
                                 <p className="legend">to add review and style</p>
-                            </div>
+                            </div> */}
                         </Carousel >
                     </div>
                     <div id="reviews" className="reviews-snippet ">
@@ -116,7 +126,7 @@ export function GigDetails() {
                                 </div>
                                 <div className="about-user-info">
                                     <div className="about-user-name">{gig.owner.fullname}</div>
-                                    <div className="about-seller-rate">{'⭐'.repeat(gig.owner.rate)} + amount of raters</div>
+                                    <div className="about-seller-rate"><StarsRating rate={gig.owner.rate}/></div>
                                     <div className="contact-me-btn">Contact Me</div>
 
                                 </div>
