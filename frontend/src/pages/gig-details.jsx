@@ -1,4 +1,5 @@
-
+// import {ReactComponent} from 'react'
+import {ReactComponent as Lightning} from '../assets/img/details/lightning.svg'
 
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
@@ -144,8 +145,8 @@ export function GigDetails() {
                     </div>
                 </div>
                 <div className="highly-responsive">
-                    <div className="responsive-wrapper">
-                        <span className="lightning">⚡</span>
+                    <div className="responsive-wrapper flex">
+                        <span className="lightning"><Lightning/></span>
                         <div>
                             <div className="responsive-header">
                                 <b>Highly responsive!</b>
