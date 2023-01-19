@@ -35,7 +35,7 @@
     }
 
     p{
-        padding: 0 12px 5px 12px;
+        padding: 0 13px 0 12px;
         &:hover{
             color: $clr2;
         }
@@ -52,7 +52,7 @@
         padding: 0;
         align-items: center;
 
-        svg:first-child{
+        .menu-svg{
             margin: 0 5px 0 12px;
         }
     }
@@ -61,6 +61,7 @@
         width: 100%;
         border: none;
         border-top: 1px solid $clr14;
+        margin: 0;
         
     }
 
@@ -68,14 +69,17 @@
         margin: 0 1px 11px 12px;
 
     }
+    
 
     .rate{
         font-size: em(14px);
+        padding-top: 3px;
     }
 
     .total-likes{
         font-size: em(14px);
         color: $clr13;
+        padding-top: 3px;
     }
     
     .price-container{
@@ -112,3 +116,8 @@
     
 }
 
+.menu-svg, .star-svg, .fav-svg{
+    padding: 0;
+    display: inline-block;
+    margin: 0;
+}
