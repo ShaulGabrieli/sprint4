@@ -34,6 +34,7 @@ export function HomePage() {
           +10
         </button>
       </h2> */}
+      <p></p>
       {routes.map((route) => (
         <NavLink key={route.path} to={route.path}>
           {route.label} |||
