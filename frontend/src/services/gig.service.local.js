@@ -47,8 +47,13 @@ function _createGigs() {
 async function getById(gigId) {
     try {
         let gig = await storageService.get(STORAGE_KEY, gigId)
-        const user = await userService.getById(gig.owner._id)
-        gig.reviews = user.reviews
+        try{
+            const user = await userService.getById(gig.owner._id)
+            gig.reviews = user.reviews
+        } catch(err){
+            console.log('cant get user', err)
+            gig.reviews = []
+        }
         return gig
     } catch (err) {
         console.log('cant get gig', err)

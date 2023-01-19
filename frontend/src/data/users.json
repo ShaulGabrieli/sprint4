@@ -1,11 +1,157 @@
 [
+
+  {
+    "_id": "u102",
+    "fullname": "Sara Smith",
+    "imgUrl": "/img/img1.jpg",
+    "username": "Sara-Smith",
+    "password": "secret",
+    "level": ["premium"],
+    "reviews": []
+  },
+
+  {
+    "_id": "u103",
+    "fullname": "John Doe",
+    "imgUrl": "/img/img1.jpg",
+    "username": "John-Doe",
+    "password": "secret",
+    "level": ["basic"],
+    "reviews": []
+  },
+
+
+  {
+    "_id": "u104",
+    "fullname": "Jessica Johnson",
+    "imgUrl": "/img/img1.jpg",
+    "username": "Jessica-Johnson",
+    "password": "secret",
+    "level": ["premium"],
+    "reviews": []
+  },
+
+  {
+    "_id": "u105",
+    "fullname": "Robert Rodriguez",
+    "imgUrl": "/img/img1.jpg",
+    "username": "Robert-Rodriguez",
+    "password": "secret",
+    "level": ["basic"],
+    "reviews": []
+  },
+
+  {
+    "_id": "u106",
+    "fullname": "Emily Edwards",
+    "imgUrl": "/img/img1.jpg",
+    "username": "Emily-Edwards",
+    "password": "secret",
+    "level": ["premium"],
+    "reviews": []
+  },
+  
+
+  {
+    "_id": "u107",
+    "fullname": "Michael Miller",
+    "imgUrl": "/img/img1.jpg",
+    "username": "Michael-Miller",
+    "password": "secret",
+    "level": ["basic"],
+    "reviews": []
+  },
+
+  {
+    "_id": "u108",
+    "fullname": "Ashley Anderson",
+    "imgUrl": "/img/img1.jpg",
+    "username": "Ashley-Anderson",
+    "password": "secret",
+    "level": ["premium"],
+    "reviews": [
+      {
+        "id": "r105",
+        "gig": "i108",
+        "txt": "Very kind and works fast",
+        "rate": 4,
+        "createdAt" : 1611234567890,
+        "by": {
+          "_id": "u105",
+          "fullname": "Robert Rodriguez",
+          "imgUrl": "/img/img2.jpg"
+        }
+      },
+
+      {
+        "id": "r106",
+        "gig": "i108",
+        "txt": "awsome job!",
+        "rate": 5,
+        "createdAt" : 1611234567890,
+        "by": {  
+          "_id": "u119", 
+          "fullname": "Avery Hernandez",
+          "imgUrl": "/img/img2.jpg"
+        }
+      }
+    ]
+  },
+
+  {
+    "_id": "u109",
+    "fullname": "Matthew Martinez",
+    "imgUrl": "/img/img1.jpg",
+    "username": "Matthew-Martinez",
+    "password": "secret",
+    "level": ["basic"],
+    "reviews": []
+  },
+
+  {
+    "_id": "u110",
+    "fullname": "Joshua Jackson",
+    "imgUrl": "/img/img1.jpg",
+    "username": "Joshua-Jackson",
+    "password": "secret",
+    "level": ["premium"],
+    "reviews": [
+      {
+        "id": "r105",
+        "gig": "i110",
+        "txt": "Very kind and works fast",
+        "rate": 5,
+        "createdAt" : 1611234367890,
+        "by": {
+          "_id": "u101",
+          "fullname": "John Doe",
+          "imgUrl": "/img/img2.jpg"
+        }
+      },
+
+      {
+        "id": "r106",
+        "gig": "i110",
+        "txt": "awsome job!",
+        "rate": 5,
+        "createdAt" : 1611233567890,
+        "by": {  
+          "_id": "u118", 
+          "fullname": "Abigail Martinez",
+          "imgUrl": "/img/img2.jpg"
+        }
+      }
+    ]
+  },
+
+
     {
       "_id": "u111",
       "fullname": "John Doe",
       "imgUrl": "/img/img1.jpg",
       "username": "Jacob Johnson",
       "password": "secret",
-      "level": "basic/premium",
+      "level":["basic"],
       "reviews": [
         {
           "id": "r101",
