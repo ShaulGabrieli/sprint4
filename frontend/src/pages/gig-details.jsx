@@ -10,7 +10,6 @@ import { showErrorMsg } from '../services/event-bus.service.js'
 import { ReviewPreview } from '../cmps/review-preview.jsx'
 import { DetailsNav } from '../cmps/details-nav.jsx'
 
-
 import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { PaymentTabs } from '../cmps/payment-tabs.jsx'

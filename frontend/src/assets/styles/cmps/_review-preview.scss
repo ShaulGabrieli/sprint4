@@ -1,0 +1,26 @@
+.review-date{
+    font-size: em(14px);
+    color: $clr15;
+    // align-self:start;
+  
+}
+
+.review-msg{
+  justify-content: start;
+  line-height: 1.5;
+}
+
+.carousel .slide{
+    text-align: start;
+}
+
+.reviewer-name{
+    align-self: center;
+    font-weight: 700;
+    // color: $clr4;
+}
+
+.reviewer-location{
+    font-size: em(14px);
+    color: $clr4;
+}
