@@ -3,17 +3,22 @@ import { FavSvg } from './git-preview-svgs/fav-svg'
 import { MenuSvg } from './git-preview-svgs/menu-svg'
 import { StarSvg } from './git-preview-svgs/star-svg'
 
+
+
 export function GigPreview({ gig, onRemoveGig, onUpdateGig, onAddGigMsg, onAddToGigt }) {
+
+    
+
     return (
         <Link to={`/gig/${gig._id}`}>
             {' '}
             <li className='gig-preview flex' key={gig._id}>
-                <img src={require('../assets/img/gig-preview/preview-img.jpg')}></img>
+            <img className='preview-img' src={`${gig.imgUrls[0]}`} />
                 <div className='seller-info'>
-                    <span class='material-symbols-outlined seller-icon'>account_circle</span>
+               <img className='seller-icon' src={`${gig.owner.imgUrl}`} />
                     <h4>{gig.owner.fullname}</h4>
                 </div>
-                <p>{gig.description.substring(0, 50) + '...'}</p>
+                <p>{gig.description.substring(0, 40) + '...'}</p>
                 <div className='likes flex'>
                     {/* <!-- License: MIT. Made by feathericon: https://github.com/feathericon/feathericon --> */}
                     <svg className='star-box' width='18px' height='18px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xlink='http://www.w3.org/1999/xlink'>

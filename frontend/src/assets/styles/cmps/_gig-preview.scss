@@ -2,12 +2,12 @@
     width: em(250px);
     background-color: $clr-1;
     border: 1px solid $clr14;
-    margin:19px;
+    margin:17px;
     color: $clr11;
     flex-direction: column;
     
 
-    img{
+    .preview-img{
         width: em(248px);
         height: em(156px); 
         margin: 0;
