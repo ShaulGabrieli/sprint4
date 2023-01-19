@@ -80,7 +80,7 @@ export function GigDetails() {
                             <Carousel showIndicators={false} showThumbs={false}>
                                 {gig.reviews.map(review => {
                                     return (
-                                        <div>
+                                        <div className="reviews-container">
                                             {/* <img src={require(`../assets/img/details/demo-details2.jpg`)} /> */}
                                             {/* <p className="review-preview">{review.txt}</p> */}
                                             <ReviewPreview review={review} />
