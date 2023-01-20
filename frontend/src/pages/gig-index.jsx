@@ -60,8 +60,42 @@ export function GigIndex() {
     console.log(`TODO Adding msg to gig`);
   }
 
+  //   return (
+  //     <div className="gig-index">
+  //       <main>
+  //         <h2>Most popular Gigs</h2>
+  //         {/* <button onClick={onAddGig}>Add Gig ⛐</button> */}
+  //         <ul className="gig-list">
+  //           {gigs.map((gig, idx) => (
+  //             <GigPreview
+  //               id={idx}
+  //               gig={gig}
+  //               onRemoveGig={onRemoveGig}
+  //               onUpdateGig={onUpdateGig}
+  //               onAddGigMsg={onAddGigMsg}
+  //               onAddToCart={onAddToCart}
+  //             />
+  //           ))}
+  //         </ul>
+  //       </main>
+  //     </div>
+  //   );
+  // }
   return (
     <div className="gig-index">
+      <section className="top-bars">
+        <div className="top-left-bar">
+          <h1>Hi User</h1>
+          <p>
+            We create opportunities for anyone in the world to build their
+            business, brand, or dream.{" "}
+          </p>
+          <button>Become a seller</button>
+        </div>
+        <div className="top-right-bar">
+          <p> Here's what you need for developing your game</p>
+        </div>
+      </section>
       <main>
         <h2>Most popular Gigs</h2>
         {/* <button onClick={onAddGig}>Add Gig ⛐</button> */}
@@ -73,7 +107,7 @@ export function GigIndex() {
               onRemoveGig={onRemoveGig}
               onUpdateGig={onUpdateGig}
               onAddGigMsg={onAddGigMsg}
-              onAddToCart={onAddToCart}
+              onAddToGigt={onAddToCart}
             />
           ))}
         </ul>
@@ -81,36 +115,3 @@ export function GigIndex() {
     </div>
   );
 }
-return (
-  <div className="gig-index">
-    <section className="top-bars">
-      <div className="top-left-bar">
-        <h1>Hi User</h1>
-        <p>
-          We create opportunities for anyone in the world to build their
-          business, brand, or dream.{" "}
-        </p>
-        <button>Become a seller</button>
-      </div>
-      <div className="top-right-bar">
-        <p> Here's what you need for developing your game</p>
-      </div>
-    </section>
-    <main>
-      <h2>Most popular Gigs</h2>
-      {/* <button onClick={onAddGig}>Add Gig ⛐</button> */}
-      <ul className="gig-list">
-        {gigs.map((gig, idx) => (
-          <GigPreview
-            id={idx}
-            gig={gig}
-            onRemoveGig={onRemoveGig}
-            onUpdateGig={onUpdateGig}
-            onAddGigMsg={onAddGigMsg}
-            onAddToGigt={onAddToGigt}
-          />
-        ))}
-      </ul>
-    </main>
-  </div>
-);
