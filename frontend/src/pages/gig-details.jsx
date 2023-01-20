@@ -1,20 +1,23 @@
 // import {ReactComponent} from 'react'
-import { ReactComponent as Lightning } from '../assets/img/details/lightning.svg'
 
 
+import { Carousel } from 'react-responsive-carousel';
+import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useParams, useNavigate } from 'react-router-dom'
+import { addOrder } from '../store/order.actions.js'
+
 // import { gigService } from '../services/gig.service.js'
 import { gigService } from '../services/gig.service.local.js'
 import { showErrorMsg } from '../services/event-bus.service.js'
+
 import { ReviewPreview } from '../cmps/review-preview.jsx'
 import { DetailsNav } from '../cmps/details-nav.jsx'
 import { StarsRating } from '../cmps/stars-rating.jsx'
-
-import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
 import { PaymentTabs } from '../cmps/payment-tabs.jsx'
+
+import { ReactComponent as Lightning } from '../assets/img/details/lightning.svg'
 
 
 export function GigDetails() {
@@ -39,18 +42,31 @@ export function GigDetails() {
         }
     }
 
+    async function onAddOrder(order, plan) {
+        try {
+            const newOrder = await addOrder(order, plan)
+            console.log('newOrder', newOrder)
+            return newOrder
+        } catch (err) {
+            console.log('GigDetails: err in onAddOrder', err)
+            showErrorMsg('order not added')
+        }
+    }
+
+
+
     if (!gig) return <div>Loading...</div>
     return (
         <div className="main-content">
             <div className="top-nav sticky">
-                < DetailsNav gig={gig}/>
+                < DetailsNav gig={gig} />
             </div>
             <section className="gig-details-page flex">
                 <div className="gig-details">
                     <div id="overview" className="gig-overview">
                         <div className="gig-breadcrumbs">breadcrumbs</div>
                         <h1 className="gig-title"> {gig.title}</h1>
-                        <div className="seller-overview">🙂<span className="seller-name" > {gig.owner.fullname}</span>  <StarsRating rate={gig.owner.rate}/></div>
+                        <div className="seller-overview">🙂<span className="seller-name" > {gig.owner.fullname}</span>  <StarsRating rate={gig.owner.rate} /></div>
                     </div>
                     <div className="gig-gallery">
                         <Carousel showIndicators={false}  >
@@ -127,7 +143,7 @@ export function GigDetails() {
                                 </div>
                                 <div className="about-user-info">
                                     <div className="about-user-name">{gig.owner.fullname}</div>
-                                    <div className="about-seller-rate"><StarsRating rate={gig.owner.rate}/></div>
+                                    <div className="about-seller-rate"><StarsRating rate={gig.owner.rate} /></div>
                                     <div className="contact-me-btn">Contact Me</div>
 
                                 </div>
@@ -151,7 +167,7 @@ export function GigDetails() {
                         <div className="main-package-container  ">
                             {/* <div className="package-container flex column"> */}
 
-                            <PaymentTabs gig={gig} />
+                            <PaymentTabs gig={gig} onAddOrder={onAddOrder} />
 
                         </div>
                         <div className="contact-seller flex column">

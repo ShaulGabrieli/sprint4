@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 
  
-export function PaymentPreview({ paymentPlan, gig }) {
-const navigate= useNavigate()
+export function PaymentPreview({ paymentPlan, gig, onBuildOrder, setPlan }) {
+
+
+    useEffect(() => {   
+        setPlan(paymentPlan)
+    }, [])
 
     function getGigPrice() {
         switch (paymentPlan.title) {
@@ -51,7 +55,7 @@ const navigate= useNavigate()
             {/* </div> */}
             <div className="payment flex ">
                 <div className="continue-btn flex"><span className="space-holder"> </span>
-                    <span className="continue-word" onClick={() => navigate('/payments')}>Continue</span>
+                    <span className="continue-word" onClick={() => onBuildOrder()}>Continue</span>
                     <span className="continue-arrow">➜</span>
                 </div>
                 {/* <button className="compare-packages">compare-packages</button> */}

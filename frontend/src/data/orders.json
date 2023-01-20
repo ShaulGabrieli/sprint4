@@ -11,7 +11,8 @@
         },
         "gig": {
             "_id": "i110",
-            "name": "Optimize and Speed Up Website",
+            "imgUrl": "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674128517/Sprint%204/Users%20img%20and%20gig%20img/u110/pexels-simon-robben-614810_qserxn.jpg",
+            "title": "Optimize and Speed Up Website",
             "price": 25
         },
         "status": "pending"
@@ -29,7 +30,7 @@
         },
         "gig": {
             "_id": "i114",
-            "name": "Create Mobile App",
+            "title": "Create Mobile App",
             "price": 40
         },
         "status": "pending"
@@ -47,7 +48,7 @@
         },
         "gig": {
             "_id": "i108",
-            "name": "Create Social Media Marketing Strategy",
+            "title": "Create Social Media Marketing Strategy",
             "price": 30
         },
         "status": "pending"
@@ -65,7 +66,7 @@
         },
         "gig": {
             "_id": "i111",
-            "name": "Provide Virtual Assistance Services",
+            "title": "Provide Virtual Assistance Services",
             "price": 20
         },
         "status": "pending"
@@ -83,7 +84,7 @@
         },
         "gig": {
             "_id": "i116",
-            "name": "Create Brand Guidelines Document",
+            "title": "Create Brand Guidelines Document",
             "price": 20
         },
         "status": "pending"
@@ -101,7 +102,7 @@
         },
         "gig": {
             "_id": "i119",
-            "name": "Create Presentation for Business",
+            "title": "Create Presentation for Business",
             "price": 25
         },
         "status": "pending"
@@ -119,7 +120,7 @@
         },
         "gig": {
             "_id": "i118",
-            "name": "Design and Develop E-commerce Website",
+            "title": "Design and Develop E-commerce Website",
             "price": 40
         },
         "status": "pending"
@@ -137,7 +138,7 @@
         },
         "gig": {
             "_id": "i113",
-            "name": "Create Explainer Video",
+            "title": "Create Explainer Video",
             "price": 25
         },
         "status": "pending"
@@ -155,7 +156,7 @@
         },
         "gig": {
             "_id": "i112",
-            "name": "Create Landing Page",
+            "title": "Create Landing Page",
             "price": 30
         },
         "status": "pending"
@@ -173,7 +174,7 @@
         },
         "gig": {
             "_id": "i115",
-            "name": "Do Online Research",
+            "title": "Do Online Research",
             "price": 15
         },
         "status": "pending"
@@ -191,7 +192,7 @@
         },
         "gig": {
             "_id": "i114",
-            "name": "Create Mobile App",
+            "title": "Create Mobile App",
             "price": 40
         },
         "status": "pending"
@@ -209,7 +210,7 @@
         },
         "gig": {
             "_id": "i117",
-            "name": "Create Marketing Plan",
+            "title": "Create Marketing Plan",
             "price": 30
         },
         "status": "pending"
@@ -227,7 +228,7 @@
         },
         "gig": {
             "_id": "i120",
-            "name": "Create Customer Service Chatbot",
+            "title": "Create Customer Service Chatbot",
             "price": 35
         },
         "status": "pending"
@@ -245,7 +246,7 @@
         },
         "gig": {
             "_id": "i121",
-            "name": "Create Mobile Game",
+            "title": "Create Mobile Game",
             "price": 40
         },
         "status": "pending"
@@ -263,7 +264,7 @@
         },
         "gig": {
             "_id": "i110",
-            "name": "Optimize and Speed Up Website",
+            "title": "Optimize and Speed Up Website",
             "price": 25
         },
         "status": "pending"
@@ -281,7 +282,7 @@
         },
         "gig": {
             "_id": "i108",
-            "name": "Create Social Media Marketing Strategy",
+            "title": "Create Social Media Marketing Strategy",
             "price": 30
         },
         "status": "pending"
@@ -299,7 +300,7 @@
         },
         "gig": {
             "_id": "i111",
-            "name": "Provide Virtual Assistance Services",
+            "title": "Provide Virtual Assistance Services",
             "price": 20
         },
         "status": "pending"
@@ -317,7 +318,7 @@
         },
         "gig": {
             "_id": "i119",
-            "name": "Create Presentation for Business",
+            "title": "Create Presentation for Business",
             "price": 25
         },
         "status": "pending"
@@ -335,7 +336,7 @@
         },
         "gig": {
             "_id": "i116",
-            "name": "Create Brand Guidelines Document",
+            "title": "Create Brand Guidelines Document",
             "price": 20
         },
         "status": "pending"
@@ -353,7 +354,7 @@
         },
         "gig": {
             "_id": "i117",
-            "name": "Create Marketing Plan",
+            "title": "Create Marketing Plan",
             "price": 30
         },
         "status": "pending"
@@ -371,7 +372,7 @@
         },
         "gig": {
             "_id": "i120",
-            "name": "Create Customer Service Chatbot",
+            "title": "Create Customer Service Chatbot",
             "price": 35
         },
         "status": "pending"

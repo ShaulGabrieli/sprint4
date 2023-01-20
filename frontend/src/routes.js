@@ -4,7 +4,7 @@ import { GigIndex } from "./pages/gig-index.jsx";
 import { ReviewIndex } from "./pages/review-index.jsx";
 import { ChatApp } from "./pages/chat-app.jsx";
 import { AdminApp } from "./pages/admin-app.jsx";
-import { GigPayment } from "./pages/gig-payment.jsx";
+
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
@@ -39,11 +39,7 @@ const routes = [
     label: "Admin Only",
   },
 
-  {
-    path: "payments",
-    component: <GigPayment />,
-    label: "Payments",
-  },
+  
 ];
 
 export default routes;
