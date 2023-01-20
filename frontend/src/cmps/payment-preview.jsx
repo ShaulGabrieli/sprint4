@@ -26,7 +26,7 @@ export function PaymentPreview({ paymentPlan, gig, onBuildOrder, setPlan }) {
             <div className="price-basic-container flex row space-between ">
                 <h4> {paymentPlan.title}</h4>
                 <div className="price-wrapper">
-                    <h4 className="price">$ {getGigPrice()}.00  </h4>
+                    <h4 className="price">$ {+(getGigPrice()).toFixed(2)}  </h4>
                 </div>
             </div>
             <article>
@@ -54,8 +54,8 @@ export function PaymentPreview({ paymentPlan, gig, onBuildOrder, setPlan }) {
             </article>
             {/* </div> */}
             <div className="payment flex ">
-                <div className="continue-btn flex"><span className="space-holder"> </span>
-                    <span className="continue-word" onClick={() => onBuildOrder()}>Continue</span>
+                <div className="continue-btn flex" onClick={() => onBuildOrder()}><span className="space-holder"> </span>
+                    <span className="continue-word" >Continue</span>
                     <span className="continue-arrow">➜</span>
                 </div>
                 {/* <button className="compare-packages">compare-packages</button> */}

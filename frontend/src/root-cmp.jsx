@@ -20,6 +20,7 @@ export function RootCmp() {
                     <Route path="user/:id" element={<UserDetails />} />
                     <Route path="gig/:id" element={<GigDetails />} />
                     <Route path="payments/:id" element={<GigPayment />} />
+                    
                    
                 </Routes>
             </main>

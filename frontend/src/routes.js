@@ -38,6 +38,10 @@ const routes = [
     component: <AdminApp />,
     label: "Admin Only",
   },
+  {
+    path: "*",
+    component: <HomePage />,
+  }
 
   
 ];
