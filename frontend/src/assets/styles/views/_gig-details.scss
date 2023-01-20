@@ -32,6 +32,7 @@
     font-size: em(28px);
 }
 
+
 .seller-overview {
     font-size: em(14px);
     padding-bottom: 25px;
@@ -102,7 +103,11 @@
     height: 40px;
     border-radius: 4px;
     font-weight: 600;
-
+    cursor: pointer;
+    &:hover{
+        background-color: $clr1;
+        color: white;
+    }
 }
 
 .control-dots {
@@ -118,7 +123,7 @@
 //  color: $clr4;
 // }
 
-.reviews-carusel {
+.review-preview {
     border-radius: 5px;
     border: 1px solid $clr4;
     padding: 20px;
@@ -253,3 +258,27 @@
 .control-arrow {
     display: block !important;
   }
+
+  .carousel  .control-next.control-arrow:before {
+    content: '';
+    border: solid $clr1;
+    border-width: 0 8px 8px 0;
+    display: inline-block;
+    padding: 14px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.carousel  .control-prev.control-arrow:before {
+    content: '';
+    border: solid $clr1;
+    border-width: 0 8px 8px 0;
+    display: inline-block;
+    padding: 14px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.reviews-container{
+    padding: 50px;
+}

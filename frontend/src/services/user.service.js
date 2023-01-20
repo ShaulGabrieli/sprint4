@@ -3,6 +3,8 @@ import { httpService } from './http.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
+
+
 export const userService = {
     login,
     logout,
@@ -23,7 +25,6 @@ function getUsers() {
     return storageService.query('user')
     // return httpService.get(`user`)
 }
-
 
 
 async function getById(userId) {

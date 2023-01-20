@@ -1,0 +1,31 @@
+
+.main-payment-area{
+    padding:16px;
+}
+
+.summery-total{
+    font-size: em(18px);
+}
+
+.summery-fee,.summery-vat,.summery-total,.summery-tota-delivery{
+    font-size: em(16px);
+    color: $clr4;
+    padding: 6px 0  6px 0;
+}
+
+.summery-total{
+    font-weight: 700;
+}
+
+.summery-vat{
+    margin-bottom: 16px;
+}
+
+.order-img-thumbnail{
+    width: 100px;
+    max-height: 62px;
+}
+
+.summery-title{
+    // align-items: center;
+}

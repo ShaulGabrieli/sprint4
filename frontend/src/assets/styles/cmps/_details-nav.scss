@@ -1,9 +1,39 @@
 .details-nav{
     list-style-type: none;
     padding: 4px;
+    z-index: 300;
+    position: sticky;
+    background-color: white;
     // position: sticky;
     // top: 10px;
     // flex-shrink: 0;
+}
+
+.right-container div{
+    border: 1px solid $clr5;
+    padding: 6px 10px 6px 10px; 
+    border-radius: 3px;
+    cursor: pointer;
+    align-items: center;
+    
+}
+.details-svg-clr{
+    fill: $clr5; 
+}
+
+.details-svg-clr-green{
+    fill: $clr2; 
+}
+
+.liked-gig-red{
+    fill: $clr18;
+    // color: pink;
+    // stroke: $clr1;
+    // stroke-width: 1px;
+}
+.right-container{
+    gap: 24px;
+    align-self: center;
 }
 
 .top-nav-details-item{
@@ -17,6 +47,10 @@
 }
 
 .top-nav-details-selected {
-    color: $clr2;
+    color: $clr4;
     border-bottom: 2px solid $clr2;
+}
+
+.details-actions{
+
 }
