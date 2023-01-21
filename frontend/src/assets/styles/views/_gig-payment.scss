@@ -1,5 +1,13 @@
 
 .main-payment-area{
+    //grid
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: " payment-area order-details-container";
+    // width:100vw;
+    // gap: 82px;
+
     padding:16px;
 }
 
@@ -8,7 +16,7 @@
 // }
 
 .order-details-container{
-    width: 100vw;
+    // width: 100vw;
 }
 
 .summery-total{
