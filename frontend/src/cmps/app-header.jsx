@@ -70,11 +70,8 @@ export function AppHeader() {
               search
             </span>
           </div>
-        </div>
-        <div className="flex align-center">
-          {" "}
-          <p>Fiverr Buisness</p>
-        </div>
+        </div>{" "}
+        <p>Fiverr Buisness</p>
         {/* <GigFilter /> */}
         {/* <div className="user-nav flex align-center"> */}
         <a href="">
@@ -121,7 +118,6 @@ export function AppHeader() {
         <a href="">
           <span className="material-symbols-outlined">favorite</span>{" "}
         </a>
-
         {/* <span class="material-symbols-outlined">
 notifications
 </span>
@@ -133,7 +129,6 @@ mail
         <a>
           <span>Orders</span>
         </a>
-
         {/* <a>
           <span class="material-symbols-outlined">account_circle</span>{" "}
         </a> */}
@@ -142,7 +137,6 @@ mail
             {user.imgUrl && <img src={user.imgUrl} />}
           </Link>
         </a>
-
         {/* </div> */}
         {/* {user && (
             <span className="user-info">

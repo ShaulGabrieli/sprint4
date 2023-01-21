@@ -77,10 +77,6 @@
     }
   }
 
-  .header-logo {
-    align-self: center;
-  }
-
   .search-icon-box {
     display: inline-block;
     background-color: $clr11;
@@ -138,5 +134,18 @@
 
   .main-nav a:hover {
     box-shadow: 2px 18px 0 -7px $clr2;
+  }
+
+  span {
+    font-weight: bold;
+  }
+
+  span:hover {
+    cursor: pointer;
+    color: $clr2;
+  }
+  p {
+    color: #1e1692;
+    font-weight: 600;
   }
 }
