@@ -68,10 +68,7 @@ function getEmptyGig() {
         ],
         "totalLikes": 0
     }
-  return {
-    vendor: "Susita-" + (Date.now() % 1000),
-    price: utilService.getRandomIntInclusive(1000, 9000),
-  };
+ 
 }
 function getDefaultFilter() {
   return {

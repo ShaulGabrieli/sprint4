@@ -12,10 +12,12 @@ import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js";
 import { gigService } from "../services/gig.service.local.js";
 import { GigPreview } from "../cmps/gig-preview.jsx";
 import { GigFilter } from "../cmps/gig-filter.jsx";
+import { setFilter } from "../store/gig.actions.js";
 
 export function GigIndex() {
   const gigs = useSelector((storeState) => storeState.gigModule.gigs);
-  const [filterBy, setFilterBy] = useState(gigService.getDefaultFilter());
+  const filterBy = useSelector((storeState) => storeState.filterModule.filterBy)
+  // const [filterBy, setFilterBy] = useState(gigService.getDefaultFilter());
   // useEffect(() => {
   //   loadGigs();
   // }, []);
@@ -40,7 +42,7 @@ export function GigIndex() {
     }
   }
   function onSetFilter(filterByFromFilter) {
-    setFilterBy(filterByFromFilter);
+    setFilter(filterByFromFilter);
   }
   async function onUpdateGig(gig) {
     const price = +prompt("New price?");
@@ -83,7 +85,7 @@ export function GigIndex() {
             We create opportunities for anyone in the world to build their
             business, brand, or dream.{" "}
           </p>
-          <button>Become a seller</button>
+          <Link to={'/gig/edit'}><button>Become a seller</button></Link>
         </div>
         <div className="top-right-bar">
           <p> Here's what you need for developing your game</p>
