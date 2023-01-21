@@ -11,7 +11,6 @@ import { PopupMenu } from "./popup-menu";
 import { useEffect, useState } from "react";
 import { GigOrderList } from "./gig-order-list.jsx";
 import { setFilter } from "../store/gig.actions.js";
-import { useEffect, useState } from "react";
 import { gigService } from "../services/gig.service.local";
 
 export function AppHeader() {
