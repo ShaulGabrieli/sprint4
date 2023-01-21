@@ -6,7 +6,7 @@ export const SET_CURRENT_ORDER = 'SET_CURRENT_ORDER'
 
 const initialState = {
     order: {},
-    userOrders : [],
+    userOrders : null,
     lastRemovedOrder: null
 
 }

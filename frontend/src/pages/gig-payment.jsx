@@ -2,28 +2,40 @@ import { PaymentTabs } from '../cmps/payment-tabs.jsx'
 // import {  } from '../store/order.actions.js'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { loadOrder } from '../store/order.actions.js'
+import { loadOrder, payedOrder, loadOrders } from '../store/order.actions.js'
 
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { CreditCardForm } from '../cmps/credit-card-form.jsx'
 import { showErrorMsg } from '../services/event-bus.service.js'
+import { PopupMenu } from '../cmps/popup-menu.jsx'
 
 
 
 
 export function GigPayment() {
-    const order = useSelector(storeState => storeState.orderModule.order)
+    
     const [vat, setVat] = useState(0)
     const [total, setTotal] = useState(0)
     const [creditTransaction, setCreditTransaction] = useState(false)
 
     const { id } = useParams()
+    const navigate = useNavigate()
 
+    let order = useSelector(storeState => storeState.orderModule.order)
     useEffect(() => {
         loadOrder(id)
         setVat(getVat())
         setTotal(totalPay())
     }, [])
+
+    useEffect(() => {
+        if (creditTransaction) {
+            payedOrder(order)
+            navigate(`/orders`)
+   
+           
+        }
+    }, [creditTransaction])
 
     function getVat() {
         const vat = +(order.gig.price * 0.17)
@@ -51,6 +63,8 @@ export function GigPayment() {
     function triggerSubmit() {
         if (!document.getElementById('submit-credit').disabled) {
             document.getElementById('submit-credit').click()
+           
+           
         }
         else {
             showErrorMsg("Please fill all the fields")
@@ -71,7 +85,7 @@ export function GigPayment() {
 
                     <div className="top-payment-summery">
                         <div className="summery-title flex">
-                            <img src={order.gig.imgUrl} className="order-img-thumbnail" />
+                            <img src={order.gig.imgUrls[0]} className="order-img-thumbnail" />
                             <span className="summery-title-text">{order.gig.title}</span>
                         </div>
                         <div className="summery-plan flex space-between">
@@ -114,10 +128,12 @@ export function GigPayment() {
                     <div className="payment-plan-btn flex ">
                         <div className="pay-btn flex" onClick={triggerSubmit}>
                             <span className="pay-btn-txt"  >Confirm & Pay</span>
+                            
                             {/* <span className="continue-arrow">➜</span> */}
                         </div>
 
                     </div>
+    
                 </div>
 
 

@@ -1,0 +1,13 @@
+            .popup-menu {
+                width: 300px;
+                height: 400px;
+                position: fixed;
+                // z-index: 1;
+                margin: auto;
+                overflow-y: scroll;
+                background-color: white;
+                border: rgb(81, 81, 81) 2px solid;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
