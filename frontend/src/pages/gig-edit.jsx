@@ -106,7 +106,7 @@ export function GigEdit() {
                 <div className='description-section'>
                     <h1>Description</h1>
                     <hr />
-                    Briefly Describe Your Gig
+                    <p>Briefly Describe Your Gig</p>
                     <hr />
                     <div class='gig-description'>
                         <textarea className='text-input' type='text' maxlength='1200' name='description' value={gigToEdit.description} onChange={handleChange}></textarea>
