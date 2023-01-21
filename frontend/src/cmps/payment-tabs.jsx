@@ -23,7 +23,13 @@ export function PaymentTabs({ gig, onAddOrder }) {
                     "_id": gig._id,
                     "title": gig.title,
                     "price": gig.price,
-                    "imgUrl": gig.imgUrls[0]
+                    "imgUrls": [gig.imgUrls[0]],
+                    "description": gig.description,
+                    "owner": {
+                        "rate" : gig.owner.rate,
+                        "fullname": gig.owner.fullname,
+                        "imgUrl": gig.owner.imgUrl,
+                    }
                 }
             }
             const newOrder = await onAddOrder(order, plan)

@@ -18,8 +18,9 @@ async function query(filterBy) {
         const orders = await storageService.query(ORDER_KEY)
         if (!filterBy) return orders
         const { buyerId } = filterBy
+        console.log('buyerId', buyerId)
         if (buyerId) {
-            const buyerOrders = orders.filter(order => order.buyer._id === buyerId)
+            const buyerOrders = orders.filter(order => order.buyer._id === buyerId && order.paymentStatus === 'payed')
             return buyerOrders
         }
         const { sellerId } = filterBy
@@ -55,10 +56,10 @@ async function remove(orderId) {
 async function save(order) {
     try {
         if (order._id) {
-            return storageService.put(ORDER_KEY, order)
+            return await storageService.put(ORDER_KEY, order)
         } else {
             order.buyer = userService.getLoggedinUser()
-            return storageService.post(ORDER_KEY, order)
+            return await storageService.post(ORDER_KEY, order)
         }
     } catch (err) {
         console.log('Couldnt save order', err)

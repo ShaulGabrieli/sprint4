@@ -45,7 +45,7 @@ export function CreditCardForm(props) {
           // alert('Thanks for booking with us! Order is on its way!')
           showSuccessMsg("Thanks for booking with us! Order is on its way!")
           props.setCreditTransaction(true)
-          navigate("/");
+        
         }}
         validationSchema={getSchema()}
       >

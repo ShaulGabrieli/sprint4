@@ -2,14 +2,18 @@ import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import routes from "../routes";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
+
 import { login, logout, signup } from "../store/user.actions.js";
 import { LoginSignup } from "./login-signup.jsx";
 import { GigFilter } from "./gig-filter.jsx";
 import { AppHero } from "./app-hero.jsx";
+import { PopupMenu } from "./popup-menu";
+import { useEffect, useState } from "react";
+import { GigOrderList } from "./gig-order-list.jsx";
 
 export function AppHeader() {
   const user = useSelector((storeState) => storeState.userModule.user);
-
+  const [openOrders, setOpenOrders] = useState(false);
   async function onLogin(credentials) {
     try {
       const user = await login(credentials);
@@ -126,8 +130,11 @@ mail
 </span> */}
         {/* </div> */}
         {/* <div className="flex align-center"> */}
-        <a>
+        <a onClick={()=> {setOpenOrders(!openOrders)}}>
           <span>Orders</span>
+          {
+            openOrders && <PopupMenu > <GigOrderList /> </PopupMenu>
+          }
         </a>
         {/* <a>
           <span class="material-symbols-outlined">account_circle</span>{" "}
