@@ -4,6 +4,8 @@ import routes from "../routes";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
 import { login, logout, signup } from "../store/user.actions.js";
 import { LoginSignup } from "./login-signup.jsx";
+import { GigFilter } from "./gig-filter.jsx";
+import { AppHero } from "./app-hero.jsx";
 
 export function AppHeader() {
   const user = useSelector((storeState) => storeState.userModule.user);
@@ -35,6 +37,8 @@ export function AppHeader() {
 
   return (
     <header className="app-header main-container full sticky">
+      {/* <AppHero /> */}
+
       <nav className="flex  ">
         <Link className="header-logo" to={`/`}>
           <svg
@@ -52,14 +56,18 @@ export function AppHeader() {
             </g>
           </svg>
         </Link>
+        <label htmlFor="gigTitle"></label>
         <input
-          type="text"
           className="search-box"
+          type="text"
+          id="gigTitle"
+          name="title"
           placeholder="What service are you looking for today?"
-        ></input>
+        />
         <div className="search-icon-box">
           <span className="material-symbols-outlined search-icon">search</span>
         </div>
+        {/* <GigFilter /> */}
         <ul className="user-nav flex clean-list align-center space-between">
           <li>
             <p>Fiverr Buisness</p>

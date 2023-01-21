@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
   loadGigs,
@@ -9,24 +9,25 @@ import {
 } from "../store/gig.actions.js";
 import { Link } from "react-router-dom";
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js";
-import { gigService } from "../services/gig.service.js";
+import { gigService } from "../services/gig.service.local.js";
 import { GigPreview } from "../cmps/gig-preview.jsx";
+import { GigFilter } from "../cmps/gig-filter.jsx";
 
 export function GigIndex() {
   const gigs = useSelector((storeState) => storeState.gigModule.gigs);
-
+  const [filterBy, setFilterBy] = useState(gigService.getDefaultFilter());
+  // useEffect(() => {
+  //   loadGigs();
+  // }, []);
   useEffect(() => {
-    loadGigs();
-  }, []);
-
-  async function onRemoveGig(gigId) {
-    try {
-      await removeGig(gigId);
-      showSuccessMsg("Gig removed");
-    } catch (err) {
-      showErrorMsg("Cannot remove gig");
-    }
-  }
+    loadGigs(filterBy)
+      .then(() => {
+        console.log("Loaded successfully");
+      })
+      .catch((err) => {
+        console.log("Something went wrong", err);
+      });
+  }, [filterBy]);
 
   async function onAddGig() {
     const gig = gigService.getEmptyGig();
@@ -38,7 +39,9 @@ export function GigIndex() {
       showErrorMsg("Cannot add gig");
     }
   }
-
+  function onSetFilter(filterByFromFilter) {
+    setFilterBy(filterByFromFilter);
+  }
   async function onUpdateGig(gig) {
     const price = +prompt("New price?");
     const gigToSave = { ...gig, price };
@@ -47,6 +50,15 @@ export function GigIndex() {
       showSuccessMsg(`Gig updated, new price: ${savedGig.price}`);
     } catch (err) {
       showErrorMsg("Cannot update gig");
+    }
+  }
+
+  async function onRemoveGig(gigId) {
+    try {
+      await removeGig(gigId);
+      showSuccessMsg("Gig removed");
+    } catch (err) {
+      showErrorMsg("Cannot remove gig");
     }
   }
 
@@ -60,29 +72,10 @@ export function GigIndex() {
     console.log(`TODO Adding msg to gig`);
   }
 
-  //   return (
-  //     <div className="gig-index">
-  //       <main>
-  //         <h2>Most popular Gigs</h2>
-  //         {/* <button onClick={onAddGig}>Add Gig ⛐</button> */}
-  //         <ul className="gig-list">
-  //           {gigs.map((gig, idx) => (
-  //             <GigPreview
-  //               id={idx}
-  //               gig={gig}
-  //               onRemoveGig={onRemoveGig}
-  //               onUpdateGig={onUpdateGig}
-  //               onAddGigMsg={onAddGigMsg}
-  //               onAddToCart={onAddToCart}
-  //             />
-  //           ))}
-  //         </ul>
-  //       </main>
-  //     </div>
-  //   );
-  // }
   return (
     <div className="gig-index">
+      <GigFilter onSetFilter={onSetFilter} />
+
       <section className="top-bars">
         <div className="top-left-bar">
           <h1>Hi User</h1>
