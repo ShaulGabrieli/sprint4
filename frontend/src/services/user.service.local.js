@@ -1,5 +1,7 @@
+import { store } from '../store/store'
 import { storageService } from './async-storage.service'
 import { utilService } from './util.service.js'
+import { REMOVE_USER, SET_USER, SET_USERS, SET_WATCHED_USER } from "../store/user.reducer.js";
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
@@ -104,11 +106,27 @@ function getLoggedinUser() {
 }
 
 
-// ;(async ()=>{
-//     await userService.signup({fullname: 'Puki Norma', username: 'puki', password:'123',score: 10000, isAdmin: false})
-//     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
-//     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
-// })()
+;(async ()=>{
+    const users = await userService.getUsers()
+    const irene = users.find(user => user.username === 'irene')
+    let user
+    if (!irene) {
+        user = await userService.signup({fullname: 'Irene', username: 'irene', password:'123', isAdmin: false})
+    }
+    else
+    {
+         user = await userService.login({username : 'irene', password: '123'})
+        
+    }
+    store.dispatch({
+        type: SET_USER,
+        user
+    })
+    // await userService.signup({fullname: 'Shaul', username: 'Shaul', password:'123', isAdmin: false})
+    // await userService.signup({fullname: 'Lior', username: 'Lior', password:'123', isAdmin: false})
+    // await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
+    // await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
+})()
 
 
 

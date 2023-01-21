@@ -2,18 +2,18 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
 
-import { removeFromGigt, checkout } from "../store/gig.actions";
+import { removeFromCart, checkout } from "../store/gig.actions";
 import { UserMsg } from "./user-msg.jsx";
 
 export function AppFooter() {
-  const [isGigtShown, setIsGigtShown] = useState(false);
-  const gigt = useSelector((storeState) => storeState.gigModule.gigt);
+  const [isCartShown, setIsCartShown] = useState(false);
+  const cart = useSelector((storeState) => storeState.gigModule.cart);
   const count = useSelector((storeState) => storeState.userModule.count);
-  const gigtTotal = gigt.reduce((acc, gig) => acc + gig.price, 0);
+  const cartTotal = cart.reduce((acc, gig) => acc + gig.price, 0);
 
   async function onCheckout() {
     try {
-      const score = await checkout(gigtTotal);
+      const score = await checkout(cartTotal);
       showSuccessMsg(`Charged, your new score: ${score.toLocaleString()}`);
     } catch (err) {
       showErrorMsg("Cannot checkout");
@@ -22,6 +22,8 @@ export function AppFooter() {
 
   return (
     <footer className="app-footer main-container full">
+      <hr />
+
       <section className="footer-container align-center flex">
         <div className="title">
           <span class="logo-footer">

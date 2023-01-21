@@ -1,6 +1,22 @@
 
 .main-payment-area{
+    //grid
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: " payment-area order-details-container";
+    // width:100vw;
+    // gap: 82px;
+
     padding:16px;
+}
+
+// .payment-area{
+//    max-width:30vw;
+// }
+
+.order-details-container{
+    // width: 100vw;
 }
 
 .summery-total{
@@ -19,4 +35,70 @@
 
 .summery-vat{
     margin-bottom: 16px;
+}
+
+.order-img-thumbnail{
+    width: 100px;
+    max-height: 62px;
+}
+
+.summery-title{
+    // align-items: center;
+}
+.summery-plan{
+    padding: 16px 0  16px 0  ;
+}
+.summery-plan-details{
+    font-size: em(16px);
+    color: $clr4;
+   
+}
+.features-desc-plan{
+    padding: 6px 0 6px 0 ;
+}
+.top-payment-summery{
+    background-color: $clr17;
+    padding:17px 25px 25px 25px ;
+}
+
+.summery-line hr{
+   color: 1px solid $clr19;
+ 
+}
+
+.payment-summery{
+    color: $clr4;
+}
+
+.summery-plan-text{
+    font-weight: 700;
+}
+
+.summery-table,.payment-plan-btn {
+    padding:0 25px 25px 25px ;
+}
+.main-payment-area{
+    gap : 82px;
+}
+.pay-btn{
+    background-color: $clr11;
+    color: $clr11;
+    font-size: em(16px);
+    font-weight: 700;
+    padding: 12px 0 12px 0;
+    border-radius: 4px;
+    width: 100%;
+    margin: 0 0 16px 0;
+    justify-content: center;
+    cursor: pointer;
+    &:hover{
+        background-color: $clr1;
+        color: $clr10;
+    }
+}
+
+.pay-btn-txt{
+    color: white;
+  
+    // color: $clr1;
 }

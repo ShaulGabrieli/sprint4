@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 
  
-export function PaymentPreview({ paymentPlan, gig }) {
-const navigate= useNavigate()
+export function PaymentPreview({ paymentPlan, gig, onBuildOrder, setPlan }) {
+
+
+    useEffect(() => {   
+        setPlan(paymentPlan)
+    }, [])
 
     function getGigPrice() {
         switch (paymentPlan.title) {
@@ -22,7 +26,7 @@ const navigate= useNavigate()
             <div className="price-basic-container flex row space-between ">
                 <h4> {paymentPlan.title}</h4>
                 <div className="price-wrapper">
-                    <h4 className="price">$ {getGigPrice()}.00  </h4>
+                    <h4 className="price">$ {+(getGigPrice()).toFixed(2)}  </h4>
                 </div>
             </div>
             <article>
@@ -50,8 +54,8 @@ const navigate= useNavigate()
             </article>
             {/* </div> */}
             <div className="payment flex ">
-                <div className="continue-btn flex"><span className="space-holder"> </span>
-                    <span className="continue-word" onClick={() => navigate('/payments')}>Continue</span>
+                <div className="continue-btn flex" onClick={() => onBuildOrder()}><span className="space-holder"> </span>
+                    <span className="continue-word" >Continue</span>
                     <span className="continue-arrow">➜</span>
                 </div>
                 {/* <button className="compare-packages">compare-packages</button> */}
