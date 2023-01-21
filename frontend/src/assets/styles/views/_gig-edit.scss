@@ -1,0 +1,83 @@
+.gig-edit {
+  background-color: $clr14;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    .edit-section {
+      margin-top: 80px;
+        display: grid;
+        grid-template-areas:
+            'gig-title gig-description gig-description'
+            'gig-category gig-selectors gig-selectors'
+            'gig-tags gig-keywords gig-keywords';
+        gap: 32px;
+        padding: 29px;
+        background-color: $clr-1;
+        width: 835px;
+        border-radius: 5px 5px 0px 0px;
+
+        .gig-title {
+            grid-area: gig-title;
+        }
+        .gig-description {
+            grid-area: gig-description;
+        }
+        .gig-category {
+            grid-area: gig-category;
+        }
+        .gig-selectors {
+            grid-area: gig-selectors;
+        }
+        .gig-tags {
+            grid-area: gig-tags;
+        }
+        .gig-keywords {
+            grid-area: gig-keywords;
+        }
+
+        h1 {
+            color: #404145;
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        p {
+          color: $clr20;
+            font-size: 14px;
+            line-height: 1.3125;
+        }
+
+        .text-input {
+            width: 535px;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .category-select {
+            width: 250px;
+            height: 24px;
+        }
+
+        
+      
+          
+      
+    }
+
+    .save-btn{
+      width: 178px;
+      height: 48;
+      border-radius: 4px;
+      box-shadow: none;
+      background-color: #1dbf73;
+      color: white;
+      font-weight: 700;
+      border: none;
+      line-height: 1.5;
+    }
+}

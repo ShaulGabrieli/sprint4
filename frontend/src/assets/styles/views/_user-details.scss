@@ -1,7 +1,22 @@
 .user-details {
-    .user-img {
-        height: 200px;
-        width: 200px;
-        background-size: contain;
+
+    // display: grid;
+    // grid-template-columns: 400px 736px;
+    background-color:$clr17 ;
+    // grid-template-rows: 100px 100px 200px 100px;
+    // .user-img {
+    //     height: 200px;
+    //     width: 200px;
+    //     background-size: contain;
+    // }
+
+    
+
+    .user-main-details{
+        background-color: $clr-1;
+        width: em(400px);
+        height: em(420px);
+        border: solid 1px $clr14;
     }
 }
+

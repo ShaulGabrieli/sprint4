@@ -13,7 +13,7 @@ import {
   UPDATE_GIG,
 } from "./gig.reducer.js";
 import { SET_SCORE } from "./user.reducer.js";
-
+import { SET_FILTER } from "./filter.reducer.js";
 // Action Creators:
 export function getActionRemoveGig(gigId) {
   return {
@@ -131,4 +131,8 @@ export function onRemoveGigOptimistic(gigId) {
         type: UNDO_REMOVE_GIG,
       });
     });
+}
+
+export function setFilter(filterBy) {
+  store.dispatch({ type: SET_FILTER, filterBy })
 }

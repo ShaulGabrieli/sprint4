@@ -10,9 +10,19 @@ import { GigFilter } from "./gig-filter.jsx";
 import { AppHero } from "./app-hero.jsx";
 import { PopupMenu } from "./popup-menu";
 import { GigOrderList } from "./gig-order-list.jsx";
+import { setFilter } from "../store/gig.actions.js";
+import { gigService } from "../services/gig.service.local";
 
 export function AppHeader() {
   const user = useSelector((storeState) => storeState.userModule.user);
+  const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter());
+
+
+
+  useEffect(() => {
+    // update father cmp that filters change very type
+    setFilter(filterByToEdit)
+}, [filterByToEdit])
   const [openOrders, setOpenOrders] = useState(false);
   async function onLogin(credentials) {
     try {
@@ -37,6 +47,13 @@ export function AppHeader() {
     } catch (err) {
       showErrorMsg("Cannot logout");
     }
+  }
+
+  function handleChange({ target }) {
+    let { value, name: field, type } = target;
+    setFilterByToEdit((prevFilter) => {
+      return { ...prevFilter, [field]: value };
+    });
   }
 
   return (
@@ -68,6 +85,8 @@ export function AppHeader() {
             id="gigTitle"
             name="title"
             placeholder="What service are you looking for today?"
+            value={filterByToEdit.title}
+          onChange={handleChange}
           />
           <div className="search-icon-box">
             <span className="material-symbols-outlined search-icon">
