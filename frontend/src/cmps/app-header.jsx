@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import routes from "../routes";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
 
@@ -8,7 +9,6 @@ import { LoginSignup } from "./login-signup.jsx";
 import { GigFilter } from "./gig-filter.jsx";
 import { AppHero } from "./app-hero.jsx";
 import { PopupMenu } from "./popup-menu";
-import { useEffect, useState } from "react";
 import { GigOrderList } from "./gig-order-list.jsx";
 import { setFilter } from "../store/gig.actions.js";
 import { gigService } from "../services/gig.service.local";
@@ -149,11 +149,18 @@ mail
 </span> */}
         {/* </div> */}
         {/* <div className="flex align-center"> */}
-        <a onClick={()=> {setOpenOrders(!openOrders)}}>
+        <a
+          onClick={() => {
+            setOpenOrders(!openOrders);
+          }}
+        >
           <span>Orders</span>
-          {
-            openOrders && <PopupMenu > <GigOrderList /> </PopupMenu>
-          }
+          {openOrders && (
+            <PopupMenu>
+              {" "}
+              <GigOrderList />{" "}
+            </PopupMenu>
+          )}
         </a>
         {/* <a>
           <span class="material-symbols-outlined">account_circle</span>{" "}
