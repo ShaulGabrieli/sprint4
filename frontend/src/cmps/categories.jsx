@@ -1,24 +1,77 @@
 export function Categories() {
   return (
     <section className="bottom-nav-container">
-      <div className="cat">
-        <p>asdasd</p>
+      <div className="cat flex column space-between">
+        <h4>Categories</h4>
+        <p href="/">Graphics & Design</p>
+        <p href="">Digital Marketing</p>
+        <p href="">Writing & Translation</p>
+        <p href="">Video & Animation</p>
+        <p href="">Music & Audio</p>
+        <p href="">Programming & Tech</p>
+        <p href="">Business</p>
+        <p href="">Lifestyle</p>
+        <p href="">Photography</p>
+        <p href="">Sitemap</p>
       </div>
-      <div className="cat">
-        <p>asdasd</p>
+      <div className="cat flex column space-between">
+        <h4>Categories</h4>
+        <p href="/">Graphics & Design</p>
+        <p href="">Digital Marketing</p>
+        <p href="">Writing & Translation</p>
+        <p href="">Video & Animation</p>
+        <p href="">Music & Audio</p>
+        <p href="">Programming & Tech</p>
+        <p href="">Business</p>
+        <p href="">Lifestyle</p>
+        <p href="">Photography</p>
+        <p href="">Sitemap</p>
+      </div>{" "}
+      <div className="cat flex column space-between">
+        <h4>Categories</h4>
+        <p href="/">Graphics & Design</p>
+        <p href="">Digital Marketing</p>
+        <p href="">Writing & Translation</p>
+        <p href="">Video & Animation</p>
+        <p href="">Music & Audio</p>
+        <p href="">Programming & Tech</p>
+        <p href="">Business</p>
+        <p href="">Lifestyle</p>
+        <p href="">Photography</p>
+        <p href="">Sitemap</p>
+      </div>{" "}
+      <div className="cat flex column space-between">
+        <h4>Community</h4>
+        <p href="/">Events</p>
+        <p href="">Blog</p>
+        <p href="">Forum</p>
+        <p href="">Community</p>
+        <p href="">Standards</p>
+        <p href="">Podcast</p>
+        <p href="">Influencers</p>
+        <p href="">Affiliates</p>
+        <p href="">Invite a Friend</p>
+        <p href="">Become a Seller</p>
       </div>
-      <div className="cat">
-        <p>asdasd</p>
+      <div className="cat flex column space-between">
+        <h4>More From Fiverr</h4>
+        <p href="">Fiverr Business</p>
+        <p href="">Fiverr Pro</p>
+        <p href="">Fiverr Logo Maker</p>
+        <p href="">Fiverr Guides</p>
+        <p href="">Get Inspired</p>
+        <p href="">Fiverr Select</p>
+        <p href="">
+          ClearVoice <br /> <small>Content Marketing</small>
+        </p>
+        <p href="">
+          Fiverr Workspace <br /> <small>Invoice Software</small>
+        </p>
+        <p href="">
+          Learn <br /> <small>Online Courses</small>
+        </p>
+        <p href="">Working Not Working</p>
       </div>
-      <div className="cat">
-        <p>asdasd</p>
-      </div>
-      <div className="cat">
-        <p>asdasd</p>
-      </div>
-
-      {/*
-        <div class="hero-info flex"></div> */}
     </section>
   );
 }

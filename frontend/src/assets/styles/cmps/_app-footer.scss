@@ -50,5 +50,9 @@
   .bottom-nav-container {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
+
+    h4 {
+      color: $clr11;
+    }
   }
 }
