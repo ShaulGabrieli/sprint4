@@ -39,7 +39,7 @@ export function AppHeader() {
     <header className="app-header main-container full sticky">
       {/* <AppHero /> */}
 
-      <nav className="flex  ">
+      <div className="flex space-between align-center">
         <Link className="header-logo" to={`/`}>
           <svg
             width="89"
@@ -56,83 +56,95 @@ export function AppHeader() {
             </g>
           </svg>
         </Link>
-        <label htmlFor="gigTitle"></label>
-        <input
-          className="search-box"
-          type="text"
-          id="gigTitle"
-          name="title"
-          placeholder="What service are you looking for today?"
-        />
-        <div className="search-icon-box">
-          <span className="material-symbols-outlined search-icon">search</span>
+        <div className="flex align-center search-container">
+          <label htmlFor="gigTitle"></label>
+          <input
+            className="search-box"
+            type="text"
+            id="gigTitle"
+            name="title"
+            placeholder="What service are you looking for today?"
+          />
+          <div className="search-icon-box">
+            <span className="material-symbols-outlined search-icon">
+              search
+            </span>
+          </div>
+        </div>
+        <div className="flex align-center">
+          {" "}
+          <p>Fiverr Buisness</p>
         </div>
         {/* <GigFilter /> */}
-        <ul className="user-nav flex clean-list align-center space-between">
-          <li>
-            <p>Fiverr Buisness</p>
-          </li>
-          <li>
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 22 22"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8.5 20.167h5M4.295 11.87l-1.562 1.563a3.07 3.07 0 00-.9 2.171v0c0 .678.55 1.228 1.229 1.228h15.877c.678 0 1.228-.55 1.228-1.228v0a3.07 3.07 0 00-.9-2.171l-1.562-1.563a2.975 2.975 0 01-.872-2.104v-2.1A5.833 5.833 0 0011 1.833v0a5.833 5.833 0 00-5.833 5.834v2.1c0 .79-.314 1.546-.872 2.104z"
-                stroke="#74767e"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </li>
-          <li>
-            <svg
-              width="20"
-              height="18"
-              viewBox="0 0 20 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M.833 9.834v5A1.667 1.667 0 002.5 16.5h15a1.666 1.666 0 001.667-1.666v-5"
-                stroke="#74767e"
-                stroke-width="2"
-                stroke-miterlimit="10"
-                stroke-linecap="square"
-              />
-              <path
-                d="M19.167 5.667v-2.5A1.667 1.667 0 0017.5 1.5h-15A1.667 1.667 0 00.833 3.167v2.5l9.167 5 9.167-5z"
-                stroke="#74767e"
-                stroke-width="2"
-                stroke-miterlimit="10"
-                stroke-linecap="square"
-              />
-            </svg>
-          </li>
+        {/* <div className="user-nav flex align-center"> */}
+        <a href="">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.5 20.167h5M4.295 11.87l-1.562 1.563a3.07 3.07 0 00-.9 2.171v0c0 .678.55 1.228 1.229 1.228h15.877c.678 0 1.228-.55 1.228-1.228v0a3.07 3.07 0 00-.9-2.171l-1.562-1.563a2.975 2.975 0 01-.872-2.104v-2.1A5.833 5.833 0 0011 1.833v0a5.833 5.833 0 00-5.833 5.834v2.1c0 .79-.314 1.546-.872 2.104z"
+              stroke="#74767e"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+        <a href="">
+          <svg
+            width="20"
+            height="18"
+            viewBox="0 0 20 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M.833 9.834v5A1.667 1.667 0 002.5 16.5h15a1.666 1.666 0 001.667-1.666v-5"
+              stroke="#74767e"
+              stroke-width="2"
+              stroke-miterlimit="10"
+              stroke-linecap="square"
+            />
+            <path
+              d="M19.167 5.667v-2.5A1.667 1.667 0 0017.5 1.5h-15A1.667 1.667 0 00.833 3.167v2.5l9.167 5 9.167-5z"
+              stroke="#74767e"
+              stroke-width="2"
+              stroke-miterlimit="10"
+              stroke-linecap="square"
+            />
+          </svg>
+        </a>
+        <a href="">
+          <span className="material-symbols-outlined">favorite</span>{" "}
+        </a>
 
-          {/* <span class="material-symbols-outlined">
+        {/* <span class="material-symbols-outlined">
 notifications
 </span>
 <span class="material-symbols-outlined">
 mail
 </span> */}
-          <li>
-            <span className="material-symbols-outlined">favorite</span>{" "}
-          </li>
+        {/* </div> */}
+        {/* <div className="flex align-center"> */}
+        <a>
+          <span>Orders</span>
+        </a>
 
-          <li>
-            <span>Orders</span>
-          </li>
+        {/* <a>
+          <span class="material-symbols-outlined">account_circle</span>{" "}
+        </a> */}
+        <a className="user-info">
+          <Link to={`user/${user._id}`}>
+            {user.imgUrl && <img src={user.imgUrl} />}
+          </Link>
+        </a>
 
-          <li>
-            <span class="material-symbols-outlined">account_circle</span>{" "}
-          </li>
-
-          {user && (
+        {/* </div> */}
+        {/* {user && (
             <span className="user-info">
               <Link to={`user/${user._id}`}>
                 {user.imgUrl && <img src={user.imgUrl} />}
@@ -141,23 +153,20 @@ mail
               <span className="score">{user.score?.toLocaleString()}</span>
               <button onClick={onLogout}>Logout</button>
             </span>
-          )}
-        </ul>
+          )} */}
+      </div>
 
-        {/* {!user && (
+      {/* {!user && (
           <section className="user-info">
             <LoginSignup onLogin={onLogin} onSignup={onSignup} />
           </section>
         )} */}
-      </nav>
 
       <hr className="full" />
       <nav className="main-nav">
         <ul className="clean list flex space-between jusitfy-center ">
           <li>
-            <a className="active" href="/">
-              Graphics & Design
-            </a>
+            <a href="/">Graphics & Design</a>
           </li>
           <li>
             <a href="">Digital Marketing</a>
