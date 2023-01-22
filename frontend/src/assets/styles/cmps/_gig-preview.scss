@@ -5,6 +5,8 @@
     // margin-bottom:34px;
     color: $clr11;
     flex-direction: column;
+    // height: em(398px);
+    // height: 398px;
     
 
     
@@ -20,7 +22,7 @@
         font-size: em(14px);
         line-height: 1.285;
         font-family: Macan-Bold;
-        margin: 22px 0 6px 0;
+        margin: 22px 0 3px 0;
        
     }
 
@@ -41,8 +43,8 @@
         &:hover{
             color: $clr2;
         }
-        margin-bottom: 20px;
-        // line-height: 1.5;
+        margin-bottom: 12px;
+        line-height: 1.3;
     }
 
     .rate{
@@ -70,7 +72,7 @@
     }
 
     .star-box{
-        margin: 0 4px 11px 10px;
+        margin: 0 5px 11px 10px;
 
     }
     
@@ -113,7 +115,13 @@
         margin-bottom: 8px;
     }
 
-    
+    .sup-price-end{
+        font-size: 10px;
+    }
+
+    .preview-footer-fav{
+        margin-left: 10px;
+    }
 }
 
 .gig-preview-star{
@@ -127,7 +135,7 @@
     
 }
 
-.menu-svg, .star-svg, .fav-svg{
+.star-svg, .fav-svg{
     padding: 0;
     display: inline-block;
     margin: 0;

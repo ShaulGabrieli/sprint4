@@ -78,7 +78,7 @@ export function GigIndex() {
     <div className="gig-index main-container">
       <GigFilter onSetFilter={onSetFilter} />
 
-      <section className="top-bars">
+      {/* <section className="top-bars">
         <div className="top-left-bar">
           <h1>Hi User</h1>
           <p>
@@ -90,7 +90,7 @@ export function GigIndex() {
         <div className="top-right-bar">
           <p> Don't Just Dream, Do</p>
         </div>
-      </section>
+      </section> */}
       <main>
         <h2>Most popular Gigs</h2>
         {/* <button onClick={onAddGig}>Add Gig ⛐</button> */}
