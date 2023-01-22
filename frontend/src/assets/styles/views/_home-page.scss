@@ -1,0 +1,139 @@
+h2 {
+  font-size: 2rem;
+  color: #404145;
+  font-family: Macan-Bold;
+}
+
+.market-place {
+  // text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  min-height: 100%;
+
+  text-align: center;
+
+  align-items: center;
+
+  justify-items: center;
+
+  p {
+    font-size: rem(32px);
+    line-height: 120%;
+    color: $clr11;
+    margin-bottom: 64px;
+  }
+  a {
+    text-decoration: none;
+    color: #222325;
+  }
+
+  li {
+    padding-bottom: 55px;
+    width: fit-content;
+  }
+  img {
+    display: block;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 15px;
+  }
+}
+
+.selling-ad {
+  min-height: 705px;
+  background-color: #f1fdf7;
+
+  .ad-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 3fr 4fr;
+    gap: 230px;
+    .ad-text {
+      font-family: Macan-Regular;
+      margin-top: em(62px);
+      margin-bottom: em(62px);
+      max-width: 470px;
+      line-height: em(24px);
+      font-size: em(18px);
+
+      svg {
+        height: 24px;
+        width: 24px;
+        margin-right: 10px;
+        fill: #62646a;
+      }
+
+      p {
+        margin: 0;
+        color: $clr4;
+      }
+    }
+  }
+
+  img {
+    margin-top: em(124px);
+  }
+}
+
+.popular-services {
+  .carousel .control-prev.control-arrow:before {
+    content: "";
+    //   border: solid $clr1;
+    //   border-width: 0 8px 8px 0;
+    //   display: inline-block;
+    //   padding: 14px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+
+  .carousel-status {
+    display: none;
+  }
+  .carousel .slide .legend {
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    /* bottom: 146px; */
+    left: 45%;
+    margin-left: -40%;
+    /* width: 90%; */
+    /* border-radius: 10px; */
+    /* background: #000; */
+    /* color: #fff; */
+    /* padding: 10px; */
+    /* font-size: 12px; */
+    text-align: center;
+    /* opacity: 0.25; */
+    transition: opacity 0.35s ease-in-out;
+  }
+
+  .carousel-slider .control-arrow {
+    top: 0;
+    /* color: #fff; */
+    font-size: 26px;
+    bottom: 0;
+    margin-top: 0;
+    padding: 5px;
+    background-color: white;
+    border-radius: 30px;
+    height: 56px;
+  }
+  .carousel.carousel-slider .control-arrow {
+    transition: all 0.25s ease-in;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    position: absolute;
+    z-index: 2;
+    top: 20px;
+    /* background: none; */
+    border: 0;
+    font-size: 32px;
+    cursor: pointer;
+    background-color: white;
+  }
+}
+.carousel .slide {
+  width: 200px;
+  /* margin: 0; */
+  position: relative;
+  /* text-align: center; */
+}

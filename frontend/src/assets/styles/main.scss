@@ -12,13 +12,14 @@
 @import "basics/forms";
 
 // Views
-@import "views/about-us";
 @import "views/home-page";
+@import "views/about-us";
 @import "views/gig-app";
 @import "views/review-app";
 @import "views/user-details";
 @import "views/gig-details";
 @import "views/gig-payment";
+@import "views/gig-edit";
 
 // Components
 @import "cmps/app-header";

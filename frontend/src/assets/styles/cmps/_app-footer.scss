@@ -45,5 +45,27 @@
     border-top: 1px solid $clr14;
     padding: 0;
     margin: 0;
+
+    &.full {
+      // margin-top: 54px;
+      margin-bottom: 64px;
+    }
+  }
+
+  .bottom-nav-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    h4 {
+      color: $clr11;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: em(16px);
+      margin-top: 10px;
+    }
+    small {
+      color: $clr13;
+      font-size: em(14px);
+    }
   }
 }

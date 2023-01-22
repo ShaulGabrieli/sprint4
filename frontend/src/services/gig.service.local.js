@@ -119,9 +119,25 @@ async function addGigMsg(gigId, txt) {
 
 function getEmptyGig() {
   return {
-    vendor: "Susita-" + (Date.now() % 1000),
-    price: utilService.getRandomIntInclusive(1000, 9000),
-  };
+      "title": "",
+      "price": 0,
+      "owner": {
+          "_id": "",
+          "fullname": "",
+          "imgUrl": "",
+          "level": "basic",
+          "rate": 1
+      },
+      "daysToMake": 1,
+      "description": "",
+      "imgUrls": [],
+      "tags": [    
+      ],
+      "likedByUsers": [
+      ],
+      "totalLikes": 0
+  }
+
 }
 
 function getDefaultFilter() {

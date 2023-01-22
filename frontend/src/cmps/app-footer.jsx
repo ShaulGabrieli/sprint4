@@ -5,6 +5,8 @@ import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
 import { removeFromCart, checkout } from "../store/gig.actions";
 import { UserMsg } from "./user-msg.jsx";
 
+import { Categories } from "./categories.jsx";
+
 export function AppFooter() {
   const [isCartShown, setIsCartShown] = useState(false);
   const cart = useSelector((storeState) => storeState.gigModule.cart);
@@ -22,8 +24,9 @@ export function AppFooter() {
 
   return (
     <footer className="app-footer main-container full">
+      <hr className="full" />
+      <Categories />
       <hr />
-
       <section className="footer-container align-center flex">
         <div className="title">
           <span class="logo-footer">

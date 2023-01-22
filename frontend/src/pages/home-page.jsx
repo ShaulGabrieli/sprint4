@@ -1,45 +1,14 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import logo from "../assets/img/logo.png";
-import { CHANGE_COUNT } from "../store/user.reducer";
-import routes from "../routes";
-import { Link, NavLink } from "react-router-dom";
+import { PopularServices } from "../cmps/popular-services.jsx";
+import { SellingAd } from "../cmps/selling-ad.jsx";
+import { MarketCategories } from "../cmps/market-categories.jsx";
 
 export function HomePage() {
-  const dispatch = useDispatch();
-  const count = useSelector((storeState) => storeState.userModule.count);
-
-  function changeCount(diff) {
-    console.log("Changing count by:", diff);
-    dispatch({ type: CHANGE_COUNT, diff });
-  }
-
   return (
-    <section>
-      {/* <img src={logo} alt="Logo" style={{ maxWidth: "300px" }} />
-      <h2>
-        Count {count}
-        <button
-          onClick={() => {
-            changeCount(1);
-          }}
-        >
-          +
-        </button>
-        <button
-          onClick={() => {
-            changeCount(10);
-          }}
-        >
-          +10
-        </button>
-      </h2> */}
-      <p></p>
-      {routes.map((route) => (
-        <NavLink key={route.path} to={route.path}>
-          {route.label} |||
-        </NavLink>
-      ))}
+    <section className="home-page  full">
+      {/* <PopularServices /> */}
+      <SellingAd />
+      <MarketCategories />
     </section>
   );
 }

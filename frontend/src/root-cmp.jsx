@@ -9,6 +9,7 @@ import { AppFooter } from './cmps/app-footer'
 import { UserDetails } from './pages/user-details'
 import { GigDetails } from './pages/gig-details'
 import { GigPayment } from "./pages/gig-payment.jsx";
+import { GigEdit } from './pages/gig-edit'
 
 export function RootCmp() {
     const [isGigDetails, setIsGigDetails] = useState(false);
@@ -28,9 +29,11 @@ export function RootCmp() {
                     <Route path="gig/:id" element={<GigDetails setIsGigDetails={setIsGigDetails}  />} />
                     <Route path="payments/:id" element={<GigPayment />} />
                     
+                    <Route path='/gig/edit/:gigId' element={<GigEdit />}  />
+                        <Route path="/gig/edit" element={<GigEdit />} />
                    
-                </Routes>
-            </main>
+                </Routes> 
+                </main>           
             <AppFooter />
         </div>
     )
