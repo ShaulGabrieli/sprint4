@@ -24,27 +24,25 @@ export function RootCmp() {
     <div>
       {/* <AppHeader ref={headerRef}/> */}
       <AppHeader />
-      <main>
-        <Routes>
-          {routes.map((route) => (
-            <Route
-              key={route.path}
-              exact={true}
-              element={route.component}
-              path={route.path}
-            />
-          ))}
-          <Route path="user/:id" element={<UserDetails />} />
+      <Routes>
+        {routes.map((route) => (
           <Route
-            path="gig/:id"
-            element={<GigDetails setIsGigDetails={setIsGigDetails} />}
+            key={route.path}
+            exact={true}
+            element={route.component}
+            path={route.path}
           />
-          <Route path="payments/:id" element={<GigPayment />} />
+        ))}
+        <Route path="user/:id" element={<UserDetails />} />
+        <Route
+          path="gig/:id"
+          element={<GigDetails setIsGigDetails={setIsGigDetails} />}
+        />
+        <Route path="payments/:id" element={<GigPayment />} />
 
-          <Route path="/gig/edit/:gigId" element={<GigEdit />} />
-          <Route path="/gig/edit" element={<GigEdit />} />
-        </Routes>
-      </main>
+        <Route path="/gig/edit/:gigId" element={<GigEdit />} />
+        <Route path="/gig/edit" element={<GigEdit />} />
+      </Routes>
       <AppFooter />
     </div>
   );
