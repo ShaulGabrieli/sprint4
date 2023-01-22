@@ -50,10 +50,11 @@ export function GigEdit() {
         try {
             const res = await fetch(UPLOAD_URL, {
                 method: 'POST',
-                body: FORM_DATA
+                body: FORM_DATA,
+                mode: 'cors'
             })
             const elImg = document.createElement('img');
-            const { url } = await res.json()
+            const { url }  = await res.json()
             console.log('url', url);
             const urls = gigToEdit.imgUrls
             urls.push(url)
@@ -142,7 +143,7 @@ export function GigEdit() {
                     <h1>Showcase Your Services In A Gig Gallery</h1>
                     <p>Encourage buyers to choose your Gig by featuring a variety of your work.</p>
                     <hr/>
-                    <input onClick={uploadImg} type="file" />
+                    <input onChange={uploadImg} type="file" />
                     <h2>Images (up to 3)</h2>
                     <p>Get noticed by the right buyers with visual examples of your services.</p>
                     

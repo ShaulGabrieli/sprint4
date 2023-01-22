@@ -5,7 +5,7 @@ import { MarketCategories } from "../cmps/market-categories.jsx";
 
 export function HomePage() {
   return (
-    <section className="home-page  full">
+    <section className="home-page full">
       {/* <PopularServices /> */}
       <SellingAd />
       <MarketCategories />

@@ -22,7 +22,6 @@ export function RootCmp() {
         <div className='main-container'>
             {/* <AppHeader ref={headerRef}/> */}
             <AppHeader  />
-            <main>
                 <Routes>
                     {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
                     <Route path="user/:id" element={<UserDetails />} />
@@ -32,8 +31,7 @@ export function RootCmp() {
                     <Route path='/gig/edit/:gigId' element={<GigEdit />}  />
                         <Route path="/gig/edit" element={<GigEdit />} />
                    
-                </Routes> 
-                </main>           
+                </Routes>                     
             <AppFooter />
         </div>
     )
