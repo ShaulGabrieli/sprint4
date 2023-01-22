@@ -6,14 +6,12 @@ h2 {
 
 .market-place {
   // text-align: center;
+  margin-top: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   min-height: 100%;
-
   text-align: center;
-
   align-items: center;
-
   justify-items: center;
 
   p {
