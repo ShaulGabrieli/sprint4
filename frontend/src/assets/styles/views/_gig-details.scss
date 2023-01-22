@@ -6,7 +6,8 @@
 
 .gig-main-payment{
  width:23vw;
- border: 1px solid $clr15;
+
+//  border: 1px solid $clr15;
 
 }
 
@@ -18,6 +19,7 @@
     position: sticky;
     top: 30px;
     flex-shrink: 0;
+    border: 1px solid $clr15;
 }
 .gig-details {
     width: 60%;
