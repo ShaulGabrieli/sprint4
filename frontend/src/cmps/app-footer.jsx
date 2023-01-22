@@ -24,6 +24,7 @@ export function AppFooter() {
 
   return (
     <footer className="app-footer main-container full">
+      <hr className="full" />
       <Categories />
       <hr />
       <section className="footer-container align-center flex">

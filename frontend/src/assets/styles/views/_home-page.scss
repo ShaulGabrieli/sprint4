@@ -1,0 +1,75 @@
+h2 {
+  font-size: 2rem;
+  color: #404145;
+  font-family: Macan-Bold;
+}
+
+.market-place {
+  // text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  min-height: 100%;
+
+  text-align: center;
+
+  align-items: center;
+
+  justify-items: center;
+
+  p {
+    font-size: rem(32px);
+    line-height: 120%;
+    color: $clr11;
+    margin-bottom: 64px;
+  }
+  a {
+    text-decoration: none;
+    color: #222325;
+  }
+
+  li {
+    padding-bottom: 55px;
+    width: fit-content;
+  }
+  img {
+    display: block;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 15px;
+  }
+}
+
+.selling-ad {
+  min-height: 705px;
+  background-color: #f1fdf7;
+
+  .ad-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 2fr 3fr;
+    gap: 230px;
+    .ad-text {
+      font-family: Macan-Regular;
+      margin-top: em(48px);
+      max-width: 470px;
+      line-height: em(24px);
+      font-size: em(18px);
+
+      svg {
+        height: 24px;
+        width: 24px;
+        margin-right: 10px;
+        fill: #62646a;
+      }
+
+      p {
+        margin: 0;
+        color: $clr4;
+      }
+    }
+  }
+
+  img {
+    margin-top: em(124px);
+  }
+}

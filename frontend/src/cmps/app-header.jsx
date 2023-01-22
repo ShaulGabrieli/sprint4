@@ -15,14 +15,14 @@ import { gigService } from "../services/gig.service.local";
 
 export function AppHeader() {
   const user = useSelector((storeState) => storeState.userModule.user);
-  const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter());
-
-
+  const [filterByToEdit, setFilterByToEdit] = useState(
+    gigService.getDefaultFilter()
+  );
 
   useEffect(() => {
     // update father cmp that filters change very type
-    setFilter(filterByToEdit)
-}, [filterByToEdit])
+    setFilter(filterByToEdit);
+  }, [filterByToEdit]);
   const [openOrders, setOpenOrders] = useState(false);
   async function onLogin(credentials) {
     try {
@@ -86,7 +86,7 @@ export function AppHeader() {
             name="title"
             placeholder="What service are you looking for today?"
             value={filterByToEdit.title}
-          onChange={handleChange}
+            onChange={handleChange}
           />
           <div className="search-icon-box">
             <span className="material-symbols-outlined search-icon">
@@ -220,8 +220,8 @@ mail
             <a href="">Trending</a>
           </li>
         </ul>
-        <hr className="full " />
       </nav>
+      <hr className="full " />
     </header>
   );
 }
