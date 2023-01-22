@@ -13,7 +13,7 @@ export function GigPreview({ gig, orderPagePreview}) {
                     <img className='owner-icon' src={`${gig.owner.imgUrl}`} />
                     <h4>{gig.owner.fullname}</h4>
                 </div>
-                <p>{gig.description.substring(0, 50) + '...'}</p>
+                <p>{gig.description.substring(0, 65) + '...'}</p>
                 <div className='likes flex'>
                     {/* <!-- License: MIT. Made by feathericon: https://github.com/feathericon/feathericon --> */}
                     <svg className='star-box' width='18px' height='18px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xlink='http://www.w3.org/1999/xlink'>
@@ -34,14 +34,12 @@ export function GigPreview({ gig, orderPagePreview}) {
                 <hr />
 
                 <section className='gig-preview-footer flex space-between'>
-                 <div className='preview-footer-opt'>
-                         <MenuSvg />
+                    <div className='preview-footer-fav'>
                          <FavSvg />
                     </div>
-
                     <div className='price-container flex'>
-                    { orderPagePreview  &&  <span className='price-preview'>PRICE</span> || <span className='price-preview'>STARTING AT</span>}
-                        <span className='price-tag'> ${gig.price}</span>
+                        { orderPagePreview  &&  <span className='price-preview'>PRICE</span> || <span className='price-preview'>STARTING AT</span>}
+                        <span className='price-tag'> ${gig.price}<sup className='sup-price-end'>00</sup></span>
                     </div>
                 </section>
             </li>

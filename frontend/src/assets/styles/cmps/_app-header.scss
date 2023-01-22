@@ -54,7 +54,7 @@
   // }
 
   .search-box {
-    width: em(755px);
+    width: em(800px);
     height: em(42px);
     color: $clr4;
     line-height: 24;
@@ -131,6 +131,8 @@
   .main-nav a {
     color: $clr3;
     text-decoration: none;
+    // box-shadow: 2px 18px 0 -7px $clr6;
+
     // box-shadow: 2px 18px 0 -8px $clr2;
   }
 
@@ -152,5 +154,14 @@
     text-decoration: none;
     text-emphasis: none;
     cursor: pointer;
+  }
+  svg {
+    fill: $clr3;
+  }
+  a {
+    img {
+      height: 18px;
+      width: 18px;
+    }
   }
 }
