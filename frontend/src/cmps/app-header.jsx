@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import routes from "../routes";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
+import { useNavigate } from "react-router-dom";
 
 import { login, logout, signup } from "../store/user.actions.js";
 import { LoginSignup } from "./login-signup.jsx";
@@ -13,6 +14,8 @@ import { setFilter } from "../store/gig.actions.js";
 import { gigService } from "../services/gig.service.local";
 
 export function AppHeader() {
+  const navigate = useNavigate();
+
   const user = useSelector((storeState) => storeState.userModule.user);
   const [filterByToEdit, setFilterByToEdit] = useState(
     gigService.getDefaultFilter()
@@ -91,7 +94,7 @@ export function AppHeader() {
             </span>
           </div>
         </div>{" "}
-        <p>Fiverr Buisness</p>
+        <p onClick={() => navigate("/gig")}>Explore</p>
         {/* <GigFilter /> */}
         {/* <div className="user-nav flex align-center"> */}
         <a href="">
