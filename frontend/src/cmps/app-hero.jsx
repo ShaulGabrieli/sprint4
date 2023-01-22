@@ -28,6 +28,9 @@ export function AppHero() {
         className={`img-container${imgToDisplay}
 } full`}
       >
+        <div className="main-container hero-info align-center">
+          <p>Find the perfect freelance services for your business</p>
+        </div>
         {/* <img src={hero1} alt="Logo  " /> */}
       </div>
 
