@@ -93,54 +93,38 @@ export function AppHeader() {
               search
             </span>
           </div>
-        </div>{" "}
+        </div>
         <p onClick={() => navigate("/gig")}>Explore</p>
         {/* <GigFilter /> */}
         {/* <div className="user-nav flex align-center"> */}
+        {/* <div className="user-icons flex space-between"> */}
         <a href="">
-          <svg
-            width="22"
-            height="22"
-            viewBox="0 0 22 22"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.5 20.167h5M4.295 11.87l-1.562 1.563a3.07 3.07 0 00-.9 2.171v0c0 .678.55 1.228 1.229 1.228h15.877c.678 0 1.228-.55 1.228-1.228v0a3.07 3.07 0 00-.9-2.171l-1.562-1.563a2.975 2.975 0 01-.872-2.104v-2.1A5.833 5.833 0 0011 1.833v0a5.833 5.833 0 00-5.833 5.834v2.1c0 .79-.314 1.546-.872 2.104z"
-              stroke="#74767e"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+          <img
+            src="https://fiverr-res.cloudinary.com/npm-assets/layout-server/bell.78d6546.svg"
+            class="notifications-drawer-bell-trigger"
+            alt="Notifications"
+          ></img>
         </a>
         <a href="">
-          <svg
-            width="20"
-            height="18"
-            viewBox="0 0 20 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M.833 9.834v5A1.667 1.667 0 002.5 16.5h15a1.666 1.666 0 001.667-1.666v-5"
-              stroke="#74767e"
-              stroke-width="2"
-              stroke-miterlimit="10"
-              stroke-linecap="square"
-            />
-            <path
-              d="M19.167 5.667v-2.5A1.667 1.667 0 0017.5 1.5h-15A1.667 1.667 0 00.833 3.167v2.5l9.167 5 9.167-5z"
-              stroke="#74767e"
-              stroke-width="2"
-              stroke-miterlimit="10"
-              stroke-linecap="square"
-            />
-          </svg>
+          <img
+            src="https://fiverr-res.cloudinary.com/npm-assets/layout-server/letter.07c989b.svg"
+            class="notifications-drawer-letter-trigger"
+            alt="Messages"
+          ></img>
         </a>
         <a href="">
-          <span className="material-symbols-outlined">favorite</span>{" "}
+          <span class="XQskgrQ icon-button" aria-hidden="true">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M14.325 2.00937C12.5188 0.490623 9.72813 0.718748 8 2.47812C6.27188 0.718748 3.48125 0.487498 1.675 2.00937C-0.674996 3.9875 -0.331246 7.2125 1.34375 8.92187L6.825 14.5062C7.1375 14.825 7.55625 15.0031 8 15.0031C8.44688 15.0031 8.8625 14.8281 9.175 14.5094L14.6563 8.925C16.3281 7.21562 16.6781 3.99062 14.325 2.00937ZM13.5875 7.86875L8.10625 13.4531C8.03125 13.5281 7.96875 13.5281 7.89375 13.4531L2.4125 7.86875C1.27188 6.70625 1.04063 4.50625 2.64063 3.15937C3.85625 2.1375 5.73125 2.29062 6.90625 3.4875L8 4.60312L9.09375 3.4875C10.275 2.28437 12.15 2.1375 13.3594 3.15625C14.9563 4.50312 14.7188 6.71562 13.5875 7.86875Z"></path>
+            </svg>
+          </span>
         </a>
+        {/* </div> */}
         {/* <span class="material-symbols-outlined">
 notifications
 </span>
