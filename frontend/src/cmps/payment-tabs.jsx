@@ -29,7 +29,8 @@ export function PaymentTabs({ gig, onAddOrder }) {
                         "rate" : gig.owner.rate,
                         "fullname": gig.owner.fullname,
                         "imgUrl": gig.owner.imgUrl,
-                    }
+                    },
+                   "totalLikes": gig.totalLikes
                 }
             }
             const newOrder = await onAddOrder(order, plan)

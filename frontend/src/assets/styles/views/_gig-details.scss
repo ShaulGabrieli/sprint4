@@ -273,7 +273,7 @@
 
   .carousel {
     position: obsolute;
-    z-index: -1;
+    z-index: 0;
   }
   .carousel  .control-next.control-arrow:before {
     content: '';

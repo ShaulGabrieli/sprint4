@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { FavSvg } from './git-preview-svgs/fav-svg'
 import { MenuSvg } from './git-preview-svgs/menu-svg'
+ 
 
 export function GigPreview({ gig, orderPagePreview}) {
     return (
@@ -33,13 +34,13 @@ export function GigPreview({ gig, orderPagePreview}) {
                 <hr />
 
                 <section className='gig-preview-footer flex space-between'>
-                    <div className='preview-footer-opt'>
+                 <div className='preview-footer-opt'>
                          <MenuSvg />
                          <FavSvg />
                     </div>
 
                     <div className='price-container flex'>
-                        <span className='price-preview'>STARTING AT</span>
+                    { orderPagePreview  &&  <span className='price-preview'>PRICE</span> || <span className='price-preview'>STARTING AT</span>}
                         <span className='price-tag'> ${gig.price}</span>
                     </div>
                 </section>
