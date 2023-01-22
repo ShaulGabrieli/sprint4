@@ -19,7 +19,8 @@
     position: sticky;
     top: 30px;
     flex-shrink: 0;
-    border: 1px solid $clr15;
+    border: 1px solid $clr13;
+    // border-top:none;
 }
 .gig-details {
     width: 60%;
