@@ -9,20 +9,11 @@ import { showErrorMsg } from '../services/event-bus.service.js'
 export function GigOrderList() {
     const orders = useSelector(storeState => storeState.orderModule.userOrders)
 
-
     useEffect(() => {
-
         loadOrders()
-
-
     }, [])
 
-
-
-
     console.log('orders', orders)
-
-
     return (
         //todo: loading
         <div> {!orders && <div> loading </div> || <div className="main-order-list-container">
@@ -44,13 +35,9 @@ export function GigOrderList() {
                                     />
                                 ))}
                             </ul>
-
-
                         </div>
-
                     </section>
                 </div>
-
             </div></div>}</div>
 
     )

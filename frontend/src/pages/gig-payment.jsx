@@ -26,12 +26,17 @@ export function GigPayment() {
         setTotal(totalPay())
     }, [])
 
-    useEffect(() => {
+    async function savePayedOrder(){
+
         if (creditTransaction) {
             order.gig.price = total
-            payedOrder(order)
+           await payedOrder(order)
             navigate(`/orders`)
         }
+    }
+
+    useEffect(() => {
+        savePayedOrder()
     }, [creditTransaction])
 
     function getVat() {

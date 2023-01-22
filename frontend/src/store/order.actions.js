@@ -45,11 +45,6 @@ export async function payedOrder(order) {
     order.paymentStatus = 'payed'
     const payedOrder = await orderService.save(order)
     console.log('payed order', payedOrder)
-    store.dispatch({
-        type: SET_CURRENT_ORDER,
-        order: {}
-    })
-
 }
 
 export async function loadOrder(orderId) {
