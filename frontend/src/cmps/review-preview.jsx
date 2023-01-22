@@ -16,12 +16,12 @@ export function ReviewPreview({ review }) {
 
         <div className="review-preview">
             <div className="reviewer flex">
-                <div className="reviewer-img reviewer-item">{review.img}</div>
+                <div className="reviewer-img reviewer-item "><img src={require("../assets/img/details/user-demo.jpg")}/></div>
                 <div className="reviewer-name reviewer-item">{review.by.fullname}</div>
                 <div className="reviewer-location reviewer-item">🏳️‍⚧️ Usa </div>
                 <div className="reviewer-rate reviewer-item"><StarsRating rate={review.rate}/></div>
             </div>
-            <hr></hr>
+            {/* <hr></hr> */}
             <div className="reviewer-content flex ">
                 <div className="review-msg">
                     <div>{review.txt}</div>

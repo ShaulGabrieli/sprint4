@@ -2,3 +2,18 @@
 
   grid-template-columns: repeat(auto-fit, minmax(324px,324px));
 }
+
+.order-list-container{
+  // padding:48px 64px 80px;
+}
+
+.order-title-section{
+  color: $clr1;
+  font-weight: 700;
+}
+
+.order-subtitle-section{
+  color: $clr15;
+  padding: 12px 0 0 ;
+ 
+}

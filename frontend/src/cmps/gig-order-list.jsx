@@ -29,7 +29,9 @@ export function GigOrderList() {
             <div className="main-order-list-container">
                 <div className="order-list-container">
                     <section className="my-orders-header">
-                        <div className="order-title-section">My orders</div>
+                        <div className="order-title-section fs24">My orders</div>
+                        <div className="order-subtitle-section fs16">
+                            Track your purchases and manage your orders with ease</div>
                     </section>
                     <section className="my-orders-container">
                         <div className="my-orders">

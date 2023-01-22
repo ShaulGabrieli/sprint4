@@ -20,7 +20,7 @@ import { PaymentTabs } from '../cmps/payment-tabs.jsx'
 import { ReactComponent as Lightning } from '../assets/img/details/lightning.svg'
 
 
-export function GigDetails() {
+export function GigDetails({setIsGigDetails}) {
     const [gig, setGig] = useState(null)
     const params = useParams()
     const { id } = params
@@ -30,6 +30,13 @@ export function GigDetails() {
     useEffect(() => {
         loadGig()
     }, [id])
+
+    useEffect(() => {
+        setIsGigDetails(true)
+        document.querySelector(".app-header").classList.remove('sticky');
+        return () => { setIsGigDetails(false)
+            document.querySelector(".app-header").classList.add('sticky')
+}}, [])
 
     async function loadGig() {
         try {
@@ -109,7 +116,7 @@ export function GigDetails() {
                                         <div className="reviews-container">
                                             {/* <img src={require(`../assets/img/details/demo-details2.jpg`)} /> */}
                                             {/* <p className="review-preview">{review.txt}</p> */}
-                                            <ReviewPreview review={review} />
+                                            <ReviewPreview  review={review} />
 
                                         </div>
                                     )
@@ -138,7 +145,7 @@ export function GigDetails() {
                         <div className="seller-card">
                             <div className="profile-info flex">
                                 <div className="profile-img">
-                                    <img src={require(`../assets/img/details/user-demo.jpg`)} />
+                                    <img src={gig.owner.imgUrl} />
 
                                 </div>
                                 <div className="about-user-info">
@@ -147,6 +154,18 @@ export function GigDetails() {
                                     <div className="contact-me-btn">Contact Me</div>
 
                                 </div>
+                            </div>
+                            <div className="full-main-reviews flex column">
+                            {gig.reviews.map(review => {
+                                    return (
+                                        <div className="reviews-container">
+                                            {/* <img src={require(`../assets/img/details/demo-details2.jpg`)} /> */}
+                                            {/* <p className="review-preview">{review.txt}</p> */}
+                                            <ReviewPreview review={review} />
+
+                                        </div>
+                                    )
+                                })}
                             </div>
                             <div className="stats-desc">
                                 {/* check if needed */}

@@ -5,6 +5,16 @@
   
 }
 
+.reviewer{
+    // display: flex;
+    align-items: center;
+    // padding: 20px 0;
+    // border-bottom: 1px solid $clr15;
+    &:last-child{
+        border-bottom: none;
+    }
+}
+
 .review-msg{
   justify-content: start;
   line-height: 1.5;
@@ -13,7 +23,13 @@
 .carousel .slide{
     text-align: start;
 }
-
+.reviewer-img{
+    img {
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+    }
+}
 .reviewer-name{
     align-self: center;
     font-weight: 700;

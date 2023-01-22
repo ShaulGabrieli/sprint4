@@ -132,9 +132,11 @@ mail
         {/* <div className="flex align-center"> */}
         <a onClick={()=> {setOpenOrders(!openOrders)}}>
           <span>Orders</span>
+          <div className="pop-menu-orders-area">
           {
             openOrders && <PopupMenu > <GigOrderList /> </PopupMenu>
           }
+          </div>
         </a>
         {/* <a>
           <span class="material-symbols-outlined">account_circle</span>{" "}

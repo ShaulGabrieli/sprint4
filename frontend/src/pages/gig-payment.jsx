@@ -10,10 +10,8 @@ import { showErrorMsg } from '../services/event-bus.service.js'
 import { PopupMenu } from '../cmps/popup-menu.jsx'
 
 
-
-
 export function GigPayment() {
-    
+
     const [vat, setVat] = useState(0)
     const [total, setTotal] = useState(0)
     const [creditTransaction, setCreditTransaction] = useState(false)
@@ -30,10 +28,9 @@ export function GigPayment() {
 
     useEffect(() => {
         if (creditTransaction) {
+            order.gig.price = total
             payedOrder(order)
             navigate(`/orders`)
-   
-           
         }
     }, [creditTransaction])
 
@@ -59,12 +56,10 @@ export function GigPayment() {
         }
     }
 
-
     function triggerSubmit() {
         if (!document.getElementById('submit-credit').disabled) {
             document.getElementById('submit-credit').click()
-           
-           
+
         }
         else {
             showErrorMsg("Please fill all the fields")
@@ -78,10 +73,7 @@ export function GigPayment() {
             <CreditCardForm className="payment-area" type="submit" gig={order.gig} setCreditTransaction={setCreditTransaction} triggerSubmit={triggerSubmit} />
 
             <div className="order-details-container">
-
-
                 <div className="payment-summery">
-
 
                     <div className="top-payment-summery">
                         <div className="summery-title flex">
@@ -128,17 +120,14 @@ export function GigPayment() {
                     <div className="payment-plan-btn flex ">
                         <div className="pay-btn flex" onClick={triggerSubmit}>
                             <span className="pay-btn-txt"  >Confirm & Pay</span>
-                            
+
                             {/* <span className="continue-arrow">➜</span> */}
                         </div>
-
                     </div>
-    
                 </div>
-
-
             </div>
-        </div >}</div>
+        </div >}
+    </div>
     )
 
 }

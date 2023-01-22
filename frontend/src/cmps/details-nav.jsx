@@ -28,7 +28,7 @@ export function DetailsNav({gig}) {
         setLikedGig(!likedGig)
     }
     return (
-        <div className="details-actionss flex space-between ">
+        <div className="details-actions flex space-between ">
             <div className="left-container flex ">
                 <ul className="details-nav flex   ">
 

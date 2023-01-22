@@ -1,12 +1,17 @@
 .details-nav{
     list-style-type: none;
-    padding: 4px;
-    z-index: 300;
+    // padding: 4px;
+    z-index: 5;
     position: sticky;
     background-color: white;
     // position: sticky;
     // top: 10px;
     // flex-shrink: 0;
+}
+
+.details-actions{
+    background-color: $clr-1;
+    margin-bottom: 3px;
 }
 
 .right-container div{

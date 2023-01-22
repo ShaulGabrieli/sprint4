@@ -91,6 +91,7 @@
     img {
         border-radius: 50%;
         height: 110px;
+        width: 110px;
     }
 }
 
@@ -259,6 +260,11 @@
     display: block !important;
   }
 
+
+  .carousel {
+    position: obsolute;
+    z-index: -1;
+  }
   .carousel  .control-next.control-arrow:before {
     content: '';
     border: solid $clr1;
