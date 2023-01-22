@@ -7,6 +7,7 @@ export const CLEAR_CART = "CLEAR_CART";
 export const UNDO_REMOVE_GIG = "UNDO_REMOVE_GIG";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 
+
 const initialState = {
   gigs: [],
   cart: [],
@@ -54,7 +55,12 @@ export function gigReducer(state = initialState, action) {
         };
       }
       break;
-    default:
+      default:
   }
   return newState;
 }
+
+
+
+ 
+ 

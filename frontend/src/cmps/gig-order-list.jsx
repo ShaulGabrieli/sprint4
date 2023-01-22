@@ -9,7 +9,6 @@ import { showErrorMsg } from '../services/event-bus.service.js'
 export function GigOrderList() {
     const orders = useSelector(storeState => storeState.orderModule.userOrders)
 
-
     useEffect(() => {
 
         loadOrders()
@@ -37,7 +36,7 @@ export function GigOrderList() {
                         <div className="my-orders">
                             <ul className="gig-orders-list gig-list ">
                                 {orders.map((order, idx) => (
-                                    <GigPreview
+                                    <GigPreview 
                                         id={idx}
                                         gig={order.gig}
 

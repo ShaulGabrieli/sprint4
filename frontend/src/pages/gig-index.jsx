@@ -75,7 +75,7 @@ export function GigIndex() {
   }
 
   return (
-    <div className="gig-index">
+    <div className="gig-index main-container">
       <GigFilter onSetFilter={onSetFilter} />
 
       <section className="top-bars">

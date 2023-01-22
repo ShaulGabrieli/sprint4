@@ -11,6 +11,7 @@ import {
   SET_GIGS,
   UNDO_REMOVE_GIG,
   UPDATE_GIG,
+  SET_ORDERS_PREVIEW,
 } from "./gig.reducer.js";
 import { SET_SCORE } from "./user.reducer.js";
 import { SET_FILTER } from "./filter.reducer.js";
@@ -136,3 +137,4 @@ export function onRemoveGigOptimistic(gigId) {
 export function setFilter(filterBy) {
   store.dispatch({ type: SET_FILTER, filterBy })
 }
+

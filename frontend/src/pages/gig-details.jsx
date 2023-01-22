@@ -64,7 +64,7 @@ export function GigDetails({setIsGigDetails}) {
 
     if (!gig) return <div>Loading...</div>
     return (
-        <div className="main-content">
+        <div className="main-content main-container">
             <div className="top-nav sticky">
                 < DetailsNav gig={gig} />
             </div>
