@@ -71,7 +71,7 @@ export function GigPayment() {
         }
     }
 
-    return (<div>{!order && <div>Loading...</div> ||
+    return (<div className="main-container">{!order && <div>Loading...</div> ||
         <div className="main-payment-area ">
 
 
