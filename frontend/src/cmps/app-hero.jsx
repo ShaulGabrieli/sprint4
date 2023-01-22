@@ -18,7 +18,7 @@ export function AppHero() {
         }
         return prevImg + 1;
       });
-    }, 2000);
+    }, 7000);
   }
 
   return (

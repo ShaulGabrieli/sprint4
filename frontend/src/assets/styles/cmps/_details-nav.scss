@@ -1,5 +1,6 @@
-.details-nav{
+.details-nav {
     list-style-type: none;
+
     // padding: 4px;
     z-index: 5;
     position: sticky;
@@ -7,46 +8,58 @@
     // position: sticky;
     // top: 10px;
     // flex-shrink: 0;
+
+    a {
+        text-decoration: none;
+    }
 }
 
-.details-actions{
+.left-container {
+    padding: 10px 0 10px 0;
+
+}
+
+.details-actions {
     background-color: $clr-1;
     margin-bottom: 3px;
 }
 
-.right-container div{
+.right-container div {
     border: 1px solid $clr5;
-    padding: 6px 10px 6px 10px; 
+    padding: 6px 10px 6px 10px;
     border-radius: 3px;
     cursor: pointer;
     align-items: center;
-    
-}
-.details-svg-clr{
-    fill: $clr5; 
+
 }
 
-.details-svg-clr-green{
-    fill: $clr2; 
+.details-svg-clr {
+    fill: $clr5;
 }
 
-.liked-gig-red{
+.details-svg-clr-green {
+    fill: $clr2;
+}
+
+.liked-gig-red {
     fill: $clr18;
     // color: pink;
     // stroke: $clr1;
     // stroke-width: 1px;
 }
-.right-container{
+
+.right-container {
     gap: 24px;
     align-self: center;
 }
 
-.top-nav-details-item{
-    font-size: em(14px);  
+.top-nav-details-item {
+    font-size: em(14px);
     color: $clr15;
     font-weight: 700;
     margin-right: 24px;
-    &:hover{
+
+    &:hover {
         color: $clr4;
     }
 }
@@ -54,8 +67,4 @@
 .top-nav-details-selected {
     color: $clr4;
     border-bottom: 2px solid $clr2;
-}
-
-.details-actions{
-
 }
