@@ -10,22 +10,17 @@ export function AppHero() {
   useEffect(() => {
     heroImgSwitch();
   }, []);
-
-  // const imgCount = 1;
   function heroImgSwitch() {
     const imgSwitchInterval = setInterval(() => {
-      // console.log("chekkk");
       setImgToDisplay((prevImg) => {
-        console.log(prevImg, "prevImg");
-        // if (imgToDisplay === 4) {
-        //   setImgToDisplay((prevImg) => (prevImg = 1));
-        // }
+        if (prevImg === 5) {
+          setImgToDisplay((prevImg) => (prevImg = 1));
+        }
         return prevImg + 1;
       });
-
-      console.log("imgToDisplay", imgToDisplay);
     }, 2000);
   }
+
   return (
     <section className="hero-container main-container full">
       {console.log("imgToDisplay")}

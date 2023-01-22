@@ -109,13 +109,13 @@ export function MarketCategories() {
           </a>
         </li>
       </ul>
-      <div className="flex space-evenly">
+      {/* <div className="flex space-evenly">
         {routes.map((route) => (
           <NavLink key={route.path} to={route.path}>
             {route.label}
           </NavLink>
         ))}
-      </div>
+      </div> */}
     </section>
   );
 }

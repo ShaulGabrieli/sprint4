@@ -2,31 +2,31 @@
   min-height: 680px;
   position: relative;
   z-index: -1;
-  background-color: black;
+  // background-color: black;
   .img-container1 {
-    // position: absolute;
     background-image: url("../../img/hero/hero1.webp");
     width: 100%;
+    transition: 1s;
   }
   .img-container2 {
-    // position: absolute;
     background-image: url("../../img/hero/hero2.webp");
     width: 100%;
+    transition: 1s;
   }
   .img-container3 {
-    position: absolute;
     background-image: url("../../img/hero/hero3.webp");
     width: 100%;
+    transition: 1s;
   }
   .img-container4 {
-    position: absolute;
     background-image: url("../../img/hero/hero4.webp");
     width: 100%;
+    transition: 1s;
   }
   .img-container5 {
-    position: absolute;
     background-image: url("../../img/hero/hero5.webp");
     width: 100%;
+    transition: 1s;
   }
 
   .hero-info {
