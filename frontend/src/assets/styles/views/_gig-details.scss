@@ -1,10 +1,17 @@
 .gig-details-page {
-    padding-left: 22px;
+    padding: 32px 32px 0;
     color: $clr1;
+    margin: 0 56.5px;
 }
 
 .gig-main-payment{
- 
+ width:23vw;
+ border: 1px solid $clr15;
+
+}
+
+.payment-area, .contact-seller,.highly-responsive{
+    padding: 0 24px;
 }
 .payment-area-wrapper{
     margin-top: 30px;

@@ -68,6 +68,7 @@ export function GigDetails({setIsGigDetails}) {
             <div className="top-nav sticky">
                 < DetailsNav gig={gig} />
             </div>
+            {/* <div className="main-details-container"> */}
             <section className="gig-details-page flex">
                 <div className="gig-details">
                     <div id="overview" className="gig-overview">
@@ -212,6 +213,7 @@ export function GigDetails({setIsGigDetails}) {
                 </div>
 
             </section>
-        </div>
+            </div>
+        // </div>
     )
 }
