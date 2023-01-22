@@ -18,14 +18,13 @@ import { StarsRating } from '../cmps/stars-rating.jsx'
 import { PaymentTabs } from '../cmps/payment-tabs.jsx'
 
 import { ReactComponent as Lightning } from '../assets/img/details/lightning.svg'
+import { ReactComponent as Arrow } from '../assets/img/details/arrow.svg'
 
-
-export function GigDetails({setIsGigDetails}) {
+export function GigDetails({ setIsGigDetails }) {
     const [gig, setGig] = useState(null)
     const params = useParams()
     const { id } = params
     const navigate = useNavigate()
-
 
     useEffect(() => {
         loadGig()
@@ -34,9 +33,11 @@ export function GigDetails({setIsGigDetails}) {
     useEffect(() => {
         setIsGigDetails(true)
         document.querySelector(".app-header").classList.remove('sticky');
-        return () => { setIsGigDetails(false)
+        return () => {
+            setIsGigDetails(false)
             document.querySelector(".app-header").classList.add('sticky')
-}}, [])
+        }
+    }, [])
 
     async function loadGig() {
         try {
@@ -60,8 +61,6 @@ export function GigDetails({setIsGigDetails}) {
         }
     }
 
-
-
     if (!gig) return <div>Loading...</div>
     return (
         <div className="main-content main-container">
@@ -69,12 +68,15 @@ export function GigDetails({setIsGigDetails}) {
                 < DetailsNav gig={gig} />
             </div>
             {/* <div className="main-details-container"> */}
+            <div className="hr-details-nav full"><hr/></div>
             <section className="gig-details-page flex">
                 <div className="gig-details">
                     <div id="overview" className="gig-overview">
-                        <div className="gig-breadcrumbs">breadcrumbs</div>
-                        <h1 className="gig-title"> {gig.title}</h1>
-                        <div className="seller-overview">🙂<span className="seller-name" > {gig.owner.fullname}</span>  <StarsRating rate={gig.owner.rate} /></div>
+                        <div className="gig-details-breadcrumbs arrow-svg">Breadcrumbs <Arrow /> </div>
+                        <div className="gig-title"> {gig.title}</div>
+                        <div className="seller-overview reviewer-img flex"><img src={require("../assets/img/details/user-demo.jpg")}/>
+                        <span className="seller-name fs14"  > {gig.owner.fullname}</span>  
+                        <StarsRating rate={gig.owner.rate} /></div>
                     </div>
                     <div className="gig-gallery">
                         <Carousel showIndicators={false}  >
@@ -105,8 +107,8 @@ export function GigDetails({setIsGigDetails}) {
                         <div className="head-mini-reviews flex space-between">
 
                             {/* <header> */}
-                            <h2 className="seller-rev-head">What people loved about the seller</h2>
-                            <div className="mini-review-btn">see all reviews</div>
+                            <div className="seller-rev-head">What people loved about this seller</div>
+                            <div className="mini-review-btn">See all reviews</div>
                             {/* </header> */}
                         </div>
                         <div className="reviews-carusel">
@@ -117,8 +119,7 @@ export function GigDetails({setIsGigDetails}) {
                                         <div className="reviews-container">
                                             {/* <img src={require(`../assets/img/details/demo-details2.jpg`)} /> */}
                                             {/* <p className="review-preview">{review.txt}</p> */}
-                                            <ReviewPreview  review={review} />
-
+                                            <ReviewPreview review={review} />
                                         </div>
                                     )
                                 })}
@@ -129,7 +130,7 @@ export function GigDetails({setIsGigDetails}) {
                     </div>
                     <div id="description" className="gig-description">
                         <header>
-                            <h2 className="section-title">About this gig</h2>
+                            <h2 className="section-title">About This Gig</h2>
                         </header>
 
                         <div className="description-wrapper">
@@ -141,13 +142,12 @@ export function GigDetails({setIsGigDetails}) {
                             {/* check if metadata is needed here */}
                         </div>
                     </div>
-                    <h2 id="aboutSeller" className="about-the-seller"><span>About the seller</span></h2>
+                    <h2 id="aboutSeller" className="about-the-seller"><span>About The Seller</span></h2>
                     <div className="profile-card">
                         <div className="seller-card">
                             <div className="profile-info flex">
                                 <div className="profile-img">
                                     <img src={gig.owner.imgUrl} />
-
                                 </div>
                                 <div className="about-user-info">
                                     <div className="about-user-name">{gig.owner.fullname}</div>
@@ -157,16 +157,22 @@ export function GigDetails({setIsGigDetails}) {
                                 </div>
                             </div>
                             <div className="full-main-reviews flex column">
-                            {gig.reviews.map(review => {
+                                <div className="main-reviews-container">
+                                <div className="main-reviews-header">  
+                                Reviews
+                               </div>
+                                {gig.reviews.map(review => {
                                     return (
                                         <div className="reviews-container">
                                             {/* <img src={require(`../assets/img/details/demo-details2.jpg`)} /> */}
                                             {/* <p className="review-preview">{review.txt}</p> */}
-                                            <ReviewPreview review={review} />
-
+                                            <ReviewPreview review={review} detailsReviews={true} className="review-main-details" />
                                         </div>
+                                        
                                     )
+                                    
                                 })}
+                                 </div>
                             </div>
                             <div className="stats-desc">
                                 {/* check if needed */}
@@ -176,9 +182,6 @@ export function GigDetails({setIsGigDetails}) {
                     {/* stopped at compare packages */}
                 </div>
 
-
-
-
                 <div className="gig-main-payment flex column">
                     {/* <div className="payment-area">
                     <div className="basic"></div>
@@ -186,9 +189,7 @@ export function GigDetails({setIsGigDetails}) {
                     <div className="payment-area-wrapper">
                         <div className="main-package-container  ">
                             {/* <div className="package-container flex column"> */}
-
                             <PaymentTabs gig={gig} onAddOrder={onAddOrder} />
-
                         </div>
                         <div className="contact-seller flex column">
                             <div className="contact-seller-wrapper">
@@ -205,7 +206,6 @@ export function GigDetails({setIsGigDetails}) {
                                     <span className="responsive-text">
                                         Known for exceptionally quick replies
                                     </span>
-
                                 </div>
                             </div>
                         </div>
@@ -213,7 +213,7 @@ export function GigDetails({setIsGigDetails}) {
                 </div>
 
             </section>
-            </div>
+        </div>
         // </div>
     )
 }

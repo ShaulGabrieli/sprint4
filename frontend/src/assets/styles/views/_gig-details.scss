@@ -1,7 +1,7 @@
 .gig-details-page {
-    padding: 32px 32px 0;
+    padding: 22px 32px 0;
     color: $clr1;
-    margin: 0 56.5px;
+    margin: 0 50.5px;
 }
 
 .gig-main-payment{
@@ -9,6 +9,12 @@
 
 //  border: 1px solid $clr15;
 
+}
+.arrow-svg{
+    fill: $clr4;
+}
+.hr-details-nav{
+    color: #e4e5e7;
 }
 
 .payment-area, .contact-seller,.highly-responsive{
@@ -27,10 +33,11 @@
     margin-right: 111px;
 }
 
-.gig-breadcrumbs {
+.gig-details-breadcrumbs {
     color: $clr7;
     font-size: em(14px);
     padding-bottom: 10px;
+    line-height: 24px;
 }
 
 .gig-title,
@@ -40,30 +47,51 @@
 
 .gig-title {
     font-size: em(28px);
+    font-weight: 900;
+    padding: 0 0 16px;
+    line-height: 24px;
+  
 }
 
 
 .seller-overview {
     font-size: em(14px);
-    padding-bottom: 25px;
+    padding-top: 6px;
+    padding-bottom: 24px;
 }
 
-.seller-name span {
-    font-size: em(14px);
+.seller-name  {
+    // font-size: em(14px);
     font-weight: 800;
     font-family: Macan-Bold;
+    margin: 0 8px 8px 0;
+    align-self: center;
 }
 
 .seller-rate {
     color: $clr6;
 }
+.main-reviews-header{
+    margin-top:30px;
+    line-height: 24px;
+    font-size: em(20px);
+    font-weight: 700;
+}
 
+.review-main-details{
+    border:none;
+}
 .seller-rev-head,
 .about-the-seller {
     font-size: em(20px);
-    padding-bottom: 13px;
+    padding: 0 0 25px;
+    line-height: 24px;
+    font-weight: 800px;
 }
 
+.head-mini-reviews{
+    line-height: 24px;
+}
 .mini-review-btn {
     font-size: em(14px);
     color: $clr2;
@@ -127,6 +155,8 @@
 
 .gig-gallery {
     padding-left: 32px;
+    width: 100%;
+    padding-right:70px;
 }
 
 
@@ -137,6 +167,9 @@
 .review-preview {
     border-radius: 5px;
     border: 1px solid $clr4;
+    padding: 20px;
+}
+.review-preview-details{
     padding: 20px;
 }
 

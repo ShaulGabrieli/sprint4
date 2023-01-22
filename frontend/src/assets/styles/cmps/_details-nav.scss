@@ -5,17 +5,33 @@
     z-index: 5;
     position: sticky;
     background-color: white;
-    // position: sticky;
+    
     // top: 10px;
     // flex-shrink: 0;
-
+    
     a {
+        // color: $clr4;
         text-decoration: none;
+        // box-shadow: 2px 18px 0 -7px $clr2;
+        //  border-bottom: 2px solid $clr2;
     }
+}
+.top-nav-details-item{
+    padding-bottom:20px;
+    // line-height: 53px;
+}
+.top-nav-details-selected {
+    color: $clr4;
+    border-bottom: 5px solid $clr2;
+    // box-shadow: 2px 18px 0 -7px $clr2;
+}
+
+.top-nav{
+    top:0;
 }
 
 .left-container {
-    padding: 10px 0 10px 0;
+    // padding: 10px 0 10px 0;
 
 }
 
@@ -58,13 +74,9 @@
     color: $clr15;
     font-weight: 700;
     margin-right: 24px;
-
+ 
     &:hover {
         color: $clr4;
     }
 }
 
-.top-nav-details-selected {
-    color: $clr4;
-    border-bottom: 2px solid $clr2;
-}
