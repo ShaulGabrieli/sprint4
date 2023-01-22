@@ -88,7 +88,7 @@ export function GigIndex() {
           <Link to={'/gig/edit'}><button>Become a seller</button></Link>
         </div>
         <div className="top-right-bar">
-          <p> Here's what you need for developing your game</p>
+          <p> Don't Just Dream, Do</p>
         </div>
       </section>
       <main>
