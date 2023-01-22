@@ -46,8 +46,8 @@ h2 {
   .ad-grid {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 3fr 4fr;
-    gap: 230px;
+    grid-template-columns: 1fr 1fr;
+    // gap: 230px;
     .ad-text {
       font-family: Macan-Regular;
       margin-top: em(62px);

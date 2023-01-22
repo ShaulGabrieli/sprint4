@@ -7,7 +7,6 @@ import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
 import { login, logout, signup } from "../store/user.actions.js";
 import { LoginSignup } from "./login-signup.jsx";
 import { GigFilter } from "./gig-filter.jsx";
-import { AppHero } from "./app-hero.jsx";
 import { PopupMenu } from "./popup-menu";
 import { GigOrderList } from "./gig-order-list.jsx";
 import { setFilter } from "../store/gig.actions.js";
@@ -58,8 +57,6 @@ export function AppHeader() {
 
   return (
     <header className="app-header main-container full sticky">
-      {/* <AppHero /> */}
-
       <div className="flex space-between align-center">
         <Link className="header-logo" to={`/`}>
           <svg
@@ -156,9 +153,12 @@ mail
         >
           <span>Orders</span>
           <div className="pop-menu-orders-area">
-          {
-            openOrders && <PopupMenu > <GigOrderList /> </PopupMenu>
-          }
+            {openOrders && (
+              <PopupMenu>
+                {" "}
+                <GigOrderList />{" "}
+              </PopupMenu>
+            )}
           </div>
         </a>
         {/* <a>
