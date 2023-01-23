@@ -138,13 +138,18 @@
     padding-left: 15px;
 }
 
-.profile-img {
-    img {
-        border-radius: 50%;
+.profile-img-container {
         height: 110px;
-        width: 110px;
-    }
+        width: 110px;    
+        .profile-img {
+                border-radius: 50%;
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+            }
 }
+
+
 
 .contact-me-btn {
     padding: 12px 22px;

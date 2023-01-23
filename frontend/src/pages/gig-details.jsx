@@ -150,8 +150,8 @@ export function GigDetails({ setIsGigDetails }) {
                     <div className="profile-card">
                         <div className="seller-card">
                             <div className="profile-info flex">
-                                <div className="profile-img">
-                                    <img src={gig.owner.imgUrl} />
+                                <div className="profile-img-container">
+                                    <img className='profile-img' src={gig.owner.imgUrl} />
                                 </div>
                                 <div className="about-user-info">
                                     <div className="about-user-name">{gig.owner.fullname}</div>

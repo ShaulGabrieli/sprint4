@@ -73,7 +73,7 @@ async function getById(gigId) {
     let gig = await storageService.get(STORAGE_KEY, gigId);
     try {
       const user = await userService.getById(gig.owner._id);
-      gig.reviews = user.reviews;
+      gig.reviews = user.reviews || [];
     } catch (err) {
       console.log("cant get user", err);
       gig.reviews = [];
@@ -136,7 +136,8 @@ function getEmptyGig() {
       ],
       "likedByUsers": [
       ],
-      "totalLikes": 0
+      "totalLikes": 0,
+      "reviews": []
   }
 
 }

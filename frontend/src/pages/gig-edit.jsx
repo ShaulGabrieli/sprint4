@@ -9,6 +9,8 @@ import { addGig } from '../store/gig.actions.js'
 export function GigEdit() {
     const gigs = useSelector((storeState) => storeState.gigModule.gigs)
     const [gigToEdit, setGigToEdit] = useState(gigService.getEmptyGig())
+    const [isReadyPublish, setIsReadyPublish] = useState(false)
+    const [isImgLoading, setIsImgLoading] = useState(false)
     const { gigId } = useParams()
     const navigate = useNavigate()
 
@@ -17,22 +19,25 @@ export function GigEdit() {
         gigService.getById(gigId).then(setGigToEdit)
     }, [])
 
-    function handleChange( {target} ) {
-       
+    function handleChange({ target }) {
         let { value, type, name: field } = target
         value = type === 'number' ? +value : value
         setGigToEdit((prevGig) => ({ ...prevGig, [field]: value }))
     }
 
-    function handleChangeTags( tags ) {
+    function handleChangeTags(tags) {
         const selectedTags = []
-       console.log('gigToEdit', tags);
-       tags.forEach(tag => {
-        let { value } = tag
-        selectedTags.push(value)
-       });
-        console.log('selectedTags', selectedTags);
+        tags.forEach((tag) => {
+            let { value } = tag
+            selectedTags.push(value)
+        })
+        console.log('selectedTags', selectedTags)
         setGigToEdit((prevGig) => ({ ...prevGig, tags: selectedTags }))
+    }
+
+    function handleChangeDaysToDo(days) {
+        let { value } = days
+        setGigToEdit((prevGig) => ({ ...prevGig, daysToMake: +value }))
     }
 
     async function onAddGig(ev) {
@@ -49,6 +54,7 @@ export function GigEdit() {
     }
 
     const uploadImg = async (event) => {
+        setIsImgLoading(true)
         //Defining our variables
         const CLOUD_NAME = 'dyfo5gyda'
         const UPLOAD_PRESET = 'otvk6yqj'
@@ -73,11 +79,13 @@ export function GigEdit() {
             setGigToEdit((prevGig) => ({ ...prevGig, imgUrls: urls }))
             // elImg.src = url
             // document.body.append(elImg)
+            setIsImgLoading(false)
+            setIsReadyPublish(true)
         } catch (err) {
             console.error(err)
         }
     }
-    const options = [
+    const categoryOptions = [
         { value: 'graphics design', label: 'Graphics & Design' },
         { value: 'digital marketing', label: 'Digital Marketing' },
         { value: 'writing translation', label: 'Writing & Translation' },
@@ -88,116 +96,94 @@ export function GigEdit() {
         { value: 'lifestyle', label: 'Lifestyle' },
         { value: 'trending', label: 'Trending' },
     ]
+    const doneDayOptions = [
+        { value: '1', label: '1 days Delivery' },
+        { value: '2', label: '2 days Delivery' },
+        { value: '3', label: '3 days Delivery' },
+        { value: '4', label: '4 days Delivery' },
+        { value: '5', label: '5 days Delivery' },
+        { value: '6', label: '6 days Delivery' },
+        { value: '7', label: '7 days Delivery' },
+        { value: '14', label: '14 days Delivery' },
+        { value: '21', label: '21 days Delivery' },
+        { value: '30', label: '30 days Delivery' },
+        { value: '45', label: '45 days Delivery' },
+        { value: '60', label: '60 days Delivery' },
+        { value: '75', label: '75 days Delivery' },
+        { value: '90', label: '90 days Delivery' },
+    ]
     return (
         <section className='gig-edit full'>
             <form onSubmit={onAddGig}>
                 <section className='edit-section'>
-                    <div class='gig-title'>
+                    <div class='gig-edit-title'>
                         <h1>Gig title</h1>
                         <p>As your Gig storefront, your title is the most important place to include keywords that buyers would likely use to search for a service like yours.</p>
                     </div>
-                    <div class='gig-description'>
-                        <input className='text-input' type='text' name='title' maxlength='80' value={gigToEdit.title} onChange={handleChange}></input>
+                    <div class='gig-title-desc'>
+                        <textarea className='text-input-area' type='text' name='title' maxlength='80' value={gigToEdit.title} onChange={handleChange}></textarea>
                     </div>
                     <div class='gig-category'>
                         <h1>Category</h1>
-                        <p>Choose the category and sub-category most suitable for your Gig.</p>
+                        <p>Choose the categories that are most suitable for your Gig.</p>
                     </div>
                     <div class='gig-selectors'>
-                        <div className='categories'>
-                            <input placeholder='SELECT A CATEGORY' className='category-select' type='select'></input>
-                            <input placeholder='SELECT A SUBCATEGORY' className='category-select' type='select'></input>
-                        </div>
+                        <Select
+                            isMulti
+                            name='tags'
+                            options={categoryOptions}
+                            theme={(theme) => ({ ...theme, borderRadius: 4, colors: { ...theme.colors, primary: 'black' } })}
+                            classNamePrefix='select'
+                            onChange={handleChangeTags}
+                        />
                     </div>
-                    <div class='gig-tags'>
-                        <h1>Search tags</h1>
-                        <p>Tag your Gig with buzz words that are relevant to the services you offer. Use all 5 tags to get found.</p>
+
+                    <div className='desc-info'>
+                        <h1>Description</h1>
+                        <p>Briefly Describe Your Gig</p>
                     </div>
-                    <div class='gig-keywords'>
-                        <h1>Positive keywords</h1>
-                        <p>Enter search terms you feel your buyers will use when looking for your service.</p>
-                        <input type='text' name='tags' value={gigToEdit.tags} onChange={handleChange}></input>
-                        <p>5 tags maximum. Use letters and numbers only.</p>
+                    <div className='gig-description'>
+                        <textarea className='text-input-area' type='search' pattern='.{50,1200}' name='description' value={gigToEdit.description} onChange={handleChange}></textarea>
                     </div>
-                </section>
 
-                <button className='save-btn'>Save & continue</button>
-
-                {/* ////////////////////////next page//////////////////////////////////// */}
-
-                <div className='description-section'>
-                    <Select isMulti name='tags' options={options} className='basic-multi-select' classNamePrefix='select' onChange={handleChangeTags}/>
-
-                    <h1>Description</h1>
-                    <hr />
-                    <p>Briefly Describe Your Gig</p>
-                    <hr />
-                    <div class='gig-description'>
-                        <input className='text-input' type='search' pattern='.{50,1200}' name='description' value={gigToEdit.description} onChange={handleChange}></input>
-                    </div>
                     <div className='gig-price'>
                         <h1>Scope & Pricing</h1>
-                        <hr />
                         <label htmlFor='gig-price'>Price: </label>
-                        <input id='gig-price' type='number' name='price' value={gigToEdit.price} onChange={handleChange}></input>
-                        <label htmlFor='gig-time'>Delivery Time </label>
-                        <select id='gig-time' type='select'>
-                            <option name='daysToMake' value='1'>
-                                1 days Delivery
-                            </option>
-                            <option name='daysToMake' value='2'>
-                                2 days Delivery
-                            </option>
-                            <option name='daysToMake' value='3'>
-                                3 days Delivery
-                            </option>
-                            <option name='daysToMake' value='4'>
-                                4 days Delivery
-                            </option>
-                            <option name='daysToMake' value='5'>
-                                5 days Delivery
-                            </option>
-                            <option name='daysToMake' value='10'>
-                                10 days Delivery
-                            </option>
-                            <option name='daysToMake' value='14'>
-                                14 days Delivery
-                            </option>
-                            <option name='daysToMake' value='21'>
-                                21 days Delivery
-                            </option>
-                            <option name='daysToMake' value='30'>
-                                30 days Delivery
-                            </option>
-                            <option name='daysToMake' value='45'>
-                                45 days Delivery
-                            </option>
-                            <option name='daysToMake' value='60'>
-                                60 days Delivery
-                            </option>
-                            <option name='daysToMake' value='75'>
-                                75 days Delivery
-                            </option>
-                            <option name='daysToMake' value='90'>
-                                90 days Delivery
-                            </option>
-                        </select>
-                        <button className='save-btn'>Save & continue</button>
+                        <input className='price-input' id='gig-price' type='number' name='price' value={gigToEdit.price} onChange={handleChange}></input>
                     </div>
-                </div>
-                {/* ////////////////////////next page//////////////////////////////////// */}
-
-                <div className='gallery-section'>
-                    <h1>Showcase Your Services In A Gig Gallery</h1>
-                    <p>Encourage buyers to choose your Gig by featuring a variety of your work.</p>
-                    <hr />
-                    <input onChange={uploadImg} type='file' />
-                    <h2>Images (up to 3)</h2>
-                    <p>Get noticed by the right buyers with visual examples of your services.</p>
-                </div>
-                <button type='submit' className='save-btn'>
-                    Publish
-                </button>
+                    <div className='gig-done-days-container'>
+                        <label htmlFor='gig-done-days'>Delivery Time </label>
+                        <Select
+                            name='tags'
+                            options={doneDayOptions}
+                            theme={(theme) => ({ ...theme, borderRadius: 4, colors: { ...theme.colors, primary: 'black' } })}
+                            classNamePrefix='select'
+                            onChange={handleChangeDaysToDo}
+                        />
+                    </div>
+                    <div className='gallery-info'>
+                        <h1>Showcase Your Services In A Gig Gallery</h1>
+                        <p>Encourage buyers to choose your Gig by featuring a variety of your work.</p>
+                    </div>
+                    <div className='gallery-upload'>
+                        <input onChange={uploadImg} type='file' />
+                        <h1>Images (up to 3)</h1>
+                        <p>Get noticed by the right buyers with visual examples of your services.</p>
+                    </div>
+                    <div className='about-info'>
+                        <h1>About you</h1>
+                        <p>A few words about you expirience.</p>
+                    </div>
+                    <div className='about-inputs'>
+                        <label htmlFor='about-info'>About you:</label>
+                        <input className='text-input' name='about' id='about-info' onChange={handleChange} type='text' />
+                        <label htmlFor='about-country'>Country:</label>
+                        <input className='text-input' name='country' id='about-country' onChange={handleChange} type='text' />
+                    </div>
+                    <button type='submit' className='save-btn' disabled={!isReadyPublish}>
+                        Publish {isImgLoading && <i className='fa fa-spinner fa-spin'></i>}
+                    </button>
+                </section>
             </form>
         </section>
     )

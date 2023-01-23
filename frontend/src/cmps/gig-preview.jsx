@@ -10,7 +10,9 @@ export function GigPreview({ gig, orderPagePreview}) {
             <li className='gig-preview flex' key={gig._id}>
                 <img className='preview-img' src={`${gig.imgUrls[0]}`} />
                 <div className='owner-info'>
+                <div className='owner-icon-container'>
                     <img className='owner-icon' src={`${gig.owner.imgUrl}`} />
+                    </div>
                     <h4>{gig.owner.fullname}</h4>
                 </div>
                 <p>{gig.description.substring(0, 65) + '...'}</p>

@@ -7,32 +7,40 @@
     h1 {
         color: $clr1;
     }
-    p {
+    p,
+    label {
         color: $clr21;
     }
     .edit-section {
         margin-top: 80px;
         display: grid;
         grid-template-areas:
-            'gig-title gig-description gig-description'
+            'gig-edit-title gig-title-desc gig-title-desc'
             'gig-category gig-selectors gig-selectors'
-            'gig-tags gig-keywords gig-keywords';
+            'desc-info gig-description gig-description'
+            'gig-price gig-done-days gig-done-days'
+            'gallery-info gallery-upload gallery-upload'
+            'about-info about-inputs about-inputs'
+            'save-btn save-btn save-btn';
         gap: 32px;
         padding: 29px;
         background-color: $clr-1;
         width: 835px;
         border-radius: 5px 5px 0px 0px;
 
-        .gig-title {
-            grid-area: gig-title;
+        .gig-edit-title {
+            grid-area: gig-edit-title;
         }
-        .gig-description {
-            grid-area: gig-description;
+        .gig-title-desc {
+            margin-top: 18.7px;
+            grid-area: gig-title-desc;
+            width: 535px;
         }
         .gig-category {
             grid-area: gig-category;
         }
         .gig-selectors {
+            margin-top: 18.7px;
             grid-area: gig-selectors;
         }
         .gig-tags {
@@ -41,60 +49,77 @@
         .gig-keywords {
             grid-area: gig-keywords;
         }
-
-        h1 {
-            font-size: 16px;
-            line-height: 1.5;
-            margin: 0;
+        .desc-info {
+            grid-area: desc-info;
         }
 
-        p {
-            font-size: 14px;
-            line-height: 1.3125;
+        .gig-description {
+            margin-top: 18.7px;
+            grid-area: gig-description;
+        }
+        .gig-price {
+            grid-area: gig-price;
+
+            .price-input {
+                height: 38px;
+                border: 1px solid $clr13;
+                border-radius: 4px;
+            }
+        }
+        .gig-done-days {
+            grid-area: gig-done-days;
+        
+        }
+        .gallery-info {
+            grid-area: gallery-info;
         }
 
+        .gallery-upload {
+            margin-top: 18.7px;
+            grid-area: gallery-upload;
+        }
+.about-info{
+    grid-area: about-info;
+}
+.about-inputs{
+    grid-area: about-inputs;
+}
         .text-input {
             width: 535px;
+            height: 38px;
+            border: 1px solid $clr13;
+            border-radius: 4px;
         }
-
-        .categories {
-            display: flex;
-            justify-content: space-between;
+        .text-input-area {
+            width: 535px;
+            height: 80px;
+            border: 1px solid $clr13;
+            border-radius: 4px;
         }
-
         .category-select {
             width: 250px;
             height: 24px;
         }
-    }
 
-    .save-btn {
-        width: 178px;
-        height: 48;
-        border-radius: 4px;
-        box-shadow: none;
-        background-color: $clr2;
-        color: white;
-        font-weight: 700;
-        border: none;
-        line-height: 1.5;
-    }
-
-    .description-section {
-        h1 {
-            font-size: 16px;
+        .save-btn {
+            grid-area: save-btn;
+            width: 178px;
+            height: 48;
+            border-radius: 4px;
+            box-shadow: none;
+            background-color: $clr2;
+            color: white;
+            font-weight: 700;
+            border: none;
             line-height: 1.5;
-            margin: 0;
+            grid-column: 3;
+            justify-self:flex-end;
         }
 
-        p {
-            font-size: 14px;
-            line-height: 1.3125;
+        .gig-done-days-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
         }
-        label {
-            color: $clr1;
-        }
-
-
     }
 }
