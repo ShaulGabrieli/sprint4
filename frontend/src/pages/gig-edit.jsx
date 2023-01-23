@@ -86,12 +86,12 @@ export function GigEdit() {
         }
     }
     const categoryOptions = [
-        { value: 'graphics design', label: 'Graphics & Design' },
-        { value: 'digital marketing', label: 'Digital Marketing' },
-        { value: 'writing translation', label: 'Writing & Translation' },
-        { value: 'video animation', label: 'Video & Animation' },
-        { value: 'music audio', label: 'Music & Audio' },
-        { value: 'programming tech', label: 'Programming & Tech' },
+        { value: 'graphics-design', label: 'Graphics & Design' },
+        { value: 'digital-marketing', label: 'Digital Marketing' },
+        { value: 'writing-translation', label: 'Writing & Translation' },
+        { value: 'video-animation', label: 'Video & Animation' },
+        { value: 'music-audio', label: 'Music & Audio' },
+        { value: 'programming-tech', label: 'Programming & Tech' },
         { value: 'business', label: 'Business' },
         { value: 'lifestyle', label: 'Lifestyle' },
         { value: 'trending', label: 'Trending' },
