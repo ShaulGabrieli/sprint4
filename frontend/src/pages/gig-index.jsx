@@ -10,6 +10,7 @@ import {
 import { Link, useSearchParams } from "react-router-dom";
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js";
 import { gigService } from "../services/gig.service.local.js";
+// import { gigService } from "../services/gig.service.js";
 import { GigPreview } from "../cmps/gig-preview.jsx";
 import { GigFilter } from "../cmps/gig-filter.jsx";
 import { setFilter } from "../store/gig.actions.js";

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { gigService } from '../services/gig.service.local.js'
+import { gigService } from '../services/gig.service.js'
 
 export function GigFilter({ onSetFilter, filterBy }) {
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
