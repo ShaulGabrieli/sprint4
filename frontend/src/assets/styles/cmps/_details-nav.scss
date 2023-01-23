@@ -1,38 +1,39 @@
 .details-nav {
     list-style-type: none;
-
     // padding: 4px;
     z-index: 5;
     position: sticky;
     background-color: white;
-    
     // top: 10px;
     // flex-shrink: 0;
-    
+    align-items: center;
+
     a {
-        // color: $clr4;
         text-decoration: none;
-        // box-shadow: 2px 18px 0 -7px $clr2;
-        //  border-bottom: 2px solid $clr2;
     }
 }
-.top-nav-details-item{
-    padding-bottom:20px;
-    // line-height: 53px;
+
+
+.top-nav-details-item {
+    padding-bottom: 15px;
+    font-size: em(14px);
+    color: $clr15;
+    font-weight: 700;
+    margin-right: 24px;
+    background-color: $clr-1;
+
+    &:hover {
+        color: $clr4;
+    }
 }
+
 .top-nav-details-selected {
-    color: $clr4;
-    border-bottom: 5px solid $clr2;
-    // box-shadow: 2px 18px 0 -7px $clr2;
+    color: $clr11;
+    border-bottom: 4px solid $clr2;
 }
 
-.top-nav{
-    top:0;
-}
-
-.left-container {
-    // padding: 10px 0 10px 0;
-
+.top-nav {
+    top: 0;
 }
 
 .details-actions {
@@ -46,6 +47,7 @@
     border-radius: 3px;
     cursor: pointer;
     align-items: center;
+    
 
 }
 
@@ -59,24 +61,10 @@
 
 .liked-gig-red {
     fill: $clr18;
-    // color: pink;
-    // stroke: $clr1;
-    // stroke-width: 1px;
 }
 
 .right-container {
     gap: 24px;
-    align-self: center;
-}
+    margin-top: 10px;
 
-.top-nav-details-item {
-    font-size: em(14px);
-    color: $clr15;
-    font-weight: 700;
-    margin-right: 24px;
- 
-    &:hover {
-        color: $clr4;
-    }
 }
-

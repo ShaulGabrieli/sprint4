@@ -67,9 +67,13 @@ export function GigDetails({ setIsGigDetails }) {
             <div className="top-nav sticky">
                 < DetailsNav gig={gig} />
             </div>
+            <div className="hr-top-details full">
+            <hr/></div>
             {/* <div className="main-details-container"> */}
-            <div className="hr-details-nav full"><hr/></div>
+            {/* <div className="hr-details-nav ">
+                </div> */}
             <section className="gig-details-page flex">
+                
                 <div className="gig-details">
                     <div id="overview" className="gig-overview">
                         <div className="gig-details-breadcrumbs arrow-svg">Breadcrumbs <Arrow /> </div>
@@ -164,6 +168,8 @@ export function GigDetails({ setIsGigDetails }) {
                                 {gig.reviews.map(review => {
                                     return (
                                         <div className="reviews-container">
+                                             <div className="hr-top-details ">
+                                                <hr/></div>
                                             {/* <img src={require(`../assets/img/details/demo-details2.jpg`)} /> */}
                                             {/* <p className="review-preview">{review.txt}</p> */}
                                             <ReviewPreview review={review} detailsReviews={true} className="review-main-details" />
