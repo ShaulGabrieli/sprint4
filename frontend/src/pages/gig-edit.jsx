@@ -1,3 +1,4 @@
+import Select from 'react-select'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -16,10 +17,22 @@ export function GigEdit() {
         gigService.getById(gigId).then(setGigToEdit)
     }, [])
 
-    function handleChange({ target }) {
+    function handleChange( {target} ) {
+       
         let { value, type, name: field } = target
         value = type === 'number' ? +value : value
         setGigToEdit((prevGig) => ({ ...prevGig, [field]: value }))
+    }
+
+    function handleChangeTags( tags ) {
+        const selectedTags = []
+       console.log('gigToEdit', tags);
+       tags.forEach(tag => {
+        let { value } = tag
+        selectedTags.push(value)
+       });
+        console.log('selectedTags', selectedTags);
+        setGigToEdit((prevGig) => ({ ...prevGig, tags: selectedTags }))
     }
 
     async function onAddGig(ev) {
@@ -36,26 +49,25 @@ export function GigEdit() {
     }
 
     const uploadImg = async (event) => {
-        console.log('dsdsddsdsdsd', event);
-        //Defining our variables 
+        //Defining our variables
         const CLOUD_NAME = 'dyfo5gyda'
         const UPLOAD_PRESET = 'otvk6yqj'
         const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
-        const FORM_DATA = new FormData();
-    
+        const FORM_DATA = new FormData()
+
         //Bulding the request body
         FORM_DATA.append('file', event.target.files[0])
-        FORM_DATA.append('upload_preset', UPLOAD_PRESET);
+        FORM_DATA.append('upload_preset', UPLOAD_PRESET)
         // Sending a post method request to Cloudinarys API
         try {
             const res = await fetch(UPLOAD_URL, {
                 method: 'POST',
                 body: FORM_DATA,
-                mode: 'cors'
+                mode: 'cors',
             })
-            const elImg = document.createElement('img');
-            const { url }  = await res.json()
-            console.log('url', url);
+            const elImg = document.createElement('img')
+            const { url } = await res.json()
+            console.log('url', url)
             const urls = gigToEdit.imgUrls
             urls.push(url)
             setGigToEdit((prevGig) => ({ ...prevGig, imgUrls: urls }))
@@ -64,9 +76,18 @@ export function GigEdit() {
         } catch (err) {
             console.error(err)
         }
-    
     }
-
+    const options = [
+        { value: 'graphics design', label: 'Graphics & Design' },
+        { value: 'digital marketing', label: 'Digital Marketing' },
+        { value: 'writing translation', label: 'Writing & Translation' },
+        { value: 'video animation', label: 'Video & Animation' },
+        { value: 'music audio', label: 'Music & Audio' },
+        { value: 'programming tech', label: 'Programming & Tech' },
+        { value: 'business', label: 'Business' },
+        { value: 'lifestyle', label: 'Lifestyle' },
+        { value: 'trending', label: 'Trending' },
+    ]
     return (
         <section className='gig-edit full'>
             <form onSubmit={onAddGig}>
@@ -105,50 +126,78 @@ export function GigEdit() {
                 {/* ////////////////////////next page//////////////////////////////////// */}
 
                 <div className='description-section'>
+                    <Select isMulti name='tags' options={options} className='basic-multi-select' classNamePrefix='select' onChange={handleChangeTags}/>
+
                     <h1>Description</h1>
                     <hr />
                     <p>Briefly Describe Your Gig</p>
                     <hr />
                     <div class='gig-description'>
-                        <textarea className='text-input' type='text' maxlength='1200' name='description' value={gigToEdit.description} onChange={handleChange}></textarea>
+                        <input className='text-input' type='search' pattern='.{50,1200}' name='description' value={gigToEdit.description} onChange={handleChange}></input>
                     </div>
                     <div className='gig-price'>
-                    <h1>Scope & Pricing</h1>
-                    <hr />
-                    <label htmlFor='gig-price'>Price: </label>
-                    <input id='gig-price' type='number'  name='price' value={gigToEdit.price} onChange={handleChange}></input>
-                    <label htmlFor='gig-time'>Delivery Time </label>
-                    <select id='gig-time' type='select'>
-                        <option name='daysToMake' value='1'>1 days Delivery</option>
-                        <option name='daysToMake' value='2'>2 days Delivery</option>
-                        <option name='daysToMake' value='3'>3 days Delivery</option>
-                        <option name='daysToMake' value='4'>4 days Delivery</option>
-                        <option name='daysToMake' value='5'>5 days Delivery</option>
-                        <option name='daysToMake' value='10'>10 days Delivery</option>
-                        <option name='daysToMake' value='14'>14 days Delivery</option>
-                        <option name='daysToMake' value='21'>21 days Delivery</option>
-                        <option name='daysToMake' value='30'>30 days Delivery</option>
-                        <option name='daysToMake' value='45'>45 days Delivery</option>
-                        <option name='daysToMake' value='60'>60 days Delivery</option>
-                        <option name='daysToMake' value='75'>75 days Delivery</option>
-                        <option name='daysToMake' value='90'>90 days Delivery</option>
-                    </select>
-                    <button className='save-btn'>Save & continue</button>
+                        <h1>Scope & Pricing</h1>
+                        <hr />
+                        <label htmlFor='gig-price'>Price: </label>
+                        <input id='gig-price' type='number' name='price' value={gigToEdit.price} onChange={handleChange}></input>
+                        <label htmlFor='gig-time'>Delivery Time </label>
+                        <select id='gig-time' type='select'>
+                            <option name='daysToMake' value='1'>
+                                1 days Delivery
+                            </option>
+                            <option name='daysToMake' value='2'>
+                                2 days Delivery
+                            </option>
+                            <option name='daysToMake' value='3'>
+                                3 days Delivery
+                            </option>
+                            <option name='daysToMake' value='4'>
+                                4 days Delivery
+                            </option>
+                            <option name='daysToMake' value='5'>
+                                5 days Delivery
+                            </option>
+                            <option name='daysToMake' value='10'>
+                                10 days Delivery
+                            </option>
+                            <option name='daysToMake' value='14'>
+                                14 days Delivery
+                            </option>
+                            <option name='daysToMake' value='21'>
+                                21 days Delivery
+                            </option>
+                            <option name='daysToMake' value='30'>
+                                30 days Delivery
+                            </option>
+                            <option name='daysToMake' value='45'>
+                                45 days Delivery
+                            </option>
+                            <option name='daysToMake' value='60'>
+                                60 days Delivery
+                            </option>
+                            <option name='daysToMake' value='75'>
+                                75 days Delivery
+                            </option>
+                            <option name='daysToMake' value='90'>
+                                90 days Delivery
+                            </option>
+                        </select>
+                        <button className='save-btn'>Save & continue</button>
                     </div>
                 </div>
                 {/* ////////////////////////next page//////////////////////////////////// */}
 
                 <div className='gallery-section'>
-                
                     <h1>Showcase Your Services In A Gig Gallery</h1>
                     <p>Encourage buyers to choose your Gig by featuring a variety of your work.</p>
-                    <hr/>
-                    <input onChange={uploadImg} type="file" />
+                    <hr />
+                    <input onChange={uploadImg} type='file' />
                     <h2>Images (up to 3)</h2>
                     <p>Get noticed by the right buyers with visual examples of your services.</p>
-                    
                 </div>
-                <button type='submit' className='save-btn'>Publish</button>
+                <button type='submit' className='save-btn'>
+                    Publish
+                </button>
             </form>
         </section>
     )

@@ -7,7 +7,7 @@ import {
   removeGig,
   addToCart,
 } from "../store/gig.actions.js";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js";
 import { gigService } from "../services/gig.service.local.js";
 import { GigPreview } from "../cmps/gig-preview.jsx";
@@ -17,6 +17,8 @@ import { setFilter } from "../store/gig.actions.js";
 export function GigIndex() {
   const gigs = useSelector((storeState) => storeState.gigModule.gigs);
   const filterBy = useSelector((storeState) => storeState.filterModule.filterBy)
+  const [searchParams, setSearchParams] = useSearchParams()
+  const queryFilterBy = gigService.getFilterFromSearchParams(searchParams)
   // const [filterBy, setFilterBy] = useState(gigService.getDefaultFilter());
   // useEffect(() => {
   //   loadGigs();
@@ -41,8 +43,9 @@ export function GigIndex() {
       showErrorMsg("Cannot add gig");
     }
   }
-  function onSetFilter(filterByFromFilter) {
-    setFilter(filterByFromFilter);
+  function onSetFilter(filterBy) {
+    setSearchParams(filterBy)
+    setFilter(filterBy);
   }
   async function onUpdateGig(gig) {
     const price = +prompt("New price?");
@@ -76,7 +79,7 @@ export function GigIndex() {
 
   return (
     <div className="gig-index main-container">
-      <GigFilter onSetFilter={onSetFilter} />
+      <GigFilter filterBy={queryFilterBy} onSetFilter={onSetFilter} />
 
       {/* <section className="top-bars">
         <div className="top-left-bar">

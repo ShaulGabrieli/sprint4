@@ -12,23 +12,24 @@ export const gigService = {
   getEmptyGig,
   addGigMsg,
   getDefaultFilter,
+  getFilterFromSearchParams,
 };
 window.cs = gigService;
 
 async function query(filterBy = getDefaultFilter()) {
   var gigs = await storageService.query(STORAGE_KEY);
-  console.log(filterBy, "filterBy");
+  // console.log(filterBy, "filterBy");
   if (filterBy.title) {
     const regex = new RegExp(filterBy.title, "i");
     gigs = gigs.filter(
       (gig) => regex.test(gig.title) || regex.test(gig.description)
     );
-    console.log("gigs", gigs);
+    // console.log("gigs", gigs);
   }
 
   if (filterBy.daysToMake) {
     gigs = gigs.filter((gig) => gig.daysToMake <= filterBy.daysToMake);
-    console.log("gigs", gigs);
+    // console.log("gigs", gigs);
   }
 
   if (filterBy.price) {
@@ -151,3 +152,11 @@ function getDefaultFilter() {
 
 // TEST DATA
 // storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))
+function getFilterFromSearchParams(searchParams) {
+  const emptyFilter = getDefaultFilter()
+  const filterBy = {}
+  for (const field in emptyFilter) {
+      filterBy[field] = searchParams.get(field) || ''
+  }
+  return filterBy
+}

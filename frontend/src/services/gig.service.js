@@ -13,6 +13,7 @@ export const gigService = {
   getEmptyGig,
   addGigMsg,
   getDefaultFilter,
+  getFilterFromSearchParams,
 };
 window.cs = gigService;
 
@@ -77,6 +78,15 @@ function getDefaultFilter() {
     tags: "All",
     daysToMake: 0,
   };
+}
+
+function getFilterFromSearchParams(searchParams) {
+  const emptyFilter = getDefaultFilter()
+  const filterBy = {}
+  for (const field in emptyFilter) {
+      filterBy[field] = searchParams.get(field) || ''
+  }
+  return filterBy
 }
 
 
