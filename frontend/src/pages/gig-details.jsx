@@ -1,6 +1,5 @@
 // import {ReactComponent} from 'react'
 
-
 import { Carousel } from 'react-responsive-carousel';
 import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 import { useEffect, useState } from 'react'
@@ -68,19 +67,19 @@ export function GigDetails({ setIsGigDetails }) {
                 < DetailsNav gig={gig} />
             </div>
             <div className="hr-top-details full">
-            <hr/></div>
+                <hr /></div>
             {/* <div className="main-details-container"> */}
             {/* <div className="hr-details-nav ">
                 </div> */}
             <section className="gig-details-page flex">
-                
+
                 <div className="gig-details">
                     <div id="overview" className="gig-overview">
                         <div className="gig-details-breadcrumbs arrow-svg">Breadcrumbs <Arrow /> </div>
                         <div className="gig-title"> {gig.title}</div>
-                        <div className="seller-overview reviewer-img flex"><img src={require("../assets/img/details/user-demo.jpg")}/>
-                        <span className="seller-name fs14"  > {gig.owner.fullname}</span>  
-                        <StarsRating rate={gig.owner.rate} /></div>
+                        <div className="seller-overview reviewer-img flex"><img src={require("../assets/img/details/user-demo.jpg")} />
+                            <span className="seller-name fs14"  > {gig.owner.fullname}</span>
+                            <StarsRating rate={gig.owner.rate} /></div>
                     </div>
                     <div className="gig-gallery">
                         <Carousel showIndicators={false}  >
@@ -118,7 +117,8 @@ export function GigDetails({ setIsGigDetails }) {
                         <div className="reviews-carusel">
 
                             <Carousel showIndicators={false} showThumbs={false}>
-                                {gig.reviews.map(review => {
+                                {gig.reviews?.map(review => {
+                                    console.log('review', review)
                                     return (
                                         <div className="reviews-container">
                                             {/* <img src={require(`../assets/img/details/demo-details2.jpg`)} /> */}
@@ -162,23 +162,25 @@ export function GigDetails({ setIsGigDetails }) {
                             </div>
                             <div className="full-main-reviews flex column">
                                 <div className="main-reviews-container">
-                                <div className="main-reviews-header">  
-                                Reviews
-                               </div>
-                                {gig.reviews.map(review => {
-                                    return (
-                                        <div className="reviews-container">
-                                             <div className="hr-top-details ">
-                                                <hr/></div>
-                                            {/* <img src={require(`../assets/img/details/demo-details2.jpg`)} /> */}
-                                            {/* <p className="review-preview">{review.txt}</p> */}
-                                            <ReviewPreview review={review} detailsReviews={true} className="review-main-details" />
-                                        </div>
-                                        
-                                    )
-                                    
-                                })}
-                                 </div>
+                                    <div className="main-reviews-header">
+                                        Reviews
+                                    </div>
+                                    {gig.reviews.map(review => {
+                                        console.log('review', review)
+                                        return (
+
+                                            <div className="reviews-container">
+                                                <div className="hr-top-details ">
+                                                    <hr /></div>
+                                                {/* <img src={require(`../assets/img/details/demo-details2.jpg`)} /> */}
+                                                {/* <p className="review-preview">{review.txt}</p> */}
+                                                <ReviewPreview review={review} detailsReviews={true} className="review-main-details" />
+                                            </div>
+
+                                        )
+
+                                    })}
+                                </div>
                             </div>
                             <div className="stats-desc">
                                 {/* check if needed */}

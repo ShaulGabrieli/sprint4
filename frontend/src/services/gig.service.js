@@ -18,12 +18,22 @@ export const gigService = {
 window.cs = gigService;
 
 async function query(filterBy = getDefaultFilter()) {
-  return httpService.get(STORAGE_KEY, filterBy);
+  return httpService.get('gig');
 }
 
-function getById(gigId) {
+async function getById(gigId) {
+  try {
+    const gig = await httpService.get(`gig/${gigId}`)
+    console.log('gig', gig)
+    return gig
+  }
+  catch (err) {
+    console.log('cant load gig', err);
+    throw err
+  }
+ 
   // return storageService.get(STORAGE_KEY, gigId)
-  return httpService.get(`gig/${gigId}`);
+  
 }
 
 async function remove(gigId) {
@@ -50,26 +60,26 @@ async function addGigMsg(gigId, txt) {
 }
 
 function getEmptyGig() {
-    return {
-        "title": "",
-        "price": 0,
-        "owner": {
-            "_id": "",
-            "fullname": "",
-            "imgUrl": "",
-            "level": "basic",
-            "rate": 1
-        },
-        "daysToMake": 1,
-        "description": "",
-        "imgUrls": [],
-        "tags": [    
-        ],
-        "likedByUsers": [
-        ],
-        "totalLikes": 0
-    }
- 
+  return {
+    "title": "",
+    "price": 0,
+    "owner": {
+      "_id": "",
+      "fullname": "",
+      "imgUrl": "",
+      "level": "basic",
+      "rate": 1
+    },
+    "daysToMake": 1,
+    "description": "",
+    "imgUrls": [],
+    "tags": [
+    ],
+    "likedByUsers": [
+    ],
+    "totalLikes": 0
+  }
+
 }
 function getDefaultFilter() {
   return {
@@ -84,7 +94,7 @@ function getFilterFromSearchParams(searchParams) {
   const emptyFilter = getDefaultFilter()
   const filterBy = {}
   for (const field in emptyFilter) {
-      filterBy[field] = searchParams.get(field) || ''
+    filterBy[field] = searchParams.get(field) || ''
   }
   return filterBy
 }

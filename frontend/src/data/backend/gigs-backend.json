@@ -1,0 +1,231 @@
+[
+    {
+        "title":"I will create a website for you",
+        "about":"Hi reader, thanks for your time. I'm an experienced young artist and i specialize in 3D animation, graphic designing and pencil Art. I'm familiar with word processing application. Kindly hit me up if if you need any of my services.",
+        "price": 20,
+        "owner": {
+            "_id": new ObjectId(),
+            "fullname": "Sara Smith",
+            "imgUrl": "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674122150/Sprint%204/Users%20img%20and%20gig%20img/u102/user%20img/pexels-andrea-piacquadio-733872_vbsndd.jpg",
+            "level":"basic/premium",
+            "rate": 5
+        },
+        "country":"Ghana",
+      "daysToMake":26,
+      "description":"Design and develop a fully-functional website that meets your needs and specifications.",
+        "imgUrls": ["https://res.cloudinary.com/dyfo5gyda/image/upload/v1674126139/Sprint%204/Users%20img%20and%20gig%20img/u102/1_ericsh.jpg", "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674126140/Sprint%204/Users%20img%20and%20gig%20img/u102/2_dst8jl.jpg", "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674126139/Sprint%204/Users%20img%20and%20gig%20img/u102/3_rhwlrm.jpg"],
+        "tags": [
+            "website-design",
+            "development",
+            "responsive",
+            "e-commerce"
+        ],
+        "likedByUsers": [
+            {
+                "_id": new ObjectId(),
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1,
+        "reviews":[
+            {
+              "name":"tobiaspille300",
+              "country":"Thailand",
+              "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png",
+              "review":"frederickkessie ist a super kind artist doing the process he was super professional and only took him 1 shot to deliver a perfect result ! Highly recommended work with this guy !",
+              "reviewedAt":"Published 2 months ago"
+            },
+            {
+              "name":"liam31",
+              "country":"United Kingdom",
+              "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+              "review":"I requested a slightly earlier delivery on this and once again Frederick came through and provided a fantastic delivery. Thanks so much!",
+              "reviewedAt":"Published 3 weeks ago"
+            },
+            {
+              "name":"liam31",
+              "country":"United Kingdom",
+              "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+              "review":"Frederick is amazing and extremely talented. This is the second time working with him and he has been a pleasure yet again!",
+              "reviewedAt":"Published 3 weeks ago"
+            },
+            {
+              "name":"larsonraz",
+              "country":"United States",
+              "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+              "review":"Very detailed",
+              "reviewedAt":"Published 1 week ago"
+            },
+            {
+              "name":"stevekaszycki",
+              "country":"United States",
+              "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+              "review":"very nice portrait, very good quality.",
+              "reviewedAt":"Published 2 weeks ago"
+            }
+            ]
+    },
+    {
+      
+        "title": "I will write an ebook for you",
+        "about":"Hello, this is Masuk, stand up for vividstore,I am a young and enthusiastic graphic artist and realistic pencil sketch artist. I am certified as graphic designer from George Washington University, USA. I have almost 11 years experience in this field since my university life. I really love to work with Adobe Illustrator, Adobe Photoshop, and so on as a full time online freelancer. And also passionate about sketching. Thank you.",
+        "price": 15,
+        "owner": {
+            "_id": new ObjectId(),
+            "fullname": "John Doe",
+            "imgUrl": "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674126662/Sprint%204/Users%20img%20and%20gig%20img/u103/pexels-pixabay-220453_xx3vs9.jpg",
+            "level":"basic/premium",
+            "rate": 4
+        },
+        "country":"Bangladesh",
+      "daysToMake":24,
+        "description": "I will write a high-quality ebook on any topic of your choice",
+        "imgUrls": ["https://res.cloudinary.com/dyfo5gyda/image/upload/v1674126657/Sprint%204/Users%20img%20and%20gig%20img/u103/Untitled_uw8l92.png", "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674126647/Sprint%204/Users%20img%20and%20gig%20img/u103/scs_bhfnb4.png", "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674126647/Sprint%204/Users%20img%20and%20gig%20img/u103/cvcv_zzfrc8.png"],
+        "tags": [
+            "ebook-writing",
+            "creative-writing",
+            "non-fiction",
+            "fiction"
+        ],
+        "likedByUsers": [
+            {
+                "_id": new ObjectId(),
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1
+    },
+    {
+     
+        "title": "I will create a professional video animation",
+        "about":"Hello! I'm a brazilian artist specialized in hyperrealistic drawings and paintings of human figures and animals, i use a diversity of techniques like Oil painting, dry pastel drawing and pencil. I have over 30 years of experience, check out my portfolio.",
+        "price": 25,
+        "owner": {
+            "_id": new ObjectId(),
+            "fullname": "Jessica Johnson",
+            "imgUrl": "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674127077/Sprint%204/Users%20img%20and%20gig%20img/u104/pexels-andrea-piacquadio-774909_eclhhb.jpg",
+            "level":"basic/premium",
+            "rate": 5
+        },
+        "daysToMake": 5,
+        "description": "I will create a professional, high-quality animation video to promote your business or product.",
+        "imgUrls": ["https://res.cloudinary.com/dyfo5gyda/image/upload/v1674127080/Sprint%204/Users%20img%20and%20gig%20img/u104/c_rhkijo.png", "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674127067/Sprint%204/Users%20img%20and%20gig%20img/u104/Untitled_rcmi8h.png", "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674127064/Sprint%204/Users%20img%20and%20gig%20img/u104/vvv_pshh2e.png"],
+        "tags": [
+            "animation",
+            "video-production",
+            "promotion",
+            "marketing"
+        ],
+        "likedByUsers": [
+            {
+                "_id": new ObjectId(),
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1,
+        "reviews":[
+            {
+              "name":"rachelrbarnes1",
+              "country":"United States",
+              "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+              "review":"Incredibly grateful for the amazing experience working with you . You are so talented and a kind soul! I highly recommend if you want high quality art to work with her every time",
+              "reviewedAt":"Published 1 month ago"
+            },
+            {
+              "name":"mark001994",
+              "country":"Austria",
+              "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e6-1f1f9.png",
+              "review":"The artist was very kind and polite also very fast at the communication. The delivery of the project was on time. And her work is worth the money. I'm really excited about the painting she did. I can truely recommend the Aritst and her work. Big Thanks! :)",
+              "reviewedAt":"Published 1 month ago"
+            },
+            {
+              "name":"thurstonrobby",
+              "country":"United States",
+              "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+              "review":"incredible on how precise that art is, picture perfect. 100% amazing job and I will use your services again ...",
+              "reviewedAt":"Published 3 weeks ago"
+            },
+            {
+              "name":"gavrielm",
+              "country":"Israel",
+              "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ee-1f1f1.png",
+              "review":"amazing saller and great work",
+              "reviewedAt":"Published 6 days ago"
+            },
+            {
+              "name":"garebear52",
+              "country":"United States",
+              "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+              "review":"Beautiful drawing! Just what I wanted.",
+              "reviewedAt":"Published 1 week ago"
+            }
+          ]
+    },
+    {
+      
+        "title": "I will do your data entry work",
+        "about":"My name is Mary , a graduate from Mount Kenya University, I am professional writer and my focus is to every single detail. I will transform your dream to reality. I am experienced in article, project/content writing for a couple of years. Furthermore, I have a long history of writing research-focused content and projects. My ultimate goal is to closely with my client to deliver quality and comprehensive project. Let's take your business to the next level. Thank you",
+        "price": 10,
+        "owner": {
+            "_id": new ObjectId(),
+            "fullname": "Robert Rodriguez",
+            "imgUrl": "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674127408/Sprint%204/Users%20img%20and%20gig%20img/u105/pexels-italo-melo-2379004_mapfig.jpg",
+            "level":"basic/premium",
+            "rate": 4
+        },
+        "country":"Kenya",
+        "daysToMake":28,
+        "description": "I will efficiently and accurately handle your data entry needs, including data entry, data cleaning, and data analysis",
+        "imgUrls": ["https://res.cloudinary.com/dyfo5gyda/image/upload/v1674127402/Sprint%204/Users%20img%20and%20gig%20img/u105/1_vavp3r.png", "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674127404/Sprint%204/Users%20img%20and%20gig%20img/u105/2_mezp2j.png", "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674127400/Sprint%204/Users%20img%20and%20gig%20img/u105/3_zcpokq.png"],
+        "tags": [
+            "data-entry",
+            "data-cleaning",
+            "data-analysis",
+            "excel"
+        ],
+        "likedByUsers": [
+            {
+                "_id": new ObjectId(),
+                "name": "John Doe"
+            }
+        ],
+        "totalLikes": 1,
+        "reviews":[
+            {
+              "name":"far832013",
+              "country":"Canada",
+              "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1e6.png",
+              "review":"I had a bad experience…. The work doesn’t match the requirement at all. Although l sent a specific and detailed question, l received a general answer. Not recommend and will not deal again.",
+              "reviewedAt":"Published 2 months ago"
+            },
+            {
+              "name":"rehanmirdk",
+              "country":"Denmark",
+              "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1f0.png",
+              "review":"She was excellent in communicating, using my references to write a proper academic paper in sociology, and finish in only 15 hours after getting questions. Most recommended seller!",
+              "reviewedAt":"Published 3 weeks ago"
+            },
+            {
+              "name":"raevyn22",
+              "country":"United States",
+              "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+              "review":"Exactly what I asked for",
+              "reviewedAt":"Published 8 hours ago"
+            },
+            {
+              "name":"raevyn22",
+              "country":"United States",
+              "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+              "review":"Always gets the job done",
+              "reviewedAt":"Published 1 day ago"
+            },
+            {
+              "name":"junyeongcho",
+              "country":"United States",
+              "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+              "review":"She could understand the contents and write well",
+              "reviewedAt":"Published 3 days ago"
+            }
+          ]
+    }]
+    
