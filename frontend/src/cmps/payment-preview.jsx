@@ -26,7 +26,7 @@ export function PaymentPreview({ paymentPlan, gig, onBuildOrder, setPlan }) {
             <div className="price-basic-container flex row space-between ">
                 <h4> {paymentPlan.title}</h4>
                 <div className="price-wrapper">
-                    <h4 className="price">$ {+(getGigPrice()).toFixed(2)}  </h4>
+                    <h4 className="price">${+(getGigPrice()).toFixed(2)}</h4>
                 </div>
             </div>
             <article>

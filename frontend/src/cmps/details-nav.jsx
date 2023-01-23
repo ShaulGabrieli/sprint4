@@ -29,8 +29,10 @@ export function DetailsNav({gig}) {
     }
     return (
         <div className="details-actions flex space-between ">
+            
             <div className="left-container flex ">
-                <ul className="details-nav flex   ">
+                
+                <ul className="details-nav main-nav flex   ">
 
                     <li>    <Link className={selectedTab === "overview" ? 'top-nav-details-item top-nav-details-selected' : 'top-nav-details-item'} to="#overview" onClick={() => onScroll('overview')} >Overview</Link></li>
                     <li>  <Link className={selectedTab === "description" ? 'top-nav-details-item top-nav-details-selected' : 'top-nav-details-item'} to="#description" onClick={() => onScroll('description')}>Description</Link></li>
@@ -41,19 +43,18 @@ export function DetailsNav({gig}) {
 
                 </ul>
             </div>
+            
             <div className="right-container flex row ">
                 <div className="add-to-lists-gig"><AddToList /></div>
                 <div className="liked-gig">{likedGig?<LikeGigFull onClick={onLikeGig}/>:<LikeGig onClick={onLikeGig}/>} </div>
                 <div className="report-gig"> <ReportGig />   </div>
                 <div className="share-gig"><ShareGig /></div>
             </div>
+            
             {/* <div className="collect"></div> */}
             {/* </div> */}
 
-
-
-
         </div>
-
+ 
     )
 }

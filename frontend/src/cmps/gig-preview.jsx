@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { FavSvg } from './git-preview-svgs/fav-svg'
 import { MenuSvg } from './git-preview-svgs/menu-svg'
+ 
 
 export function GigPreview({ gig, orderPagePreview}) {
     return (

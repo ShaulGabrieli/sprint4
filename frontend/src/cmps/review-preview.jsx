@@ -1,7 +1,7 @@
 import { utilService } from "../services/util.service";
 import { ReactComponent as Star } from '../assets/img/details/star.svg'
 import {StarsRating} from './stars-rating.jsx'
-export function ReviewPreview({ review }) {
+export function ReviewPreview({ review,detailsReviews }) {
 
     function getStars(rate) {
         let stars = []
@@ -13,8 +13,8 @@ export function ReviewPreview({ review }) {
 
 
     return (
-
-        <div className="review-preview">
+        // <div>  {detailsReviews && <div className="review-preview-details"> || <div className="review-preview">}
+      <div className="review-preview">
             <div className="reviewer flex">
                 <div className="reviewer-img reviewer-item "><img src={require("../assets/img/details/user-demo.jpg")}/></div>
                 <div className="reviewer-name reviewer-item">{review.by.fullname}</div>
@@ -28,6 +28,8 @@ export function ReviewPreview({ review }) {
                     <div className="review-date">{utilService.formatDate(review.createdAt)}</div>
                 </div>
             </div>
-        </div>
+            
+        </div> 
+        
     )
 }
