@@ -22,10 +22,11 @@ export function PopupOrderList() {
                return ''
         }
     }
-
+    
+    if (orders?.length === 0) return (<div> <h1>No Orders Yet!</h1> </div>)
     return (
         <div className="popup-gig-container flex column">
-            {orders.map((order) => (
+            {orders?.map((order) => (
                 <section className='flex column'>
                 <div className="subsub flex row">
                     <div> <img className="popup-gig-img" id="order-img-list" src={order.gig.imgUrls[0]} alt="" /></div>

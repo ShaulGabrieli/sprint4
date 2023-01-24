@@ -234,7 +234,7 @@ mail
 </span> */}
         {/* </div> */}
         {/* <div className="flex align-center"> */}
-        <a
+        <a className="orders-link"
           onClick={() => {
             setOpenOrders(!openOrders);
           }}

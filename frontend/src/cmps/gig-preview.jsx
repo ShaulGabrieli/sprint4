@@ -41,7 +41,7 @@ export function GigPreview({ gig, orderPagePreview}) {
                     </div>
                     <div className='price-container flex'>
                         { orderPagePreview  &&  <span className='price-preview'>PRICE</span> || <span className='price-preview'>STARTING AT</span>}
-                        <span className='price-tag'> ${gig.price}<sup className='sup-price-end'>00</sup></span>
+                      <span className='price-tag'> ${gig.price}  {!orderPagePreview && <sup className='sup-price-end'>00</sup>}</span>
                     </div>
                 </section>
             </li>
