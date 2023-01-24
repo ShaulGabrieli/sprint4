@@ -9,6 +9,7 @@ import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
 import { GigFilter } from './gig-filter.jsx'
 import { PopupMenu } from './popup-menu'
+import {PopupOrderList} from './popup-order-list.jsx'
 import { GigOrderList } from './gig-order-list.jsx'
 import { setFilter } from '../store/gig.actions.js'
 import { gigService } from '../services/gig.service.local'
@@ -21,7 +22,7 @@ export function AppHeader() {
     const user = useSelector((storeState) => storeState.userModule.user)
 
     useEffect(() => {
-      console.log('filterByToEdit111112222222', filterByToEdit);
+        console.log('filterByToEdit111112222222', filterByToEdit);
         // update father cmp that filters change very type
         onSetFilter(filterByToEdit)
     }, [filterByToEdit])
@@ -120,8 +121,12 @@ mail
                     <div className='pop-menu-orders-area'>
                         {openOrders && (
                             <PopupMenu>
-                                {' '}
+                                {/* {' '}
                                 <GigOrderList />{' '}
+                                 */}
+                               <PopupOrderList />
+
+
                             </PopupMenu>
                         )}
                     </div>
@@ -130,7 +135,7 @@ mail
                 {/* <a>
           <span class="material-symbols-outlined">account_circle</span>{" "}
         </a> */}
-        {/* {user &&<a className='user-info'>
+                {/* {user &&<a className='user-info'>
                      <Link to={`user/${user._id}`}>{user.imgUrl && <img src={user.imgUrl} />}</Link>
                 </a>} */}
                 {user &&

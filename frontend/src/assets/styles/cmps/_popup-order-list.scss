@@ -1,0 +1,19 @@
+
+.main-popup-container{
+    z-index: 10000;
+    background-color: $clr-1;
+}
+
+
+.main-popup-container,
+.popup-gig-img,
+.popup-gig-title,
+.order-gig-byseller,
+.order-gig-status {
+  border: 2px solid black;
+  line-height: 24px;
+}
+
+.popup-gig-img{
+  align-self: center;
+}
