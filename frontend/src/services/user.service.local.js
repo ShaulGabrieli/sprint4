@@ -72,7 +72,8 @@ async function login(userCred) {
         return saveLocalUser(user)
     }
 }
-async function signup(userCred) {
+async function signup(newUser) {
+    const userCred = {...newUser, wishList: [], level:["basic"], reviews: []}
     userCred.score = 10000
     if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
     const user = await storageService.post('user', userCred)
@@ -106,27 +107,27 @@ function getLoggedinUser() {
 }
 
 
-;(async ()=>{
-    const users = await userService.getUsers()
-    const irene = users.find(user => user.username === 'irene')
-    let user
-    if (!irene) {
-        user = await userService.signup({fullname: 'Irene', username: 'irene', password:'123', isAdmin: false})
-    }
-    else
-    {
-         user = await userService.login({username : 'irene', password: '123'})
+// ;(async ()=>{
+//     const users = await userService.getUsers()
+//     const irene = users.find(user => user.username === 'irene')
+//     let user
+//     if (!irene) {
+//         user = await userService.signup({fullname: 'Irene', username: 'irene', password:'123', isAdmin: false})
+//     }
+//     else
+//     {
+//          user = await userService.login({username : 'irene', password: '123'})
         
-    }
-    store.dispatch({
-        type: SET_USER,
-        user
-    })
+//     }
+//     store.dispatch({
+//         type: SET_USER,
+//         user
+//     })
     // await userService.signup({fullname: 'Shaul', username: 'Shaul', password:'123', isAdmin: false})
     // await userService.signup({fullname: 'Lior', username: 'Lior', password:'123', isAdmin: false})
     // await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
     // await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
-})()
+// })()
 
 
 

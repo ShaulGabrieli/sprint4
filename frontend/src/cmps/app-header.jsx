@@ -101,6 +101,7 @@ export function AppHeader() {
                         </svg>
                     </span>
                 </a>
+
                 {/* </div> */}
                 {/* <span class="material-symbols-outlined">
 notifications
@@ -125,12 +126,28 @@ mail
                         )}
                     </div>
                 </a>
+
                 {/* <a>
           <span class="material-symbols-outlined">account_circle</span>{" "}
         </a> */}
-                <a className='user-info'>
-                    <Link to={`user/${user._id}`}>{user.imgUrl && <img src={user.imgUrl} />}</Link>
-                </a>
+        {/* {user &&<a className='user-info'>
+                     <Link to={`user/${user._id}`}>{user.imgUrl && <img src={user.imgUrl} />}</Link>
+                </a>} */}
+                {user &&
+                    <span className="user-info">
+                        <Link to={`user/${user._id}`}>
+                            {user.imgUrl && <img src={user.imgUrl} />}
+                            {user.fullname}
+                        </Link>
+                        {/* <span className="score">{user.score?.toLocaleString()}</span> */}
+                        <button onClick={onLogout}>Logout</button>
+                    </span>
+                }
+                {!user &&
+                    <section className="user-info">
+                        <LoginSignup onLogin={onLogin} onSignup={onSignup} />
+                    </section>
+                }
                 {/* </div> */}
                 {/* {user && (
             <span className="user-info">
