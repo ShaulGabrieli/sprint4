@@ -1,5 +1,6 @@
 .app-header {
   overflow: hidden;
+  // position: relative;
   // z-index: 5;
   // padding: 10px;
 
@@ -166,8 +167,13 @@
 }
 .fix {
   position: fixed;
-  z-index: 555;
+  // top: 0;
+  // left: 0;
+  z-index: 50;
   color: white;
+  p {
+    color: white;
+  }
 
   .search-container {
     visibility: hidden;
@@ -184,7 +190,28 @@
     visibility: hidden;
   }
 }
-
 .fix2 {
-  background-color: black;
+  position: fixed;
+  top: 0;
+  // left: 0;
+  z-index: 50;
+  color: white;
+  transition: 0.3s;
+
+  .main-nav {
+    visibility: hidden;
+  }
+  hr {
+    visibility: hidden;
+  }
+}
+
+.fix3 {
+  transition: 0.3s;
+  position: fixed;
+  top: 0;
+  // left: 0;
+  z-index: 50;
+  color: white;
+  background-color: white;
 }
