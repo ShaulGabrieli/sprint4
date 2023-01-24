@@ -20,26 +20,40 @@ import { gigService } from "../services/gig.service.local";
 
 export function AppHeader() {
   const navigate = useNavigate();
+  let location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const queryFilterBy = gigService.getFilterFromSearchParams(searchParams);
   const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy);
   const user = useSelector((storeState) => storeState.userModule.user);
-  const [isHeadeHomePage, setHeaderHomePage] = useState(false);
+  const [headerStyle, setHeaderStyle] = useState("sticky");
   const [openOrders, setOpenOrders] = useState(false);
-
-  let location = useLocation();
 
   window.onscroll = function (e) {
     console.log(e, "ZZZZ");
     console.log("window.pageYOffset", window.pageYOffset);
   };
+  useEffect(() => {
+    onSetFilter(filterByToEdit);
+    switchHeaderStyle();
+  }, [filterByToEdit]);
+
   //   useEffect(() => {
   //     console.log("location.pathname ", location.pathname);
 
+  function switchHeaderStyle() {
+    console.log("ZZZZZZZZZZZZZZZZZZ", location.pathname);
+
+    if (location.pathname === "/") {
+      console.log("ZZZZZZZZZZZZZZZZZZ", location.pathname);
+      console.log("Z", window.pageYOffset);
+
+      return "fix ";
+    } else if (location.pathname === "/" && window.pageYOffset === 125) {
+      console.log("Z", window.pageYOffset);
+      return "fix2";
+    }
+  }
   //   }, [location.pathname]);
-  useEffect(() => {
-    onSetFilter(filterByToEdit);
-  }, [filterByToEdit, location.pathname]);
 
   async function onLogin(credentials) {
     try {
@@ -79,7 +93,9 @@ export function AppHeader() {
   }
 
   return (
-    <header className="app-header main-container full sticky">
+    <header
+      className={`app-header main-container full   ${switchHeaderStyle()}`}
+    >
       <div className="flex space-between align-center">
         <Link className="header-logo" to={`/`}>
           <svg

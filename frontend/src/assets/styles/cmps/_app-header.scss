@@ -164,3 +164,27 @@
     }
   }
 }
+.fix {
+  position: fixed;
+  z-index: 555;
+  color: white;
+
+  .search-container {
+    visibility: hidden;
+  }
+
+  .header-logo {
+    fill: white;
+  }
+
+  .main-nav {
+    visibility: hidden;
+  }
+  hr {
+    visibility: hidden;
+  }
+}
+
+.fix2 {
+  background-color: black;
+}

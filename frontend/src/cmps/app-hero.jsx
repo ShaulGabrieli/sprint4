@@ -5,13 +5,13 @@
 import { useEffect, useState } from "react";
 
 export function AppHero() {
-  const [imgToDisplay, setImgToDisplay] = useState(1)
+  const [imgToDisplay, setImgToDisplay] = useState(1);
   const [heroTextToDisplay, setHeroTextToDisplay] = useState(
     "Gabriel, Video Editor"
   );
   useEffect(() => {
     heroImgSwitch();
-  }, [heroTextToDisplay]);
+  }, []);
 
   function heroImgSwitch() {
     const imgSwitchInterval = setInterval(() => {
@@ -19,7 +19,7 @@ export function AppHero() {
         if (prevImg === 5) {
           setImgToDisplay((prevImg) => (prevImg = 1));
         }
-        prevImg += 1
+        prevImg += 1;
         heroTextSwitch(prevImg);
         return prevImg;
       });
@@ -46,7 +46,7 @@ export function AppHero() {
       default:
         console.log(heroTextToDisplay, "heroTextToDisplay");
 
-        setHeroTextToDisplay("Shaula");
+      // setHeroTextToDisplay("Shaula");
     }
   }
 
