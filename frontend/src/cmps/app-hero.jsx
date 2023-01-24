@@ -12,7 +12,7 @@ export function AppHero() {
   console.log(imgToDisplay);
   useEffect(() => {
     heroImgSwitch();
-  }, []);
+  }, [heroTextToDisplay]);
 
   function heroImgSwitch() {
     const imgSwitchInterval = setInterval(() => {
@@ -31,14 +31,18 @@ export function AppHero() {
     console.log("imgToDisplay", imgToDisplay);
     switch (heroTextToDisplay) {
       case imgToDisplay === 1:
+        console.log(heroTextToDisplay);
+
         setHeroTextToDisplay("dsvvssdvdv");
         break;
-      case imgToDisplay === 2:
+      case imgToDisplay === 5:
         setHeroTextToDisplay("dsvvsdvdvdvsdvdv");
 
         break;
       default:
-        setHeroTextToDisplay("Gabrielaa");
+        console.log(heroTextToDisplay, "heroTextToDisplay");
+
+        setHeroTextToDisplay("Shaula");
     }
   }
 
@@ -48,7 +52,6 @@ export function AppHero() {
         className={`img-container${imgToDisplay}
 } full main-container`}
       >
-        {" "}
         <div className="hero-info ">
           <h1>
             Find the perfect <span>freelance</span> services for your business
