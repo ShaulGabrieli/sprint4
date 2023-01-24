@@ -14,20 +14,21 @@ export function PopupOrderList() {
 
     return (
 
-        <div>
-            {orders.map((order, idx) => (
-                <div className="popup-gig-container flex column">
-                    <div className="popup-gig-img"> <img src={order.gig.imgUrls[0]} alt="" /></div>
+        <div className="popup-gig-container flex column">
+            {orders.map((order) => (
+                <div className="subsub flex row">
 
-                    <div className="popup-gig-subcontainer">
-                        {/* <div className="popup-gig-title"> {order.gig.title} </div> */}
-                        <div className="popup-status-seller-container flex row">
-                            <div className="order-gig-byseller">by seller</div>
-                            <div className="order-gig-status">gig status</div>
+                    <div> <img className="popup-gig-img" id="order-img-list" src={order.gig.imgUrls[0]} alt="" /></div>
+                    <div className="popup-gig-subcontainer flex column space-between">
+                        <div className="popup-gig-title">{order.gig.title}</div>
+                        <div className="popup-status-seller-container flex row space-between">
+                            <div className="order-gig-byseller"> by {order.seller.fullname}</div>
+                            <div className="order-gig-status">{order.status}</div>
                         </div>
                     </div>
                 </div>))}
         </div>
+
     )
 
 }

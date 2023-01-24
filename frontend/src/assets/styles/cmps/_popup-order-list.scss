@@ -1,19 +1,38 @@
+.main-popup-container {
+  z-index: 400;
+  background-color: $clr-1;
 
-.main-popup-container{
-    z-index: 10000;
-    background-color: $clr-1;
+
 }
 
 
-.main-popup-container,
-.popup-gig-img,
-.popup-gig-title,
-.order-gig-byseller,
-.order-gig-status {
-  border: 2px solid black;
-  line-height: 24px;
+.popup-gig-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: $clr1;
+  width: 14vw;
 }
 
-.popup-gig-img{
+#order-img-list {
   align-self: center;
+  min-height: em(100px);
+  min-width: em(180px);
+}
+
+.main-popup-container
+ {
+  border: 2px solid black;
+  // line-height: 24px;
+}
+
+
+.order-gig-byseller,
+.popup-gig-img,
+.order-gig-status {
+  margin: 4px 14px 10px 0;
+}
+
+.order-gig-byseller,.order-gig-status{
+  font-size: em(12px);
+  color:$clr4;
 }
