@@ -6,36 +6,86 @@ import { useEffect, useState } from "react";
 
 export function AppHero() {
   const [imgToDisplay, setImgToDisplay] = useState(1);
-
+  const [heroTextToDisplay, setHeroTextToDisplay] = useState(
+    "Gabriel, Video Editor"
+  );
+  console.log(imgToDisplay);
   useEffect(() => {
     heroImgSwitch();
   }, []);
+
   function heroImgSwitch() {
     const imgSwitchInterval = setInterval(() => {
       setImgToDisplay((prevImg) => {
         if (prevImg === 5) {
           setImgToDisplay((prevImg) => (prevImg = 1));
         }
+
+        heroTextSwitch();
         return prevImg + 1;
       });
     }, 7000);
   }
 
+  function heroTextSwitch() {
+    console.log("imgToDisplay", imgToDisplay);
+    switch (heroTextToDisplay) {
+      case imgToDisplay === 1:
+        setHeroTextToDisplay("dsvvssdvdv");
+        break;
+      case imgToDisplay === 2:
+        setHeroTextToDisplay("dsvvsdvdvdvsdvdv");
+
+        break;
+      default:
+        setHeroTextToDisplay("Gabrielaa");
+    }
+  }
+
   return (
     <section className="hero-container main-container full">
-      {console.log("imgToDisplay")}
       <div
         className={`img-container${imgToDisplay}
-} full`}
+} full main-container`}
       >
-        <div className="main-container hero-info align-center">
-          <p>Find the perfect freelance services for your business</p>
+        {" "}
+        <div className="hero-info ">
+          <h1>
+            Find the perfect <span>freelance</span> services for your business
+          </h1>
+          <div className="flex align-center search-container">
+            <label htmlFor="gigTitle"></label>
+            <div className="search-icon-box">
+              <span className="material-symbols-outlined search-icon">
+                search
+              </span>
+            </div>
+            <input
+              className="search-box"
+              type="text"
+              id="gigTitle"
+              // name="title"
+              placeholder="Try 'building mobile app'"
+            />
+            <button>Search</button>
+          </div>
+          <div className="popular-tags flex">
+            <p>Popular:&nbsp;</p>
+            <button>Website Design</button>
+            <button>WordPress</button>
+            <button>Logo Design</button>
+            <button>Video Editing</button>
+          </div>
+          {/* <p>
+            Gabriel,&nbsp; <span> Video Editor</span>
+          </p>{" "} */}
+          <p className="hero-name">{heroTextToDisplay}</p>
         </div>
-        {/* <img src={hero1} alt="Logo  " /> */}
       </div>
-
+      {/* <img src={hero1} alt="Logo  " /> */}
       {/*
       <div class="hero-info flex"></div> */}
     </section>
   );
 }
+// value={filterByToEdit.title} onChange={handleChange}

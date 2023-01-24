@@ -1,5 +1,4 @@
 .app-header {
-  background-color: $clr-1;
   overflow: hidden;
   // z-index: 5;
   // padding: 10px;
@@ -22,7 +21,7 @@
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      object-fit: cover;
+      // object-fit: cover;
     }
   }
 
@@ -160,8 +159,8 @@
   }
   a {
     img {
-      height: 18px;
-      width: 18px;
+      height: 19px;
+      width: 19px;
     }
   }
 }

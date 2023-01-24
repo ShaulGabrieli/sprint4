@@ -1,58 +1,168 @@
 .hero-container {
   min-height: 680px;
   position: relative;
-  z-index: -1;
   // background-color: black;
   .img-container1 {
     background-image: url("../../img/hero/hero1.webp");
     width: 100%;
-    transition: 1s;
+    transition: 0.7s;
   }
   .img-container2 {
     background-image: url("../../img/hero/hero2.webp");
     width: 100%;
-    transition: 1s;
+    transition: 0.7s;
   }
   .img-container3 {
     background-image: url("../../img/hero/hero3.webp");
     width: 100%;
-    transition: 1s;
+    transition: 0.7s;
   }
   .img-container4 {
     background-image: url("../../img/hero/hero4.webp");
     width: 100%;
-    transition: 1s;
+    transition: 0.7s;
   }
   .img-container5 {
     background-image: url("../../img/hero/hero5.webp");
     width: 100%;
-    transition: 1s;
+    transition: 0.7s;
   }
 
   .hero-info {
     align-self: center;
-    justify-content: end;
     position: relative;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    top: 15px;
+    font-family: Macan-Bold;
+    color: white;
 
-    p {
-      position: absolute;
-      color: white;
-
-      div {
-        position: absolute;
-        bottom: 25px;
-        left: -5px;
-      }
+    h1 {
+      font-size: em(49px);
+      max-width: 650px;
+      line-height: 1.1;
+      margin: 0;
+      font-family: Macan-Bold;
 
       span {
-        color: white;
-        margin-left: 5px;
-        font-family: Macan-Regular;
+        font-style: italic;
+        font-family: "Times New Roman", Times, serif;
+      }
+    }
+  }
+
+  .search-container {
+    width: rem(650px);
+    // height: rem(48px);
+
+    // border: solid 1px $clr12;
+
+    // border-radius: 5px 5px 5px 5px;
+    button {
+      width: rem(103px);
+      height: rem(48px);
+      background-color: black;
+      margin: 0;
+      background-color: $clr2;
+      font-size: rem(16px);
+      border-radius: 0px 5px 5px 0px;
+    }
+    .search-box {
+      width: rem(546px);
+      height: rem(48px);
+      color: $clr4;
+      // line-height: 24;
+      font-family: Macan-Bold;
+      // padding: em(10px) em(2px) em(10px) em(16px);
+      font-size: em(16px);
+      border: none;
+      // border: solid 1px $clr12;
+      // border-radius: 4px 0px 0px 4px;
+      box-shadow: none;
+      font-family: Macan-Light;
+      margin: em(20px) 0;
+
+      &:focus {
+        outline: none;
+        // border: solid 1px $clr11;
+      }
+      &::placeholder {
+        color: $clr3;
+        line-height: 24;
+        font-weight: 400;
+        letter-spacing: normal;
+      }
+    }
+
+    .search-icon-box {
+      display: inline-block;
+      background-color: white;
+      width: em(50px);
+      height: em(48px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // margin: em(20px) 0;
+      border-radius: 5px 0px 0px 5px;
+      // border-radius: 0px 4px 4px 0px;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(34, 35, 37, 0.834);
+      }
+    }
+
+    .search-icon {
+      color: $clr4;
+      font-size: em(24px);
+      opacity: 70%;
+    }
+  }
+  .hero-name {
+    display: flex;
+    color: white;
+    transition: 0.7s;
+  }
+  p {
+    font-family: Macan-Bold;
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    span {
+      font-family: Macan-Bold;
+      font-weight: 800;
+    }
+  }
+  .popular-tags {
+    font-size: rem(14px);
+
+    button {
+      font-family: Macan-Bold;
+      background-color: transparent;
+      color: white;
+      // margin: 0;
+      font-weight: 800;
+      border: solid 1px white;
+      padding: 0 15px;
+      border-radius: 40px;
+
+      &:hover {
+        transition: 0.5s;
+        background-color: white;
+        color: black;
       }
     }
   }
 }
+// p {
+//   position: absolute;
+//   color: white;
+
+//   div {
+//     position: absolute;
+//     bottom: 25px;
+//     left: -5px;
+//   }
+
+//   span {
+//     color: white;
+//     margin-left: 5px;
+//     font-family: Macan-Regular;
+//   }
+// }
