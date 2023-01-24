@@ -16,11 +16,11 @@ export function GigOrderList() {
     console.log('orders', orders)
     return (
         //todo: loading
-        <div> {!orders && <div> loading </div> || <div className="main-order-list-container">
-            <div className="main-order-list-container">
+        <div> {!orders && <div> loading </div> || 
+            <div className="main-order-list-container main-container">
                 <div className="order-list-container">
                     <section className="my-orders-header">
-                        <div className="order-title-section fs24">My orders</div>
+                        <div className="order-title-section fs32">My orders</div>
                         <div className="order-subtitle-section fs16">
                             Track your purchases and manage your orders with ease</div>
                     </section>
@@ -32,6 +32,7 @@ export function GigOrderList() {
                                     orderPagePreview={true} 
                                         id={idx}
                                         gig={order.gig}
+                                        status={order.status}
 
                                     />
                                 ))}
@@ -39,7 +40,7 @@ export function GigOrderList() {
                         </div>
                     </section>
                 </div>
-            </div></div>}</div>
+            </div>}</div>
 
     )
 }

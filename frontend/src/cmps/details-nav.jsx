@@ -9,7 +9,7 @@ import { ReactComponent as LikeGigFull } from '../assets/img/details/heart-liked
 
 
 export function DetailsNav({ gig }) {
-    const [selectedTab, setSelectedTab] = useState('overview')
+    const [selectedTab, setSelectedTab] = useState(null)
     const [likedGig, setLikedGig] = useState(false)
 
     function onScroll(location) {

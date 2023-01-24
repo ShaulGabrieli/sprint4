@@ -13,23 +13,33 @@ import { GigEdit } from './pages/gig-edit'
 import { LoginSignup } from './cmps/login-signup'
 
 export function RootCmp() {
-    const [isGigDetails, setIsGigDetails] = useState(false)
-    return (
-        <div>
-            {/* <AppHeader ref={headerRef}/> */}
-            <AppHeader />
-            <Routes>
-                {routes.map((route) => (
-                    <Route key={route.path} exact={true} element={route.component} path={route.path} />
-                ))}
-                <Route path='user/:id' element={<UserDetails />} />
-                <Route path='gig/:id' element={<GigDetails setIsGigDetails={setIsGigDetails} />} />
-                <Route path='payments/:id' element={<GigPayment />} />
-                <Route path='/gig/edit/:gigId' element={<GigEdit />} />
-                <Route path='/gig/edit' element={<GigEdit />} />
-                <Route path='/user/loginsignup' element={<LoginSignup />} />
-            </Routes>
-            <AppFooter />
-        </div>
-    )
+  
+
+  return (
+    <div>
+      {/* <AppHeader ref={headerRef}/> */}
+      <AppHeader />
+      <Routes>
+        {routes.map((route) => (
+          <Route
+            key={route.path}
+            exact={true}
+            element={route.component}
+            path={route.path}
+          />
+        ))}
+        <Route path="user/:id" element={<UserDetails />} />
+        <Route
+          path="gig/:id"
+          element={<GigDetails/>}
+        />
+        <Route path="payments/:id" element={<GigPayment />} />
+
+        <Route path="/gig/edit/:gigId" element={<GigEdit />} />
+        <Route path="/gig/edit" element={<GigEdit />} />
+        <Route path="/user/loginsignup" element={<LoginSignup />} />
+      </Routes>
+      <AppFooter />
+    </div>
+  );
 }

@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { loadOrders } from '../store/order.actions.js'
+import { OrderStatus } from './order-status.jsx'
 
 export function PopupOrderList() {
     const orders = useSelector(storeState => storeState.orderModule.userOrders)
@@ -8,20 +9,6 @@ export function PopupOrderList() {
         loadOrders()
     }, [])
 
-    function getStatusColor(order) {
-        switch (order.status) {
-            case 'Pending':
-                return 'pending-status'
-            case 'In Progress':
-                return 'in-progress-status'
-            case 'Done':
-                return 'done-status'
-            case 'Rejected':
-                return 'rejected-status'
-            default:
-               return ''
-        }
-    }
     
     if (orders?.length === 0) return (<div> <h1>No Orders Yet!</h1> </div>)
     return (
@@ -34,7 +21,7 @@ export function PopupOrderList() {
                         <div className="popup-gig-title">{order.gig.title}</div>
                         <div className="popup-status-seller-container flex row space-between">
                             <div className="order-gig-byseller">by {order.seller.fullname}</div>
-                            <div className= {`order-gig-status ${getStatusColor(order)}`}>{order.status}</div>
+                            <OrderStatus status={order.status}/>
                         </div>
                     </div>              
                 </div>

@@ -1,6 +1,7 @@
 .gig-orders-list{
 
-  grid-template-columns: repeat(auto-fit, minmax(324px,324px));
+  justify-content: start;
+
 }
 
 .order-list-container{
@@ -10,10 +11,23 @@
 .order-title-section{
   color: $clr1;
   font-weight: 700;
+  
 }
 
+.order-title-section, .order-subtitle-section{
+  line-height: 24px;
+}
 .order-subtitle-section{
   color: $clr15;
   padding: 12px 0 0 ;
  
+}
+.my-orders-container{
+  padding-top:24px;
+}
+
+@media only screen and (min-width: 600px){
+.main-order-list-container {
+    padding: 48px 64px 80px;
+}
 }
