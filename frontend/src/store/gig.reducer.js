@@ -15,7 +15,6 @@ const initialState = {
 };
 
 export function gigReducer(state = initialState, action) {
-  console.log('action', action);
   var newState = state;
   var gigs;
   var cart;

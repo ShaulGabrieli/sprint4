@@ -4,18 +4,18 @@ import { loadOrders } from '../store/order.actions.js'
 
 
 export function PopupOrderList() {
-
     const orders = useSelector(storeState => storeState.orderModule.userOrders)
     useEffect(() => {
         loadOrders()
     }, [])
 
 
-
     return (
 
         <div className="popup-gig-container flex column">
+        
             {orders.map((order) => (
+                <section className='flex column'>
                 <div className="subsub flex row">
 
                     <div> <img className="popup-gig-img" id="order-img-list" src={order.gig.imgUrls[0]} alt="" /></div>
@@ -25,8 +25,11 @@ export function PopupOrderList() {
                             <div className="order-gig-byseller"> by {order.seller.fullname}</div>
                             <div className="order-gig-status">{order.status}</div>
                         </div>
-                    </div>
-                </div>))}
+                    </div>              
+                </div>
+                <hr className='pop-up-hr'/>
+                </section>
+                ))}
         </div>
 
     )

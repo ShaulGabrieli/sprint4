@@ -243,7 +243,6 @@ mail
           <div className="pop-menu-orders-area">
             {openOrders && (
               <PopupMenu>
-                {" "}
                 <PopupOrderList />
               </PopupMenu>
             )}
