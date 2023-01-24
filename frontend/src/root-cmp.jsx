@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router";
+import { Routes, Route, useLocation } from "react-router";
 import {
   useState,
   useEffect,
@@ -19,7 +19,15 @@ import { GigEdit } from "./pages/gig-edit";
 
 export function RootCmp() {
   const [isGigDetails, setIsGigDetails] = useState(false);
+  const [isHomePage, setHomePage] = useState(false);
+  let location = useLocation();
 
+  useEffect(() => {
+    // const url = new URL(window.location.href);
+    // console.log("XXXXXXX", url.pathname);
+
+    console.log("xxxx ", location.pathname);
+  }, [location.pathname]);
   return (
     <div>
       {/* <AppHeader ref={headerRef}/> */}

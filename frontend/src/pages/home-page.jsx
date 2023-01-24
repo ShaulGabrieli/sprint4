@@ -9,7 +9,7 @@ export function HomePage() {
     <section className="home-page full">
       <AppHero />
 
-      {/* <PopularServices /> */}
+      <PopularServices />
       <SellingAd />
       <MarketCategories />
     </section>
