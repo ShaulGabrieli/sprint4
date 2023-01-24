@@ -1,5 +1,6 @@
 .app-header {
   overflow: hidden;
+  // position: relative;
   // z-index: 5;
   // padding: 10px;
 
@@ -163,4 +164,62 @@
     }
   }
 
+}
+.fix {
+  position: fixed;
+  width: 100%;
+  // top: 0;
+  // left: 0;
+  z-index: 50;
+  color: white;
+  p {
+    color: white;
+  }
+  g :not(:last-child) {
+    fill: white;
+  }
+
+  .search-container {
+    visibility: hidden;
+  }
+
+  .header-logo {
+    fill: white;
+  }
+
+  .main-nav {
+    visibility: hidden;
+  }
+  hr {
+    visibility: hidden;
+  }
+}
+.fix2 {
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  // left: 0;
+  z-index: 50;
+  color: white;
+  transition: 0.3s;
+
+  .main-nav {
+    visibility: hidden;
+  }
+  hr {
+    visibility: hidden;
+  }
+}
+
+.fix3 {
+  width: 100%;
+
+  transition: 0.3s;
+  position: fixed;
+  top: 0;
+  // left: 0;
+  z-index: 50;
+  color: white;
+  background-color: white;
 }

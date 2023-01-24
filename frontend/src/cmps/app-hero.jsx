@@ -5,7 +5,7 @@
 import { useEffect, useState } from "react";
 
 export function AppHero() {
-  const [imgToDisplay, setImgToDisplay] = useState(1)
+  const [imgToDisplay, setImgToDisplay] = useState(1);
   const [heroTextToDisplay, setHeroTextToDisplay] = useState(
     "Gabriel, Video Editor"
   );
@@ -19,10 +19,10 @@ export function AppHero() {
         if (prevImg === 5) {
           setImgToDisplay((prev) => {
             heroTextSwitch(1);
-            return prev = 1
-            })
+            return (prev = 1);
+          });
         }
-        prevImg +=1
+        prevImg += 1;
         heroTextSwitch(prevImg);
         return prevImg;
       });
