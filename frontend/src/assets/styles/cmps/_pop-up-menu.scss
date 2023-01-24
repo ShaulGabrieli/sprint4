@@ -1,24 +1,19 @@
 .popup-menu {
-    // width: 300px;
-
-    // height: 80vh;
-    position: fixed;
-    // z-index: 1;
+  position: fixed;
+  // position: absolute;
     margin: auto;
     overflow-y: scroll;
     background-color: white;
-    border:$clr14 solid 1px;
+    border: #efeff0 solid 1px;
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
-    // right: 300;
-    // margin-left:100px;
-    // margin-right: 1000px;
-      padding:20px;
-      border-radius: 5px;
-      right: 15vw;
-        top: 10vh;
-        // overflow-y: hidden;
+    padding: 20px;
+    border-radius: 5px;
+    right: 10%;
+    top: 53px;
+    // right: 50%;
+    // bottom: -10px;
+    // transform: translate(50%, 100%);
 
 }
 
@@ -30,9 +25,3 @@
   ::-webkit-scrollbar-thumb {
     background-color: #000000;
   }
-
-.pop-menu-orders-area {
-    // transform: translateX(-50%);
-  
-    
-}

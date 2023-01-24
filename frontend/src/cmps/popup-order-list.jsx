@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { loadOrders } from '../store/order.actions.js'
-
 
 export function PopupOrderList() {
     const orders = useSelector(storeState => storeState.orderModule.userOrders)
@@ -9,21 +8,33 @@ export function PopupOrderList() {
         loadOrders()
     }, [])
 
-
+    function getStatusColor(order) {
+        switch (order.status) {
+            case 'Pending':
+                return 'pending-status'
+            case 'In Progress':
+                return 'in-progress-status'
+            case 'Done':
+                return 'done-status'
+            case 'Rejected':
+                return 'rejected-status'
+            default:
+               return ''
+        }
+    }
+    
+    if (orders?.length === 0) return (<div> <h1>No Orders Yet!</h1> </div>)
     return (
-
         <div className="popup-gig-container flex column">
-        
-            {orders.map((order) => (
+            {orders?.map((order) => (
                 <section className='flex column'>
                 <div className="subsub flex row">
-
                     <div> <img className="popup-gig-img" id="order-img-list" src={order.gig.imgUrls[0]} alt="" /></div>
                     <div className="popup-gig-subcontainer flex column space-between">
                         <div className="popup-gig-title">{order.gig.title}</div>
                         <div className="popup-status-seller-container flex row space-between">
-                            <div className="order-gig-byseller"> by {order.seller.fullname}</div>
-                            <div className="order-gig-status">{order.status}</div>
+                            <div className="order-gig-byseller">by {order.seller.fullname}</div>
+                            <div className= {`order-gig-status ${getStatusColor(order)}`}>{order.status}</div>
                         </div>
                     </div>              
                 </div>
@@ -31,7 +42,5 @@ export function PopupOrderList() {
                 </section>
                 ))}
         </div>
-
     )
-
 }
