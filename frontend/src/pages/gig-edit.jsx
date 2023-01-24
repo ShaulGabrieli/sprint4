@@ -11,6 +11,7 @@ export function GigEdit() {
     const [gigToEdit, setGigToEdit] = useState(gigService.getEmptyGig())
     const [isReadyPublish, setIsReadyPublish] = useState(false)
     const [isImgLoading, setIsImgLoading] = useState(false)
+    const user = useSelector((storeState) => storeState.userModule.user);
     const { gigId } = useParams()
     const navigate = useNavigate()
 
@@ -41,7 +42,6 @@ export function GigEdit() {
     }
 
     async function onAddGig(ev) {
-        console.log('gigToEdit', gigToEdit)
         ev.preventDefault()
         try {
             const savedGig = await addGig(gigToEdit)

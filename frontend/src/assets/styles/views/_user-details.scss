@@ -1,8 +1,7 @@
 .user-details {
-
     // display: grid;
     // grid-template-columns: 400px 736px;
-    background-color:$clr17 ;
+    background-color: $clr17;
     // grid-template-rows: 100px 100px 200px 100px;
     // .user-img {
     //     height: 200px;
@@ -10,13 +9,34 @@
     //     background-size: contain;
     // }
 
-    
-
-    .user-main-details{
+    .user-main-details {
         background-color: $clr-1;
         width: em(400px);
         height: em(420px);
         border: solid 1px $clr14;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 31px;
+
+        .profile-img-container {
+            height: 150px;
+            width: 150px;
+            .profile-img {
+                border-radius: 50%;
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        hr {
+            width: 100%;
+            border: none;
+            border-top: 1px solid $clr14;
+            padding: 0;
+            margin: 0;
+          }
+
     }
 }
-
