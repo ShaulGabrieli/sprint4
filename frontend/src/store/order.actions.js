@@ -3,7 +3,7 @@ import { userService } from "../services/user.service.js";
 import { store } from './store.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 // import {  } from "./user.reducer.js";
-import { SET_USER_ORDERS, ADD_ORDER, SET_CURRENT_ORDER } from "./order.reducer.js";
+import { SET_USER_ORDERS, ADD_ORDER, SET_CURRENT_ORDER, UPDATE_ORDER } from "./order.reducer.js";
 import { utilService } from "../services/util.service.js";
 
 export async function loadOrders() {
@@ -58,6 +58,17 @@ export async function loadOrder(orderId) {
         return order
     } catch (err) {
         console.log('Cannot load order', err)
+        throw err
+    }
+}
+
+export async function updateOrder(order) {
+    try {
+        const savedOrder = await orderService.save(order)
+        store.dispatch({type:UPDATE_ORDER, order: savedOrder})
+        return savedOrder
+    } catch (err) {
+        console.log('Cannot update order', err)
         throw err
     }
 }

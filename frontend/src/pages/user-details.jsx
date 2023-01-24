@@ -6,6 +6,7 @@ import { store } from '../store/store'
 import { showSuccessMsg } from '../services/event-bus.service'
 import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from '../services/socket.service'
 import { orderService } from '../services/order.service.local'
+import { updateOrder } from '../store/order.actions'
 export function UserDetails() {
     const params = useParams()
     const user = useSelector((storeState) => storeState.userModule.user)
@@ -26,7 +27,7 @@ export function UserDetails() {
     useEffect(() => {
         getBuyerOrders()
         getSellerOrders()
-    }, [])
+    }, [buyerOrders, sellerOrders])
 
     async function getBuyerOrders() {
         try {
@@ -48,7 +49,11 @@ export function UserDetails() {
         }
     }
 
-   
+   async function onChangeStatus(order, updatedStatus){
+    const updatedOrder = {...order, status: updatedStatus}
+    updateOrder(updatedOrder)
+   }
+
     function onUserUpdate(user) {
         showSuccessMsg(`This user ${user.fullname} just got updated from socket, new score: ${user.score}`)
         store.dispatch({ type: 'SET_WATCHED_USER', user })
@@ -83,7 +88,7 @@ export function UserDetails() {
                 <h1>Seller options:</h1>
                 <ol>
                     {sellerOrders.map((order) => {
-                        return <li>Buyer name: {order.buyer.fullname} ,Gig title: {order.gig.title} , Status: {order.status}, Change status: <button>Approved</button> <button>In progress</button> <button>Done</button> <button>Rejected</button></li>
+                        return <li>Buyer name: {order.buyer.fullname} ,Gig title: {order.gig.title} , Status: {order.status}, Change status: <button onClick={()=>onChangeStatus(order,'approved')}>Approved</button> <button onClick={()=>onChangeStatus(order,'in progress')}>In progress</button> <button onClick={()=>onChangeStatus(order,'done')}>Done</button> <button onClick={()=>onChangeStatus(order,'rejected')}>Rejected</button></li>
                     })}
                 </ol>
             </div>
