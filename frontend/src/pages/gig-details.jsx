@@ -21,8 +21,7 @@ import { ReactComponent as Arrow } from '../assets/img/details/arrow.svg'
 
 export function GigDetails({ setIsGigDetails }) {
     const [gig, setGig] = useState(null)
-    const params = useParams()
-    const { id } = params
+    const { id } = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {

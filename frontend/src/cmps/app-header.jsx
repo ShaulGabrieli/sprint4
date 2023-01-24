@@ -32,7 +32,7 @@ export function AppHeader() {
   let isUserScroll = false;
 
   useEffect(() => {
-    onSetFilter(filterByToEdit);
+    // onSetFilter(filterByToEdit);
     // switchHeaderStyle();
     window.onscroll = function (e) {
       console.log(e, "ZZZZ");
@@ -41,7 +41,7 @@ export function AppHeader() {
       console.log("window.pageYOffset", window.pageYOffset);
     };
     isUserScroll = false;
-  }, [filterByToEdit, location]);
+  }, [ location]);
 
   //   useEffect(() => {
   //     console.log("location.pathname ", location.pathname);
