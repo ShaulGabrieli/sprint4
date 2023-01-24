@@ -39,7 +39,7 @@ export function AppHeader() {
 
     useEffect(() => {
         onSetFilter(filterByToEdit);
-    },[])
+    },[filterByToEdit])
 
     //   useEffect(() => {
     //     console.log("location.pathname ", location.pathname);
