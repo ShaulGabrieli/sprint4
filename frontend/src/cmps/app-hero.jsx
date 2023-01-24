@@ -5,11 +5,10 @@
 import { useEffect, useState } from "react";
 
 export function AppHero() {
-  const [imgToDisplay, setImgToDisplay] = useState(1);
+  const [imgToDisplay, setImgToDisplay] = useState(1)
   const [heroTextToDisplay, setHeroTextToDisplay] = useState(
     "Gabriel, Video Editor"
   );
-  console.log(imgToDisplay);
   useEffect(() => {
     heroImgSwitch();
   }, []);
@@ -20,22 +19,29 @@ export function AppHero() {
         if (prevImg === 5) {
           setImgToDisplay((prevImg) => (prevImg = 1));
         }
-
-        heroTextSwitch();
-        return prevImg + 1;
+        prevImg += 1
+        heroTextSwitch(prevImg);
+        return prevImg;
       });
     }, 7000);
   }
 
-  function heroTextSwitch() {
-    console.log("imgToDisplay", imgToDisplay);
-    switch (heroTextToDisplay) {
-      case imgToDisplay === 1:
-        setHeroTextToDisplay("dsvvssdvdv");
+  function heroTextSwitch(heroImg) {
+    switch (heroImg) {
+      case 1:
+        setHeroTextToDisplay("Gabriel, Video Editor");
         break;
-      case imgToDisplay === 2:
-        setHeroTextToDisplay("dsvvsdvdvdvsdvdv");
-
+      case 2:
+        setHeroTextToDisplay("lior");
+        break;
+      case 3:
+        setHeroTextToDisplay("irene");
+        break;
+      case 4:
+        setHeroTextToDisplay("yazan");
+        break;
+      case 5:
+        setHeroTextToDisplay("iron shapira");
         break;
       default:
         setHeroTextToDisplay("Gabrielaa");
