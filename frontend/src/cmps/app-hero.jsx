@@ -24,7 +24,7 @@ export function AppHero() {
         heroTextSwitch();
         return prevImg + 1;
       });
-    }, 2000);
+    }, 7000);
   }
 
   function heroTextSwitch() {
