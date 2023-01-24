@@ -1,14 +1,8 @@
-import {
-  Link,
-  NavLink,
-  useSearchParams,
-  useNavigate,
-  useLocation,
-} from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import routes from "../routes";
-import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
+import { Link, NavLink, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import routes from '../routes'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 
 import { login, logout, signup } from '../store/user.actions.js'
 import { LoginSignup } from './login-signup.jsx'
@@ -20,91 +14,95 @@ import { setFilter } from '../store/gig.actions.js'
 import { gigService } from '../services/gig.service.local'
 
 export function AppHeader() {
-  const navigate = useNavigate();
-  let location = useLocation();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const queryFilterBy = gigService.getFilterFromSearchParams(searchParams);
-  const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy);
-  const user = useSelector((storeState) => storeState.userModule.user);
-  const [headerStyle, setHeaderStyle] = useState("fix");
-  const [openOrders, setOpenOrders] = useState(false);
+    const navigate = useNavigate()
+    let location = useLocation()
+    const [searchParams, setSearchParams] = useSearchParams()
+    const queryFilterBy = gigService.getFilterFromSearchParams(searchParams)
+    const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy)
+    const user = useSelector((storeState) => storeState.userModule.user)
+    const [headerStyle, setHeaderStyle] = useState('fix')
+    const [openOrders, setOpenOrders] = useState(false)
 
-  let isUserScroll = false;
+    let isUserScroll = false
 
-  useEffect(() => {
-    // onSetFilter(filterByToEdit);
-    // switchHeaderStyle();
-    window.onscroll = function (e) {
-      console.log(e, "ZZZZ");
-      isUserScroll = true;
-      switchHeaderStyle(window.pageYOffset);
-      console.log("window.pageYOffset", window.pageYOffset);
-    };
-    isUserScroll = false;
-  }, [ location]);
+    useEffect(() => {
+        // onSetFilter(filterByToEdit);
+        // switchHeaderStyle();
+        window.onscroll = function (e) {
+            console.log(e, 'ZZZZ')
+            isUserScroll = true
+            switchHeaderStyle(window.pageYOffset)
+            console.log('window.pageYOffset', window.pageYOffset)
+        }
+        isUserScroll = false
+    }, [location])
 
-  //   useEffect(() => {
-  //     console.log("location.pathname ", location.pathname);
+    useEffect(() => {
+        onSetFilter(filterByToEdit);
+    },[])
 
-  function switchHeaderStyle(pageYOffset) {
-    console.log("ZZZZZZZZZZZZZZZZZZ", pageYOffset);
-    if (location.pathname !== "/") {
-      setHeaderStyle("sticky ");
+    //   useEffect(() => {
+    //     console.log("location.pathname ", location.pathname);
+
+    function switchHeaderStyle(pageYOffset) {
+        console.log('ZZZZZZZZZZZZZZZZZZ', pageYOffset)
+        if (location.pathname !== '/') {
+            setHeaderStyle('sticky ')
+        }
+        if (location.pathname === '/' && pageYOffset === 0) {
+            console.log('ZZZZZZZZZZZZZZZZZZ', location.pathname)
+            console.log('Z', pageYOffset)
+
+            setHeaderStyle('main-container fix ')
+        }
+        if (location.pathname === '/' && pageYOffset === 125) {
+            console.log('ZZZZZZZZZZZZZZZZZZ', location.pathname)
+            console.log('Z', pageYOffset)
+
+            setHeaderStyle('fix2 ')
+        }
+        if (location.pathname === '/' && pageYOffset === 250) {
+            setHeaderStyle('fix3 ')
+        }
+        //   setHeaderStyle("sticky ");
     }
-    if (location.pathname === "/" && pageYOffset === 0) {
-      console.log("ZZZZZZZZZZZZZZZZZZ", location.pathname);
-      console.log("Z", pageYOffset);
 
-      setHeaderStyle("main-container fix ");
+    async function onLogin(credentials) {
+        try {
+            const user = await login(credentials)
+            showSuccessMsg(`Welcome: ${user.fullname}`)
+        } catch (err) {
+            showErrorMsg('Cannot login')
+        }
     }
-    if (location.pathname === "/" && pageYOffset === 125) {
-      console.log("ZZZZZZZZZZZZZZZZZZ", location.pathname);
-      console.log("Z", pageYOffset);
+    async function onSignup(credentials) {
+        try {
+            const user = await signup(credentials)
+            showSuccessMsg(`Welcome new user: ${user.fullname}`)
+        } catch (err) {
+            showErrorMsg('Cannot signup')
+        }
+    }
+    async function onLogout() {
+        try {
+            await logout()
+            showSuccessMsg(`Bye now`)
+        } catch (err) {
+            showErrorMsg('Cannot logout')
+        }
+    }
 
-      setHeaderStyle("fix2 ");
+    function handleChange({ target }) {
+        let { value, name: field, type } = target
+        setFilterByToEdit((prevFilter) => {
+            return { ...prevFilter, [field]: value }
+        })
     }
-    if (location.pathname === "/" && pageYOffset === 250) {
-      setHeaderStyle("fix3 ");
-    }
-    //   setHeaderStyle("sticky ");
-  }
 
-  async function onLogin(credentials) {
-    try {
-      const user = await login(credentials);
-      showSuccessMsg(`Welcome: ${user.fullname}`);
-    } catch (err) {
-      showErrorMsg("Cannot login");
+    function onSetFilter(filterBy) {
+        setSearchParams(filterBy)
+        setFilter(filterBy)
     }
-  }
-  async function onSignup(credentials) {
-    try {
-      const user = await signup(credentials);
-      showSuccessMsg(`Welcome new user: ${user.fullname}`);
-    } catch (err) {
-      showErrorMsg("Cannot signup");
-    }
-  }
-  async function onLogout() {
-    try {
-      await logout();
-      showSuccessMsg(`Bye now`);
-    } catch (err) {
-      showErrorMsg("Cannot logout");
-    }
-  }
-
-  function handleChange({ target }) {
-    let { value, name: field, type } = target;
-    setFilterByToEdit((prevFilter) => {
-      return { ...prevFilter, [field]: value };
-    });
-  }
-
-  function onSetFilter(filterBy) {
-    setSearchParams(filterBy);
-    setFilter(filterBy);
-  }
 
   return (
     <header
@@ -245,71 +243,72 @@ mail
           <div className="pop-menu-orders-area">
             {openOrders && (
               <PopupMenu>
-                {" "}
                 <PopupOrderList />
               </PopupMenu>
             )}
           </div>
         </a>
 
-        {/* <a>
+                {/* <a>
           <span class="material-symbols-outlined">account_circle</span>{" "}
         </a> */}
                 {/* {user &&<a className='user-info'>
                      <Link to={`user/${user._id}`}>{user.imgUrl && <img src={user.imgUrl} />}</Link>
                 </a>} */}
-        {user && (
-          <span className="user-info">
-            <Link to={`user/${user._id}`}>
-              {user.imgUrl && <img src={user.imgUrl} />}
-              {user.fullname}
-            </Link>
-            {/* <span className="score">{user.score?.toLocaleString()}</span> */}
-            <button onClick={onLogout}>Logout</button>
-          </span>
-        )}
-        {!user && (
-          <section className="user-info">
-            <Link to={'/user/loginsignup'}><span className="sign-in-btn">Sign In & Join</span> </Link>
-            {/* <Link to={'/user/loginsignup'}><span className="Join-btn">Join</span> </Link> */}
-            {/* <LoginSignup onLogin={onLogin} onSignup={onSignup} /> */}
-          </section>
-        )}
-        {/* </div> */}
-      </div>
-      <hr className="full" />
-      <nav className="main-nav">
-        <ul className="clean list flex space-between jusitfy-center ">
-          <li>
-            <a href="/">Graphics & Design</a>
-          </li>
-          <li>
-            <a href="">Digital Marketing</a>
-          </li>
-          <li>
-            <a href="">Writing & Translation</a>
-          </li>
-          <li>
-            <a href="">Video & Animation</a>
-          </li>
-          <li>
-            <a href="">Music & Audio</a>
-          </li>
-          <li>
-            <a href="">Programming & Tech</a>
-          </li>
-          <li>
-            <a href="">Business</a>
-          </li>
-          <li>
-            <a href="">Lifestyle</a>
-          </li>
-          <li>
-            <a href="">Trending</a>
-          </li>
-        </ul>
-      </nav>
-      <hr className="full " />
-    </header>
-  );
+                {user && (
+                    <span className='user-info'>
+                        <Link to={`user/${user._id}`}>
+                            {user.imgUrl && <img src={user.imgUrl} />}
+                            {user.fullname}
+                        </Link>
+                        {/* <span className="score">{user.score?.toLocaleString()}</span> */}
+                        <button onClick={onLogout}>Logout</button>
+                    </span>
+                )}
+                {!user && (
+                    <section className='user-info'>
+                        <Link to={'/user/loginsignup'}>
+                            <span className='sign-in-btn'>Sign In & Join</span>{' '}
+                        </Link>
+                        {/* <Link to={'/user/loginsignup'}><span className="Join-btn">Join</span> </Link> */}
+                        {/* <LoginSignup onLogin={onLogin} onSignup={onSignup} /> */}
+                    </section>
+                )}
+                {/* </div> */}
+            </div>
+            <hr className='full' />
+            <nav className='main-nav'>
+                <ul className='clean list flex space-between jusitfy-center '>
+                    <li>
+                        <a href='/'>Graphics & Design</a>
+                    </li>
+                    <li>
+                        <a href=''>Digital Marketing</a>
+                    </li>
+                    <li>
+                        <a href=''>Writing & Translation</a>
+                    </li>
+                    <li>
+                        <a href=''>Video & Animation</a>
+                    </li>
+                    <li>
+                        <a href=''>Music & Audio</a>
+                    </li>
+                    <li>
+                        <a href=''>Programming & Tech</a>
+                    </li>
+                    <li>
+                        <a href=''>Business</a>
+                    </li>
+                    <li>
+                        <a href=''>Lifestyle</a>
+                    </li>
+                    <li>
+                        <a href=''>Trending</a>
+                    </li>
+                </ul>
+            </nav>
+            <hr className='full ' />
+        </header>
+    )
 }

@@ -25,7 +25,8 @@ export function PopupOrderList() {
 
     return (
         <div className="popup-gig-container flex column">
-            {orders?.map((order) => (
+            {orders.map((order) => (
+                <section className='flex column'>
                 <div className="subsub flex row">
                     <div> <img className="popup-gig-img" id="order-img-list" src={order.gig.imgUrls[0]} alt="" /></div>
                     <div className="popup-gig-subcontainer flex column space-between">
@@ -34,8 +35,11 @@ export function PopupOrderList() {
                             <div className="order-gig-byseller">by {order.seller.fullname}</div>
                             <div className= {`order-gig-status ${getStatusColor(order)}`}>{order.status}</div>
                         </div>
-                    </div>
-                </div>))}
+                    </div>              
+                </div>
+                <hr className='pop-up-hr'/>
+                </section>
+                ))}
         </div>
     )
 }
