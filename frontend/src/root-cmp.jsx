@@ -19,7 +19,7 @@ import { GigEdit } from "./pages/gig-edit";
 import { LoginSignup } from "./cmps/login-signup";
 
 export function RootCmp() {
-  const [isGigDetails, setIsGigDetails] = useState(false);
+  
 
   return (
     <div>
@@ -37,7 +37,7 @@ export function RootCmp() {
         <Route path="user/:id" element={<UserDetails />} />
         <Route
           path="gig/:id"
-          element={<GigDetails setIsGigDetails={setIsGigDetails} />}
+          element={<GigDetails/>}
         />
         <Route path="payments/:id" element={<GigPayment />} />
 

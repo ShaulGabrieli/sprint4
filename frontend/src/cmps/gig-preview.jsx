@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
 import { FavSvg } from './git-preview-svgs/fav-svg'
 import { MenuSvg } from './git-preview-svgs/menu-svg'
+import {OrderStatus} from './order-status'
+
  
 
-export function GigPreview({ gig, orderPagePreview}) {
+export function GigPreview({ gig, orderPagePreview, status}) {
+    
     return (
         <Link to={`/gig/${gig._id}`}>
             {' '}
@@ -38,7 +41,10 @@ export function GigPreview({ gig, orderPagePreview}) {
                 <section className='gig-preview-footer flex space-between'>
                     <div className='preview-footer-fav'>
                          <FavSvg />
+                         { orderPagePreview  && <OrderStatus status={status}/> }
                     </div>
+
+                   
                     <div className='price-container flex'>
                         { orderPagePreview  &&  <span className='price-preview'>PRICE</span> || <span className='price-preview'>STARTING AT</span>}
                       <span className='price-tag'> ${gig.price}  {!orderPagePreview && <sup className='sup-price-end'>00</sup>}</span>
