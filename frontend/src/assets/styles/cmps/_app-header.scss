@@ -1,5 +1,6 @@
 .app-header {
   overflow: hidden;
+  // position: relative;
   // z-index: 5;
   // padding: 10px;
 
@@ -107,6 +108,12 @@
 
   span {
     color: $clr3;
+    font-weight: bold;
+  }
+
+  span:hover {
+    cursor: pointer;
+    color: $clr2;
   }
 
   li {
@@ -139,14 +146,7 @@
     box-shadow: 2px 18px 0 -7px $clr2;
   }
 
-  span {
-    font-weight: bold;
-  }
-
-  span:hover {
-    cursor: pointer;
-    color: $clr2;
-  }
+  
   p {
     color: $clr20;
     font-weight: 600;
@@ -163,11 +163,21 @@
       width: 19px;
     }
   }
+
 }
 .fix {
   position: fixed;
-  z-index: 555;
+  width: 100%;
+  // top: 0;
+  // left: 0;
+  z-index: 50;
   color: white;
+  p {
+    color: white;
+  }
+  g :not(:last-child) {
+    fill: white;
+  }
 
   .search-container {
     visibility: hidden;
@@ -184,7 +194,32 @@
     visibility: hidden;
   }
 }
-
 .fix2 {
-  background-color: black;
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  // left: 0;
+  z-index: 50;
+  color: white;
+  transition: 0.3s;
+
+  .main-nav {
+    visibility: hidden;
+  }
+  hr {
+    visibility: hidden;
+  }
+}
+
+.fix3 {
+  width: 100%;
+
+  transition: 0.3s;
+  position: fixed;
+  top: 0;
+  // left: 0;
+  z-index: 50;
+  color: white;
+  background-color: white;
 }

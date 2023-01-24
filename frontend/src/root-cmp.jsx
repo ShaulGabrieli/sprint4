@@ -16,6 +16,7 @@ import { UserDetails } from "./pages/user-details";
 import { GigDetails } from "./pages/gig-details";
 import { GigPayment } from "./pages/gig-payment.jsx";
 import { GigEdit } from "./pages/gig-edit";
+import { LoginSignup } from "./cmps/login-signup";
 
 export function RootCmp() {
   const [isGigDetails, setIsGigDetails] = useState(false);
@@ -42,6 +43,7 @@ export function RootCmp() {
 
         <Route path="/gig/edit/:gigId" element={<GigEdit />} />
         <Route path="/gig/edit" element={<GigEdit />} />
+        <Route path="/user/loginsignup" element={<LoginSignup />} />
       </Routes>
       <AppFooter />
     </div>

@@ -26,35 +26,48 @@ export function AppHeader() {
   const queryFilterBy = gigService.getFilterFromSearchParams(searchParams);
   const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy);
   const user = useSelector((storeState) => storeState.userModule.user);
-  const [headerStyle, setHeaderStyle] = useState("sticky");
+  const [headerStyle, setHeaderStyle] = useState("fix");
   const [openOrders, setOpenOrders] = useState(false);
 
-  window.onscroll = function (e) {
-    console.log(e, "ZZZZ");
-    console.log("window.pageYOffset", window.pageYOffset);
-  };
+  let isUserScroll = false;
+
   useEffect(() => {
     onSetFilter(filterByToEdit);
-    switchHeaderStyle();
-  }, [filterByToEdit]);
+    // switchHeaderStyle();
+    window.onscroll = function (e) {
+      console.log(e, "ZZZZ");
+      isUserScroll = true;
+      switchHeaderStyle(window.pageYOffset);
+      console.log("window.pageYOffset", window.pageYOffset);
+    };
+    isUserScroll = false;
+  }, [filterByToEdit, location]);
 
   //   useEffect(() => {
   //     console.log("location.pathname ", location.pathname);
 
-  function switchHeaderStyle() {
-    console.log("ZZZZZZZZZZZZZZZZZZ", location.pathname);
-
-    if (location.pathname === "/") {
-      console.log("ZZZZZZZZZZZZZZZZZZ", location.pathname);
-      console.log("Z", window.pageYOffset);
-
-      return "fix ";
-    } else if (location.pathname === "/" && window.pageYOffset === 125) {
-      console.log("Z", window.pageYOffset);
-      return "fix2";
+  function switchHeaderStyle(pageYOffset) {
+    console.log("ZZZZZZZZZZZZZZZZZZ", pageYOffset);
+    if (location.pathname !== "/") {
+      setHeaderStyle("sticky ");
     }
+    if (location.pathname === "/" && pageYOffset === 0) {
+      console.log("ZZZZZZZZZZZZZZZZZZ", location.pathname);
+      console.log("Z", pageYOffset);
+
+      setHeaderStyle("main-container fix ");
+    }
+    if (location.pathname === "/" && pageYOffset === 125) {
+      console.log("ZZZZZZZZZZZZZZZZZZ", location.pathname);
+      console.log("Z", pageYOffset);
+
+      setHeaderStyle("fix2 ");
+    }
+    if (location.pathname === "/" && pageYOffset === 250) {
+      setHeaderStyle("fix3 ");
+    }
+    //   setHeaderStyle("sticky ");
   }
-  //   }, [location.pathname]);
 
   async function onLogin(credentials) {
     try {
@@ -95,7 +108,7 @@ export function AppHeader() {
 
   return (
     <header
-      className={`app-header main-container full   ${switchHeaderStyle()}`}
+      className={`app-header main-container full sticky    ${headerStyle}`}
     >
       <div className="flex space-between align-center">
         <Link className="header-logo" to={`/`}>
@@ -221,27 +234,23 @@ notifications
 <span class="material-symbols-outlined">
 mail
 </span> */}
-                {/* </div> */}
-                {/* <div className="flex align-center"> */}
-                <a
-                    onClick={() => {
-                        setOpenOrders(!openOrders)
-                    }}
-                >
-                    <span>Orders</span>
-                    <div className='pop-menu-orders-area'>
-                        {openOrders && (
-                            <PopupMenu>
-                                {/* {' '}
-                                <GigOrderList />{' '}
-                                 */}
-                               <PopupOrderList />
-
-
-                            </PopupMenu>
-                        )}
-                    </div>
-                </a>
+        {/* </div> */}
+        {/* <div className="flex align-center"> */}
+        <a
+          onClick={() => {
+            setOpenOrders(!openOrders);
+          }}
+        >
+          <span>Orders</span>
+          <div className="pop-menu-orders-area">
+            {openOrders && (
+              <PopupMenu>
+                {" "}
+                <PopupOrderList />
+              </PopupMenu>
+            )}
+          </div>
+        </a>
 
         {/* <a>
           <span class="material-symbols-outlined">account_circle</span>{" "}
@@ -261,28 +270,13 @@ mail
         )}
         {!user && (
           <section className="user-info">
-            <LoginSignup onLogin={onLogin} onSignup={onSignup} />
+            <Link to={'/user/loginsignup'}><span className="sign-in-btn">Sign In & Join</span> </Link>
+            {/* <Link to={'/user/loginsignup'}><span className="Join-btn">Join</span> </Link> */}
+            {/* <LoginSignup onLogin={onLogin} onSignup={onSignup} /> */}
           </section>
         )}
         {/* </div> */}
-        {/* {user && (
-            <span className="user-info">
-              <Link to={`user/${user._id}`}>
-                {user.imgUrl && <img src={user.imgUrl} />}
-                {user.fullname}
-              </Link>
-              <span className="score">{user.score?.toLocaleString()}</span>
-              <button onClick={onLogout}>Logout</button>
-            </span>
-          )} */}
       </div>
-
-      {/* {!user && (
-          <section className="user-info">
-            <LoginSignup onLogin={onLogin} onSignup={onSignup} />
-          </section>
-        )} */}
-
       <hr className="full" />
       <nav className="main-nav">
         <ul className="clean list flex space-between jusitfy-center ">
@@ -319,4 +313,3 @@ mail
     </header>
   );
 }
-//
