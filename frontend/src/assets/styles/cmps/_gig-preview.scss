@@ -7,6 +7,11 @@
     flex-direction: column;
     // height: em(398px);
     // height: 398px;
+    &:hover {
+        p{
+            color: $clr2;
+        }
+    }
 
     .preview-img {
         // width: em(248px);
@@ -40,9 +45,6 @@
 
     p {
         padding: 0 13px 0 12px;
-        &:hover {
-            color: $clr2;
-        }
         margin-bottom: 12px;
         line-height: 1.3;
     }

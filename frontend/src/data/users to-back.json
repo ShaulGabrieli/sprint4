@@ -1,0 +1,47 @@
+[
+  {
+    "fullname": "Sara Smith",
+    "imgUrl": "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674122150/Sprint%204/Users%20img%20and%20gig%20img/u102/user%20img/pexels-andrea-piacquadio-733872_vbsndd.jpg",
+    "username": "75091963",
+    "password": "Sara",
+    "level": ["basic","premium"],
+    "overallRating": 4.5,
+    "amoutTotalReviews": 2,
+    "_id": ObjectId("63ce6d69213cac4e75664f27")
+  },
+
+  {
+    "fullname": "John Doe",
+    "imgUrl": "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674126662/Sprint%204/Users%20img%20and%20gig%20img/u103/pexels-pixabay-220453_xx3vs9.jpg",
+    "username": "59985",
+    "password": "John",
+    "level": ["basic","premium"],
+    "overallRating": 4.0,
+    "amoutTotalReviews": 6,
+    "_id": ObjectId("63ce6d69213cac4e75664f29")
+  },
+
+  {
+    "fullname": "Jessica Johnson",
+    "imgUrl": "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674127077/Sprint%204/Users%20img%20and%20gig%20img/u104/pexels-andrea-piacquadio-774909_eclhhb.jpg",
+    "username": "3805403",
+    "password": "Jessica",
+    "level": ["basic","premium"],
+    "overallRating": 4.4,
+    "amoutTotalReviews": 3,
+    "_id": ObjectId("63ce6d69213cac4e75664f2b")
+  },
+
+  {
+    "fullname": "Robert Rodriguez",
+    "imgUrl": "https://res.cloudinary.com/dyfo5gyda/image/upload/v1674127408/Sprint%204/Users%20img%20and%20gig%20img/u105/pexels-italo-melo-2379004_mapfig.jpg",
+    "username": "25851994",
+    "password": "Robert",
+    "level": ["basic","premium"],
+    "overallRating": 4.8,
+    "amoutTotalReviews": 3,
+    "_id": ObjectId("63ce6d69213cac4e75664f2d")
+  }
+  ]
+
+
