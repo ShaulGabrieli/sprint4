@@ -1,22 +1,16 @@
-import React from "react";
-import { Routes, Route, useLocation } from "react-router";
-import {
-  useState,
-  useEffect,
-  useRef,
-  useImperativeHandle,
-  forwardRef,
-} from "react";
+import React from 'react'
+import { Routes, Route, useLocation } from 'react-router'
+import { useState, useEffect, useRef, useImperativeHandle, forwardRef } from 'react'
 
-import routes from "./routes";
+import routes from './routes'
 
-import { AppHeader } from "./cmps/app-header";
-import { AppFooter } from "./cmps/app-footer";
-import { UserDetails } from "./pages/user-details";
-import { GigDetails } from "./pages/gig-details";
-import { GigPayment } from "./pages/gig-payment.jsx";
-import { GigEdit } from "./pages/gig-edit";
-import { LoginSignup } from "./cmps/login-signup";
+import { AppHeader } from './cmps/app-header'
+import { AppFooter } from './cmps/app-footer'
+import { UserDetails } from './pages/user-details'
+import { GigDetails } from './pages/gig-details'
+import { GigPayment } from './pages/gig-payment.jsx'
+import { GigEdit } from './pages/gig-edit'
+import { LoginSignup } from './cmps/login-signup'
 
 export function RootCmp() {
   
