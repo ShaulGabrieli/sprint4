@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react'
 import { userService } from '../services/user.service'
 import { ImgUploader } from '../cmps/img-uploader'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { login, logout, signup } from "../store/user.actions.js";
+import { useNavigate } from 'react-router-dom';
 
-export function LoginSignup(props) {
+export function LoginSignup() {
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
     const [isSignup, setIsSignup] = useState(false)
     const [users, setUsers] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         loadUsers()
@@ -27,18 +31,39 @@ export function LoginSignup(props) {
         setCredentials({ ...credentials, [field]: value })
     }
 
+    async function loginCheck(credentials) {
+        try {
+            console.log('credentials', credentials);
+          const user = await login(credentials);
+          showSuccessMsg(`Welcome: ${user.fullname}`);
+        } catch (err) {
+          showErrorMsg("Cannot login");
+        }
+      }
+      async function signupCheck(credentials) {
+        try {
+          const user = await signup(credentials);
+          showSuccessMsg(`Welcome new user: ${user.fullname}`);
+        } catch (err) {
+          showErrorMsg("Cannot signup");
+        }
+      }
+
     function onLogin(ev = null) {
         if (ev) ev.preventDefault()
         if (!credentials.username) return
-        props.onLogin(credentials)
+        loginCheck(credentials)
         clearState()
+        navigate('/gig')
+
     }
 
     function onSignup(ev = null) {
         if (ev) ev.preventDefault()
         if (!credentials.username || !credentials.password || !credentials.fullname) return
-        props.onSignup(credentials)
+        signupCheck(credentials)
         clearState()
+        navigate('/gig')
     }
 
     function toggleSignup() {
@@ -50,23 +75,23 @@ export function LoginSignup(props) {
     }
 
     return (
-        <div className="login-page">
+        <div className="login-page main-container">
             <p>
-                <button className="btn-link" onClick={toggleSignup}>{!isSignup ? 'Signup' : 'Login'}</button>
+                <button onClick={toggleSignup}>{!isSignup ? 'Join' : 'Login'}</button>
             </p>
             {!isSignup && <form className="login-form" onSubmit={onLogin}>
-                <select
+                {/* <select
                     name="username"
                     value={credentials.username}
                     onChange={handleChange}
                 >
                     <option value="">Select User</option>
                     {users.map(user => <option key={user._id} value={user.username}>{user.fullname}</option>)}
-                </select>
-                {/* <input
+                </select> */}
+                <input
                         type="text"
                         name="username"
-                        value={username}
+                        value={credentials.username}
                         placeholder="Username"
                         onChange={handleChange}
                         required
@@ -75,12 +100,12 @@ export function LoginSignup(props) {
                     <input
                         type="password"
                         name="password"
-                        value={password}
+                        value={credentials.password}
                         placeholder="Password"
                         onChange={handleChange}
                         required
-                    /> */}
-                <button>Login!</button>
+                    />
+                <button className='login-page'>Sign In</button>
             </form>}
             <div className="signup-section">
                 {isSignup && <form className="signup-form" onSubmit={onSignup}>
@@ -109,7 +134,7 @@ export function LoginSignup(props) {
                         required
                     />
                     <ImgUploader onUploaded={onUploaded} />
-                    <button >Signup!</button>
+                    <button className='sign-up-btn'>Signup!</button>
                 </form>}
             </div>
         </div>

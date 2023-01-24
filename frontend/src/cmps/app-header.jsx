@@ -240,7 +240,9 @@ mail
         )}
         {!user && (
           <section className="user-info">
-            <LoginSignup onLogin={onLogin} onSignup={onSignup} />
+            <Link to={'/user/loginsignup'}><span className="sign-in-btn">Sign In & Join</span> </Link>
+            {/* <Link to={'/user/loginsignup'}><span className="Join-btn">Join</span> </Link> */}
+            {/* <LoginSignup onLogin={onLogin} onSignup={onSignup} /> */}
           </section>
         )}
         {/* </div> */}

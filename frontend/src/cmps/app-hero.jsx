@@ -30,7 +30,6 @@ export function AppHero() {
   }
 
   function heroTextSwitch(heroImg) {
-    console.log('heroImg', heroImg);
     switch (heroImg) {
       case 1:
         setHeroTextToDisplay("Gabriel, Video Editor");
