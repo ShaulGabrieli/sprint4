@@ -11,15 +11,18 @@ export function AppHero() {
   );
   useEffect(() => {
     heroImgSwitch();
-  }, [heroTextToDisplay]);
+  }, []);
 
   function heroImgSwitch() {
     const imgSwitchInterval = setInterval(() => {
       setImgToDisplay((prevImg) => {
         if (prevImg === 5) {
-          setImgToDisplay((prevImg) => (prevImg = 1));
+          setImgToDisplay((prev) => {
+            heroTextSwitch(1);
+            return prev = 1
+            })
         }
-        prevImg += 1
+        prevImg +=1
         heroTextSwitch(prevImg);
         return prevImg;
       });
@@ -27,6 +30,7 @@ export function AppHero() {
   }
 
   function heroTextSwitch(heroImg) {
+    console.log('heroImg', heroImg);
     switch (heroImg) {
       case 1:
         setHeroTextToDisplay("Gabriel, Video Editor");
@@ -44,8 +48,6 @@ export function AppHero() {
         setHeroTextToDisplay("iron shapira");
         break;
       default:
-        console.log(heroTextToDisplay, "heroTextToDisplay");
-
         setHeroTextToDisplay("Shaula");
     }
   }
