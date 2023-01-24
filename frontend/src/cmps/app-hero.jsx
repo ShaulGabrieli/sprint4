@@ -9,7 +9,6 @@ export function AppHero() {
   const [heroTextToDisplay, setHeroTextToDisplay] = useState(
     "Gabriel, Video Editor"
   );
-  console.log(imgToDisplay);
   useEffect(() => {
     heroImgSwitch();
   }, []);
@@ -18,27 +17,38 @@ export function AppHero() {
     const imgSwitchInterval = setInterval(() => {
       setImgToDisplay((prevImg) => {
         if (prevImg === 5) {
-          setImgToDisplay((prevImg) => (prevImg = 1));
+          setImgToDisplay((prev) => {
+            heroTextSwitch(1);
+            return (prev = 1);
+          });
         }
-
-        heroTextSwitch();
-        return prevImg + 1;
+        prevImg += 1;
+        heroTextSwitch(prevImg);
+        return prevImg;
       });
     }, 7000);
   }
 
-  function heroTextSwitch() {
-    console.log("imgToDisplay", imgToDisplay);
-    switch (heroTextToDisplay) {
-      case imgToDisplay === 1:
-        setHeroTextToDisplay("dsvvssdvdv");
+  function heroTextSwitch(heroImg) {
+    console.log("heroImg", heroImg);
+    switch (heroImg) {
+      case 1:
+        setHeroTextToDisplay("Gabriel, Video Editor");
         break;
-      case imgToDisplay === 2:
-        setHeroTextToDisplay("dsvvsdvdvdvsdvdv");
-
+      case 2:
+        setHeroTextToDisplay("lior");
+        break;
+      case 3:
+        setHeroTextToDisplay("irene");
+        break;
+      case 4:
+        setHeroTextToDisplay("yazan");
+        break;
+      case 5:
+        setHeroTextToDisplay("iron shapira");
         break;
       default:
-        setHeroTextToDisplay("Gabrielaa");
+        setHeroTextToDisplay("Shaula");
     }
   }
 
@@ -48,7 +58,6 @@ export function AppHero() {
         className={`img-container${imgToDisplay}
 } full main-container`}
       >
-        {" "}
         <div className="hero-info ">
           <h1>
             Find the perfect <span>freelance</span> services for your business
