@@ -1,15 +1,16 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
-
+import { Link, useParams } from 'react-router-dom'
 import { loadUser } from '../store/user.actions'
 import { store } from '../store/store'
 import { showSuccessMsg } from '../services/event-bus.service'
 import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from '../services/socket.service'
-
+import { orderService } from '../services/order.service.local'
 export function UserDetails() {
     const params = useParams()
     const user = useSelector((storeState) => storeState.userModule.user)
+    const [buyerOrders, setBuyerOrders] = useState([])
+    const [sellerOrders, setSellerOrders] = useState([])
 
     // useEffect(() => {
     //     loadUser(params.id)
@@ -22,11 +23,37 @@ export function UserDetails() {
     //     }
     // }, [])
 
+    useEffect(() => {
+        getBuyerOrders()
+        getSellerOrders()
+    }, [])
+
+    async function getBuyerOrders() {
+        try {
+            const orders = await orderService.query({ buyerId: user._id })
+            setBuyerOrders(orders)
+        } catch (err) {
+            console.log('cannot get orders', err)
+            throw err
+        }
+    }
+
+    async function getSellerOrders() {
+        try {
+            const orders = await orderService.query({ sellerId: user._id })
+            setSellerOrders(orders)
+        } catch (err) {
+            console.log('cannot get orders', err)
+            throw err
+        }
+    }
+
+   
     function onUserUpdate(user) {
         showSuccessMsg(`This user ${user.fullname} just got updated from socket, new score: ${user.score}`)
         store.dispatch({ type: 'SET_WATCHED_USER', user })
     }
-console.log('userrr', user);
+    console.log('userrr', user)
     return (
         <section className='user-details main-container full'>
             <div className='user-main-details'>
@@ -54,10 +81,19 @@ console.log('userrr', user);
             </div>
             <div className='user-create-gig'>
                 <h1>Seller options:</h1>
-
+                <ol>
+                    {sellerOrders.map((order) => {
+                        return <li>Buyer name: {order.buyer.fullname} ,Gig title: {order.gig.title} , Status: {order.status}, Change status: <button>Approved</button> <button>In progress</button> <button>Done</button> <button>Rejected</button></li>
+                    })}
+                </ol>
             </div>
             <div className='user-more-details'>
-                <h1>Buyer orders:</h1>
+                <h1>Your orders:</h1>
+                <ol>
+                    {buyerOrders.map((order) => {
+                        return <li><Link to={`/gig/${order.gig._id}`}>Gig title: {order.gig.title} , Status: {order.status}</Link></li>
+                    })}
+                </ol>
             </div>
         </section>
     )
