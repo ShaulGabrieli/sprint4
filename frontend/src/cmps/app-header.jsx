@@ -25,7 +25,7 @@ export function AppHeader() {
   const queryFilterBy = gigService.getFilterFromSearchParams(searchParams);
   const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy);
   const user = useSelector((storeState) => storeState.userModule.user);
-  const [headerStyle, setHeaderStyle] = useState("");
+  const [headerStyle, setHeaderStyle] = useState("fix");
   const [openOrders, setOpenOrders] = useState(false);
 
   let isUserScroll = false;

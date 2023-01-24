@@ -167,12 +167,16 @@
 }
 .fix {
   position: fixed;
+  width: 100%;
   // top: 0;
   // left: 0;
   z-index: 50;
   color: white;
   p {
     color: white;
+  }
+  g :not(:last-child) {
+    fill: white;
   }
 
   .search-container {
@@ -191,6 +195,8 @@
   }
 }
 .fix2 {
+  width: 100%;
+  background-color: white;
   position: fixed;
   top: 0;
   // left: 0;
@@ -207,6 +213,8 @@
 }
 
 .fix3 {
+  width: 100%;
+
   transition: 0.3s;
   position: fixed;
   top: 0;
