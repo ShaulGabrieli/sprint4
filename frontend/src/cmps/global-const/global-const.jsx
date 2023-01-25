@@ -25,3 +25,11 @@ export const doneDayOptions = [
     { value: '75', label: '75 days Delivery' },
     { value: '90', label: '90 days Delivery' },
 ]
+
+
+export const daysToMakeOptions = [
+    { value: 1, label: "Express 24H" },
+    { value: 3, label: "Up to 3 days" },
+    { value: 7, label: "Up to 7 days" },
+    { value: Infinity, label: "Anytime" },
+  ];

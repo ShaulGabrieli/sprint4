@@ -1,47 +1,48 @@
-import { useState, useEffect } from "react";
-import Select from "react-select";
-
+import { useState, useEffect } from 'react'
+import Select from 'react-select'
+import { daysToMakeOptions } from './global-const/global-const'
 export function GigFilter({ onSetFilter, filterBy }) {
-  const [filterByToEdit, setFilterByToEdit] = useState(filterBy);
-  // const [selectedOption, setSelectedOption] = useState(null);
+    const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
+    // const [selectedOption, setSelectedOption] = useState(null);
 
-  useEffect(() => {
-    onSetFilter(filterByToEdit);
-  }, [filterByToEdit]);
+    useEffect(() => {
+        console.log('filterByToEdit', filterByToEdit)
+        onSetFilter(filterByToEdit)
+    }, [filterByToEdit])
 
-  function handleChange({ target }) {
-    let { value, name: field, type } = target;
-    setFilterByToEdit((prevFilter) => {
-      return { ...prevFilter, [field]: value };
-    });
-  }
-  function onSubmitFilter(ev) {
-    ev.preventDefault();
-    onSetFilter(filterByToEdit);
-  }
+    function handleChange({ target }) {
+        let { value, name: field, type } = target
+        setFilterByToEdit((prevFilter) => {
+            return { ...prevFilter, [field]: value }
+        })
+    }
 
-  // const daysToMakeOptions = [
-  //   { value: 1, label: "Express 24H" },
-  //   { value: 3, label: "Up to 3 days" },
-  //   { value: 7, label: "Up to 7 days" },
-  //   { value: Infinity, label: "Anytime" },
-  // ];
+    function handleChangeDaysToMake(days) {
+        let { value } = days
+        setFilterByToEdit((prevFilter) => ({ ...prevFilter, daysToMake: +value }))
+    }
 
-  return (
-    <section>
-      <form className="flex space-between" onSubmit={onSubmitFilter}>
-        <h3>Filter by...</h3>
-        <label htmlFor="daysToMake"></label>
-        <h4>Delivey Time:</h4>
-        <div className="flex">
-          {/* <Select
-            name="daysToMake"
-            id="filter-select"
-            value={filterByToEdit.daysToMake}
-            onChange={handleChange}
-            options={daysToMakeOptions}
-          /> */}
-          <select
+    function onSubmitFilter(ev) {
+        ev.preventDefault()
+        onSetFilter(filterByToEdit)
+    }
+
+    return (
+        <section>
+            <form className='flex space-between' onSubmit={onSubmitFilter}>
+                <h3>Filter by...</h3>
+                <label htmlFor='daysToMake'></label>
+                <h4>Delivey Time:</h4>
+                <div className='flex'>
+                    <Select
+                        id='daysToMake'
+                        name='daysToMake'
+                        options={daysToMakeOptions}
+                        theme={(theme) => ({ ...theme, borderRadius: 4, colors: { ...theme.colors, primary: 'black' } })}
+                        classNamePrefix='select'
+                        onChange={handleChangeDaysToMake}
+                    />
+                    {/* <select
             name="daysToMake"
             id="filter-select"
             value={filterByToEdit.daysToMake}
@@ -52,18 +53,12 @@ export function GigFilter({ onSetFilter, filterBy }) {
             <option value={3}>Up to 3 days</option>
             <option value={7}>Up to 7 days</option>
             <option value={Infinity}>Anytime</option>
-          </select>
-        </div>
-        <h4>Budget:</h4>
+          </select> */}
+                </div>
+                <h4>Budget:</h4>
 
-        <input
-          name="price"
-          id="max-price"
-          placeholder="Max Price"
-          value={filterByToEdit.price}
-          onChange={handleChange}
-        />
-      </form>
-    </section>
-  );
+                <input name='price' id='max-price' placeholder='Max Price' value={filterByToEdit.price} onChange={handleChange} />
+            </form>
+        </section>
+    )
 }

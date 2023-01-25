@@ -2,8 +2,23 @@ import { Link } from 'react-router-dom'
 import { FavSvg } from './git-preview-svgs/fav-svg'
 import { StarSvg } from './git-preview-svgs/star-svg'
 import {OrderStatus} from './order-status'
+import { addToWishlist } from '../store/user.actions'
+import { showSuccessMsg,showErrorMsg } from '../services/event-bus.service'
+
+
 
 export function GigPreview({ gig, orderPagePreview, status}) {
+
+    async function addToWishlist() {
+        try{
+       await addToWishlist(gig)
+        showSuccessMsg ('Gig added to wishlist')
+        }
+        catch (err) {
+            showErrorMsg('Cannot add gig to wishlist')
+        }
+    }
+
     return (
         <Link to={`/gig/${gig._id}`}>
             {' '}
@@ -25,18 +40,14 @@ export function GigPreview({ gig, orderPagePreview, status}) {
 
                 <section className='gig-preview-footer flex space-between'>
                     <div className='preview-footer-fav'>
-                         <FavSvg />
+                         <FavSvg onClick= {()=>  addToWishlist() }/>
                          { orderPagePreview  && <OrderStatus status={status}/> }
                     </div>
 
                    
                     <div className='price-container flex'>
-                        <span className='price-preview'>STARTING AT</span>
-                        <span className='price-tag'>
-                            {' '}
-                            ${gig.price}
-                            <sup className='sup-price-end'>00</sup>
-                        </span>
+                        { orderPagePreview  &&  <span className='price-preview'>PRICE</span> || <span className='price-preview'>STARTING AT</span>}
+                      <span className='price-tag'> ${gig.price}  {!orderPagePreview && <sup className='sup-price-end'>00</sup>}</span>
                     </div>
                 </section>
             </li>

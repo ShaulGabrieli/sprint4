@@ -5,6 +5,7 @@ import { ReviewIndex } from "./pages/review-index.jsx";
 import { ChatApp } from "./pages/chat-app.jsx";
 import { AdminApp } from "./pages/admin-app.jsx";
 import { GigOrderList } from "./cmps/gig-order-list.jsx";
+import { GigWishlist } from "./pages/gig-wishlist.jsx";
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
@@ -46,6 +47,12 @@ const routes = [
     path: "orders",
     component: <GigOrderList />,
     label: "Orders",
+  },
+
+  {
+    path: "wishlist",
+    component: <GigWishlist />,
+    label: "Wishlist",
   },
 ];
 
