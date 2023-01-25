@@ -182,10 +182,10 @@ export function AppHeader() {
         {!user && (
           <section className="user-info">
             <Link to={"/user/loginsignup"}>
-              <span className="sign-in-btn">Sign In</span>{" "}
+              <span>Sign In</span>{" "}
             </Link>
             <Link to={"/user/loginsignup"}>
-              <span className="sign-in-btn">Join</span>{" "}
+              <span>Join</span>{" "}
             </Link>
           </section>
         )}
