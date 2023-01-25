@@ -16,7 +16,10 @@ export const userService = {
     getById,
     remove,
     update,
-    changeScore
+    changeScore,
+    addToWishlist,
+    getWishlist,
+    removeFromWishlist,
 }
 
 window.userService = userService
@@ -97,13 +100,52 @@ async function changeScore(by) {
 
 
 function saveLocalUser(user) {
-    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score}
+    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score, wishlist:user.wishlist}
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
 
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+}
+
+async function getWishlist(userId) {
+    try{
+
+    const user = await getById(userId)
+    return user.wishList
+}
+catch (err) {
+    console.log('cant get wishlist', err)
+    throw err
+}
+}
+
+async function addToWishlist(gig, userId) {
+    try{
+    const user = await getById(userId)
+    user.wishList.push(gig)
+    await update(user)
+    return user.wishList
+}
+catch (err) {
+    console.log('cant add to wishlist', err)
+    throw err
+}
+}
+
+async function removeFromWishlist(gigId, userId) {
+    try{
+    const user = await getById(userId)
+    const idx = user.wishList.findIndex(gig => gig._id === gigId)
+    user.wishList.splice(idx, 1)
+    await update(user)
+    return user.wishlist
+}
+catch (err) {
+    console.log('cant remove from wishlist', err)
+    throw err
+}
 }
 
 

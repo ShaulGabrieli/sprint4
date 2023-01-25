@@ -21,7 +21,7 @@ export function LoginSignup() {
     }
 
     function clearState() {
-        setCredentials({ username: '', password: '', fullname: '', imgUrl: '' })
+        setCredentials({ username: '', password: '', fullname: '', imgUrl: '', wishlist: []})
         setIsSignup(false)
     }
 

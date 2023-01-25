@@ -3,7 +3,7 @@ import { store } from '../store/store.js'
 
 import { showErrorMsg } from '../services/event-bus.service.js'
 import { LOADING_DONE, LOADING_START } from "./system.reducer.js";
-import { REMOVE_USER, SET_USER, SET_USERS, SET_WATCHED_USER } from "./user.reducer.js";
+import { REMOVE_USER, SET_USER, SET_USERS, SET_WATCHED_USER,SET_WISHLIST } from "./user.reducer.js";
 
 export async function loadUsers() {
     try {
@@ -12,6 +12,7 @@ export async function loadUsers() {
         store.dispatch({ type: SET_USERS, users })
     } catch (err) {
         console.log('UserActions: err in loadUsers', err)
+        throw err
     } finally {
         store.dispatch({ type: LOADING_DONE })
     }
@@ -23,8 +24,35 @@ export async function removeUser(userId) {
         store.dispatch({ type: REMOVE_USER, userId })
     } catch (err) {
         console.log('UserActions: err in removeUser', err)
+        throw err
     }
 }
+
+export async function getWishlist() {
+    try {
+        const userId = userService.getLoggedinUser()._id
+        const wishlist = await userService.getWishlist(userId)
+        store.dispatch({ type: SET_WISHLIST, wishlist })
+        return wishlist
+    } catch (err) {
+        console.log('UserActions: err in getWishlist', err)
+        throw err
+    }
+}
+
+export async function addToWishlist(gig){
+    try {
+        const userId = userService.getLoggedinUser()._id
+        const wishlist = await userService.addToWishlist(gig,userId)
+        store.dispatch({ type: SET_WISHLIST, wishlist })
+        return wishlist
+    } catch (err) {
+        console.log('UserActions: err in addToWishlist', err)
+        throw err
+    }
+ 
+}
+
 
 export async function login(credentials) {
     try {
@@ -74,5 +102,6 @@ export async function loadUser(userId) {
     } catch (err) {
         showErrorMsg('Cannot load user')
         console.log('Cannot load user', err)
+         throw err
     }
 }
