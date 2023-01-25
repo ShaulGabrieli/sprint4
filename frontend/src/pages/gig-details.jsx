@@ -87,7 +87,8 @@ export function GigDetails() {
 
                 <div className="gig-details">
                     <div id="overview" className="gig-overview">
-                        <div className="gig-details-breadcrumbs arrow-svg">Breadcrumbs <Arrow /> </div>
+                        <div className="gig-details-breadcrumbs arrow-svg">
+                            {gig.tags.map(tag => <Link to={`/gig?&tags=${tag}`}>{tag} <Arrow /> </Link>)} </div>
                         <div className="gig-title"> {gig.title}</div>
                         <div className="seller-overview reviewer-img flex"><img src={require("../assets/img/details/user-demo.jpg")} />
                             <span className="seller-name fs14"  > {gig.owner.fullname}</span>
