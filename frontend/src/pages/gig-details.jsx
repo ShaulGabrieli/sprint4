@@ -90,9 +90,9 @@ export function GigDetails() {
                         <div className="gig-details-breadcrumbs arrow-svg">
                             {gig.tags.map(tag => <Link to={`/gig?&tags=${tag}`}>{tag} <Arrow /> </Link>)} </div>
                         <div className="gig-title"> {gig.title}</div>
-                        <div className="seller-overview reviewer-img flex"><img src={require("../assets/img/details/user-demo.jpg")} />
-                            <span className="seller-name fs14"  > {gig.owner.fullname}</span>
-                            <StarsRating rate={gig.owner.rate} /></div>
+                        <div className="seller-overview reviewer-img flex"><img src={gig.owner.imgUrl} />
+                            <Link to={`/user/${gig.owner._id}`}><span className="seller-name fs14"  > {gig.owner.fullname}</span></Link>
+                            | <StarsRating rate={gig.owner.rate} /></div>
                     </div>
                     <div className="gig-gallery">
                         <Carousel showIndicators={false}  >
@@ -122,7 +122,7 @@ export function GigDetails() {
                                 {gig.reviews?.map(review => {
                                     console.log('review', review)
                                     return (
-                                        <div className="reviews-container">
+                                        <div className="reviews-container-cr">
                                             {/* <img src={require(`../assets/img/details/demo-details2.jpg`)} /> */}
                                             {/* <p className="review-preview">{review.txt}</p> */}
                                             <ReviewPreview review={review} />
@@ -172,8 +172,8 @@ export function GigDetails() {
                                         return (
 
                                             <div className="reviews-container">
-                                                <div className="hr-top-details ">
-                                                    <hr /></div>
+                                                {/* <div className="hr-top-details ">
+                                                    <hr /></div> */}
                                                 {/* <img src={require(`../assets/img/details/demo-details2.jpg`)} /> */}
                                                 {/* <p className="review-preview">{review.txt}</p> */}
                                                 <ReviewPreview review={review} detailsReviews={true} className="review-main-details" />
