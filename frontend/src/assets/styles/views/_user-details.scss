@@ -2,6 +2,7 @@
     // display: grid;
     // grid-template-columns: 400px 736px;
     background-color: $clr17;
+    color: $clr11;
     // grid-template-rows: 100px 100px 200px 100px;
     // .user-img {
     //     height: 200px;
@@ -39,19 +40,81 @@
         }
     }
 
+    .status-blue {
+        color: blue;
+    }
+    .status-green {
+        color: green;
+    }
+    .status-yellow {
+        color: rgb(189, 189, 0);
+    }
+    .status-orange {
+        color: orangered;
+    }
+    .status-red {
+        color: red;
+    }
+
+    .user-orders-manage-section {
+        margin-left: 40px;
+    }
+
+    .user-details-bottom {
+        align-self: stretch;
+        padding-top: 18.7px;
+        color: $clr4;
+        .from-icon {
+            fill: $clr4;
+        }
+
+        .date-created {
+            padding-top: 16px;
+        }
+    }
+
+    .seller-list {
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        box-shadow: rgba(100, 121, 143, 0.12) 0px -1px 0px 0px inset;
+        background-color: $clr-1;
+        height: 2.8571em;
+        width: 100%;
+        padding-left: 20px;
+
+        td {
+            padding: 15px;
+        }
+    }
+
     .orders-list {
         display: flex;
         flex-direction: column;
         margin-right: 20px;
-        
+
+        // &:first-child li {
+        //     border-start-end-radius: 16px;
+        //     border-start-start-radius: 16px;
+        // }
+        // &:last-child li {
+        //     border-end-start-radius: 16px;
+        //     border-end-end-radius: 16px;
+        // }
+
         li {
             display: flex;
             align-items: center;
             box-shadow: rgba(100, 121, 143, 0.12) 0px -1px 0px 0px inset;
             background-color: $clr-1;
             height: 2.8571em;
-            /* width: 80vw; */
+            // width: 100vw;
             padding-left: 20px;
+
+            a {
+                text-decoration: none;
+                color: $clr11;
+            }
 
             /* border-start-start-radius: 16px; */
         }
@@ -60,27 +123,14 @@
             /* background-color: rgb(41, 32, 217);  */
             box-shadow: inset 0px 0px 3px 0px rgb(85 85 85 / 53%);
         }
+    }
+}
 
-        .link-list:first-child li {
-            border-start-end-radius: 16px;
-            border-start-start-radius: 16px;
-        }
-        .link-list:last-child li {
-            border-end-start-radius: 16px;
-            border-end-end-radius: 16px;
-        }
-
-
-        .subject-list {
-            font-weight: bold;
-        }
-
-        .subject-list.selected {
-            font-weight: normal;
-        }
-
-        .orders-list li.selected {
-            background-color: var(--clr2bg);
+@media (max-width: 1200px) {
+    .user-details {
+        .user-details-section {
+            flex-direction: column;
+            align-items: center;
         }
     }
 }
