@@ -18,8 +18,9 @@ export function GigPreview({ gig, orderPagePreview, status }) {
 
     return (
         <li className='gig-preview flex' key={gig._id}>
-            <Link to={`/gig/${gig._id}`}>
+           <div className="preview-main-container flex column">
                 <section className='top-gig-section'>
+                <Link to={`/gig/${gig._id}`}>
                     <img className='preview-img' src={`${gig.imgUrls[0]}`} />
                     <div className='owner-info'>
                         <div className='owner-icon-container'>
@@ -33,12 +34,14 @@ export function GigPreview({ gig, orderPagePreview, status }) {
                         <span className='rate'> {gig.owner.rate}</span>
                         <span className='total-likes'>{`(${gig.totalLikes})`}</span>
                     </div>
+                    </Link>
                 </section>
-            </Link>
+            
+           
             <hr />
             <section className='gig-preview-footer flex space-between'>
                 <div className='preview-footer-fav'>
-                    <FavSvg OnAddToWishlist={OnAddToWishlist}/>
+                {!orderPagePreview && <FavSvg OnAddToWishlist={OnAddToWishlist}/>}
                     {orderPagePreview && <OrderStatus status={status} />}
                 </div>
                 <div className='price-container flex'>
@@ -49,6 +52,7 @@ export function GigPreview({ gig, orderPagePreview, status }) {
                     </span>
                 </div>
             </section>
+            </div>
         </li>
     )
 }

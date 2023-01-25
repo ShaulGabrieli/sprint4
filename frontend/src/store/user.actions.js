@@ -42,7 +42,7 @@ export async function getWishlist() {
 
 export async function addToWishlist(gig){
     try {
-        const userId = userService.getLoggedinUser()._id
+        const userId = userService.getLoggedinUser()?._id
         const wishlist = await userService.addToWishlist(gig,userId)
         store.dispatch({ type: SET_WISHLIST, wishlist })
         return wishlist
@@ -51,6 +51,19 @@ export async function addToWishlist(gig){
         throw err
     }
  
+}
+
+export async function removeFromWishlist(gigId){
+    try {
+        const userId = userService.getLoggedinUser()?._id
+        const wishlist = await userService.removeFromWishlist(gigId,userId)
+        store.dispatch({ type: SET_WISHLIST, wishlist })
+        return wishlist
+    } catch (err) {
+        console.log('UserActions: err in removeFromWishlist', err)
+        throw err
+    }
+
 }
 
 

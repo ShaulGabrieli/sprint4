@@ -74,7 +74,7 @@ export function GigPayment() {
     return (<div className="main-container">{!order && <div>Loading...</div> ||
         <div className="main-payment-area ">
 
-            <CreditCardForm className="payment-area" type="submit" gig={order.gig} setCreditTransaction={setCreditTransaction} triggerSubmit={triggerSubmit} />
+            <CreditCardForm className="payment-area" type="submit" buyer={order.buyer} gig={order.gig} setCreditTransaction={setCreditTransaction} triggerSubmit={triggerSubmit} />
             <div className="order-details-container">
                 <div className="payment-summery">
 
