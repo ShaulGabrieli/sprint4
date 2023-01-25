@@ -31,12 +31,8 @@ export function GigPreview({ gig, orderPagePreview, status}) {
 
                    
                     <div className='price-container flex'>
-                        <span className='price-preview'>STARTING AT</span>
-                        <span className='price-tag'>
-                            {' '}
-                            ${gig.price}
-                            <sup className='sup-price-end'>00</sup>
-                        </span>
+                        { orderPagePreview  &&  <span className='price-preview'>PRICE</span> || <span className='price-preview'>STARTING AT</span>}
+                      <span className='price-tag'> ${gig.price}  {!orderPagePreview && <sup className='sup-price-end'>00</sup>}</span>
                     </div>
                 </section>
             </li>
