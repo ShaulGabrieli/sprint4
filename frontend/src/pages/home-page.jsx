@@ -8,6 +8,26 @@ export function HomePage() {
   return (
     <section className="home-page full">
       <AppHero />
+      <section className="trustedBy  main-container">
+        <ul className="flex clean-list  space-between">
+          <h3>Trusted by:</h3>
+          <li className="trustedByImg">
+            <img src={require("../assets/img/trustedBy/facebook.png")} alt="" />
+          </li>
+          <li className="trustedByImg">
+            <img src={require("../assets/img/trustedBy/google.png")} alt="" />
+          </li>
+          <li className="trustedByImg">
+            <img src={require("../assets/img/trustedBy/netflix.png")} alt="" />
+          </li>
+          <li className="trustedByImg">
+            <img src={require("../assets/img/trustedBy/p&g.png")} alt="" />
+          </li>
+          <li className="trustedByImg">
+            <img src={require("../assets/img/trustedBy/paypal.png")} alt="" />
+          </li>
+        </ul>
+      </section>
       <PopularServices />
       <SellingAd />
       <MarketCategories />

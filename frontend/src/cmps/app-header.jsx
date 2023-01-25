@@ -32,7 +32,7 @@ export function AppHeader() {
     window.onscroll = function (e) {
       switchHeaderStyle(window.pageYOffset);
     };
-  }, [location]);
+  }, [location, headerStyle]);
 
   useEffect(() => {
     onSetFilter(filterByToEdit);
