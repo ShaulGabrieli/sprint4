@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux'
 import { loadOrders } from '../store/order.actions.js'
 import { OrderStatus } from './order-status.jsx'
 
-export function PopupOrderList({ title, subtitle }) {
+export function PopupOrderList() {
+    
     const orders = useSelector(storeState => storeState.orderModule.userOrders)
 
     useEffect(() => {

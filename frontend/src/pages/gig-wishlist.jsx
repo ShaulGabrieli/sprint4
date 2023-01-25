@@ -6,59 +6,33 @@ import { GigPreview } from '../cmps/gig-preview.jsx'
 import { showErrorMsg } from '../services/event-bus.service.js'
 
 
-export function GigOrderList() {
-    let previewList = []
-    const orders = useSelector(storeState => storeState.orderModule.userOrders)
-   // const wishlist = useSelector(storeState => storeState.userModule.user.wishlist)
+export function GigWishlist() {
+   const wishlist = useSelector(storeState => storeState.userModule.user.wishlist)
   
-
-    // async function getOrders() {
-    //     try {
-    //         previewList = await loadOrders()
-           
-    //     }
-    //     catch (err) {
-    //         showErrorMsg('Cannot load orders')
-    //         throw err
-    //     }
-    // }
-
-    // async function getWishlist() {
-    //     try {
-    //         previewList = await getWishlist()
-             
-    //     }
-    //     catch (err) {
-    //         showErrorMsg('Cannot load wishlist')
-    //         throw err
-    //     }
-    // }
-
-
     useEffect(() => {
-        loadOrders()
+        getWishlist()
     }, [])
-
 
     return (
         //todo: loading
-        <div> {!orders && <div> loading </div> || 
+        <div> {!wishlist && <div> loading </div> || 
             <div className="main-order-list-container main-container">
                 <div className="order-list-container">
                     <section className="my-orders-header">
-                        <div className="order-title-section fs32">My orders</div>
+                        <div className="order-title-section fs32">My lists</div>
                         <div className="order-subtitle-section fs16">
-                            Track your purchases and manage your orders with ease</div>
+                      <p> Organize your go-to freelancers and favorite services into custom lists you can
+                         easily access and share with your team.</p> </div>
                     </section>
                     <section className="my-orders-container">
                         <div className="my-orders">
                             <ul className="gig-orders-list gig-list ">
-                                {orders.map((order, idx) => (
+                                {wishlist.map((wish, idx) => (
                                     <GigPreview 
-                                    orderPagePreview={true} 
+                                    orderPagePreview={false} 
                                         id={idx}
-                                        gig={order.gig}
-                                        status={order.status}
+                                        gig={wish.gig}
+                                        // status={order.status}
 
                                     />
                                 ))}
