@@ -25,14 +25,15 @@ export function AppHeader() {
   const queryFilterBy = gigService.getFilterFromSearchParams(searchParams);
   const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy);
   const user = useSelector((storeState) => storeState.userModule.user);
-  const [headerStyle, setHeaderStyle] = useState("fix");
+  const [headerStyle, setHeaderStyle] = useState(
+    location.pathname === "/" ? "fix" : "sticky"
+  );
   const [openOrders, setOpenOrders] = useState(false);
 
   let isUserScroll = false;
 
   useEffect(() => {
     onSetFilter(filterByToEdit);
-    // switchHeaderStyle();
     window.onscroll = function (e) {
       console.log(e, "ZZZZ");
       isUserScroll = true;
@@ -42,30 +43,16 @@ export function AppHeader() {
     isUserScroll = false;
   }, [filterByToEdit, location]);
 
-  //   useEffect(() => {
-  //     console.log("location.pathname ", location.pathname);
-
   function switchHeaderStyle(pageYOffset) {
-    console.log("ZZZZZZZZZZZZZZZZZZ", pageYOffset);
-    if (location.pathname !== "/") {
-      setHeaderStyle("sticky ");
-    }
     if (location.pathname === "/" && pageYOffset === 0) {
-      console.log("ZZZZZZZZZZZZZZZZZZ", location.pathname);
-      console.log("Z", pageYOffset);
-
-      setHeaderStyle("main-container fix ");
+      setHeaderStyle("fix ");
     }
     if (location.pathname === "/" && pageYOffset === 125) {
-      console.log("ZZZZZZZZZZZZZZZZZZ", location.pathname);
-      console.log("Z", pageYOffset);
-
       setHeaderStyle("fix2 ");
     }
     if (location.pathname === "/" && pageYOffset === 250) {
       setHeaderStyle("fix3 ");
     }
-    //   setHeaderStyle("sticky ");
   }
 
   async function onLogin(credentials) {
@@ -109,7 +96,7 @@ export function AppHeader() {
     <header
       className={`app-header main-container full sticky    ${headerStyle}`}
     >
-      <div className="flex space-between align-center">
+      <div className="flex space-between align-center top-nav">
         <Link className="header-logo" to={`/`}>
           <svg
             width="89"
