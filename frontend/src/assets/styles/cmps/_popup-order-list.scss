@@ -1,0 +1,46 @@
+.main-popup-container {
+  z-index: 400;
+  background-color: $clr-1;
+}
+
+.popup-gig-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: $clr1;
+  width: 14vw;
+}
+
+#order-img-list {
+  align-self: center;
+  min-height: em(100px);
+  min-width: em(180px);
+}
+
+.main-popup-container
+ {
+  border: 2px solid black;
+  // line-height: 24px;
+}
+
+
+.order-gig-byseller,
+.popup-gig-img,
+.order-gig-status {
+  margin: 4px 14px 10px 0;
+}
+
+.order-gig-byseller,.order-gig-status{
+  font-size: em(12px);
+  color:$clr4;
+}
+
+.popup-gig-container{
+  .pop-up-hr{
+    visibility: visible;
+    width: 100%;
+    border: none;
+    border-top: 2px solid $clr14;
+    padding: 0;
+    margin: 0;
+  }
+}

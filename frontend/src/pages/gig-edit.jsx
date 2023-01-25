@@ -1,13 +1,12 @@
 import Select from 'react-select'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 import { gigService } from '../services/gig.service.local'
 import { addGig } from '../store/gig.actions.js'
-
+import { uploadImgToGig } from '../services/cloudinary-service.js'
+import {categoryOptions , doneDayOptions} from '../cmps/global-const/global-const'
 export function GigEdit() {
-    const gigs = useSelector((storeState) => storeState.gigModule.gigs)
     const [gigToEdit, setGigToEdit] = useState(gigService.getEmptyGig())
     const [isReadyPublish, setIsReadyPublish] = useState(false)
     const [isImgLoading, setIsImgLoading] = useState(false)
@@ -31,7 +30,6 @@ export function GigEdit() {
             let { value } = tag
             selectedTags.push(value)
         })
-        console.log('selectedTags', selectedTags)
         setGigToEdit((prevGig) => ({ ...prevGig, tags: selectedTags }))
     }
 
@@ -41,7 +39,6 @@ export function GigEdit() {
     }
 
     async function onAddGig(ev) {
-        console.log('gigToEdit', gigToEdit)
         ev.preventDefault()
         try {
             const savedGig = await addGig(gigToEdit)
@@ -53,65 +50,23 @@ export function GigEdit() {
         }
     }
 
-    const uploadImg = async (event) => {
+   
+   async function uploadImg(event){
         setIsImgLoading(true)
-        //Defining our variables
-        const CLOUD_NAME = 'dyfo5gyda'
-        const UPLOAD_PRESET = 'otvk6yqj'
-        const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
-        const FORM_DATA = new FormData()
-
-        //Bulding the request body
-        FORM_DATA.append('file', event.target.files[0])
-        FORM_DATA.append('upload_preset', UPLOAD_PRESET)
-        // Sending a post method request to Cloudinarys API
-        try {
-            const res = await fetch(UPLOAD_URL, {
-                method: 'POST',
-                body: FORM_DATA,
-                mode: 'cors',
-            })
-            const elImg = document.createElement('img')
-            const { url } = await res.json()
-            console.log('url', url)
-            const urls = gigToEdit.imgUrls
-            urls.push(url)
-            setGigToEdit((prevGig) => ({ ...prevGig, imgUrls: urls }))
-            // elImg.src = url
-            // document.body.append(elImg)
-            setIsImgLoading(false)
-            setIsReadyPublish(true)
-        } catch (err) {
-            console.error(err)
+        try{
+            const url = await uploadImgToGig(event)
+             const urls = gigToEdit.imgUrls
+             urls.push(url)
+                 setGigToEdit((prevGig) => ({ ...prevGig, imgUrls: urls }))
+                 setIsImgLoading(false)
+                 setIsReadyPublish(true)
+        } catch (err){
+            console.log('Cannot add image', err)
+            throw err
         }
     }
-    const categoryOptions = [
-        { value: 'graphics-design', label: 'Graphics & Design' },
-        { value: 'digital-marketing', label: 'Digital Marketing' },
-        { value: 'writing-translation', label: 'Writing & Translation' },
-        { value: 'video-animation', label: 'Video & Animation' },
-        { value: 'music-audio', label: 'Music & Audio' },
-        { value: 'programming-tech', label: 'Programming & Tech' },
-        { value: 'business', label: 'Business' },
-        { value: 'lifestyle', label: 'Lifestyle' },
-        { value: 'trending', label: 'Trending' },
-    ]
-    const doneDayOptions = [
-        { value: '1', label: '1 days Delivery' },
-        { value: '2', label: '2 days Delivery' },
-        { value: '3', label: '3 days Delivery' },
-        { value: '4', label: '4 days Delivery' },
-        { value: '5', label: '5 days Delivery' },
-        { value: '6', label: '6 days Delivery' },
-        { value: '7', label: '7 days Delivery' },
-        { value: '14', label: '14 days Delivery' },
-        { value: '21', label: '21 days Delivery' },
-        { value: '30', label: '30 days Delivery' },
-        { value: '45', label: '45 days Delivery' },
-        { value: '60', label: '60 days Delivery' },
-        { value: '75', label: '75 days Delivery' },
-        { value: '90', label: '90 days Delivery' },
-    ]
+
+    
     return (
         <section className='gig-edit full'>
             <form onSubmit={onAddGig}>

@@ -19,10 +19,9 @@ import { PaymentTabs } from '../cmps/payment-tabs.jsx'
 import { ReactComponent as Lightning } from '../assets/img/details/lightning.svg'
 import { ReactComponent as Arrow } from '../assets/img/details/arrow.svg'
 
-export function GigDetails({ setIsGigDetails }) {
+export function GigDetails() {
     const [gig, setGig] = useState(null)
-    const params = useParams()
-    const { id } = params
+    const { id } = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -30,10 +29,8 @@ export function GigDetails({ setIsGigDetails }) {
     }, [id])
 
     useEffect(() => {
-        setIsGigDetails(true)
         document.querySelector(".app-header").classList.remove('sticky');
         return () => {
-            setIsGigDetails(false)
             document.querySelector(".app-header").classList.add('sticky')
         }
     }, [])

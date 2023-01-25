@@ -11,26 +11,26 @@ import { PopupMenu } from '../cmps/popup-menu.jsx'
 
 
 export function GigPayment() {
-
-    const [vat, setVat] = useState(0)
-    const [total, setTotal] = useState(0)
     const [creditTransaction, setCreditTransaction] = useState(false)
-
     const { id } = useParams()
     const navigate = useNavigate()
 
     let order = useSelector(storeState => storeState.orderModule.order)
     useEffect(() => {
         loadOrder(id)
-        setVat(getVat())
-        setTotal(totalPay())
+        // setVat(getVat())
+        // setTotal(totalPay())
     }, [])
 
-    async function savePayedOrder(){
+    async function savePayedOrder() {
 
         if (creditTransaction) {
-            order.gig.price = total
-           await payedOrder(order)
+            order = {
+                ...order, gig: {
+                    ...order.gig, price: totalPay()
+                }
+            }
+            await payedOrder(order)
             navigate(`/orders`)
         }
     }
@@ -74,9 +74,7 @@ export function GigPayment() {
     return (<div className="main-container">{!order && <div>Loading...</div> ||
         <div className="main-payment-area ">
 
-
             <CreditCardForm className="payment-area" type="submit" gig={order.gig} setCreditTransaction={setCreditTransaction} triggerSubmit={triggerSubmit} />
-
             <div className="order-details-container">
                 <div className="payment-summery">
 
@@ -108,13 +106,13 @@ export function GigPayment() {
 
                         <div className="summery-vat  flex  space-between">
                             <span className="service-fee">VAT ❔</span>
-                            <span className="service-fee-price">{vat}</span>
+                            <span className="service-fee-price">{getVat()}</span>
                         </div>
 
                         <hr className="summery-line" />
                         <div className="summery-total flex space-between">
                             <span className="service-fee">Total  </span>
-                            <span className="service-fee-price">${total} </span>
+                            <span className="service-fee-price">${totalPay()} </span>
                         </div>
 
                         <div className="summery-tota-delivery  flex space-between">
@@ -134,5 +132,4 @@ export function GigPayment() {
         </div >}
     </div>
     )
-
 }

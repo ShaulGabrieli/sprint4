@@ -108,6 +108,12 @@
 
   span {
     color: $clr3;
+    font-weight: bold;
+  }
+
+  span:hover {
+    cursor: pointer;
+    color: $clr2;
   }
 
   li {
@@ -140,14 +146,7 @@
     box-shadow: 2px 18px 0 -7px $clr2;
   }
 
-  span {
-    font-weight: bold;
-  }
-
-  span:hover {
-    cursor: pointer;
-    color: $clr2;
-  }
+  
   p {
     color: $clr20;
     font-weight: 600;
@@ -164,6 +163,7 @@
       width: 19px;
     }
   }
+
 }
 .fix {
   position: fixed;
@@ -224,4 +224,8 @@
   z-index: 50;
   color: white;
   background-color: white;
+}
+
+.orders-link{
+  // position:relative;
 }
