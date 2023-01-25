@@ -1,6 +1,6 @@
-export function FavSvg() {
+export function FavSvg({OnAddToWishlist}) {
     return (
-        <section className='fav-svg'>
+        <section className='fav-svg' onClick={OnAddToWishlist} >
             {/* <!-- License: PD. Made by Leonid Tsvetkov: https://dribbble.com/Lets --> */}
             <svg width='20px' height='20px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path
