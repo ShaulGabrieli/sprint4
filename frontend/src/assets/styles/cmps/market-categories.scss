@@ -1,0 +1,32 @@
+.market-place {
+  text-align: center;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  min-height: 100%;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+
+  p {
+    font-size: rem(32px);
+    line-height: 120%;
+    color: $clr11;
+    margin-bottom: 64px;
+  }
+  a {
+    text-decoration: none;
+    color: #222325;
+  }
+
+  li {
+    padding-bottom: 55px;
+    width: fit-content;
+  }
+  img {
+    display: block;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 15px;
+  }
+}

@@ -1,7 +1,3 @@
-import routes from "../routes";
-
-import { Link, NavLink } from "react-router-dom";
-
 export function MarketCategories() {
   return (
     <section className="market-categories main-container">

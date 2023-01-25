@@ -20,6 +20,7 @@ export function AppHero() {
         }
         prevImg += 1;
         heroTextSwitch(prevImg);
+
         return prevImg;
       });
     }, 7000);
@@ -47,10 +48,10 @@ export function AppHero() {
   }
 
   return (
-    <section className="hero-container main-container full">
+    <section className="hero-container main-container full flex">
       <div
         className={`img-container${imgToDisplay}
-} full main-container`}
+} full main-container flex`}
       >
         <div className="hero-info ">
           <h1>
@@ -78,9 +79,9 @@ export function AppHero() {
             <button>Logo Design</button>
             <button>Video Editing</button>
           </div>
-          <div className="herp-name flex">
-            <p>{heroTextToDisplay}</p>
-          </div>
+        </div>
+        <div className="hero-name flex">
+          <p>{heroTextToDisplay}</p>
         </div>
       </div>
     </section>

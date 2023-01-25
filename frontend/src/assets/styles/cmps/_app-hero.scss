@@ -29,8 +29,9 @@
 
   .hero-info {
     align-self: center;
-    position: relative;
+    position: absolute;
     font-family: Macan-Bold;
+    align-self: center;
     color: white;
 
     h1 {
@@ -105,6 +106,8 @@
     display: flex;
     color: white;
     transition: 0.7s;
+    justify-content: flex-end;
+    align-self: flex-end;
   }
   p {
     font-family: Macan-Bold;

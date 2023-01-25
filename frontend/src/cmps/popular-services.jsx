@@ -9,6 +9,22 @@ export function PopularServices() {
     slidesToScroll: 5,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1160,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 7,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
