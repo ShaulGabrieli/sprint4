@@ -7,11 +7,14 @@ import { showSuccessMsg } from '../services/event-bus.service'
 import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from '../services/socket.service'
 import { orderService } from '../services/order.service.local'
 import { updateOrder } from '../store/order.actions'
+import { loadOrders } from '../store/order.actions.js'
+
 export function UserDetails() {
     const params = useParams()
     const user = useSelector((storeState) => storeState.userModule.user)
-    const [buyerOrders, setBuyerOrders] = useState([])
-    const [sellerOrders, setSellerOrders] = useState([])
+    const userOrders = useSelector((storeState) => storeState.orderModule.userOrders)
+    const sellerOrders = useSelector((storeState) => storeState.orderModule.sellerOrders)
+   console.log('sellerOrders', sellerOrders);
 
     // useEffect(() => {
     //     loadUser(params.id)
@@ -25,81 +28,80 @@ export function UserDetails() {
     // }, [])
 
     useEffect(() => {
-        getBuyerOrders()
-        getSellerOrders()
-    }, [buyerOrders, sellerOrders])
+        loadOrders()
+    }, [])
 
-    async function getBuyerOrders() {
+    async function onChangeStatus(order, updatedStatus) {
         try {
-            const orders = await orderService.query({ buyerId: user._id })
-            setBuyerOrders(orders)
+            const updatedOrder = { ...order, status: updatedStatus }
+            await updateOrder(updatedOrder)
         } catch (err) {
-            console.log('cannot get orders', err)
-            throw err
+            console.log('cannot change status', err)
         }
     }
-
-    async function getSellerOrders() {
-        try {
-            const orders = await orderService.query({ sellerId: user._id })
-            setSellerOrders(orders)
-        } catch (err) {
-            console.log('cannot get orders', err)
-            throw err
-        }
-    }
-
-   async function onChangeStatus(order, updatedStatus){
-    const updatedOrder = {...order, status: updatedStatus}
-    updateOrder(updatedOrder)
-   }
 
     function onUserUpdate(user) {
         showSuccessMsg(`This user ${user.fullname} just got updated from socket, new score: ${user.score}`)
         store.dispatch({ type: 'SET_WATCHED_USER', user })
     }
-    console.log('userrr', user)
+    if (!userOrders) return (<div>Loading ...</div>)
     return (
         <section className='user-details main-container full'>
-            <div className='user-main-details'>
-                <div className='profile-img-container'>
-                    <img className='profile-img' src={user.imgUrl} />
-                </div>
-                <h1>{user.fullname}</h1>
-                <hr />
-                <section className='user-details-bottom'>
-                    <div className='location-profile'>
-                        {/* <!-- License: PD. Made by Steve Schoger: https://www.zondicons.com/ --> */}
-                        <span>
-                            <svg width='20px' height='20px' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
-                                <path d='M10 20S3 10.87 3 7a7 7 0 1 1 14 0c0 3.87-7 13-7 13zm0-11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z' />
-                            </svg>
-                            From
-                        </span>
-                        {/* <span>{user.country}</span> */}
+            <section className='flex'>
+                <div className='user-main-details'>
+                    <div className='profile-img-container'>
+                        <img className='profile-img' src={user.imgUrl} />
                     </div>
-                    <div className='date-created'>
-                        <span>Member since</span>
-                        {/* <span>{user.createdAt}</span> */}
+                    <h1>{user.fullname}</h1>
+                    <hr />
+                    <section className='user-details-bottom'>
+                        <div className='location-profile'>
+                            {/* <!-- License: PD. Made by Steve Schoger: https://www.zondicons.com/ --> */}
+                            <span>
+                                <svg width='20px' height='20px' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
+                                    <path d='M10 20S3 10.87 3 7a7 7 0 1 1 14 0c0 3.87-7 13-7 13zm0-11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z' />
+                                </svg>
+                                From
+                            </span>
+                            {/* <span>{user.country}</span> */}
+                        </div>
+                        <div className='date-created'>
+                            <span>Member since</span>
+                            {/* <span>{user.createdAt}</span> */}
+                        </div>
+                    </section>
+                </div>
+                <section className='user-orders-manage-section flex column'>
+                    <div className='seller-options'>
+                        <h1>Seller options:</h1>
+                        <ol className='orders-list clean-list'>
+                            {sellerOrders.map((order) => {
+                                return (
+                                    <li>
+                                        Buyer name: {order.buyer.fullname} ,Gig title: {order.gig.title} , Status: {order.status}, Change status:{' '}
+                                        <button onClick={() => onChangeStatus(order, 'approved')}>Approved</button> <button onClick={() => onChangeStatus(order, 'in progress')}>In progress</button>{' '}
+                                        <button onClick={() => onChangeStatus(order, 'done')}>Done</button> <button onClick={() => onChangeStatus(order, 'rejected')}>Rejected</button>
+                                    </li>
+                                )
+                            })}
+                        </ol>
+                    </div>
+                    <div className='buyer-orders'>
+                        <h1>Your orders:</h1>
+                        <ol className='orders-list clean-list'>
+                            {userOrders.map((order) => {
+                                return (
+                                    <li>
+                                        <Link to={`/gig/${order.gig._id}`}>
+                                            Gig title: {order.gig.title} , Status: {order.status}
+                                        </Link>
+                                    </li>
+                                )
+                            })}
+                        </ol>
                     </div>
                 </section>
-            </div>
-            <div className='user-create-gig'>
-                <h1>Seller options:</h1>
-                <ol>
-                    {sellerOrders.map((order) => {
-                        return <li>Buyer name: {order.buyer.fullname} ,Gig title: {order.gig.title} , Status: {order.status}, Change status: <button onClick={()=>onChangeStatus(order,'approved')}>Approved</button> <button onClick={()=>onChangeStatus(order,'in progress')}>In progress</button> <button onClick={()=>onChangeStatus(order,'done')}>Done</button> <button onClick={()=>onChangeStatus(order,'rejected')}>Rejected</button></li>
-                    })}
-                </ol>
-            </div>
-            <div className='user-more-details'>
-                <h1>Your orders:</h1>
-                <ol>
-                    {buyerOrders.map((order) => {
-                        return <li><Link to={`/gig/${order.gig._id}`}>Gig title: {order.gig.title} , Status: {order.status}</Link></li>
-                    })}
-                </ol>
-            </div>
+            </section>
         </section>
     )
 }

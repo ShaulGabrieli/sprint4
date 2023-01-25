@@ -13,21 +13,26 @@ export const orderService = {
 }
 
 async function query(filterBy) {
+    console.log('filterByfilterBy', filterBy);
     //todo: add filtering after checking in fiverr
     try {
         const orders = await storageService.query(ORDER_KEY)
+        let buyerOrders
+        let sellerOrders
+
         if (!filterBy) return orders
         const { buyerId } = filterBy
         console.log('buyerId', buyerId)
         if (buyerId) {
-            const buyerOrders = orders.filter(order => order.buyer._id === buyerId && order.paymentStatus === 'payed')
-            return buyerOrders
+             buyerOrders = orders.filter(order => order.buyer._id === buyerId && order.paymentStatus === 'payed')
+            // return buyerOrders
         }
         const { sellerId } = filterBy
         if (sellerId) {
-            const sellerOrders = orders.filter(order => order.seller._id === sellerId)
-            return sellerOrders
+            sellerOrders = orders.filter(order => order.seller._id === sellerId)
+            // return sellerOrders
         }
+        return {buyerOrders, sellerOrders}
     } catch (err) {
         console.log('Couldnt load orders', err)
         throw err
