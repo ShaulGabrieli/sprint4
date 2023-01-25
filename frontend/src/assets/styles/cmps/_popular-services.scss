@@ -1,73 +1,75 @@
 .popular-services {
-  margin: 40px;
-}
+  position: relative;
+  .cards-container {
+    width: 100%;
+    left: 0;
+    margin-left: 0;
+    padding: 0;
+    justify-content: center;
+  }
 
-.cards-container {
-  padding: 50px;
-  justify-content: center;
+  .slick-next:before {
+    border-radius: 33px;
+    background-color: white;
+    font-size: 28px;
+    color: $clr13;
+    padding: 12px;
+    opacity: 100%;
+  }
 
-  // background: #419be0;
-}
-.slick-prev:before,
-.slick-next:before {
-  // content: ">";
-  // font-family: Macan-Regular;
-  // box-shadow: 10px 5px 5px black;
-  border-radius: 33px;
-  background-color: white;
-  border: 1px solid rgb(0, 0, 0);
-  // background-color: transparent;
-  // margin: 0;
-  // padding: 0;
+  .slick-prev:before {
+    border-radius: 33px;
+    background-color: white;
+    font-size: 28px;
+    color: $clr13;
+    padding: 12px;
+    opacity: 100%;
+  }
 
-  font-size: 28px;
-  align-self: center;
-  justify-self: center;
-  color: $clr22;
-  align-self: center;
-  justify-self: center;
-  padding: 12px;
-  /* color: transparent; */
-  // border-radius: 30px;
+  .slick-prev {
+    transform: translate(0, -102%);
+    z-index: 50;
+    height: 24px;
+    width: 62px;
+    opacity: 100%;
+  }
 
-  // -webkit-text-fill-color: #1c87c9;
-}
-// .slick-prev:before {
-//   // background-color: rgb(255, 255, 255);
-//   width: 36px;
-//   -webkit-text-fill-color: #1c87c9;
-// }
-// .slick-prev:before,
-// .slick-next:before {
-//   // font-size: 20px;
-//   opacity: 0.75;
-//   color: white;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-// }
-.slick-prev,
-.slick-next {
-  // background-color: white;
-  // border: solid $clr3;
-  height: 48px;
-  width: 48px;
-  // color: $clr22;
-  // border-radius: 30px;
-}
-.img-card {
-  height: rem(345px);
-  width: rem(288px);
-  img {
-    // margin: auto;
-    padding: 10px;
+  .slick-next {
+    height: 24px;
+    width: 66px;
+    transform: translate(0, -90%);
+    opacity: 100%;
+  }
+  .img-card {
+    color: white;
+    position: relative;
+    height: rem(345px);
+    width: rem(288px);
 
-    max-height: 100%;
-    border-radius: 5px;
+    .pop-service-text {
+      position: absolute;
+      top: 8px;
+      left: 25px;
+      font-size: 0.875rem;
 
-    &:hover {
-      transition: 0.8s;
-      opacity: 80%;
-      cursor: pointer;
+      h3 {
+        margin: 0;
+        line-height: 0.5;
+        font-size: 1.5rem;
+        font-family: Macan-Bold;
+      }
+    }
+
+    img {
+      padding: 10px;
+      max-height: 100%;
+      border-radius: 5px;
+
+      &:hover {
+        transition: 0.8s;
+        opacity: 80%;
+        cursor: pointer;
+      }
     }
   }
 }

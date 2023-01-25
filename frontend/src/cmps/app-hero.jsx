@@ -1,13 +1,9 @@
-// import hero1 from "../assets/img/hero/hero1.webp";
-// import hero2 from "../assets/img/hero2.webp";
-// import hero3 from "../assets/img/hero3.webp";
-// import hero4 from "../assets/img/hero4.webp";
 import { useEffect, useState } from "react";
 
 export function AppHero() {
   const [imgToDisplay, setImgToDisplay] = useState(1);
   const [heroTextToDisplay, setHeroTextToDisplay] = useState(
-    "Gabriel, Video Editor"
+    "Moon, Marketing Expert"
   );
   useEffect(() => {
     heroImgSwitch();
@@ -32,22 +28,21 @@ export function AppHero() {
   function heroTextSwitch(heroImg) {
     switch (heroImg) {
       case 1:
-        setHeroTextToDisplay("Gabriel, Video Editor");
+        setHeroTextToDisplay("Moon, Marketing Expert");
         break;
       case 2:
-        setHeroTextToDisplay("lior");
+        setHeroTextToDisplay("Rikita, Shoemaker and Desighner");
         break;
       case 3:
-        setHeroTextToDisplay("irene");
+        setHeroTextToDisplay("Zack, Bar Owner");
         break;
       case 4:
-        setHeroTextToDisplay("yazan");
+        setHeroTextToDisplay("Gabrielle, Video Editor");
         break;
       case 5:
-        setHeroTextToDisplay("iron shapira");
+        setHeroTextToDisplay("Andrea, Fasion Designer");
         break;
       default:
-        setHeroTextToDisplay("Shaula");
     }
   }
 
@@ -72,7 +67,6 @@ export function AppHero() {
               className="search-box"
               type="text"
               id="gigTitle"
-              // name="title"
               placeholder="Try 'building mobile app'"
             />
             <button>Search</button>
@@ -84,16 +78,11 @@ export function AppHero() {
             <button>Logo Design</button>
             <button>Video Editing</button>
           </div>
-          {/* <p>
-            Gabriel,&nbsp; <span> Video Editor</span>
-          </p>{" "} */}
-          <p className="hero-name">{heroTextToDisplay}</p>
+          <div className="herp-name flex">
+            <p>{heroTextToDisplay}</p>
+          </div>
         </div>
       </div>
-      {/* <img src={hero1} alt="Logo  " /> */}
-      {/*
-      <div class="hero-info flex"></div> */}
     </section>
   );
 }
-// value={filterByToEdit.title} onChange={handleChange}

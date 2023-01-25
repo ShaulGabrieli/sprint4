@@ -1,28 +1,10 @@
 .app-header {
   overflow: hidden;
-  // position: relative;
-  // z-index: 5;
-  // padding: 10px;
-
   .user-info {
-    // background-color: $clr2;
-    // padding: 2px 8px;
-    // padding-left: 100px;
-    // color: $clr1;
-
-    .score {
-      background-color: $clr2;
-      color: $clr6;
-      padding: 8px;
-      margin: 10px;
-      border-radius: 50%;
-    }
-
     img {
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      // object-fit: cover;
     }
   }
 
@@ -31,12 +13,8 @@
   }
 
   nav {
-    // font-size: .8em;
     background-color: $clr-1;
-    // padding: 5px;
-    // flex-wrap: wrap;
     max-width: 1400px;
-    // height: 80px;
   }
 
   nav a:first-child {
@@ -48,10 +26,6 @@
     padding: 0 5px;
     margin: 10px;
   }
-
-  // nav .active {
-  //   color: $clr1;
-  // }
 
   .search-box {
     width: em(800px);
@@ -137,16 +111,12 @@
   .main-nav a {
     color: $clr3;
     text-decoration: none;
-    // box-shadow: 2px 18px 0 -7px $clr6;
-
-    // box-shadow: 2px 18px 0 -8px $clr2;
   }
 
   .main-nav a:hover {
     box-shadow: 2px 18px 0 -7px $clr2;
   }
 
-  
   p {
     color: $clr20;
     font-weight: 600;
@@ -163,19 +133,30 @@
       width: 19px;
     }
   }
-
 }
+
+// Header Scroll manipulation
+
 .fix {
   position: fixed;
   width: 100%;
-  // top: 0;
-  // left: 0;
   z-index: 50;
   color: white;
   p {
     color: white;
   }
-  g {
+
+  svg {
+    fill: white;
+  }
+  span {
+    color: white;
+  }
+  img {
+    color: white;
+  }
+
+  .svg-logo {
     fill: white;
   }
 
@@ -196,18 +177,23 @@
 }
 .fix2 {
   width: 100%;
-
   position: fixed;
   top: 0;
-  // left: 0;
   z-index: 50;
   color: white;
   transition: 0.3s;
-  .top-nav {
-    background-color: rgb(0, 0, 0);
-  }
-  .main-nav {
+  background-color: rgb(255, 255, 255);
+
+  .search-container {
     visibility: hidden;
+  }
+
+  .svg-logo {
+    fill: #404145;
+  }
+
+  .main-nav {
+    display: none;
   }
   hr {
     visibility: hidden;
@@ -216,16 +202,14 @@
 
 .fix3 {
   width: 100%;
-
   transition: 0.3s;
   position: fixed;
   top: 0;
-  // left: 0;
   z-index: 50;
   color: white;
   background-color: white;
 }
 
-.orders-link{
-  // position:relative;
-}
+// .orders-link {
+//   // position:relative;
+// }

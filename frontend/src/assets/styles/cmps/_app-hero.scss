@@ -1,7 +1,6 @@
 .hero-container {
   min-height: 680px;
   position: relative;
-  // background-color: black;
   .img-container1 {
     background-image: url("../../img/hero/hero1.webp");
     width: 100%;
@@ -50,11 +49,6 @@
 
   .search-container {
     width: rem(650px);
-    // height: rem(48px);
-
-    // border: solid 1px $clr12;
-
-    // border-radius: 5px 5px 5px 5px;
     button {
       width: rem(103px);
       height: rem(48px);
@@ -68,20 +62,15 @@
       width: rem(546px);
       height: rem(48px);
       color: $clr4;
-      // line-height: 24;
       font-family: Macan-Bold;
-      // padding: em(10px) em(2px) em(10px) em(16px);
       font-size: em(16px);
       border: none;
-      // border: solid 1px $clr12;
-      // border-radius: 4px 0px 0px 4px;
       box-shadow: none;
       font-family: Macan-Light;
       margin: em(20px) 0;
 
       &:focus {
         outline: none;
-        // border: solid 1px $clr11;
       }
       &::placeholder {
         color: $clr3;
@@ -99,9 +88,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      // margin: em(20px) 0;
       border-radius: 5px 0px 0px 5px;
-      // border-radius: 0px 4px 4px 0px;
       cursor: pointer;
       &:hover {
         background-color: rgba(34, 35, 37, 0.834);
@@ -136,7 +123,6 @@
       font-family: Macan-Bold;
       background-color: transparent;
       color: white;
-      // margin: 0;
       font-weight: 800;
       border: solid 1px white;
       padding: 0 15px;
@@ -150,19 +136,3 @@
     }
   }
 }
-// p {
-//   position: absolute;
-//   color: white;
-
-//   div {
-//     position: absolute;
-//     bottom: 25px;
-//     left: -5px;
-//   }
-
-//   span {
-//     color: white;
-//     margin-left: 5px;
-//     font-family: Macan-Regular;
-//   }
-// }
