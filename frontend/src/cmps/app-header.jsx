@@ -64,6 +64,7 @@ export function AppHeader({openOrders, setOpenOrders}) {
     async function onLogout() {
         try {
             await logout()
+            navigate('/')
             showSuccessMsg(`Bye now`)
         } catch (err) {
             showErrorMsg('Cannot logout')

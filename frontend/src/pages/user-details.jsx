@@ -102,9 +102,9 @@ export function UserDetails() {
                         <table className='seller-list'>
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Buyer</th>
-                                    <th>Title</th>
+                                    <th>Gig Id</th>
+                                    <th>Gig title</th>
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
@@ -113,8 +113,8 @@ export function UserDetails() {
                                 {sellerOrders.map((order) => {
                                     return (
                                         <tr>
-                                            <td> {order.gig._id}</td>
                                             <td>{order.buyer.fullname}</td>
+                                            <td> {order.gig._id}</td>
                                             <td>{order.gig.title}</td>
                                             <td>{order.status}</td>
                                             <td>
