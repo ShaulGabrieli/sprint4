@@ -21,7 +21,7 @@ export function PopupOrderList() {
 
             {orders?.map((order) => (
                 <section className='flex column'>
-                    <div className="subsub flex row">
+                    <div className="subsub flex row" onClick={() => navigate('/orders')}>
                         <div> <img className="popup-gig-img" id="order-img-list" src={order.gig.imgUrls[0]} alt="" /></div>
                         <div className="popup-gig-subcontainer flex column space-between">
                             <div className="popup-gig-title">{order.gig.title}</div>

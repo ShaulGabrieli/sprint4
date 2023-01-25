@@ -17,6 +17,10 @@
 
 }
 
+body.no-popup .pop-menu-orders-area  {
+    display: none;
+}
+
 ::-webkit-scrollbar {
     width: 0.0em;
     background-color: transparent;

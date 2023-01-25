@@ -1,0 +1,13 @@
+.hidden-screen{
+    height: 100%;
+    width: 100%;
+    display: none;
+    opacity: 0;
+    z-index: -1;
+}
+
+.hidden-screen body.popup-menu-open {
+    display: block;
+    z-index: 0;
+
+}
