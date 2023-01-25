@@ -1,5 +1,5 @@
 .gig-preview {
-    // width: em(324px);
+    width: em(324px);
     background-color: $clr-1;
     border: 1px solid $clr14;
     // margin-bottom:34px;
@@ -17,6 +17,7 @@
         // width: em(248px);
         height: em(195px);
         margin: 0;
+        width: 100%;
     }
 
     h4 {
