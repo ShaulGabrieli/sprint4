@@ -7,7 +7,7 @@
     "username": "Sara-Smith",
     "password": "secret",
     "level": ["premium"],
-    "wishList": [],
+    "wishlist": [],
     "reviews": []
   },
 
@@ -18,7 +18,7 @@
     "username": "John-Doe",
     "password": "secret",
     "level": ["basic"],
-    "wishList": [],
+    "wishlist": [],
     "reviews": []
   },
 
@@ -30,7 +30,7 @@
     "username": "Jessica-Johnson",
     "password": "secret",
     "level": ["premium"],
-    "wishList": [],
+    "wishlist": [],
     "reviews": []
   },
 
@@ -41,7 +41,7 @@
     "username": "Robert-Rodriguez",
     "password": "secret",
     "level": ["basic"],
-    "wishList": [],
+    "wishlist": [],
     "reviews": []
   },
 
@@ -52,7 +52,7 @@
     "username": "Emily-Edwards",
     "password": "secret",
     "level": ["premium"],
-    "wishList": [],
+    "wishlist": [],
     "reviews": []
   },
   
@@ -64,7 +64,7 @@
     "username": "Michael-Miller",
     "password": "secret",
     "level": ["basic"],
-    "wishList": [],
+    "wishlist": [],
     "reviews": []
   },
 
@@ -75,7 +75,7 @@
     "username": "Ashley-Anderson",
     "password": "secret",
     "level": ["premium"],
-    "wishList": [],
+    "wishlist": [],
     "reviews": [
       {
         "id": "r105",
@@ -112,7 +112,7 @@
     "username": "Matthew-Martinez",
     "password": "secret",
     "level": ["basic"],
-    "wishList": [],
+    "wishlist": [],
     "reviews": []
   },
 
@@ -123,7 +123,7 @@
     "username": "Joshua-Jackson",
     "password": "secret",
     "level": ["premium"],
-    "wishList": [],
+    "wishlist": [],
     "reviews": [
       {
         "id": "r105",
@@ -161,7 +161,7 @@
       "username": "Jacob Johnson",
       "password": "secret",
       "level":["basic"],
-      "wishList": [],
+      "wishlist": [],
       "reviews": [
         {
           "id": "r101",

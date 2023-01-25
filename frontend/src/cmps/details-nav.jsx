@@ -6,12 +6,14 @@ import { ReactComponent as LikeGig } from '../assets/img/details/heart.svg'
 import { ReactComponent as ReportGig } from '../assets/img/details/flag.svg'
 import { ReactComponent as ShareGig } from '../assets/img/details/share.svg'
 import { ReactComponent as LikeGigFull } from '../assets/img/details/heart-liked.svg'
+import { useEffect } from 'react'
 
 
-export function DetailsNav({ gig }) {
+export function DetailsNav({ gig, addGigToWishlist, wishlist, removeGigFromWishlist }) {
     const [selectedTab, setSelectedTab] = useState(null)
+    
     const [likedGig, setLikedGig] = useState(false)
-
+    console.log('likedGig', likedGig)
     function onScroll(location) {
         setSelectedTab(location)
         const el = document.getElementById(location)
@@ -19,12 +21,16 @@ export function DetailsNav({ gig }) {
         el.scrollIntoView({ behavior: 'smooth' })
     }
 
-    function saveGig() {
-        console.log('save gig', gig)
-    }
+   
+    useEffect(() => {
+        if (!wishlist) return
+        const isLiked = wishlist.some(wish => wish._id === gig._id)
+        setLikedGig(isLiked)
+    }, [wishlist])
 
     function onLikeGig() {
-        saveGig()
+        if (likedGig) return removeGigFromWishlist(gig._id)
+        addGigToWishlist(gig)
         setLikedGig(!likedGig)
     }
 
@@ -60,7 +66,7 @@ export function DetailsNav({ gig }) {
 
             <div className="right-container flex row ">
                 {/* <div className="add-to-lists-gig"><AddToList /></div> */}
-                <div className="liked-gig">{likedGig ? <LikeGigFull onClick={onLikeGig} /> : <LikeGig onClick={onLikeGig} />} </div>
+                <div className="liked-gig" onClick={onLikeGig} >{likedGig ? <LikeGigFull  /> : <LikeGig />} </div>
                 {/* <div className="report-gig"> <ReportGig />   </div> */}
                 <div className="share-gig"><ShareGig /></div>
             </div>

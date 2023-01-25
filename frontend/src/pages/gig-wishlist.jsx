@@ -8,14 +8,15 @@ import { showErrorMsg } from '../services/event-bus.service.js'
 
 export function GigWishlist() {
    const wishlist = useSelector(storeState => storeState.userModule.user.wishlist)
+   console.log('wishlist',wishlist )
   
     useEffect(() => {
         getWishlist()
     }, [])
-
+ if (!wishlist) return <div>loading...</div>
     return (
         //todo: loading
-        <div> {!wishlist && <div> loading </div> || 
+        
             <div className="main-order-list-container main-container">
                 <div className="order-list-container">
                     <section className="my-orders-header">
@@ -24,23 +25,26 @@ export function GigWishlist() {
                       <p> Organize your go-to freelancers and favorite services into custom lists you can
                          easily access and share with your team.</p> </div>
                     </section>
-                    <section className="my-orders-container">
+                    <div>  { (wishlist.length ===0) && <div> No gigs added to the wishlist yet. </div> || 
+                      <section className="my-orders-container">
                         <div className="my-orders">
                             <ul className="gig-orders-list gig-list ">
                                 {wishlist.map((wish, idx) => (
                                     <GigPreview 
-                                    orderPagePreview={false} 
-                                        id={idx}
-                                        gig={wish.gig}
-                                        // status={order.status}
+                                       // orderPagePreview={false} 
+                                        id={wish._id}
+                                        gig={wish}
+                                        orderPagePreview={false}
+                                        status="pending"
 
                                     />
                                 ))}
                             </ul>
                         </div>
-                    </section>
+                        
+                    </section>}
                 </div>
-            </div>}</div>
+            </div></div>
 
     )
 }

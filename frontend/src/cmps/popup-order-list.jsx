@@ -1,12 +1,15 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { loadOrders } from '../store/order.actions.js'
 import { OrderStatus } from './order-status.jsx'
 
 export function PopupOrderList() {
-    
+
     const orders = useSelector(storeState => storeState.orderModule.userOrders)
 
+    const navigate = useNavigate()
+    console.log('oreders from popup', orders);
     useEffect(() => {
         loadOrders()
     }, [])
@@ -15,6 +18,7 @@ export function PopupOrderList() {
     if (orders?.length === 0) return (<div> <h1>No Orders Yet!</h1> </div>)
     return (
         <div className="popup-gig-container flex column">
+
             {orders?.map((order) => (
                 <section className='flex column'>
                     <div className="subsub flex row">
@@ -29,7 +33,8 @@ export function PopupOrderList() {
                     </div>
                     <hr className='pop-up-hr' />
                 </section>
-            ))}
+            )).slice(0, 3)}
+            <button onClick={() => navigate('/orders')}>More</button>
         </div>
     )
 }

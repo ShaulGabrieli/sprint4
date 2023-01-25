@@ -9,12 +9,14 @@ import { addOrder } from '../store/order.actions.js'
 
 // import { gigService } from '../services/gig.service.js'
 import { gigService } from '../services/gig.service.local.js'
-import { showErrorMsg } from '../services/event-bus.service.js'
+import { showErrorMsg,showSuccessMsg } from '../services/event-bus.service.js'
 
 import { ReviewPreview } from '../cmps/review-preview.jsx'
 import { DetailsNav } from '../cmps/details-nav.jsx'
 import { StarsRating } from '../cmps/stars-rating.jsx'
 import { PaymentTabs } from '../cmps/payment-tabs.jsx'
+
+import { getWishlist,addToWishlist, removeFromWishlist } from '../store/user.actions';
 
 import { ReactComponent as Lightning } from '../assets/img/details/lightning.svg'
 import { ReactComponent as Arrow } from '../assets/img/details/arrow.svg'
@@ -23,9 +25,11 @@ export function GigDetails() {
     const [gig, setGig] = useState(null)
     const { id } = useParams()
     const navigate = useNavigate()
+    const wishlist = useSelector(storeState => storeState.userModule.user.wishlist)
 
     useEffect(() => {
         loadGig()
+        getWishlist()
     }, [id])
 
     useEffect(() => {
@@ -34,6 +38,17 @@ export function GigDetails() {
             document.querySelector(".app-header").classList.add('sticky')
         }
     }, [])
+
+    async function addGigToWishlist() {
+        try{
+       await addToWishlist(gig)
+        showSuccessMsg ('Gig added to wishlist')
+        }
+        catch (err) {
+            showErrorMsg('Cannot add gig to wishlist')
+            console.error('err',err )
+        }
+    }
 
     async function loadGig() {
         try {
@@ -61,7 +76,7 @@ export function GigDetails() {
     return (
         <div className="main-content main-container">
             <div className="top-nav sticky">
-                < DetailsNav gig={gig} />
+                < DetailsNav gig={gig} wishlist={wishlist} addGigToWishlist={addGigToWishlist}  removeGigFromWishlist = {removeFromWishlist}/>
             </div>
             <div className="hr-top-details full">
                 <hr /></div>
@@ -89,18 +104,7 @@ export function GigDetails() {
                                 )
                             })
                             }
-                            {/* // <div>
-                            //     <img src={require(`../assets/img/details/demo-details2.jpg`)} />
-                            //     <p className="legend">to add review</p>
-                            // </div>
-                            /* <div>
-                                <img src={require(`../assets/img/details/demo-details1.jpg`)} />
-                                <p className="legend">to add review and style</p>
-                            </div>
-                            <div>
-                                <img src={require(`../assets/img/details/demo-details4.jpg`)} />
-                                <p className="legend">to add review and style</p>
-                            </div> */}
+    
                         </Carousel >
                     </div>
                     <div id="reviews" className="reviews-snippet ">

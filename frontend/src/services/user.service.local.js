@@ -55,9 +55,10 @@ function remove(userId) {
     return storageService.remove('user', userId)
 }
 
-async function update({_id, score}) {
+async function update({_id, score, wishlist}) {
     const user = await storageService.get('user', _id)
     user.score = score
+    user.wishlist = wishlist
     await storageService.put('user', user)
 
     // const user = await httpService.put(`user/${_id}`, {_id, score})
@@ -76,7 +77,7 @@ async function login(userCred) {
     }
 }
 async function signup(newUser) {
-    const userCred = {...newUser, wishList: [], level:["basic"], reviews: []}
+    const userCred = {...newUser, wishlist: [], level:["basic"], reviews: []}
     userCred.score = 10000
     if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
     const user = await storageService.post('user', userCred)
@@ -113,7 +114,7 @@ async function getWishlist(userId) {
     try{
 
     const user = await getById(userId)
-    return user.wishList
+    return user.wishlist
 }
 catch (err) {
     console.log('cant get wishlist', err)
@@ -124,9 +125,9 @@ catch (err) {
 async function addToWishlist(gig, userId) {
     try{
     const user = await getById(userId)
-    user.wishList.push(gig)
+    user.wishlist = [...user.wishlist, gig]
     await update(user)
-    return user.wishList
+    return user.wishlist
 }
 catch (err) {
     console.log('cant add to wishlist', err)
@@ -137,8 +138,8 @@ catch (err) {
 async function removeFromWishlist(gigId, userId) {
     try{
     const user = await getById(userId)
-    const idx = user.wishList.findIndex(gig => gig._id === gigId)
-    user.wishList.splice(idx, 1)
+    const idx = user.wishlist.findIndex(gig => gig._id === gigId)
+    user.wishlist.splice(idx, 1)
     await update(user)
     return user.wishlist
 }

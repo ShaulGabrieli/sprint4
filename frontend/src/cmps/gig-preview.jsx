@@ -9,15 +9,7 @@ import { showSuccessMsg,showErrorMsg } from '../services/event-bus.service'
 
 export function GigPreview({ gig, orderPagePreview, status}) {
 
-    async function addToWishlist() {
-        try{
-       await addToWishlist(gig)
-        showSuccessMsg ('Gig added to wishlist')
-        }
-        catch (err) {
-            showErrorMsg('Cannot add gig to wishlist')
-        }
-    }
+  
 
     return (
         <Link to={`/gig/${gig._id}`}>

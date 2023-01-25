@@ -35,11 +35,11 @@ export function CreditCardForm(props) {
     <div>
       <Formik
         initialValues={{
-          cardNumber: "",
-          cardHolder: "",
-          cardMonth: "",
-          cardYear: "",
-          cvv: ""
+          cardNumber: "4580 4927 5748 3639",
+          cardHolder: `${props.buyer.fullname}`,
+          cardMonth: "12",
+          cardYear: "2025",
+          cvv: "123"
         }}
         onSubmit={async (values, formikBag) => {
           // alert('Thanks for booking with us! Order is on its way!')
@@ -154,7 +154,7 @@ export function CreditCardForm(props) {
                 Validate
               </button>
             </div>
-            <pre>{JSON.stringify(props.values, null, 2)}</pre>
+            {/* <pre>{JSON.stringify(props.values, null, 2)}</pre> */}
           </form>
         )}
       </Formik>
