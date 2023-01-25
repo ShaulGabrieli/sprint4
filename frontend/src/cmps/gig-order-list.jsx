@@ -54,6 +54,7 @@ export function GigOrderList() {
                         <div className="my-orders">
                             <ul className="gig-orders-list gig-list ">
                                 {orders.map((order, idx) => (
+                                 
                                     <GigPreview 
                                     orderPagePreview={true} 
                                         id={idx}

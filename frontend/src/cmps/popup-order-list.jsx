@@ -34,7 +34,7 @@ export function PopupOrderList() {
                     <hr className='pop-up-hr' />
                 </section>
             )).slice(0, 3)}
-            <button onClick={() => navigate('/orders')}>More</button>
+            <button className="more-list-btn" onClick={() => navigate('/orders')}>More</button>
         </div>
     )
 }
