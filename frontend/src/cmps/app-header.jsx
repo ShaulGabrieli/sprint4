@@ -10,7 +10,7 @@ import { GigOrderList } from './gig-order-list.jsx'
 import { setFilter } from '../store/gig.actions.js'
 import { gigService } from '../services/gig.service.local'
 
-export function AppHeader() {
+export function AppHeader({openOrders, setOpenOrders}) {
     const navigate = useNavigate()
     let location = useLocation()
     const [searchParams, setSearchParams] = useSearchParams()
@@ -18,7 +18,7 @@ export function AppHeader() {
     const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy)
     const user = useSelector((storeState) => storeState.userModule.user)
     const [headerStyle, setHeaderStyle] = useState(location.pathname === '/' ? 'fix' : 'sticky')
-    const [openOrders, setOpenOrders] = useState(false)
+    
 
     useEffect(() => {
         window.onscroll = function (e) {
@@ -122,7 +122,8 @@ export function AppHeader() {
                 </Link>
                 <a
                     className='orders-link'
-                    onClick={() => {
+                    onClick={(ev) => {
+                        ev.stopPropagation()
                         setOpenOrders(!openOrders)
                     }}
                 >

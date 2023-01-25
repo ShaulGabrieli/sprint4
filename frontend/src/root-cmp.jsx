@@ -11,14 +11,16 @@ import { GigDetails } from './pages/gig-details'
 import { GigPayment } from './pages/gig-payment.jsx'
 import { GigEdit } from './pages/gig-edit'
 import { LoginSignup } from './cmps/login-signup'
+import { HiddenScreen } from './cmps/hidden-screen'
 
 export function RootCmp() {
-  
+  const [openOrders, setOpenOrders] = useState(false)
 
   return (
     <div>
       {/* <AppHeader ref={headerRef}/> */}
-      <AppHeader />
+      <HiddenScreen setOpenOrders={setOpenOrders} >
+      <AppHeader openOrders={openOrders} setOpenOrders={setOpenOrders}/>
       <Routes>
         {routes.map((route) => (
           <Route
@@ -40,6 +42,7 @@ export function RootCmp() {
         <Route path="/user/loginsignup" element={<LoginSignup />} />
       </Routes>
       <AppFooter />
+      </HiddenScreen>
     </div>
   );
 }

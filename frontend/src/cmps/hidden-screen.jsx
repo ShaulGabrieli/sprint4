@@ -1,6 +1,11 @@
 
 
 
-export function HiddenScreen () {
-    return <div className="hidden-screen"></div>
+export function HiddenScreen (props) {
+
+    function onClosePopup() {
+        props.setOpenOrders(false)
+    }
+
+    return <div className="hidden-screen" onClick={()=> onClosePopup()}>{props.children}</div>
 }
