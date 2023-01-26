@@ -2,14 +2,28 @@ import { Link } from 'react-router-dom'
 import { FavSvg } from './git-preview-svgs/fav-svg'
 import { StarSvg } from './git-preview-svgs/star-svg'
 import { OrderStatus } from './order-status'
-import { addToWishlist } from '../store/user.actions'
+import { addToWishlist,removeFromWishlist } from '../store/user.actions'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
-
+import { userReducer } from '../store/user.reducer'
+import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
 export function GigPreview({ gig, orderPagePreview, status }) {
+    const wishlist = useSelector(storeState => storeState.userModule.user?.wishlist || [])
+    const [isFavClicked,setIsFavClicked] = useState(false)
+    
+    useEffect(()=>{
+        changeFavColor(gig._id)
+    },[])
+
     async function OnAddToWishlist() {
+        if (isFavClicked) {
+            setIsFavClicked(!isFavClicked)
+            return removeFromWishlist(gig._id)
+        }
         try {
             await addToWishlist(gig)
             showSuccessMsg('Gig added to wishlist')
+            setIsFavClicked(!isFavClicked)
         } catch (err) {
             showErrorMsg('Cannot add gig to wishlist')
         }
@@ -18,6 +32,11 @@ export function GigPreview({ gig, orderPagePreview, status }) {
     function handleClick() {
         window.scrollTo(0, 0)
     }
+
+function changeFavColor(id){
+    const wish =  wishlist.find(wish=> wish._id === id)
+    wish ? setIsFavClicked(true): setIsFavClicked(false)
+}
 
     return (
         <li className='gig-preview flex' key={gig._id}>
@@ -45,7 +64,7 @@ export function GigPreview({ gig, orderPagePreview, status }) {
                 <hr />
                 <section className='gig-preview-footer flex space-between'>
                     <div className='preview-footer-fav'>
-                        {!orderPagePreview && <FavSvg OnAddToWishlist={OnAddToWishlist} />}
+                        {!orderPagePreview && <FavSvg OnAddToWishlist={OnAddToWishlist} isFavClicked={isFavClicked}/>}
                         {orderPagePreview && <OrderStatus status={status} />}
                     </div>
                     <div className='price-container flex'>

@@ -139,6 +139,8 @@
 
     .preview-footer-fav {
         margin-left: 10px;
+        cursor: pointer;
+       
     }
 }
 
@@ -148,6 +150,10 @@
 }
 .gig-preview-opt-clr {
     fill: $clr13;
+    &.clicked{
+        fill:$clr18;
+    }
+    
 }
 
 .star-svg,
