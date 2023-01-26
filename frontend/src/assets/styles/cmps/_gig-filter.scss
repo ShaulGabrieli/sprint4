@@ -1,7 +1,17 @@
 .gig-filter {
   align-items: center;
   margin-top: 20px;
+  top: 0;
+  position: sticky;
+  background-color: white;
+  width: 100%;
+  padding-bottom: 5px;
 
+  form {
+    height: 54px;
+    border: none;
+    box-shadow: inset 0px -8px 5px -11px rgb(0 0 0);
+  }
   .css-13cymwt-control {
     // border: 1px solid black;
     // margin-right: 12px;
