@@ -82,7 +82,7 @@ export function GigDetails() {
     return (
         <div className="main-content main-container">
             <div className="top-nav sticky">
-                < DetailsNav gig={gig} wishlist={wishlist || []} addGigToWishlist={addGigToWishlist}  removeGigFromWishlist = {removeFromWishlist}/>
+                <DetailsNav gig={gig} wishlist={wishlist || []} addGigToWishlist={addGigToWishlist}  removeGigFromWishlist = {removeFromWishlist}/>
             </div>
             <div className="hr-top-details full">
                 <hr /></div>

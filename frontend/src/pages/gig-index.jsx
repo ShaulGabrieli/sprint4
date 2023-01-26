@@ -51,7 +51,7 @@ export function GigIndex() {
           <p> Don't Just Dream, Do</p>
         </div>
       </section> */}
-      <main>
+   
         <GigFilter filterBy={queryFilterBy} onSetFilter={onSetFilter} />
 
         <h2>Most popular Gigs</h2>
@@ -60,7 +60,7 @@ export function GigIndex() {
             <GigPreview id={idx} gig={gig} />
           ))}
         </ul>
-      </main>
+     
     </div>
   );
 }
