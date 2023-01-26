@@ -139,3 +139,10 @@
 .order-list-status{
     font-size: em(12px);
 }
+
+
+@media (max-width: 1300px){
+    .gig-preview {
+        width: 100%;
+    }
+  }

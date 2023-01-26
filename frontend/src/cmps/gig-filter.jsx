@@ -29,7 +29,7 @@ export function GigFilter({ onSetFilter, filterBy }) {
 
     return (
         <section>
-            <form className='flex space-between' onSubmit={onSubmitFilter}>
+            <form className=' filter-below-header flex space-between' onSubmit={onSubmitFilter}>
                 <h3>Filter by...</h3>
                 <label htmlFor='daysToMake'></label>
                 <h4>Delivey Time:</h4>

@@ -209,3 +209,25 @@
 .orders-link{
   z-index: 50;
 }
+
+
+@media (max-width: 1300px){
+  .app-header {
+    .main-nav{
+      display: none;
+    }
+    .search-box {
+      width: auto;
+    }
+    .top-nav{
+      flex-direction: column;
+    }
+
+    
+  }
+
+  .filter-below-header{
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

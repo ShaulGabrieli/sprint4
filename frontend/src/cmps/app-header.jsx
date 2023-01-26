@@ -140,7 +140,7 @@ export function AppHeader({openOrders, setOpenOrders}) {
                         <div className='user-info flex align-center'>
                             <Link  className='flex align-center' to={`user/${user._id}`}>
                                 {user.imgUrl && <img src={user.imgUrl} />}
-                                { user.fullname}
+                               
                             </Link>
                             <button onClick={onLogout}>Logout</button>
                         </div>                  
@@ -192,3 +192,5 @@ export function AppHeader({openOrders, setOpenOrders}) {
         </header>
     )
 }
+
+
