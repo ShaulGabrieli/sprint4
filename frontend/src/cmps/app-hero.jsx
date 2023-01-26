@@ -1,14 +1,39 @@
 import { useEffect, useState } from "react";
+import { gigService } from "../services/gig.service.local";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { setFilter } from "../store/gig.actions.js";
 
 export function AppHero() {
+  const navigate = useNavigate();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const queryFilterBy = gigService.getFilterFromSearchParams(searchParams);
+  const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy);
   const [imgToDisplay, setImgToDisplay] = useState(1);
   const [heroTextToDisplay, setHeroTextToDisplay] = useState(
     "Moon, Marketing Expert"
   );
+
   useEffect(() => {
     heroImgSwitch();
   }, []);
 
+  useEffect(() => {}, [filterByToEdit]);
+
+  function handleChange({ target }) {
+    let { value, name: field, type } = target;
+    setFilterByToEdit((prevFilter) => {
+      return { ...prevFilter, [field]: value };
+    });
+  }
+  function handleSubmit(ev) {
+    ev.preventDefault();
+    onSetFilter(filterByToEdit);
+  }
+  function onSetFilter(filterBy) {
+    setFilter(filterBy);
+    navigate(`/gig?title=${filterBy.title}`);
+  }
   function heroImgSwitch() {
     const imgSwitchInterval = setInterval(() => {
       setImgToDisplay((prevImg) => {
@@ -57,7 +82,11 @@ export function AppHero() {
           <h1>
             Find the perfect <span>freelance</span> services for your business
           </h1>
-          <div className="flex align-center search-container">
+          <form
+            type="submit"
+            onSubmit={handleSubmit}
+            className="flex align-center search-container"
+          >
             <label htmlFor="gigTitle"></label>
             <div className="search-icon-box">
               <span className="material-symbols-outlined search-icon">
@@ -68,10 +97,19 @@ export function AppHero() {
               className="search-box"
               type="text"
               id="gigTitle"
+              name="title"
+              value={filterByToEdit.title}
+              onChange={handleChange}
               placeholder="Try 'building mobile app'"
             />
-            <button>Search</button>
-          </div>
+            <button
+              onClick={() => {
+                onSetFilter(filterByToEdit);
+              }}
+            >
+              Search
+            </button>
+          </form>
           <div className="popular-tags flex">
             <p>Popular:&nbsp;</p>
             <button>Website Design</button>
