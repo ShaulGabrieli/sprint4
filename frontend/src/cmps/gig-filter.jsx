@@ -28,7 +28,10 @@ export function GigFilter({ onSetFilter, filterBy }) {
 
   return (
     <section>
-      <form className="flex gig-filter filter-below-header" onSubmit={onSubmitFilter}>
+      <form
+        className="flex gig-filter filter-below-header sticky full main-container"
+        onSubmit={onSubmitFilter}
+      >
         <label htmlFor="daysToMake"></label>
         <div className="flex">
           <Select
