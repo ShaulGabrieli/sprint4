@@ -24,6 +24,7 @@ import {
 
 import { ReactComponent as Lightning } from "../assets/img/details/lightning.svg";
 import { ReactComponent as Arrow } from "../assets/img/details/arrow.svg";
+import { Loading } from "../cmps/loading";
 
 export function GigDetails() {
     const [gig, setGig] = useState(null)
@@ -76,7 +77,7 @@ export function GigDetails() {
         }
     }
 
-    if (!gig) return <div>Loading...</div>
+    if (!gig) return <div className="loading-spinner flex"><Loading/></div>
     return (
         <div className="main-content main-container">
             <div className="top-nav sticky">
@@ -90,6 +91,7 @@ export function GigDetails() {
       <section className="gig-details-page flex">
         <div className="gig-details">
           <div id="overview" className="gig-overview">
+            
             <div className="gig-details-breadcrumbs arrow-svg">
               {gig.tags.map((tag) => (
                 <Link to={`/gig?&tags=${tag}`}>

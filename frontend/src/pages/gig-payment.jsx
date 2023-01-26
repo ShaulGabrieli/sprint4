@@ -8,6 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { CreditCardForm } from '../cmps/credit-card-form.jsx'
 import { showErrorMsg } from '../services/event-bus.service.js'
 import { PopupMenu } from '../cmps/popup-menu.jsx'
+import { Loading } from '../cmps/loading.jsx'
 
 
 export function GigPayment() {
@@ -85,7 +86,7 @@ export function GigPayment() {
     // console.log('order',Object.keys(order).length )
     // if (Object.keys(order).length == 0) { navigate('/gig') 
     // return <div></div>}
-    return (<div className="main-container">{!order && <div>Loading...</div> ||
+    return (<div className="main-container">{!order && <div className="loading-spinner flex"> <Loading/></div> ||
         <div className="main-payment-area ">
 
             <CreditCardForm className="payment-area" type="submit" buyer={order.buyer} gig={order.gig} setCreditTransaction={setCreditTransaction} triggerSubmit={triggerSubmit} />
