@@ -112,7 +112,8 @@ export function GigDetails() {
                 return (
                   <div className="gig-carousel-card">
                     <img src={imgUrl} />
-                    <p className="legend">to add review</p>
+                    {/* //todo: to add review to Carousel */}
+                    {/* <p className="legend">to add review</p> */}
                   </div>
                 );
               })}
@@ -130,7 +131,7 @@ export function GigDetails() {
             <div className="reviews-carusel">
               <Carousel showIndicators={false} showThumbs={false}>
                 {gig.reviews?.map((review) => {
-                  console.log("review", review);
+                  // console.log("review", review);
                   return (
                     <div className="reviews-container-cr">
                       {/* <img src={require(`../assets/img/details/demo-details2.jpg`)} /> */}
@@ -178,7 +179,7 @@ export function GigDetails() {
                 <div className="main-reviews-container">
                   <div className="main-reviews-header">Reviews</div>
                   {gig.reviews.map((review) => {
-                    console.log("review", review);
+                    // console.log("review", review);
                     return (
                       <div className="reviews-container">
                         {/* <div className="hr-top-details ">

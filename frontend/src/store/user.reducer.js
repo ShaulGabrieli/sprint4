@@ -12,7 +12,7 @@ export const SET_WISHLIST = 'SET_WISHLIST'
 
 const initialState = {
     count: 10,
-    user: { ...userService.getLoggedinUser(), wishlist : [] },
+    user: null,
     users: [],
     watchedUser : null
 }
@@ -47,8 +47,8 @@ export function userReducer(state = initialState, action) {
         case SET_SCORE:
             newState = { ...state, user: { ...state.user, score: action.score } }
             break
-            case SET_WISHLIST:
-            newState = { ...state, user: { ...state.user, wishlist: action.wishlist } }
+        case SET_WISHLIST:
+            newState = (userService.getLoggedinUser()) ? { ...state, user: { ...state.user, wishlist: action.wishlist } } : {...state}
         default:
     }
     // For debug:

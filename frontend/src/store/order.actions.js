@@ -57,11 +57,17 @@ export async function loadOrder(orderId) {
     try {
         const order = await orderService.getById(orderId)
         console.log('Loaded Order', order)
-        store.dispatch({
-            type: SET_CURRENT_ORDER,
-            order
-        })
-        return order
+        if (order.paymentStatus === "unpayed"){
+            store.dispatch({
+                type: SET_CURRENT_ORDER,
+                order
+            })
+             return order
+        }
+        else
+        {
+            throw "The order is not in 'unpayed' status"
+        }
     } catch (err) {
         console.log('Cannot load order', err)
         throw err

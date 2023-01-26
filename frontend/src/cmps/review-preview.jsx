@@ -2,7 +2,7 @@ import { utilService } from "../services/util.service";
 import { ReactComponent as Star } from '../assets/img/details/star.svg'
 import { StarsRating } from './stars-rating.jsx'
 export function ReviewPreview({ review, detailsReviews }) {
-    console.log(review.imgUrl);
+    // console.log(review.imgUrl);
     function getStars(rate) {
         let stars = []
         for (let i = 0; i < rate; i++) {
