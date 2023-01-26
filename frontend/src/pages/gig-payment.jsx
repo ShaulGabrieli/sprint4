@@ -17,10 +17,22 @@ export function GigPayment() {
 
     let order = useSelector(storeState => storeState.orderModule.order)
     useEffect(() => {
-        loadOrder(id)
+        onLoadOrder()
         // setVat(getVat())
         // setTotal(totalPay())
     }, [])
+
+    async function onLoadOrder()
+    {
+        try {
+            await loadOrder(id)
+          }
+          catch(err)
+      {
+         // showErrorMsg("Order is no longer loaded")
+          navigate('/gig')
+      }
+    }
 
     async function savePayedOrder() {
 
@@ -70,7 +82,9 @@ export function GigPayment() {
             showErrorMsg("Please fill all the fields")
         }
     }
-
+    // console.log('order',Object.keys(order).length )
+    // if (Object.keys(order).length == 0) { navigate('/gig') 
+    // return <div></div>}
     return (<div className="main-container">{!order && <div>Loading...</div> ||
         <div className="main-payment-area ">
 

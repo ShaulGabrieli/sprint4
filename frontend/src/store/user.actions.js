@@ -30,6 +30,13 @@ export async function removeUser(userId) {
 
 export async function getWishlist() {
     try {
+        console.log('userService.getLoggedinUser()', userService.getLoggedinUser())
+        if (!userService.getLoggedinUser()){
+
+            const wishlist = []
+            store.dispatch({ type: SET_WISHLIST, wishlist })
+            return wishlist
+        }
         const userId = userService.getLoggedinUser()._id
         const wishlist = await userService.getWishlist(userId)
         store.dispatch({ type: SET_WISHLIST, wishlist })

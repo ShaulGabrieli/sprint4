@@ -170,40 +170,41 @@ export function AppHeader() {
           </a>
         </Link>
         <a
-          className="orders-link"
-          onClick={() => {
-            setOpenOrders(!openOrders);
-          }}
-        >
-          <span>Orders</span>
-          <div className="pop-menu-orders-area">
-            {openOrders && (
-              <PopupMenu>
-                <PopupOrderList />
-              </PopupMenu>
-            )}
-          </div>
-        </a>
-        {user && (
-          <div className="user-info">
-            <Link to={`user/${user._id}`}>
-              {user.imgUrl && <img src={user.imgUrl} />}
-              {/* {user.fullname} */}
-            </Link>
-            <button onClick={onLogout}>Logout</button>
-          </div>
-        )}
-        {!user && (
-          <section className="user-info">
-            <Link to={"/user/loginsignup"}>
-              <span>Sign In</span>{" "}
-            </Link>
-            <Link to={"/user/loginsignup"}>
-              <span>Join</span>{" "}
-            </Link>
-          </section>
-        )}
-      </div>
+                    className='orders-link'
+                    onClick={(ev) => {
+                        ev.stopPropagation()
+                        setOpenOrders(!openOrders)
+                    }}
+                >
+                    <span>Orders</span>
+                    <div className='pop-menu-orders-area'>
+                        {openOrders && (
+                            <PopupMenu>
+                                <PopupOrderList />
+                            </PopupMenu>
+                        )}
+                    </div>
+                </a>
+                {user && (
+                        <div className='user-info flex align-center'>
+                            <Link  className='flex align-center' to={`user/${user._id}`}>
+                                {user.imgUrl && <img src={user.imgUrl} />}
+                               
+                            </Link>
+                            <button onClick={onLogout}>Logout</button>
+                        </div>                  
+                )}
+                {!user && (
+                    <section className='user-info'>
+                        <Link to={'/user/loginsignup'}>
+                            <span>Sign In</span>{' '}
+                        </Link>
+                        <Link to={'/user/loginsignup'}>
+                            <span>Join</span>{' '}
+                        </Link>
+                    </section>
+                )}
+            </div>
       <hr className="full" />
       <nav className="main-nav">
         <ul className="clean list flex space-between jusitfy-center ">
@@ -240,3 +241,5 @@ export function AppHeader() {
     </header>
   );
 }
+
+

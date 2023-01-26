@@ -63,6 +63,9 @@ async function save(order) {
         if (order._id) {
             return await storageService.put(ORDER_KEY, order)
         } else {
+            if (!userService.getLoggedinUser()) {
+                throw "Please login , no user found!"
+            }
             order.buyer = userService.getLoggedinUser()
             return await storageService.post(ORDER_KEY, order)
         }

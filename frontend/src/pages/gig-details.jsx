@@ -26,12 +26,10 @@ import { ReactComponent as Lightning } from "../assets/img/details/lightning.svg
 import { ReactComponent as Arrow } from "../assets/img/details/arrow.svg";
 
 export function GigDetails() {
-  const [gig, setGig] = useState(null);
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const wishlist = useSelector(
-    (storeState) => storeState.userModule.user.wishlist
-  );
+    const [gig, setGig] = useState(null)
+    const { id } = useParams()
+    const navigate = useNavigate()
+    const wishlist = useSelector(storeState => storeState.userModule.user?.wishlist || [])
 
   useEffect(() => {
     loadGig();
@@ -66,33 +64,28 @@ export function GigDetails() {
     }
   }
 
-  async function onAddOrder(order, plan) {
-    try {
-      const newOrder = await addOrder(order, plan);
-      console.log("newOrder", newOrder);
-      return newOrder;
-    } catch (err) {
-      console.log("GigDetails: err in onAddOrder", err);
-      showErrorMsg("order not added");
+    async function onAddOrder(order, plan) {
+        try {
+            const newOrder = await addOrder(order, plan)
+            console.log('newOrder', newOrder)
+            return newOrder
+        } catch (err) {
+            console.log('GigDetails: err in onAddOrder', err)
+            
+            showErrorMsg('order not added - please login')
+        }
     }
-  }
 
-  if (!gig) return <div>Loading...</div>;
-  return (
-    <div className="main-container">
-      <div className="top-nav sticky">
-        <DetailsNav
-          gig={gig}
-          wishlist={wishlist}
-          addGigToWishlist={addGigToWishlist}
-          removeGigFromWishlist={removeFromWishlist}
-        />
-      </div>
-      <div className="hr-top-details full">
-        <hr />
-      </div>
-      {/* <div className="main-details-container"> */}
-      {/* <div className="hr-details-nav ">
+    if (!gig) return <div>Loading...</div>
+    return (
+        <div className="main-content main-container">
+            <div className="top-nav sticky">
+                < DetailsNav gig={gig} wishlist={wishlist || []} addGigToWishlist={addGigToWishlist}  removeGigFromWishlist = {removeFromWishlist}/>
+            </div>
+            <div className="hr-top-details full">
+                <hr /></div>
+            {/* <div className="main-details-container"> */}
+            {/* <div className="hr-details-nav ">
                 </div> */}
       <section className="gig-details-page flex">
         <div className="gig-details">
@@ -119,7 +112,8 @@ export function GigDetails() {
                 return (
                   <div className="gig-carousel-card">
                     <img src={imgUrl} />
-                    <p className="legend">to add review</p>
+                    {/* //todo: to add review to Carousel */}
+                    {/* <p className="legend">to add review</p> */}
                   </div>
                 );
               })}
@@ -137,7 +131,7 @@ export function GigDetails() {
             <div className="reviews-carusel">
               <Carousel showIndicators={false} showThumbs={false}>
                 {gig.reviews?.map((review) => {
-                  console.log("review", review);
+                  // console.log("review", review);
                   return (
                     <div className="reviews-container-cr">
                       {/* <img src={require(`../assets/img/details/demo-details2.jpg`)} /> */}
@@ -185,7 +179,7 @@ export function GigDetails() {
                 <div className="main-reviews-container">
                   <div className="main-reviews-header">Reviews</div>
                   {gig.reviews.map((review) => {
-                    console.log("review", review);
+                    // console.log("review", review);
                     return (
                       <div className="reviews-container">
                         {/* <div className="hr-top-details ">
