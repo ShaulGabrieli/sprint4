@@ -17,9 +17,9 @@
     max-width: 1400px;
   }
 
-  nav a:first-child {
-    margin-right: 30px;
-  }
+  // nav a:first-child {
+  //   margin-right: 30px;
+  // }
 
   .user-actions {
     gap: 20px;
@@ -166,6 +166,21 @@
       width: 19px;
     }
   }
+  .join-btn{
+    width: 62px;
+    height: 36px;
+    border-radius: 4px;
+    border: solid 1px $clr2;
+    background-color: transparent;
+    color: $clr2;
+    font-weight: 700;
+    font-family: Macan-Bold;
+
+    &:hover{
+      background-color: $clr2;
+      color: $clr-1;
+    }
+  }
 }
 
 // Header Scroll manipulation
@@ -248,7 +263,15 @@
 }
 
 .top-nav {
+  justify-content: space-between;
+  .nav-hover-clr:hover{
+    color: $clr2;
+  }
+
+}
+.top-nav-actions, .top-nav-logo-search {
   gap: 30px;
+
 }
 @media (max-width: 1300px) {
   .app-header {

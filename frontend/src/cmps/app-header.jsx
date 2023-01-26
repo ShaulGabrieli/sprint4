@@ -9,7 +9,7 @@ import { PopupOrderList } from './popup-order-list.jsx'
 import { GigOrderList } from './gig-order-list.jsx'
 import { setFilter } from '../store/gig.actions.js'
 import { gigService } from '../services/gig.service.local'
-import { ReactComponent as  WhiteLogo} from '../assets/img/lazyerr-logo-white.svg'
+import { ReactComponent as WhiteLogo } from '../assets/img/lazyerr-logo-white.svg'
 import { ReactComponent as BlackLogo } from '../assets/img/lazyerr-logo-black.svg'
 
 export function AppHeader() {
@@ -21,8 +21,8 @@ export function AppHeader() {
     const user = useSelector((storeState) => storeState.userModule.user)
     const [headerStyle, setHeaderStyle] = useState(location.pathname === '/' ? 'fix' : 'sticky')
     const [openOrders, setOpenOrders] = useState(false)
-    const [logo, setLogo] = useState(location.pathname === '/' ? <WhiteLogo /> : <BlackLogo/>)
-    
+    const [logo, setLogo] = useState(location.pathname === '/' ? <WhiteLogo /> : <BlackLogo />)
+
     useEffect(() => {
         window.onscroll = function (e) {
             switchHeaderStyle(window.pageYOffset)
@@ -32,23 +32,23 @@ export function AppHeader() {
     useEffect(() => {}, [filterByToEdit])
 
     function switchHeaderStyle(pageYOffset) {
-      if (location.pathname !== '/') {
-          setHeaderStyle('sticky ')
-          setLogo(<BlackLogo/>)
-      }
-      if (location.pathname === '/' && pageYOffset === 0) {
-          setHeaderStyle('fix ')
-          setLogo(<WhiteLogo/>)
-      }
-      if (location.pathname === '/' && pageYOffset > 0) {
-          setHeaderStyle('fix2 ')
-          setLogo(<BlackLogo/>)
-      }
-      if (location.pathname === '/' && pageYOffset > 125) {
-          setHeaderStyle('fix3 ')
-          setLogo(<BlackLogo/>)
-      }
-  }
+        if (location.pathname !== '/') {
+            setHeaderStyle('sticky ')
+            setLogo(<BlackLogo />)
+        }
+        if (location.pathname === '/' && pageYOffset === 0) {
+            setHeaderStyle('fix ')
+            setLogo(<WhiteLogo />)
+        }
+        if (location.pathname === '/' && pageYOffset > 0) {
+            setHeaderStyle('fix2 ')
+            setLogo(<BlackLogo />)
+        }
+        if (location.pathname === '/' && pageYOffset > 125) {
+            setHeaderStyle('fix3 ')
+            setLogo(<BlackLogo />)
+        }
+    }
 
     async function onLogin(credentials) {
         try {
@@ -96,6 +96,7 @@ export function AppHeader() {
     return (
         <header className={`app-header main-container full sticky ${headerStyle}`}>
             <div className='flex align-center top-nav'>
+            <section className='top-nav-logo-search flex align-center'>
                 <Link className='header-logo' to={`/`}>
                     {/* <svg width='89' height='27' viewBox='0 0 89 27' fill='none' xmlns='http://www.w3.org/2000/svg'>
                         <g className='svg-logo' fill='#404145'>
@@ -119,65 +120,79 @@ export function AppHeader() {
                         <span className='material-symbols-outlined search-icon'>search</span>
                     </div>
                 </form>
-                <p onClick={()=> {navigate('/gig'); 
-                setHeaderStyle('sticky ')
-                setLogo(<BlackLogo/>)} }>Explore</p>
-               {user &&  <section className='header-action-icons'>
-                    <a href=''>
-                        <img src='https://fiverr-res.cloudinary.com/npm-assets/layout-server/bell.78d6546.svg' className='notifications-drawer-bell-trigger' alt='Notifications'></img>
-                    </a>
-                    <a href=''>
-                        <img src='https://fiverr-res.cloudinary.com/npm-assets/layout-server/letter.07c989b.svg' className='notifications-drawer-letter-trigger' alt='Messages'></img>
-                    </a>
-                    <Link to='/wishlist'>
-                        {' '}
-                        <a href=''>
-                            <span className='XQskgrQ icon-button' aria-hidden='true'>
-                                <svg width='18' height='18' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'>
-                                    <path d='M14.325 2.00937C12.5188 0.490623 9.72813 0.718748 8 2.47812C6.27188 0.718748 3.48125 0.487498 1.675 2.00937C-0.674996 3.9875 -0.331246 7.2125 1.34375 8.92187L6.825 14.5062C7.1375 14.825 7.55625 15.0031 8 15.0031C8.44688 15.0031 8.8625 14.8281 9.175 14.5094L14.6563 8.925C16.3281 7.21562 16.6781 3.99062 14.325 2.00937ZM13.5875 7.86875L8.10625 13.4531C8.03125 13.5281 7.96875 13.5281 7.89375 13.4531L2.4125 7.86875C1.27188 6.70625 1.04063 4.50625 2.64063 3.15937C3.85625 2.1375 5.73125 2.29062 6.90625 3.4875L8 4.60312L9.09375 3.4875C10.275 2.28437 12.15 2.1375 13.3594 3.15625C14.9563 4.50312 14.7188 6.71562 13.5875 7.86875Z'></path>
-                                </svg>
-                            </span>
-                        </a>
-                    </Link>
-                </section>}
-                <div className='user-actions flex space-between'>
-                 {user && <div className="user-visible-icons">
-                    <a
-                        className='orders-link'
-                        onClick={(ev) => {
-                            ev.stopPropagation()
-                            setOpenOrders(!openOrders)
+                </section>
+                <section className='top-nav-actions flex'>
+                    <p
+                        onClick={() => {
+                            navigate('/gig')
+                            setHeaderStyle('sticky ')
+                            setLogo(<BlackLogo />)
                         }}
+                        className='nav-hover-clr'
                     >
-                        <span>Orders</span>
-                        <div className='pop-menu-orders-area'>
-                            {openOrders && (
-                                <PopupMenu>
-                                    <PopupOrderList />
-                                </PopupMenu>
-                            )}
-                        </div>
-                    </a>
-                    </div>}
+                        Explore
+                    </p>
                     {user && (
-                        <div className='user-info flex align-center'>
-                            <Link className='flex align-center' to={`user/${user._id}`}>
-                                {user.imgUrl && <img src={user.imgUrl} />}
-                            </Link>
-                            <button onClick={onLogout}>Logout</button>
-                        </div>
-                    )}
-                    {!user && (
-                        <section className='user-info'>
-                            <Link to={'/user/loginsignup'}>
-                                <span>Sign In</span>{' '}
-                            </Link>
-                            <Link to={'/user/loginsignup'}>
-                                <span>Join</span>{' '}
+                        <section className='header-action-icons'>
+                            <a href=''>
+                                <img src='https://fiverr-res.cloudinary.com/npm-assets/layout-server/bell.78d6546.svg' className='notifications-drawer-bell-trigger' alt='Notifications'></img>
+                            </a>
+                            <a href=''>
+                                <img src='https://fiverr-res.cloudinary.com/npm-assets/layout-server/letter.07c989b.svg' className='notifications-drawer-letter-trigger' alt='Messages'></img>
+                            </a>
+                            <Link to='/wishlist'>
+                                {' '}
+                                <a href=''>
+                                    <span className='XQskgrQ icon-button' aria-hidden='true'>
+                                        <svg width='18' height='18' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'>
+                                            <path d='M14.325 2.00937C12.5188 0.490623 9.72813 0.718748 8 2.47812C6.27188 0.718748 3.48125 0.487498 1.675 2.00937C-0.674996 3.9875 -0.331246 7.2125 1.34375 8.92187L6.825 14.5062C7.1375 14.825 7.55625 15.0031 8 15.0031C8.44688 15.0031 8.8625 14.8281 9.175 14.5094L14.6563 8.925C16.3281 7.21562 16.6781 3.99062 14.325 2.00937ZM13.5875 7.86875L8.10625 13.4531C8.03125 13.5281 7.96875 13.5281 7.89375 13.4531L2.4125 7.86875C1.27188 6.70625 1.04063 4.50625 2.64063 3.15937C3.85625 2.1375 5.73125 2.29062 6.90625 3.4875L8 4.60312L9.09375 3.4875C10.275 2.28437 12.15 2.1375 13.3594 3.15625C14.9563 4.50312 14.7188 6.71562 13.5875 7.86875Z'></path>
+                                        </svg>
+                                    </span>
+                                </a>
                             </Link>
                         </section>
                     )}
-                </div>
+                    <div className='user-actions flex space-between'>
+                        {user && (
+                            <div className='user-visible-icons'>
+                                <a
+                                    className='orders-link'
+                                    onClick={(ev) => {
+                                        ev.stopPropagation()
+                                        setOpenOrders(!openOrders)
+                                    }}
+                                >
+                                    <span>Orders</span>
+                                    <div className='pop-menu-orders-area'>
+                                        {openOrders && (
+                                            <PopupMenu>
+                                                <PopupOrderList />
+                                            </PopupMenu>
+                                        )}
+                                    </div>
+                                </a>
+                            </div>
+                        )}
+                        {user && (
+                            <div className='user-info flex align-center'>
+                                <Link className='flex align-center' to={`user/${user._id}`}>
+                                    {user.imgUrl && <img src={user.imgUrl} />}
+                                </Link>
+                                <button onClick={onLogout}>Logout</button>
+                            </div>
+                        )}
+                        {!user && (
+                            <section className='user-info'>
+                                <Link to={'/user/loginsignup'}>
+                                    <span>Sign In</span>{' '}
+                                </Link>
+                                <Link to={'/user/loginsignup'}>
+                                    <button className='join-btn'>Join</button>{' '}
+                                </Link>
+                            </section>
+                        )}
+                    </div>
+                </section>
             </div>
             <hr className='full' />
             <nav className='main-nav'>
