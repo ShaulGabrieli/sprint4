@@ -35,7 +35,7 @@ export function LoginSignup() {
         try {
             console.log('credentials', credentials);
           const user = await login(credentials);
-          showSuccessMsg(`Welcome: ${user.fullname}`);
+          showSuccessMsg(`Welcome, ${user.fullname}`);
         } catch (err) {
           showErrorMsg("Cannot login");
         }
@@ -43,7 +43,7 @@ export function LoginSignup() {
       async function signupCheck(credentials) {
         try {
           const user = await signup(credentials);
-          showSuccessMsg(`Welcome new user: ${user.fullname}`);
+          showSuccessMsg(`${user.fullname} ,Welcome to Lazyerr!`);
         } catch (err) {
           showErrorMsg("Cannot signup");
         }

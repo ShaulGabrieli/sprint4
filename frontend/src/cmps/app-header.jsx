@@ -50,26 +50,26 @@ export function AppHeader() {
       }
   }
 
-    async function onLogin(credentials) {
-        try {
-            const user = await login(credentials)
-            showSuccessMsg(`Welcome: ${user.fullname}`)
-        } catch (err) {
-            showErrorMsg('Cannot login')
-        }
-    }
-    async function onSignup(credentials) {
-        try {
-            const user = await signup(credentials)
-            showSuccessMsg(`Welcome new user: ${user.fullname}`)
-        } catch (err) {
-            showErrorMsg('Cannot signup')
-        }
-    }
+    // async function onLogin(credentials) {
+    //     try {
+    //         const user = await login(credentials)
+    //         showSuccessMsg(`Welcome ${user.fullname}`)
+    //     } catch (err) {
+    //         showErrorMsg('Cannot login')
+    //     }
+    // }
+    // async function onSignup(credentials) {
+    //     try {
+    //         const user = await signup(credentials)
+    //         showSuccessMsg(`${user.fullname} ,Welcome to Lazyerr!`)
+    //     } catch (err) {
+    //         showErrorMsg('Cannot signup')
+    //     }
+    // }
     async function onLogout() {
         try {
             await logout()
-            showSuccessMsg(`Bye now`)
+            showSuccessMsg(`See you soon!`)
         } catch (err) {
             showErrorMsg('Cannot logout')
         }

@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { addOrder } from "../store/order.actions.js";
 
+
 // import { gigService } from '../services/gig.service.js'
 import { gigService } from "../services/gig.service.local.js";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js";
@@ -73,7 +74,7 @@ export function GigDetails() {
         } catch (err) {
             console.log('GigDetails: err in onAddOrder', err)
             
-            showErrorMsg('order not added - please login')
+            showErrorMsg('Order not added - please login')
         }
     }
 

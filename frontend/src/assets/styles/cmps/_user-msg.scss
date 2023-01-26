@@ -1,23 +1,54 @@
 .user-msg {
-    color:white;
-    padding: 10px;
+    // color: white;
+    color: $clr1;
+    padding: 15px;
     font-size: 1.4em;
     position: fixed;
-    top:0;
-    right:0;
-    background-color: grey;
+    bottom: 40px;
+    right: 40px;
+    // background-color: grey;
+    border-radius: 10px;
+    font-size: em(14px);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+   display: flex;
+   align-items: center;
+   gap:10px;
 }
-.user-msg button {
-    float:right;
-    border:0;
-    border-radius: 50%;
-    margin: 5px;
-    background-color: #222;
+
+.user-msg span {
+    float: right;
+    color: $clr1;
+    cursor: pointer;
+    padding-left:5px;
+    // align-self: flex-start;
+    // border: 0;
+    // border-radius: 50%;
+    // margin: 5px;
+    // background-color: #222;
+}
+
+.user-msg.success,
+.user-msg.error {
+    background-color: $clr-1;
+   
+   
+    // background-color: rgb(41, 189, 73);
 }
 
 .user-msg.success {
-    background-color: rgb(41, 189, 73);
+    border-left: 10px solid $clr2;
+    .correct-clr{
+        fill: $clr2;
+    }
 }
+
 .user-msg.error {
-    background-color: rgb(216, 59, 59);
+    border-left: 10px solid $clr6;
+    // background-color: rgb(216, 59, 59);
+    .error-clr{
+        fill: $clr6;
+    }
 }
+
+
+

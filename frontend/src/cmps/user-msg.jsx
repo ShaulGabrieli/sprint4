@@ -1,7 +1,8 @@
 import { eventBus, showSuccessMsg } from "../services/event-bus.service.js"
 import { useState, useEffect, useRef } from 'react'
 import { socketService, SOCKET_EVENT_REVIEW_ABOUT_YOU } from "../services/socket.service.js"
-
+import {ReactComponent as SuccessIcon} from '../assets/img/success.svg'
+import {ReactComponent as ErrorIcon} from '../assets/img/error.svg'
 export function UserMsg() {
 
   const [msg, setMsg] = useState(null)
@@ -34,9 +35,11 @@ export function UserMsg() {
 
   if (!msg) return <span></span>
   return (
-    <section className={`user-msg ${msg.type}`}>
-      <button onClick={closeMsg}>x</button>
+    <section className={`user-msg ${msg.type} `} >
+      {(msg.type ==='success')? <SuccessIcon /> : <ErrorIcon/>}
       {msg.txt}
+    <span onClick={closeMsg}>x</span>
     </section>
+   
   )
 }
