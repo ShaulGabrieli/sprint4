@@ -10,6 +10,7 @@ export function MarketCategories() {
               alt="Graphics &amp; Design"
               loading="lazy"
             ></img>
+            <hr className="home-page-icons-line"/>
             Graphics &amp; Design
           </a>
         </li>
@@ -20,6 +21,7 @@ export function MarketCategories() {
               alt="Digital Marketing"
               loading="lazy"
             ></img>
+            <hr className="home-page-icons-line"/>
             Digital Marketing
           </a>
         </li>
@@ -31,6 +33,7 @@ export function MarketCategories() {
               alt="Writing &amp; Translation"
               loading="lazy"
             ></img>
+            <hr className="home-page-icons-line"/>
             Writing &amp; Translation
           </a>
         </li>
@@ -41,6 +44,7 @@ export function MarketCategories() {
               alt="Video &amp; Animation"
               loading="lazy"
             ></img>
+            <hr className="home-page-icons-line"/>
             Video &amp; Animation
           </a>
         </li>
@@ -51,6 +55,7 @@ export function MarketCategories() {
               alt="Music &amp; Audio"
               loading="lazy"
             ></img>
+            <hr className="home-page-icons-line"/>
             Music &amp; Audio
           </a>
         </li>
@@ -61,6 +66,7 @@ export function MarketCategories() {
               alt="Programming &amp; Tech"
               loading="lazy"
             ></img>
+            <hr className="home-page-icons-line"/>
             Programming &amp; Tech
           </a>
         </li>
@@ -71,6 +77,7 @@ export function MarketCategories() {
               alt="Business"
               loading="lazy"
             ></img>
+            <hr className="home-page-icons-line"/>
             Business
           </a>
         </li>
@@ -81,6 +88,7 @@ export function MarketCategories() {
               alt="Lifestyle"
               loading="lazy"
             ></img>
+            <hr className="home-page-icons-line"/>
             Lifestyle
           </a>
         </li>
@@ -91,6 +99,7 @@ export function MarketCategories() {
               alt="Data"
               loading="lazy"
             ></img>
+            <hr className="home-page-icons-line"/>
             Data
           </a>
         </li>
@@ -101,6 +110,7 @@ export function MarketCategories() {
               alt="Photography"
               loading="lazy"
             ></img>
+            <hr className="home-page-icons-line"/>
             Photography
           </a>
         </li>
