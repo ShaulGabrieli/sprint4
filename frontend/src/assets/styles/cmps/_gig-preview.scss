@@ -8,15 +8,36 @@
     // height: em(398px);
     // height: 398px;
     &:hover {
-        p{
+        p {
             color: $clr2;
         }
     }
 
+    .preview-main-container {
+        flex: 1;
+    }
+
+    .top-gig-section {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        a {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+    }
+
+    .middle-gig-section {
+        flex: 1;
+        p {
+            flex: 1;
+        }
+    }
     .preview-img {
         // width: em(248px);
         height: em(195px);
-        width:100%;
+        width: 100%;
         margin: 0;
         width: 100%;
     }
@@ -28,7 +49,7 @@
         font-family: Macan-Bold;
         margin: 22px 0 3px 0;
     }
-    
+
     .owner-icon-container {
         width: 24px;
         height: 24px;
@@ -39,7 +60,6 @@
         height: 100%;
         object-fit: cover;
         border-radius: 50%;
-        
     }
 
     .owner-info {
@@ -56,6 +76,7 @@
         font-size: em(14px);
         color: $clr6;
         font-weight: 700;
+        margin-right: 3px;
     }
 
     .gig-preview-footer {
@@ -136,13 +157,12 @@
     margin: 0;
 }
 
-.order-list-status{
+.order-list-status {
     font-size: em(12px);
 }
 
-
-@media (max-width: 1300px){
+@media (max-width: 1300px) {
     .gig-preview {
         width: 100%;
     }
-  }
+}
