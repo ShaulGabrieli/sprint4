@@ -25,7 +25,7 @@ export function GigDetails() {
     const [gig, setGig] = useState(null)
     const { id } = useParams()
     const navigate = useNavigate()
-    const wishlist = useSelector(storeState => storeState.userModule.user.wishlist)
+    const wishlist = useSelector(storeState => storeState.userModule.user?.wishlist || [])
 
     useEffect(() => {
         loadGig()
@@ -68,7 +68,8 @@ export function GigDetails() {
             return newOrder
         } catch (err) {
             console.log('GigDetails: err in onAddOrder', err)
-            showErrorMsg('order not added')
+            
+            showErrorMsg('order not added - please login')
         }
     }
 
@@ -76,7 +77,7 @@ export function GigDetails() {
     return (
         <div className="main-content main-container">
             <div className="top-nav sticky">
-                < DetailsNav gig={gig} wishlist={wishlist} addGigToWishlist={addGigToWishlist}  removeGigFromWishlist = {removeFromWishlist}/>
+                < DetailsNav gig={gig} wishlist={wishlist || []} addGigToWishlist={addGigToWishlist}  removeGigFromWishlist = {removeFromWishlist}/>
             </div>
             <div className="hr-top-details full">
                 <hr /></div>

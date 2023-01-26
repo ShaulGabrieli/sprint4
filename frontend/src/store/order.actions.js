@@ -9,6 +9,7 @@ import { utilService } from "../services/util.service.js";
 export async function loadOrders() {
     //todo: add seller orders
     try {
+       
         const filterBy = { buyerId : userService.getLoggedinUser()?._id, sellerId : userService.getLoggedinUser()?._id }
         console.log('filterBy', filterBy)
         const orders = await orderService.query(filterBy)
