@@ -42,7 +42,7 @@ export function GigEdit() {
         ev.preventDefault()
         try {
             const savedGig = await addGig(gigToEdit)
-            showSuccessMsg(`Gig added (id: ${savedGig._id})`)
+            showSuccessMsg(`New gig added - ${savedGig._id}`)
             navigate('/gig')
         } catch (err) {
             showErrorMsg('Cannot add gig')
