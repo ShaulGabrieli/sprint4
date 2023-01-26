@@ -16,11 +16,15 @@ export function GigPreview({ gig, orderPagePreview, status }) {
         }
     }
 
+    function handleClick() {
+        window.scrollTo(0, 0);
+    }
+
     return (
         <li className='gig-preview flex' key={gig._id}>
            <div className="preview-main-container flex column">
                 <section className='top-gig-section'>
-                <Link to={`/gig/${gig._id}`}>
+                <Link to={`/gig/${gig._id}` } onClick={handleClick} >
                     <img className='preview-img' src={`${gig.imgUrls[0]}`} />
                     <div className='owner-info'>
                         <div className='owner-icon-container'>
