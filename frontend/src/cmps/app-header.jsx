@@ -176,7 +176,7 @@ export function AppHeader() {
                         {user && (
                             <div className='user-info flex align-center'>
                                 <Link className='flex align-center' to={`user/${user._id}`}>
-                                    {user.imgUrl && <img src={user.imgUrl} />}
+                                    {user.imgUrl && <div className='nav-user-img-container'><img src={user.imgUrl} /></div>}
                                 </Link>
                                 <button onClick={onLogout}>Logout</button>
                             </div>
