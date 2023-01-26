@@ -23,7 +23,7 @@ export function AppFooter() {
   }
 
   return (
-    <footer className="app-footer main-container full ">
+    <footer className="main-container full app-footer">
       <hr className="full" />
       <Categories />
       <hr />

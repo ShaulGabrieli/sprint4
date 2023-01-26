@@ -213,7 +213,8 @@ export function GigDetails() {
               {/* <div className="package-container flex column"> */}
               <PaymentTabs gig={gig} onAddOrder={onAddOrder} />
             </div>
-            <div className="contact-seller flex column">
+
+            <div className="contact-seller flex">
               <div className="contact-seller-wrapper">
                 <div className="contact-seller-btn"> Contact Seller</div>
               </div>

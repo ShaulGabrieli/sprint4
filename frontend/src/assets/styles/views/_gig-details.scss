@@ -55,19 +55,83 @@
 .contact-seller,
 .highly-responsive {
   padding: 0 24px;
-}
+  font-size: rem(16px);
+  display: block;
+  border: 1px solid $clr14;
+  // border-top: 0;
+  justify-content: center;
+  // margin-top: 50px;
+  margin-bottom: 20px;
+  border-bottom: none;
+  // display: contents;
 
+  .responsive-wrapper {
+    margin-top: 50px;
+  }
+
+  .price-basic-container {
+    h4 {
+      display: none;
+    }
+  }
+  .price-wrapper {
+    h4 {
+      display: flex;
+      color: $clr1;
+    }
+  }
+}
+.react-tabs__tab {
+  bottom: 0;
+  display: flex;
+  padding: 16px;
+  // border: 1px solid black;
+  border-left: none;
+}
 .payment-area-wrapper {
-  margin-top: 30px;
+  margin-top: 0;
   position: sticky;
   top: 50px;
   flex-shrink: 0;
   border: 1px solid $clr13;
   // border-top:none;
+  color: $clr3;
+  font-family: Macan-Bold;
+}
+.contact-seller-btn {
+  margin-top: 50px;
+}
+.payment {
+  margin-top: 50px;
 }
 .gig-main-payment {
-  width: 30vw;
+  width: 22vw;
   //  border: 1px solid $clr15;
+
+  .react-tabs__tab--selected {
+    border: none;
+    // border: 1px solid $clr2;
+    border-bottom: 1px solid $clr2;
+    border-radius: none;
+
+    /* background: #fff; */
+    // border-color: #aaa;
+    // border-right: 1px;
+    color: $clr2;
+
+    /* border-radius: 5px 5px 0 0; */
+    // border-top: none;
+    &:blur {
+      // outline: none;
+      border-bottom: 1px solid $clr2;
+    }
+  }
+
+  .react-tabs__tab-list {
+    position: static;
+    display: flex;
+    justify-content: space-around;
+  }
 }
 .gig-details {
   width: 60%;
@@ -402,14 +466,6 @@
 .continue-word {
   color: white;
 }
-
-.react-tabs__tab--selected {
-  color: $clr2;
-  border-radius: none;
-}
-
-// .react-tabs__tab-list {
-// }
 
 .reviewer-rate {
   color: $clr6;
