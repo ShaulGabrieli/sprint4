@@ -8,7 +8,7 @@
     align-items: center;
     justify-items: center;
 
-  }
+  
 
     p {
         font-size: rem(32px);
@@ -31,6 +31,7 @@
               width: 88px;
               border-top: solid 2px $clr2;
           }
+        }
     }
     img {
         display: block;
