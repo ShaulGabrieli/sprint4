@@ -217,24 +217,21 @@
   position: absolute;
 }
 
-
-@media (max-width: 1300px){
+@media (max-width: 1300px) {
   .app-header {
-    .main-nav{
+    .main-nav {
       display: none;
     }
     .search-box {
       width: auto;
     }
-    .top-nav{
+    .top-nav {
       flex-direction: column;
     }
-
-    
   }
 
-  .filter-below-header{
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+  // .filter-below-header{
+  //   justify-content: center;
+  //   flex-wrap: wrap;
+  // }
 }

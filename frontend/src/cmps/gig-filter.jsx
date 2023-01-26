@@ -27,13 +27,10 @@ export function GigFilter({ onSetFilter, filterBy }) {
   }
 
   return (
-    <section>
-      <form
-        className="flex gig-filter filter-below-header sticky full main-container"
-        onSubmit={onSubmitFilter}
-      >
+    <section className="flex gig-filter full">
+      <form className="full " onSubmit={onSubmitFilter}>
         <label htmlFor="daysToMake"></label>
-        <div className="flex">
+        <div className="inner-filter-form flex">
           <Select
             id="daysToMake"
             name="daysToMake"
@@ -59,14 +56,14 @@ export function GigFilter({ onSetFilter, filterBy }) {
             <option value={7}>Up to 7 days</option>
             <option value={Infinity}>Anytime</option>
           </select> */}
+          <input
+            name="price"
+            id="max-price"
+            placeholder="Budget"
+            value={filterByToEdit.price}
+            onChange={handleChange}
+          />
         </div>
-        <input
-          name="price"
-          id="max-price"
-          placeholder="Budget"
-          value={filterByToEdit.price}
-          onChange={handleChange}
-        />
       </form>
     </section>
   );
