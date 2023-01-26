@@ -26,8 +26,11 @@
     padding: 0 5px;
     margin: 10px;
   }
+  form {
+    display: flex;
+  }
 
-  .search-box {
+  form .search-box {
     width: em(800px);
     height: em(42px);
     color: $clr4;
@@ -206,8 +209,12 @@
   color: white;
   background-color: white;
 }
-.orders-link{
+.orders-link {
   z-index: 50;
+}
+
+.a {
+  position: absolute;
 }
 
 
