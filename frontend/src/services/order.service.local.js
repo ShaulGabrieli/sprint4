@@ -24,7 +24,7 @@ async function query(filterBy) {
         const { buyerId } = filterBy
         console.log('buyerId', buyerId)
         if (buyerId) {
-             buyerOrders = orders.filter(order => order.buyer._id === buyerId && order.paymentStatus === 'payed')
+             buyerOrders = orders.filter(order => order.buyer._id === buyerId && order.paymentStatus === 'paid')
             // return buyerOrders
         }
         const { sellerId } = filterBy

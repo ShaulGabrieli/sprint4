@@ -32,7 +32,7 @@ export async function loadOrders() {
 export async function addOrder(order, plan) {
     try {
         order.plan = plan
-        order.paymentStatus = 'unpayed'
+        order.paymentStatus = 'unpaid'
         // order._id= utilService.makeId()
         const savedOrder = await orderService.save(order)
         console.log('Added Order', savedOrder)
@@ -47,17 +47,17 @@ export async function addOrder(order, plan) {
     }
 }
 
-export async function payedOrder(order) {
-    order.paymentStatus = 'payed'
-    const payedOrder = await orderService.save(order)
-    console.log('payed order', payedOrder)
+export async function paidOrder(order) {
+    order.paymentStatus = 'paid'
+    const paidOrder = await orderService.save(order)
+    console.log('paid order', paidOrder)
 }
 
 export async function loadOrder(orderId) {
     try {
         const order = await orderService.getById(orderId)
         console.log('Loaded Order', order)
-        if (order.paymentStatus === "unpayed"){
+        if (order.paymentStatus === "unpaid"){
             store.dispatch({
                 type: SET_CURRENT_ORDER,
                 order
@@ -66,7 +66,7 @@ export async function loadOrder(orderId) {
         }
         else
         {
-            throw "The order is not in 'unpayed' status"
+            throw "The order is not in 'unpaid' status"
         }
     } catch (err) {
         console.log('Cannot load order', err)

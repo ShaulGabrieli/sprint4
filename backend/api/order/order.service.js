@@ -2,92 +2,91 @@ const dbService = require('../../services/db.service')
 const logger = require('../../services/logger.service')
 const utilService = require('../../services/util.service')
 const ObjectId = require('mongodb').ObjectId
-const asyncLocalStorage = require('../services/als.service')
+
 
 async function query(filterBy = {}) {
+    console.log('filterBy', filterBy)
     try {
         // const criteria = {
         //     vendor: { $regex: filterBy.txt, $options: 'i' }
         // }
-        const collection = await dbService.getCollection('gigs')
-        var gigs = await collection.find(filterBy).toArray()
-        return gigs
+        const collection = await dbService.getCollection('orders')
+        var orders = await collection.find(filterBy).toArray()
+        return orders
     } catch (err) {
-        logger.error('cannot find gigs', err)
+        logger.error('cannot find orders', err)
         throw err
     }
 }
 
-async function getById(gigId) {
+async function getById(orderId) {
     try {
-        const collection = await dbService.getCollection('gigs')
-        const gig = collection.findOne({ _id: ObjectId(gigId) })
-        return gig
+        const collection = await dbService.getCollection('orders')
+        const order = collection.findOne({ _id: ObjectId(orderId) })
+        return order
     } catch (err) {
-        logger.error(`while finding gig ${gigId}`, err)
+        logger.error(`Cannot get order ${orderId}`, err)
         throw err
     }
 }
 
-async function remove(gigId) {
+async function remove(orderId) {
     try {
-        const collection = await dbService.getCollection('gigs')
-        await collection.deleteOne({ _id: ObjectId(gigId) })
-        return gigId
+        const collection = await dbService.getCollection('orders')
+        await collection.deleteOne({ _id: ObjectId(orderId) })
+        return orderId
     } catch (err) {
-        logger.error(`cannot remove gig ${gigId}`, err)
+        logger.error(`Cannot remove order ${orderId}`, err)
         throw err
     }
 }
 
-async function add(gig) {
+async function add(order) {
     try {
-        const { loggedinUser } = asyncLocalStorage.getStore()
-        gig.owner = loggedinUser
-        const collection = await dbService.getCollection('gigs')
-        await collection.insertOne(gig)
-        return gig
+
+        const collection = await dbService.getCollection('orders')
+        await collection.insertOne(order)
+        return order
     } catch (err) {
-        logger.error('cannot insert gig', err)
+        logger.error('Cannot insert order', err)
         throw err
     }
 }
 
-async function update(gig) {
+async function update(order, orderId) {
     try {
-        const gigToSave = gig
-        delete gigToSave._id
-        const collection = await dbService.getCollection('gigs')
-        await collection.updateOne({ _id: ObjectId(gig._id) }, { $set: gigToSave })
-        return gig
+        let orderToSave = order
+        const collection = await dbService.getCollection('orders')
+        order = await collection.findOneAndUpdate({ _id: ObjectId(orderId) }, { $set: order }, { returnNewDocument: true })
+        return order
     } catch (err) {
-        logger.error(`cannot update gig ${gigId}`, err)
+        logger.error(`Cannot update order ${orderId}`, err)
         throw err
     }
 }
 
-async function addGigMsg(gigId, msg) {
-    try {
-        msg.id = utilService.makeId()
-        const collection = await dbService.getCollection('gigs')
-        await collection.updateOne({ _id: ObjectId(gigId) }, { $push: { msgs: msg } })
-        return msg
-    } catch (err) {
-        logger.error(`cannot add gig msg ${gigId}`, err)
-        throw err
-    }
-}
+// async function addOrderMsg(orderId, msg) {
+//     try {
+//         msg.id = utilService.makeId()
+//         const collection = await dbService.getCollection('orders')
+//         await collection.updateOne({ _id: ObjectId(orderId) }, { $push: { msgs: msg } })
+//         return msg
+//     } catch (err) {
+//         logger.error(`Cannot add order msg ${orderId}`, err)
+//         throw err
+//     }
+// }
 
-async function removeGigMsg(gigId, msgId) {
-    try {
-        const collection = await dbService.getCollection('gigs')
-        await collection.updateOne({ _id: ObjectId(gigId) }, { $pull: { msgs: { id: msgId } } })
-        return msgId
-    } catch (err) {
-        logger.error(`cannot add gig msg ${gigId}`, err)
-        throw err
-    }
-}
+// async function removeOrderMsg(orderId, msgId) {
+//     try {
+//         const collection = await dbService.getCollection('orders')
+//         await collection.updateOne({ _id: ObjectId(orderId) }, { $pull: { msgs: { id: msgId } } })
+//         return msgId
+//     } catch (err) {
+//         logger.error(`cannot add order msg ${orderId}`, err)
+//         throw err
+//     }
+// }
 
 module.exports = {
     remove,
@@ -95,6 +94,6 @@ module.exports = {
     getById,
     add,
     update,
-    addGigMsg,
-    removeGigMsg
+    // addOrderMsg,
+    // removeOrderMsg
 }
