@@ -10,6 +10,8 @@
 
     .user-info .btn-link {
         color: $clr2;
+        display: flex;
+        align-items: center;
     }
 
     nav {
@@ -29,6 +31,7 @@
     .header-action-icons {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         gap: 24px;
         a {
             // margin: 20px;
@@ -187,10 +190,10 @@
 // Header Scroll manipulation
 
 .top-nav {
-  // transition: 3s ease-in;
-  transition: 1s ease-in-out;
+    // transition: 3s ease-in;
+    transition: 1s ease-in-out;
 
-  // transition: 3s ease-out;
+    // transition: 3s ease-out;
 }
 .fix {
     position: fixed;
@@ -277,6 +280,7 @@
 }
 .top-nav-actions,
 .top-nav-logo-search {
+    align-items: center;
     gap: 24px;
 }
 @media (max-width: 1300px) {
