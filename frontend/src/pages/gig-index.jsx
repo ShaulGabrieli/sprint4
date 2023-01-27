@@ -1,11 +1,12 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { loadGigs } from "../store/gig.actions.js";
-import { useSearchParams } from "react-router-dom";
-import { gigService } from "../services/gig.service.local.js";
-import { GigPreview } from "../cmps/gig-preview.jsx";
-import { GigFilter } from "../cmps/gig-filter.jsx";
-import { setFilter } from "../store/gig.actions.js";
+import { useSelector } from "react-redux"
+import { loadGigs } from "../store/gig.actions.js"
+import { useSearchParams } from "react-router-dom"
+// import { gigService } from "../services/gig.service.local.js"
+import { gigService } from "../services/gig.service.js"
+import { GigPreview } from "../cmps/gig-preview.jsx"
+import { GigFilter } from "../cmps/gig-filter.jsx"
+import { setFilter } from "../store/gig.actions.js"
 import { Loading } from "../cmps/loading"
 
 export function GigIndex() {
@@ -17,8 +18,12 @@ export function GigIndex() {
   const queryFilterBy = gigService.getFilterFromSearchParams(searchParams);
 
   useEffect(() => {
-    onLoadGigs();
-  }, [filterBy]);
+    onLoadGigs()
+  }, [filterBy])
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   async function onLoadGigs() {
     try {
@@ -34,9 +39,9 @@ export function GigIndex() {
     setSearchParams(filterBy);
     setFilter(filterBy);
   }
-  if (gigs.length===0) return <div className="loading-spinner flex"><Loading/></div>
+  if (gigs.length === 0) return <div className="loading-spinner flex"><Loading /></div>
   return (
-    
+
     <div className="gig-index main-container">
       {/* <section className="top-bars">
         <div className="top-left-bar">
@@ -51,16 +56,16 @@ export function GigIndex() {
           <p> Don't Just Dream, Do</p>
         </div>
       </section> */}
-   
-        <GigFilter filterBy={queryFilterBy} onSetFilter={onSetFilter} />
 
-        <h2>Most popular Gigs</h2>
-        <ul className="gig-list">
-          {gigs.map((gig, idx) => (
-            <GigPreview id={idx} gig={gig} />
-          ))}
-        </ul>
-     
+      <GigFilter filterBy={queryFilterBy} onSetFilter={onSetFilter} />
+
+      <h2>Most popular Gigs</h2>
+      <ul className="gig-list">
+        {gigs.map((gig, idx) => (
+          <GigPreview id={idx} gig={gig} />
+        ))}
+      </ul>
+
     </div>
   );
 }

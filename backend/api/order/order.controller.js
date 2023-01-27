@@ -51,10 +51,12 @@ async function addOrder(req, res) {
   try {
     const order = req.body
     const { loggedinUser } = asyncLocalStorage.getStore()
+    delete order._id
     order.buyer = loggedinUser
     order.createdAt = Date.now()
     order.changeStatusAt = Date.now()
     const addedOrder = await orderService.add(order)
+    console.log('addedOrder', addedOrder)
     res.json(addedOrder)
   } catch (err) {
     logger.error('Failed to add order', err)

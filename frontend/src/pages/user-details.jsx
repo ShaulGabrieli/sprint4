@@ -5,7 +5,7 @@ import { loadUser } from '../store/user.actions'
 import { store } from '../store/store'
 import { showSuccessMsg } from '../services/event-bus.service'
 import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from '../services/socket.service'
-import { orderService } from '../services/order.service.local'
+import { orderService } from '../services/local/order.service.local'
 import { updateOrder } from '../store/order.actions'
 import { loadOrders } from '../store/order.actions.js'
 
@@ -29,6 +29,7 @@ export function UserDetails() {
 
     useEffect(() => {
         loadOrders()
+        window.scrollTo(0, 0)
     }, [])
 
     async function onChangeStatus(order, updatedStatus) {

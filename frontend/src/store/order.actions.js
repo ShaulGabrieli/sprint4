@@ -1,4 +1,5 @@
-import { orderService } from "../services/order.service.local.js";
+// import { orderService } from "../services/local/order.service.local.js";
+import { orderService } from "../services/order.service.js";
 import { userService } from "../services/user.service.js";
 import { store } from './store.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
@@ -38,7 +39,7 @@ export async function addOrder(order, plan) {
         console.log('Added Order', savedOrder)
         store.dispatch({
             type: ADD_ORDER,
-            order
+            order : savedOrder
         })
         return savedOrder
     } catch (err) {

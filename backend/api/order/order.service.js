@@ -22,7 +22,7 @@ async function query(filterBy = {}) {
 async function getById(orderId) {
     try {
         const collection = await dbService.getCollection('orders')
-        const order = collection.findOne({ _id: ObjectId(orderId) })
+        const order = await collection.findOne({ _id: ObjectId(orderId) })
         return order
     } catch (err) {
         logger.error(`Cannot get order ${orderId}`, err)
@@ -45,7 +45,8 @@ async function add(order) {
     try {
 
         const collection = await dbService.getCollection('orders')
-        await collection.insertOne(order)
+        const doc = await collection.insertOne(order)
+        order._id = doc.insertedId
         return order
     } catch (err) {
         logger.error('Cannot insert order', err)

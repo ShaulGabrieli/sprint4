@@ -38,6 +38,7 @@ export function GigOrderList() {
 
     useEffect(() => {
         loadOrders()
+        window.scrollTo(0, 0)
     }, [])
 
 
