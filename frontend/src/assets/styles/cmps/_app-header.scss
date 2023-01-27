@@ -186,6 +186,12 @@
 
 // Header Scroll manipulation
 
+.top-nav {
+  // transition: 3s ease-in;
+  transition: 1s ease-in-out;
+
+  // transition: 3s ease-out;
+}
 .fix {
     position: fixed;
     width: 100%;

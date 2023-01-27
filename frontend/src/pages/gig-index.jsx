@@ -28,7 +28,7 @@ export function GigIndex() {
   async function onLoadGigs() {
     try {
       await loadGigs(filterBy);
-      console.log("Loaded successfully");
+      // console.log("Loaded successfully");
     } catch (err) {
       console.log("Something went wrong", err);
       throw err;

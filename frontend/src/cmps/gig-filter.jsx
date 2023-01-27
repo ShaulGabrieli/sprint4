@@ -5,7 +5,7 @@ export function GigFilter({ onSetFilter, filterBy }) {
   const [filterByToEdit, setFilterByToEdit] = useState(filterBy);
 
   useEffect(() => {
-    console.log("filterByToEdit", filterByToEdit);
+    // console.log("filterByToEdit", filterByToEdit);
     onSetFilter(filterByToEdit);
   }, [filterByToEdit]);
 

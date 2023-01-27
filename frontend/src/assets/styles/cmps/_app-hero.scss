@@ -33,6 +33,7 @@
     font-family: Macan-Bold;
     align-self: center;
     color: white;
+    line-height: 2;
 
     h1 {
       font-size: em(49px);
@@ -108,6 +109,13 @@
     transition: 0.7s;
     justify-content: flex-end;
     align-self: flex-end;
+    flex-direction: column;
+    justify-self: end;
+    margin-right: 30px;
+    margin-bottom: 15px;
+    p {
+      margin-top: 0;
+    }
   }
   p {
     font-family: Macan-Bold;
@@ -121,6 +129,7 @@
   }
   .popular-tags {
     font-size: rem(14px);
+    line-height: 1;
 
     button {
       font-family: Macan-Bold;

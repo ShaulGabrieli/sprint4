@@ -1,19 +1,19 @@
-import { useEffect, useState } from "react"
-// import { gigService } from "../services/gig.service.local"
-import { gigService } from "../services/gig.service"
-import { useSearchParams, useNavigate } from "react-router-dom"
-import { setFilter } from "../store/gig.actions.js"
+import { useEffect, useState } from "react";
+import { gigService } from "../services/gig.service";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { setFilter } from "../store/gig.actions.js";
+import { StarSvg } from "../cmps/git-preview-svgs/star-svg";
 
 export function AppHero() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const queryFilterBy = gigService.getFilterFromSearchParams(searchParams)
-  const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy)
-  const [imgToDisplay, setImgToDisplay] = useState(1)
+  const queryFilterBy = gigService.getFilterFromSearchParams(searchParams);
+  const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy);
+  const [imgToDisplay, setImgToDisplay] = useState(1);
   const [heroTextToDisplay, setHeroTextToDisplay] = useState(
     "Moon, Marketing Expert"
-  )
+  );
 
   useEffect(() => {
     heroImgSwitch();
@@ -55,7 +55,7 @@ export function AppHero() {
   function heroTextSwitch(heroImg) {
     switch (heroImg) {
       case 1:
-        setHeroTextToDisplay("Moon, Marketing Expert");
+        setHeroTextToDisplay(" Moon, Marketing Expert");
         break;
       case 2:
         setHeroTextToDisplay("Rikita, Shoemaker and Desighner");
@@ -120,7 +120,14 @@ export function AppHero() {
           </div>
         </div>
         <div className="hero-name flex">
-          <p>{heroTextToDisplay}</p>
+          <div className="flex">
+            <StarSvg />
+            <StarSvg />
+            <StarSvg />
+            <StarSvg />
+            <StarSvg />
+          </div>
+          <p className="flex">{heroTextToDisplay}</p>
         </div>
       </div>
     </section>

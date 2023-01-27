@@ -5,47 +5,62 @@
     width: 100%;
     left: 0;
     margin-left: 0;
+    margin-right: 0;
+
     padding: 0;
     justify-content: center;
   }
-
+  .slick-prev:before,
   .slick-next:before {
-    border-radius: 33px;
-    background-color: white;
-    font-size: 28px;
-    color: $clr13;
-    padding: 12px;
-    opacity: 100%;
+    content: "";
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    background: transparent;
+    position: absolute;
+    opacity: 1;
+    top: -79%;
+    border: 1px solid;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 15%);
+    right: -10%;
+    /* bottom: 39px; */
+    left: -80%;
   }
 
-  .slick-prev:before {
-    border-radius: 33px;
-    background-color: white;
-    font-size: 28px;
-    color: $clr13;
-    padding: 12px;
-    opacity: 100%;
-  }
+  // .slick-prev:before {
+  //   border-radius: 33px;
+  //   background-color: white;
+  //   font-size: 28px;
+  //   color: $clr13;
+  //   padding: 12px;
+  //   opacity: 100%;
+  // }
 
   .slick-prev {
-    transform: translate(0, -102%);
-    z-index: 50;
-    height: 24px;
-    width: 62px;
-    opacity: 100%;
+    border: solid #62646a;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 4px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    z-index: 500;
+    // margin: 0 5px;
   }
 
   .slick-next {
-    height: 24px;
-    width: 66px;
-    transform: translate(0, -90%);
-    opacity: 100%;
+    border: solid #62646a;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
   }
+
   .img-card {
     color: white;
     position: relative;
-    height: rem(345px);
-    width: rem(288px);
+    height: rem(400px);
+    width: rem(300px);
 
     .pop-service-text {
       position: absolute;
@@ -62,10 +77,13 @@
     }
 
     img {
-      padding: 10px;
+      // padding: 10px;
+      margin-left: 30px;
+      max-width: 100%;
       max-height: 100%;
+      position: absolute;
+      // max-width: 80%;
       border-radius: 5px;
-
       &:hover {
         transition: 0.8s;
         opacity: 80%;

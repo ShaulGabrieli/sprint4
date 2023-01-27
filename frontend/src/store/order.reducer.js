@@ -1,16 +1,16 @@
-export const SET_USER_ORDERS = 'SET_USER_ORDERS'
-export const REMOVE_ORDER = 'REMOVE_ORDER'
-export const ADD_ORDER = 'ADD_ORDER'
-export const SET_CURRENT_ORDER = 'SET_CURRENT_ORDER'
-export const UPDATE_ORDER = 'UPDATE_ORDER'
-export const SET_SELLER_ORDERS = 'SET_SELLER_ORDERS'
+export const SET_USER_ORDERS = "SET_USER_ORDERS";
+export const REMOVE_ORDER = "REMOVE_ORDER";
+export const ADD_ORDER = "ADD_ORDER";
+export const SET_CURRENT_ORDER = "SET_CURRENT_ORDER";
+export const UPDATE_ORDER = "UPDATE_ORDER";
+export const SET_SELLER_ORDERS = "SET_SELLER_ORDERS";
 
 const initialState = {
-    order: {},
-    userOrders: null,
-    lastRemovedOrder: null,
-    sellerOrders: null
-}
+  order: {},
+  userOrders: null,
+  lastRemovedOrder: null,
+  sellerOrders: null,
+};
 
 export function orderReducer(state = initialState, action) {
     var newState = state
