@@ -2,7 +2,8 @@ import Select from 'react-select'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
-import { gigService } from '../services/gig.service.local'
+// import { gigService } from '../services/gig.service.local'
+import { gigService } from '../services/gig.service.js'
 import { addGig } from '../store/gig.actions.js'
 import { uploadImgToGig } from '../services/cloudinary-service.js'
 import {categoryOptions , doneDayOptions} from '../cmps/global-const/global-const'
@@ -16,6 +17,7 @@ export function GigEdit() {
     useEffect(() => {
         if (!gigId) return
         gigService.getById(gigId).then(setGigToEdit)
+        window.scrollTo(0, 0)
     }, [])
 
     function handleChange({ target }) {
@@ -108,8 +110,7 @@ export function GigEdit() {
                     </div>
                     <div className='gig-done-days-container'>
                         <label htmlFor='gig-done-days'>Delivery Time </label>
-                        <Select
-                            name='tags'
+                        <Select                          
                             options={doneDayOptions}
                             theme={(theme) => ({ ...theme, borderRadius: 4, colors: { ...theme.colors, primary: 'black' } })}
                             classNamePrefix='select'

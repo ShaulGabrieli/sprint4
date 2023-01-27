@@ -3,8 +3,14 @@ import { PopularServices } from "../cmps/popular-services.jsx";
 import { SellingAd } from "../cmps/selling-ad.jsx";
 import { MarketCategories } from "../cmps/market-categories.jsx";
 import { AppHero } from "../cmps/app-hero";
+import { useEffect } from "react";
 
 export function HomePage() {
+
+  useEffect (() => {
+    window.scrollTo(0, 0)
+  }, [])
+  
   return (
     <section className="home-page full">
       <AppHero />

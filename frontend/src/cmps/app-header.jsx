@@ -18,8 +18,9 @@ import { setFilter } from "../store/gig.actions.js";
 import { gigService } from "../services/gig.service";
 import { ReactComponent as WhiteLogo } from "../assets/img/lazyerr-logo-white.svg";
 import { ReactComponent as BlackLogo } from "../assets/img/lazyerr-logo-black.svg";
+import { LoginSignup } from "./login-signup";
 
-export function AppHeader() {
+export function AppHeader({ openOrders, setOpenOrders }) {
   const navigate = useNavigate();
   let location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -29,7 +30,8 @@ export function AppHeader() {
   const [headerStyle, setHeaderStyle] = useState(
     location.pathname === "/" ? "fix" : "sticky"
   );
-  const [openOrders, setOpenOrders] = useState(false);
+  // const [openOrders, setOpenOrders] = useState(false)
+  const [openSign, setOpenSign] = useState(false);
   const [logo, setLogo] = useState(
     location.pathname === "/" ? <WhiteLogo /> : <BlackLogo />
   );
@@ -225,12 +227,26 @@ export function AppHeader() {
             )}
             {!user && (
               <section className="user-info">
-                <Link to={"/user/loginsignup"}>
-                  <span>Sign In</span>{" "}
-                </Link>
-                <Link to={"/user/loginsignup"}>
-                  <button className="join-btn">Join</button>{" "}
-                </Link>
+                {/* <Link to={'/user/loginsignup'}> */}
+                <a
+                  className="orders-link"
+                  onClick={(ev) => {
+                    ev.stopPropagation();
+                    setOpenSign(!openSign);
+                  }}
+                >
+                  <span>Sign In</span>
+                </a>
+                <div className="pop-menu-orders-area">
+                  {openSign && (
+                    <PopupMenu>
+                      <LoginSignup />
+                    </PopupMenu>
+                  )}
+                </div>
+                {/* </Link> */}
+                {/* <Link to={'/user/loginsignup'}> */}
+                <button className="join-btn">Join</button> {/* </Link> */}
               </section>
             )}
           </div>

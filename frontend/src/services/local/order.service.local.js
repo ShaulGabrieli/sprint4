@@ -1,5 +1,5 @@
-import { httpService } from './http.service'
-import { storageService } from './async-storage.service'
+import { httpService } from '../http.service'
+import { storageService } from '../async-storage.service'
 // import { userService } from './user.service'
 import { userService } from './user.service.local'
 
@@ -14,7 +14,6 @@ export const orderService = {
 
 async function query(filterBy) {
     console.log('filterByfilterBy', filterBy);
-    //todo: add filtering after checking in fiverr
     try {
         const orders = await storageService.query(ORDER_KEY)
         let buyerOrders

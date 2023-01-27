@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.30936090.css",
+    "main.js": "/static/js/main.0bfbd341.js",
+    "static/media/macan-light.ttf": "/static/media/macan-light.75c0fb9306a207ee180f.ttf",
+    "static/media/macan-bold.ttf": "/static/media/macan-bold.29c28b1d0173728738dc.ttf",
+    "service-worker.js": "/service-worker.js",
+    "static/media/hero5.webp": "/static/media/hero5.eba9d5f0aab4fe20cd01.webp",
+    "static/media/macan-semibold.woff2": "/static/media/macan-semibold.3246ea44820fc8b1adfe.woff2",
+    "static/media/macan-regular.woff2": "/static/media/macan-regular.60c84fbe6363b59af251.woff2",
+    "static/media/hero3.webp": "/static/media/hero3.9766cd165f7b578a094e.webp",
+    "static/media/hero2.webp": "/static/media/hero2.de8a439417af462bbc2f.webp",
+    "static/media/hero4.webp": "/static/media/hero4.549444a0dcd2a0c3e668.webp",
+    "static/media/hero1.webp": "/static/media/hero1.859324210790d1905f97.webp",
+    "static/media/lazyerr-logo-white.svg": "/static/media/lazyerr-logo-white.44969b0e8842cb2ed775aca88aa8e3fa.svg",
+    "static/media/lazyerr-logo-black.svg": "/static/media/lazyerr-logo-black.b21a8c6334f60b741d35215b5dd22286.svg",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "static/media/lightning.svg": "/static/media/lightning.2fd2427cea6c3da62e359b86defcf9f3.svg",
+    "static/media/star.svg": "/static/media/star.36276db9e424acb9777f4c076f3b2d02.svg",
+    "index.html": "/index.html",
+    "static/media/addToList.svg": "/static/media/addToList.643976d329ace03c404519ad554601b9.svg",
+    "static/media/share.svg": "/static/media/share.5555b0e03f038d25ae61e41db79b3073.svg",
+    "static/media/error.svg": "/static/media/error.0feac0c422639ad1a9b8a0e8f6ce51a4.svg",
+    "static/media/flag.svg": "/static/media/flag.0c31b2c90762edccf51b268a66eed034.svg",
+    "static/media/arrow.svg": "/static/media/arrow.db8108a1267aca7f505f488aeba9fcd4.svg",
+    "static/media/success.svg": "/static/media/success.90cdcda91811446c744e6d7f51e9d1cc.svg",
+    "static/media/heart.svg": "/static/media/heart.b56d552a7f0bc500f5f351e6037a5deb.svg",
+    "static/media/heart-liked.svg": "/static/media/heart-liked.ab02d2838e3d334eed171781b82d0115.svg",
+    "main.30936090.css.map": "/static/css/main.30936090.css.map",
+    "main.0bfbd341.js.map": "/static/js/main.0bfbd341.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.30936090.css",
+    "static/js/main.0bfbd341.js"
+  ]
+}

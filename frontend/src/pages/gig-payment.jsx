@@ -18,22 +18,21 @@ export function GigPayment() {
 
     let order = useSelector(storeState => storeState.orderModule.order)
     useEffect(() => {
-        onLoadOrder()
-        // setVat(getVat())
-        // setTotal(totalPay())
+        window.scrollTo(0, 0);
     }, [])
 
-    async function onLoadOrder()
-    {
-        try {
-            await loadOrder(id)
-          }
-          catch(err)
-      {
-         // showErrorMsg("Order is no longer loaded")
-          navigate('/gig')
-      }
-    }
+    // async function onLoadOrder()
+    // {
+    //     try {
+    //         await loadOrder(id)
+    //       }
+    //       catch(err)
+    //   {
+    //      // showErrorMsg("Order is no longer loaded")
+    //      console.log(err)
+    //       navigate('/gig')
+    //   }
+    // }
 
     async function savePayedOrder() {
 

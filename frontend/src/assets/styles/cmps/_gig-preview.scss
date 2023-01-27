@@ -34,13 +34,17 @@
             flex: 1;
         }
     }
-    .preview-img {
-        // width: em(248px);
+    .preview-img-container{
         height: em(195px);
-        width: 100%;
-        margin: 0;
-        width: 100%;
+        width: em(324px);
+        .preview-img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        }
     }
+    
 
     h4 {
         display: inline-block;
@@ -112,8 +116,10 @@
     }
 
     .price-container {
-        flex-direction: column;
+        // flex-direction: column;
         padding: 10px 11px 0 0;
+        align-items: center;
+    
     }
 
     .price-preview {
@@ -124,6 +130,7 @@
         font-size: em(10px);
         letter-spacing: 0.5px;
         margin-bottom: 6px;
+        padding-right:6px;
     }
 
     .price-tag {

@@ -26,10 +26,16 @@ export const doneDayOptions = [
     { value: '90', label: '90 days Delivery' },
 ]
 
-
 export const daysToMakeOptions = [
-    { value: 1, label: "Express 24H" },
-    { value: 3, label: "Up to 3 days" },
-    { value: 7, label: "Up to 7 days" },
-    { value: Infinity, label: "Anytime" },
-  ];
+    { value: 1, label: 'Express 24H' },
+    { value: 3, label: 'Up to 3 days' },
+    { value: 7, label: 'Up to 7 days' },
+    { value: Infinity, label: 'Anytime' },
+]
+
+export const sellerActions = [
+    { value: 'approved', label: 'Approved' },
+    { value: 'in progress', label: 'In progress' },
+    { value: 'done', label: 'Done' },
+    { value: 'rejected', label: 'Rejected' },
+]

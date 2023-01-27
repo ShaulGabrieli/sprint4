@@ -1,4 +1,5 @@
 .user-details {
+    padding: 50px 0;
     // display: grid;
     // grid-template-columns: 400px 736px;
     background-color: $clr17;
@@ -13,7 +14,8 @@
     .user-main-details {
         background-color: $clr-1;
         width: em(400px);
-        height: em(420px);
+        // height: em(420px);
+        height: fit-content;
         border: solid 1px $clr14;
         display: flex;
         flex-direction: column;
@@ -37,6 +39,47 @@
             border-top: 1px solid $clr14;
             padding: 0;
             margin: 0;
+        }
+    }
+
+    .add-gig-btn {
+        width: em(200px);
+        height: em(265px);
+        background-color: $clr-1;
+        display: inline-block;
+        cursor: pointer;
+        border: solid 1px $clr14;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: $clr5;
+    }
+
+    .gig-seller-list {
+        .gig-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 34px;
+            justify-content: flex-start;
+        }
+        .gig-preview {
+            width: em(200px);
+            .preview-img-container {
+                width: em(200px);
+                height: em(100px);
+                .preview-img {
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+            .owner-icon-container,
+            .owner-info,
+            .price-preview {
+                display: none;
+            }
         }
     }
 
@@ -73,6 +116,23 @@
         }
     }
 
+    .add-new-gig:before {
+        content: '+';
+        background-color: #78cdd2;
+        color: #fff;
+        font-size: 48px;
+        font-weight: 400;
+        width: 66px;
+        height: 66px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+        // margin: 80px auto 20px;
+        // line-height: 69px;
+    }
+
     .seller-list {
         // display: flex;
         // flex-direction: column;
@@ -82,9 +142,15 @@
         height: 2.8571em;
         width: 100%;
         padding-left: 20px;
+        text-align: left;
 
+        
         td {
-            padding: 15px;
+            padding: 15px 0;
+            button{
+                margin: 0;
+                border-radius: 4px;
+            }
         }
     }
 

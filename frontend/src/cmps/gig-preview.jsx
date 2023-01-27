@@ -43,7 +43,9 @@ function changeFavColor(id){
             <div className='preview-main-container flex column'>
                 <section className='top-gig-section'>
                     <Link to={`/gig/${gig._id}`} onClick={handleClick}>
+                    <div className='preview-img-container'>
                         <img className='preview-img' src={`${gig.imgUrls[0]}`} />
+                        </div>
                         <div className='middle-gig-section flex column'>
                             <div className='owner-info'>
                                 <div className='owner-icon-container'>
@@ -51,7 +53,8 @@ function changeFavColor(id){
                                 </div>
                                 <h4>{gig.owner.fullname}</h4>
                             </div>
-                            <p>{gig.description.substring(0, 65) + '...'}</p>
+                            {/* <p>{gig.title.substring(0, 65) + '...'}</p>*/}
+                            <p>{gig.title}</p> 
                             <div className='likes flex'>
                                 <StarSvg />
                                 <span className='rate'> {gig.owner.rate || 0}</span>
@@ -67,8 +70,9 @@ function changeFavColor(id){
                         {!orderPagePreview && <FavSvg OnAddToWishlist={OnAddToWishlist} isFavClicked={isFavClicked}/>}
                         {orderPagePreview && <OrderStatus status={status} />}
                     </div>
-                    <div className='price-container flex'>
-                        {(orderPagePreview && <span className='price-preview'>PRICE</span>) || <span className='price-preview'>STARTING AT</span>}
+                    <div className='price-container flex row'>
+                        {(orderPagePreview && <span className='price-preview'>PRICE</span>) || 
+                        <span className='price-preview'>STARTING AT</span>}
                         <span className='price-tag'>
                             {' '}
                             ${gig.price}

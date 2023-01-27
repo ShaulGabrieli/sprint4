@@ -1,3 +1,4 @@
+import Select from 'react-select'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
@@ -5,16 +6,22 @@ import { loadUser } from '../store/user.actions'
 import { store } from '../store/store'
 import { showSuccessMsg } from '../services/event-bus.service'
 import { socketService, SOCKET_EVENT_USER_UPDATED, SOCKET_EMIT_USER_WATCH } from '../services/socket.service'
-import { orderService } from '../services/order.service.local'
+import { orderService } from '../services/local/order.service.local'
 import { updateOrder } from '../store/order.actions'
 import { loadOrders } from '../store/order.actions.js'
+import BasicTabs from '../cmps/user-details-tabs'
+import { Loading } from '../cmps/loading'
+import { GigPreview } from '../cmps/gig-preview'
+import { sellerActions } from '../cmps/global-const/global-const'
+import { loadGigs } from '../store/gig.actions'
 
 export function UserDetails() {
     const params = useParams()
     const user = useSelector((storeState) => storeState.userModule.user)
     const userOrders = useSelector((storeState) => storeState.orderModule.userOrders)
     const sellerOrders = useSelector((storeState) => storeState.orderModule.sellerOrders)
-    console.log('sellerOrders', sellerOrders)
+    const gigs = useSelector((storeState) => storeState.gigModule.gigs)
+    const [sellerGigs, setSellerGigs] = useState(getSellerGigs(user._id))
 
     // useEffect(() => {
     //     loadUser(params.id)
@@ -29,7 +36,10 @@ export function UserDetails() {
 
     useEffect(() => {
         loadOrders()
-    }, [])
+        window.scrollTo(0, 0)
+    }, [gigs])
+
+   
 
     async function onChangeStatus(order, updatedStatus) {
         try {
@@ -40,13 +50,21 @@ export function UserDetails() {
         }
     }
 
+     function getSellerGigs(userId) {
+        const sellerGigs = gigs.filter((gig) => gig.owner._id === userId)
+        // const sellerGigs = await loadGigs()
+    //    return  sellerGigs.filter((gig) => gig.owner._id === userId)
+       return  sellerGigs
+
+        
+    }
+
     function onUserUpdate(user) {
         showSuccessMsg(`This user ${user.fullname} just got updated from socket, new score: ${user.score}`)
         store.dispatch({ type: 'SET_WATCHED_USER', user })
     }
 
     function changeStatusColor(currStatus) {
-        console.log('currStatusssssssssssss', currStatus);
         switch (currStatus) {
             case 'pending':
                 return 'status-blue'
@@ -66,7 +84,13 @@ export function UserDetails() {
         }
     }
 
-    if (!userOrders) return <div>Loading ...</div>
+    if (!userOrders)
+        return (
+            <div className='loading-spinner flex'>
+                {' '}
+                <Loading />{' '}
+            </div>
+        )
     return (
         <section className='user-details main-container full'>
             <section className='user-details-section flex'>
@@ -97,8 +121,10 @@ export function UserDetails() {
                     </section>
                 </div>
                 <section className='user-orders-manage-section flex column'>
+                    {/* <BasicTabs /> */}
+
                     <div className='seller-options'>
-                        <h1>Seller options:</h1>
+                        <h1>Seller options</h1>
                         <table className='seller-list'>
                             <thead>
                                 <tr>
@@ -110,62 +136,41 @@ export function UserDetails() {
                                 </tr>
                             </thead>
                             <tbody className='seller-orders'>
-                                {sellerOrders.map((order) => {
+                                {sellerOrders.map((order, idx) => {
                                     return (
-                                        <tr>
+                                        <tr id={idx}>
                                             <td>{order.buyer.fullname}</td>
                                             <td> {order.gig._id}</td>
                                             <td>{order.gig.title}</td>
-                                            <td>{order.status}</td>
+                                            <td className={changeStatusColor(order.status)}>{order.status}</td>
                                             <td>
-                                                <button onClick={() => onChangeStatus(order, 'approved')}>Approved</button>{' '}
-                                                <button onClick={() => onChangeStatus(order, 'in progress')}>In progress</button> <button onClick={() => onChangeStatus(order, 'done')}>Done</button>{' '}
-                                                <button onClick={() => onChangeStatus(order, 'rejected')}>Rejected</button>
+                                               {order.status === 'pending' && <button onClick={() => onChangeStatus(order, 'approved')}>Approved</button>}
+                                                {order.status === 'approved' && <button onClick={() => onChangeStatus(order, 'in progress')}>In progress</button> }
+                                                {order.status === 'in progress' &&<button onClick={() => onChangeStatus(order, 'done')}>Done</button>}
+                                                 <button onClick={() => onChangeStatus(order, 'rejected')}>Rejected</button>
                                             </td>
                                         </tr>
                                     )
                                 })}
                             </tbody>
                         </table>
-                        {/* <ol className='orders-list clean-list'>
-                            {sellerOrders.map((order) => {
-                                return (
-                                    <li>
-                                        Buyer name: {order.buyer.fullname} ,Gig title: {order.gig.title} , Status: {order.status}, Change status:{' '}
-                                        <button onClick={() => onChangeStatus(order, 'approved')}>Approved</button> <button onClick={() => onChangeStatus(order, 'in progress')}>In progress</button>{' '}
-                                        <button onClick={() => onChangeStatus(order, 'done')}>Done</button> <button onClick={() => onChangeStatus(order, 'rejected')}>Rejected</button>
-                                    </li>
-                                )
-                            })}
-                        </ol> */}
                     </div>
-                    <div className='buyer-orders'>
-                        <h1>Your orders:</h1>
-                        <ul className='orders-list clean-list'>
-                            {userOrders.map((order) => {
-                                return (
-                                    <li>
-                                        <Link to={`/gig/${order.gig._id}`}>
-                                            Gig title: {order.gig.title} ,  Status: <span className={changeStatusColor(order.status)}>{order.status}</span>
-                                        </Link>
-                                    </li>
-                                )
-                            })}
-                        </ul>
-                        {/* <iframe 
-            style={{
-                background: "#FFFFFF",
-                border: "none",
-                borderRadius: "2px",
-                boxShadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"
-            }} 
-            width="640" 
-            height="480" 
-            src={`https://charts.mongodb.com/charts-sprint4-txzkw/embed/charts?id=63d2e8cb-7df1-415a-8cc0-8dfade37b3a9&filter={"seller.fullname":"${user.fullname}"}&maxDataAge=3600&theme=light&autoRefresh=true`}
-        /> */}
+                    <div className='seller gigs'>
+                        <h1>Seller gigs</h1>
+                        <div className='gig-seller-list'>
+                            <ul className='gig-list '>
+                                <Link to={'/gig/edit'}>
+                                    <li className='add-gig-btn add-new-gig'> Create a new Gig </li>
+                                </Link>
+                                {sellerGigs.map((gig, idx) => (
+                                    <GigPreview id={idx} gig={gig} />
+                                ))}
+                            </ul>
+                        </div>
                     </div>
                 </section>
             </section>
         </section>
     )
 }
+

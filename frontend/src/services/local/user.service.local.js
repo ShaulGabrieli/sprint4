@@ -1,7 +1,7 @@
-import { store } from '../store/store'
-import { storageService } from './async-storage.service'
-import { utilService } from './util.service.js'
-import { REMOVE_USER, SET_USER, SET_USERS, SET_WATCHED_USER } from "../store/user.reducer.js";
+import { store } from '../../store/store'
+import { storageService } from '../async-storage.service'
+import { utilService } from '../util.service.js'
+import { REMOVE_USER, SET_USER, SET_USERS, SET_WATCHED_USER } from "../../store/user.reducer.js";
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
@@ -33,7 +33,7 @@ function getUsers() {
 function _createUsers(){
     let users = utilService.loadFromStorage('user')
     if (!users || !users.length) {
-        users= require('../data/users.json')
+        users= require('../../data/users.json')
         console.log('users', users)
         users = users.map(user => {
             user.createdAt = Date.now() - utilService.getRandomIntInclusive(0, 1000 * 60 * 60 * 24 * 7 * 52)
