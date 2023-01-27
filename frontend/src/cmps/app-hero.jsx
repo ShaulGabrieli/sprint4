@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { gigService } from "../services/gig.service.local";
+import { gigService } from "../services/gig.service";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { setFilter } from "../store/gig.actions.js";
 import { StarSvg } from "../cmps/git-preview-svgs/star-svg";
