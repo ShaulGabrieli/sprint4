@@ -85,13 +85,21 @@
     }
   }
 }
-
+.react-tabs__tab-list {
+  position: static;
+  display: flex;
+  justify-content: center;
+}
 .react-tabs__tab {
   bottom: 0;
   display: flex;
   padding: 16px;
   // border: 1px solid black;
   border-left: none;
+  justify-content: center;
+}
+.react-tabs__tab {
+  width: 315px;
 }
 
 .payment-area-wrapper {
@@ -99,7 +107,7 @@
   position: sticky;
   top: 50px;
   flex-shrink: 0;
-  border: 1px solid $clr13;
+  // border: 1px solid $clr13;
   // border-top:none;
   color: $clr3;
   font-family: Macan-Bold;
