@@ -182,7 +182,7 @@ export function GigDetails() {
               <div className="full-main-reviews flex column">
                 <div className="main-reviews-container">
                   <div className="main-reviews-header">Reviews</div>
-                  {gig.reviews.map((review) => {
+                  {gig.reviews?.map((review) => {
                     // console.log("review", review);
                     return (
                       <div className="reviews-container">

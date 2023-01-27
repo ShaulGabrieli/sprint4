@@ -6,7 +6,7 @@
     "scripts": {
         "start": "nodemon server.js",
         "server:dev": "nodemon server.js",
-        "server:prod": "set NODE_ENV=production&&node server.js",
+        "server:prod": "set NODE_ENV=production&&set DBUSER=sprint4&&set DBPASSWORD=sprint444&&node server.js",
         "server:prod:mac": "export NODE_ENV=production&&node server.js"
     },
     "author": "Me",

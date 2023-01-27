@@ -34,6 +34,7 @@ export function orderReducer(state = initialState, action) {
             newState = { ...state, order: action.order }
             break
         case UPDATE_ORDER:
+            action.order = action.order.value
             userOrders = state.userOrders.map((order) => (order._id === action.order._id ? action.order : order))
             sellerOrders = state.sellerOrders.map((order) => (order._id === action.order._id ? action.order : order))
             newState = { ...state, userOrders, sellerOrders }
