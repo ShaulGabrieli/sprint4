@@ -36,7 +36,7 @@
     }
     .preview-img-container{
         height: em(195px);
-        width: em(324px);
+        // width: em(324px);
         .preview-img {
             object-fit: cover;
             height: 100%;
@@ -71,6 +71,7 @@
     }
 
     p {
+        word-wrap: break-word;
         padding: 0 13px 0 12px;
         margin-bottom: 12px;
         line-height: 1.3;
