@@ -13,7 +13,7 @@ import { gigService } from '../services/gig.service'
 import { ReactComponent as WhiteLogo } from '../assets/img/lazyerr-logo-white.svg'
 import { ReactComponent as BlackLogo } from '../assets/img/lazyerr-logo-black.svg'
 
-export function AppHeader() {
+export function AppHeader({openOrders, setOpenOrders}) {
     const navigate = useNavigate()
     let location = useLocation()
     const [searchParams, setSearchParams] = useSearchParams()
@@ -21,7 +21,7 @@ export function AppHeader() {
     const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy)
     const user = useSelector((storeState) => storeState.userModule.user)
     const [headerStyle, setHeaderStyle] = useState(location.pathname === '/' ? 'fix' : 'sticky')
-    const [openOrders, setOpenOrders] = useState(false)
+    // const [openOrders, setOpenOrders] = useState(false)
     const [logo, setLogo] = useState(location.pathname === '/' ? <WhiteLogo /> : <BlackLogo />)
 
     useEffect(() => {

@@ -1,4 +1,4 @@
 module.exports = {
-  dbURL: 'mongodb://127.0.0.1:27017',
+  dbURL: `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASSWORD}@sprint4.ck2l0vr.mongodb.net/?retryWrites=true&w=majority`,
   dbName : 'fiverr'
 }
