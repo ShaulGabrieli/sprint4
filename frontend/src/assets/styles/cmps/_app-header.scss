@@ -169,11 +169,18 @@
 
 // Header Scroll manipulation
 
+.top-nav {
+  // transition: 3s ease-in;
+  transition: 1s ease-in-out;
+
+  // transition: 3s ease-out;
+}
 .fix {
   position: fixed;
   width: 100%;
   z-index: 50;
   color: white;
+
   p {
     color: white;
   }
@@ -210,7 +217,6 @@
   top: 0;
   z-index: 50;
   color: white;
-  transition: 0.3s;
   background-color: rgb(255, 255, 255);
 
   .search-container {
@@ -231,7 +237,7 @@
 
 .fix3 {
   width: 100%;
-  transition: 0.3s;
+  // transition: 1s ease-out;
   position: fixed;
   top: 0;
   z-index: 50;
