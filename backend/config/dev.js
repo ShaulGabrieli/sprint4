@@ -1,5 +1,4 @@
 module.exports = {
-  dbURL: 'mongodb://127.0.0.1:27017',
-  
-  dbName : 'fiverr'
-}
+  dbURL: "mongodb://127.0.0.1:27017",
+  dbName: "fiverr",
+};
