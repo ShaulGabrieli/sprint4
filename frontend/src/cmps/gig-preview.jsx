@@ -43,7 +43,9 @@ function changeFavColor(id){
             <div className='preview-main-container flex column'>
                 <section className='top-gig-section'>
                     <Link to={`/gig/${gig._id}`} onClick={handleClick}>
+                    <div className='preview-img-container'>
                         <img className='preview-img' src={`${gig.imgUrls[0]}`} />
+                        </div>
                         <div className='middle-gig-section flex column'>
                             <div className='owner-info'>
                                 <div className='owner-icon-container'>

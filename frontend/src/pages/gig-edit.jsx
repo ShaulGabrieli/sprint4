@@ -108,8 +108,7 @@ export function GigEdit() {
                     </div>
                     <div className='gig-done-days-container'>
                         <label htmlFor='gig-done-days'>Delivery Time </label>
-                        <Select
-                            name='tags'
+                        <Select                          
                             options={doneDayOptions}
                             theme={(theme) => ({ ...theme, borderRadius: 4, colors: { ...theme.colors, primary: 'black' } })}
                             classNamePrefix='select'

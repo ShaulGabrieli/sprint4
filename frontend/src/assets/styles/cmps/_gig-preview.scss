@@ -34,13 +34,17 @@
             flex: 1;
         }
     }
-    .preview-img {
-        // width: em(248px);
+    .preview-img-container{
         height: em(195px);
-        width: 100%;
-        margin: 0;
-        width: 100%;
+        width: em(324px);
+        .preview-img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        }
     }
+    
 
     h4 {
         display: inline-block;
