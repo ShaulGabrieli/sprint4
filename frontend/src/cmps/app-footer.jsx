@@ -13,14 +13,14 @@ export function AppFooter() {
   const count = useSelector((storeState) => storeState.userModule.count);
   const cartTotal = cart.reduce((acc, gig) => acc + gig.price, 0);
 
-  async function onCheckout() {
-    try {
-      const score = await checkout(cartTotal);
-      showSuccessMsg(`Charged, your new score: ${score.toLocaleString()}`);
-    } catch (err) {
-      showErrorMsg("Cannot checkout");
-    }
-  }
+  // async function onCheckout() {
+  //   try {
+  //     const score = await checkout(cartTotal);
+  //     showSuccessMsg(`Charged, your new score: ${score.toLocaleString()}`);
+  //   } catch (err) {
+  //     showErrorMsg("Cannot checkout");
+  //   }
+  // }
 
   return (
     <footer className="main-container full app-footer">

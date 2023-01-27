@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { addOrder } from "../store/order.actions.js";
 
+
 // import { gigService } from '../services/gig.service.js'
 import { gigService } from "../services/gig.service.local.js";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js";
@@ -24,6 +25,7 @@ import {
 
 import { ReactComponent as Lightning } from "../assets/img/details/lightning.svg";
 import { ReactComponent as Arrow } from "../assets/img/details/arrow.svg";
+import { Loading } from "../cmps/loading";
 
 export function GigDetails() {
     const [gig, setGig] = useState(null)
@@ -72,15 +74,15 @@ export function GigDetails() {
         } catch (err) {
             console.log('GigDetails: err in onAddOrder', err)
             
-            showErrorMsg('order not added - please login')
+            showErrorMsg('Order not added - please login')
         }
     }
 
-    if (!gig) return <div>Loading...</div>
+    if (!gig) return <div className="loading-spinner flex"><Loading/></div>
     return (
         <div className="main-content main-container">
             <div className="top-nav sticky">
-                < DetailsNav gig={gig} wishlist={wishlist || []} addGigToWishlist={addGigToWishlist}  removeGigFromWishlist = {removeFromWishlist}/>
+                <DetailsNav gig={gig} wishlist={wishlist || []} addGigToWishlist={addGigToWishlist}  removeGigFromWishlist = {removeFromWishlist}/>
             </div>
             <div className="hr-top-details full">
                 <hr /></div>
@@ -90,6 +92,7 @@ export function GigDetails() {
       <section className="gig-details-page flex">
         <div className="gig-details">
           <div id="overview" className="gig-overview">
+            
             <div className="gig-details-breadcrumbs arrow-svg">
               {gig.tags.map((tag) => (
                 <Link to={`/gig?&tags=${tag}`}>

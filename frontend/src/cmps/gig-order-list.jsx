@@ -4,6 +4,7 @@ import { getWishlist } from '../store/user.actions.js'
 import { useSelector } from 'react-redux'
 import { GigPreview } from '../cmps/gig-preview.jsx'
 import { showErrorMsg } from '../services/event-bus.service.js'
+import { Loading } from './loading.jsx'
 
 
 export function GigOrderList() {
@@ -42,7 +43,7 @@ export function GigOrderList() {
 
     return (
         //todo: loading
-        <div> {!orders && <div> loading </div> || 
+        <div> {!orders && <div className="loading-spinner flex"> <Loading/> </div> || 
             <div className="main-order-list-container main-container">
                 <div className="order-list-container">
                     <section className="my-orders-header">

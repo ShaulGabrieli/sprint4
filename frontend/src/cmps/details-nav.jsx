@@ -7,6 +7,7 @@ import { ReactComponent as ReportGig } from '../assets/img/details/flag.svg'
 import { ReactComponent as ShareGig } from '../assets/img/details/share.svg'
 import { ReactComponent as LikeGigFull } from '../assets/img/details/heart-liked.svg'
 import { useEffect } from 'react'
+import { Tooltip } from 'react-tooltip'
 
 
 export function DetailsNav({ gig, addGigToWishlist, wishlist, removeGigFromWishlist }) {
@@ -66,14 +67,15 @@ export function DetailsNav({ gig, addGigToWishlist, wishlist, removeGigFromWishl
 
             <div className="right-container flex row ">
                 {/* <div className="add-to-lists-gig"><AddToList /></div> */}
-                <div className="liked-gig" onClick={onLikeGig} >{likedGig ? <LikeGigFull  /> : <LikeGig />} </div>
+              <div className="liked-gig" data-tip="save to my gigs" onClick={onLikeGig} >{likedGig ? <LikeGigFull  /> : <LikeGig />} </div>
+                
                 {/* <div className="report-gig"> <ReportGig />   </div> */}
                 <div className="share-gig"><ShareGig /></div>
             </div>
 
             {/* <div className="collect"></div> */}
             {/* </div> */}
-
+<Tooltip />
         </div>
 
     )

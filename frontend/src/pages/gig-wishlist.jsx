@@ -4,6 +4,7 @@ import { getWishlist } from '../store/user.actions.js'
 import { useSelector } from 'react-redux'
 import { GigPreview } from '../cmps/gig-preview.jsx'
 import { showErrorMsg } from '../services/event-bus.service.js'
+import { Loading } from '../cmps/loading.jsx'
 
 
 export function GigWishlist() {
@@ -13,7 +14,7 @@ export function GigWishlist() {
     useEffect(() => {
         getWishlist()
     }, [])
- if (!wishlist) return <div>loading...</div>
+ if (!wishlist) return <div className="loading-spinner flex"> <Loading/> </div>
     return (
         //todo: loading
         

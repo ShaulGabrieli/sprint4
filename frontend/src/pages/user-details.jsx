@@ -152,6 +152,17 @@ export function UserDetails() {
                                 )
                             })}
                         </ul>
+                        {/* <iframe 
+            style={{
+                background: "#FFFFFF",
+                border: "none",
+                borderRadius: "2px",
+                boxShadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"
+            }} 
+            width="640" 
+            height="480" 
+            src={`https://charts.mongodb.com/charts-sprint4-txzkw/embed/charts?id=63d2e8cb-7df1-415a-8cc0-8dfade37b3a9&filter={"seller.fullname":"${user.fullname}"}&maxDataAge=3600&theme=light&autoRefresh=true`}
+        /> */}
                     </div>
                 </section>
             </section>

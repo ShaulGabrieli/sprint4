@@ -42,8 +42,7 @@ export function CreditCardForm(props) {
           cvv: "123"
         }}
         onSubmit={async (values, formikBag) => {
-          // alert('Thanks for booking with us! Order is on its way!')
-          showSuccessMsg("Thanks for booking with us! Order is on its way!")
+          showSuccessMsg("Your order is being processed. stay tuned!")
           props.setCreditTransaction(true)
         
         }}

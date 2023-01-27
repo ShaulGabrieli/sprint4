@@ -1,66 +1,68 @@
 h2 {
-  font-size: 2rem;
-  color: #404145;
-  font-family: Macan-Bold;
+    font-size: 2rem;
+    color: #404145;
+    font-family: Macan-Bold;
 }
 
 .selling-ad {
-  min-height: 705px;
-  background-color: #f1fdf7;
+    min-height: 705px;
+    background-color: #f1fdf7;
 
-  .ad-grid {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: 1fr 1fr;
-    // gap: 230px;
-    .ad-text {
-      font-family: Macan-Regular;
-      margin-top: em(62px);
-      margin-bottom: em(62px);
-      max-width: 470px;
-      line-height: em(24px);
-      font-size: em(18px);
+    .ad-grid {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 1fr 1fr;
+        // gap: 230px;
+        .ad-text {
+            font-family: Macan-Regular;
+            margin-top: em(62px);
+            margin-bottom: em(62px);
+            max-width: 470px;
+            line-height: em(24px);
+            font-size: em(18px);
 
-      svg {
-        height: 24px;
-        width: 24px;
-        margin-right: 10px;
-        fill: #62646a;
-      }
+            svg {
+                height: 24px;
+                width: 24px;
+                margin-right: 10px;
+                fill: #62646a;
+            }
 
-      p {
-        margin: 0;
-        color: $clr4;
-      }
+            p {
+                margin: 0;
+                color: $clr4;
+            }
+        }
     }
-  }
 
-  img {
-    margin-top: em(124px);
-  }
+    img {
+        margin-top: em(124px);
+    }
 }
 
 .trustedBy {
-  justify-content: center;
-  justify-items: center;
-  height: rem(95px);
-  background-color: $clr17;
-  .trustedByImg {
-    display: flex;
-    padding: 26px;
-  }
+    justify-content: center;
+    justify-items: center;
+    height: rem(95px);
+    background-color: $clr17;
+    .trustedByImg {
+        display: flex;
+        padding: 26px;
+    }
 
-  h3 {
-    font-family: Macan-Bold;
-    display: flex;
-    align-self: center;
-    padding: 26px;
-    color: #b5b6ba;
-    line-height: normal;
-    font-size: rem(16px);
-  }
+    h3 {
+        font-family: Macan-Bold;
+        display: flex;
+        align-self: center;
+        padding: 26px;
+        color: #b5b6ba;
+        line-height: normal;
+        font-size: rem(16px);
+    }
 
-  ul {
-    min-width: 664px;
-  }
+    ul {
+        min-width: 664px;
+    }
 }
+
+

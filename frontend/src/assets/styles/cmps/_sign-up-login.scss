@@ -1,15 +1,21 @@
-.app-header{
-    .user-info{
+.app-header {
+    .user-info {
         .sign-in-btn {
             color: $clr3;
             font-weight: bold;
-          }
-          a{
-    text-decoration: none;
-          }
+        }
+        a {
+            text-decoration: none;
+        }
 
+        .nav-user-img-container {
+            width: 32px;
+            height: 32px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
     }
-
 }
-
-

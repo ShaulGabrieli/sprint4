@@ -6,6 +6,7 @@ import { gigService } from "../services/gig.service.local.js";
 import { GigPreview } from "../cmps/gig-preview.jsx";
 import { GigFilter } from "../cmps/gig-filter.jsx";
 import { setFilter } from "../store/gig.actions.js";
+import { Loading } from "../cmps/loading"
 
 export function GigIndex() {
   const gigs = useSelector((storeState) => storeState.gigModule.gigs);
@@ -33,8 +34,9 @@ export function GigIndex() {
     setSearchParams(filterBy);
     setFilter(filterBy);
   }
-
+  if (gigs.length===0) return <div className="loading-spinner flex"><Loading/></div>
   return (
+    
     <div className="gig-index main-container">
       {/* <section className="top-bars">
         <div className="top-left-bar">
@@ -49,7 +51,7 @@ export function GigIndex() {
           <p> Don't Just Dream, Do</p>
         </div>
       </section> */}
-      <main>
+   
         <GigFilter filterBy={queryFilterBy} onSetFilter={onSetFilter} />
 
         <h2>Most popular Gigs</h2>
@@ -58,7 +60,7 @@ export function GigIndex() {
             <GigPreview id={idx} gig={gig} />
           ))}
         </ul>
-      </main>
+     
     </div>
   );
 }

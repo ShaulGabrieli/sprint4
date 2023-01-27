@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt')
 const userService = require('../user/user.service')
 const logger = require('../../services/logger.service')
 const cryptr = new Cryptr(process.env.SECRET1 || 'Secret-Puk-1234')
+const asyncLocalStorage = require('../../services/als.service')
 
 module.exports = {
     signup,
@@ -41,7 +42,7 @@ async function signup({username, password, fullname, imgUrl}) {
 
 
 function getLoginToken(user) {
-    const userInfo = {_id : user._id, fullname: user.fullname, isAdmin: user.isAdmin}
+    const userInfo = {_id : user._id, fullname: user.fullname,imgUrl: user.imgUrl, isAdmin: user.isAdmin}
     return cryptr.encrypt(JSON.stringify(userInfo))    
 }
 
@@ -52,7 +53,7 @@ function validateToken(loginToken) {
         return loggedinUser
 
     } catch(err) {
-        console.log('Invalid login token')
+        console.log('Invalid login token',err)
     }
     return null
 }
