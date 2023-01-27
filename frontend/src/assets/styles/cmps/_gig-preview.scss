@@ -1,5 +1,5 @@
 .gig-preview {
-    width: em(324px);
+    width: em(326px);
     background-color: $clr-1;
     border: 1px solid $clr14;
     // margin-bottom:34px;
@@ -22,6 +22,7 @@
         flex-direction: column;
         flex: 1;
         a {
+            color: $clr11;
             display: flex;
             flex-direction: column;
             flex: 1;
@@ -102,7 +103,7 @@
     }
 
     .star-box {
-        margin: 0 5px 11px 10px;
+        margin: 0 5px 8px 10px;
     }
 
     .rate {
@@ -120,25 +121,25 @@
         // flex-direction: column;
         padding: 10px 11px 0 0;
         align-items: center;
+        
     
     }
 
     .price-preview {
         color: $clr5;
         line-height: 1.25;
-        font-family: Macan-Regular;
+        font-family: Macan-bold;
         font-weight: 700;
-        font-size: em(10px);
-        letter-spacing: 0.5px;
-        margin-bottom: 6px;
-        padding-right:6px;
+        font-size: em(11px);
+        // letter-spacing: 0.1px;
+        margin: 0 8px 8px 0;
     }
 
     .price-tag {
         line-height: 1.25;
         font-size: em(18px);
         align-self: flex-end;
-        margin-bottom: 8px;
+        margin-bottom: 11px;
     }
 
     .sup-price-end {
