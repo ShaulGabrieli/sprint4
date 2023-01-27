@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react";
-import { gigService } from "../services/gig.service.local";
-import { useSearchParams, useNavigate } from "react-router-dom";
-import { setFilter } from "../store/gig.actions.js";
+import { useEffect, useState } from "react"
+// import { gigService } from "../services/gig.service.local"
+import { gigService } from "../services/gig.service"
+import { useSearchParams, useNavigate } from "react-router-dom"
+import { setFilter } from "../store/gig.actions.js"
 
 export function AppHero() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const [searchParams, setSearchParams] = useSearchParams();
-  const queryFilterBy = gigService.getFilterFromSearchParams(searchParams);
-  const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy);
-  const [imgToDisplay, setImgToDisplay] = useState(1);
+  const queryFilterBy = gigService.getFilterFromSearchParams(searchParams)
+  const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy)
+  const [imgToDisplay, setImgToDisplay] = useState(1)
   const [heroTextToDisplay, setHeroTextToDisplay] = useState(
     "Moon, Marketing Expert"
-  );
+  )
 
   useEffect(() => {
     heroImgSwitch();

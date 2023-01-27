@@ -8,8 +8,8 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { addOrder } from "../store/order.actions.js";
 
 
-// import { gigService } from '../services/gig.service.js'
-import { gigService } from "../services/gig.service.local.js";
+import { gigService } from '../services/gig.service.js'
+// import { gigService } from "../services/gig.service.local.js";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js";
 
 import { ReviewPreview } from "../cmps/review-preview.jsx";
@@ -34,9 +34,10 @@ export function GigDetails() {
     const wishlist = useSelector(storeState => storeState.userModule.user?.wishlist || [])
 
   useEffect(() => {
-    loadGig();
-    getWishlist();
-  }, [id]);
+    loadGig()
+    getWishlist()
+    window.scrollTo(0, 0)
+  }, [id])
 
   // useEffect(() => {
   //   document.querySelector(".app-header").classList.remove("sticky");

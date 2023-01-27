@@ -13,6 +13,7 @@ export function GigWishlist() {
   
     useEffect(() => {
         getWishlist()
+        window.scrollTo(0, 0)
     }, [])
  if (!wishlist) return <div className="loading-spinner flex"> <Loading/> </div>
     return (

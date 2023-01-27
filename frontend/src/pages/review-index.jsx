@@ -20,6 +20,7 @@ export function ReviewIndex() {
   useEffect(() => {
     loadReviews()
     loadUsers()
+    window.scrollTo(0, 0)
 
     socketService.on(SOCKET_EVENT_REVIEW_ADDED, (review) => {
       console.log('GOT from socket', review)
