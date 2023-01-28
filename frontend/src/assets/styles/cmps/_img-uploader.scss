@@ -1,0 +1,24 @@
+.upload-preview{
+ gap : 10px;
+ align-items: center;
+
+ input{
+    width: 40%;
+    border: none;
+    // margin: 0px;
+    // padding: 0px;
+    // align-self: center;
+    align-items: center;
+    // display: flex;
+ }
+}
+
+
+    .uploader-label label{
+        align-self: center;
+        gap: 5px;   
+        // justify-self: center;
+        color: $clr3;
+    }
+
+   

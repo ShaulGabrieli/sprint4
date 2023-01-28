@@ -15,12 +15,21 @@ import { HiddenScreen } from './cmps/hidden-screen'
 
 export function RootCmp() {
   const [openOrders, setOpenOrders] = useState(false)
+  const [openLogin, setOpenLogin] = useState(false)
+  const [openJoin, setOpenJoin] = useState(false)
 
   return (
     <div>
       {/* <AppHeader ref={headerRef}/> */}
-      <HiddenScreen setOpenOrders={setOpenOrders} >
-      <AppHeader openOrders={openOrders} setOpenOrders={setOpenOrders}/>
+      <HiddenScreen setOpenOrders={setOpenOrders} 
+      setOpenLogin={setOpenLogin} 
+      setOpenJoin={setOpenJoin} />
+      <AppHeader openOrders={openOrders} setOpenOrders={setOpenOrders} 
+        openLogin={openLogin} 
+        setOpenLogin={setOpenLogin} 
+        openJoin={openJoin} 
+        setOpenJoin={setOpenJoin}
+        />
       <Routes>
         {routes.map((route) => (
           <Route
@@ -42,7 +51,7 @@ export function RootCmp() {
         <Route path="/user/loginsignup" element={<LoginSignup />} />
       </Routes>
       <AppFooter />
-      </HiddenScreen>
-    </div>
+      </div>
+    
   );
 }

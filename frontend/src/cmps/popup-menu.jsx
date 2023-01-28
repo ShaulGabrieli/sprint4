@@ -13,7 +13,7 @@ export function PopupMenu(props) {
     }, [])
 
     return (
-        <section className="popup-menu">
+        <section className={`popup-menu-${props.type}`}>
             {props.top}
             {props.children}
             

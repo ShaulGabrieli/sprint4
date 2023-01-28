@@ -88,7 +88,7 @@ export function GigDetails() {
     );
   return (
     <div className="main-content main-container">
-      <div className="top-nav sticky full main-container">
+      <div className="overview-nav top-nav sticky full main-container">
         <DetailsNav
           gig={gig}
           wishlist={wishlist || []}
@@ -176,13 +176,12 @@ export function GigDetails() {
               {/* check if metadata is needed here */}
             </div>
           </div>
-          <h2 id="aboutSeller" className="about-the-seller">
-            <span>About The Seller</span>
+          <h2 id="aboutSeller" className="about-the-seller"> 
+            <span>About The Seller</span></h2>
             <div className="about-seller-content">
-
-            <p>{gig.aboutSeller}</p>
+              <p className="about-seller-details">{gig.aboutSeller}</p>
             </div>
-          </h2>
+         
           <div className="profile-card">
             <div className="seller-card">
               <div className="profile-info flex">
@@ -225,9 +224,9 @@ export function GigDetails() {
         </div>
 
         <div className="gig-main-payment flex column">
-          {/* <div className="payment-area">
-                    <div className="basic"></div>
-                </div> */}
+          <div className="payment-area">
+            <div className="basic"></div>
+          </div>
           <div className="payment-area-wrapper">
             <div className="main-package-container  ">
               {/* <div className="package-container flex column"> */}

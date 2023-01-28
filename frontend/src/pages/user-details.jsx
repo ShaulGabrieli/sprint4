@@ -14,6 +14,7 @@ import { Loading } from '../cmps/loading'
 import { GigPreview } from '../cmps/gig-preview'
 import { sellerActions } from '../cmps/global-const/global-const'
 import { loadGigs } from '../store/gig.actions'
+import { MyChart } from '../cmps/charts'
 
 export function UserDetails() {
     const params = useParams()
@@ -117,6 +118,7 @@ export function UserDetails() {
                             <span>20.1.2023</span>
                             {/* <span>{user.createdAt}</span> */}
                         </div>
+                        <MyChart chartId="63d2e8cb-7df1-415a-8cc0-8dfade37b3a9" sellerId={user._id} />
                     </section>
                 </div>
                 <section className='user-orders-manage-section flex column'>
