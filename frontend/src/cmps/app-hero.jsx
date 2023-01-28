@@ -104,6 +104,7 @@ export function AppHero() {
               placeholder="Try ''building mobile app''"
             />
             <button
+              className="search-btn"
               onClick={() => {
                 onSetFilter(filterByToEdit);
               }}

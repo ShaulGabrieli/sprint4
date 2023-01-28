@@ -127,6 +127,14 @@
       font-weight: 800;
     }
   }
+
+  .search-btn {
+    font-family: Macan-Bold;
+
+    &:hover {
+      background-color: #19a463;
+    }
+  }
   .popular-tags {
     font-size: rem(14px);
     line-height: 1;
