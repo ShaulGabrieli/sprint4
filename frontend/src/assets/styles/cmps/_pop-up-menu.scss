@@ -1,4 +1,4 @@
-.popup-menu {
+.popup-menu-orders {
   position: fixed;
   // position: absolute;
     margin: auto;
@@ -16,6 +16,27 @@
     // transform: translate(50%, 100%);
 
 }
+
+.popup-menu-login {
+  position: fixed;
+  // position: absolute;
+    margin: auto;
+    overflow-y: scroll;
+    background-color: white;
+    border: #efeff0 solid 1px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px 40px 40px;
+    border-radius: 5px;
+    right: 40%;
+    top: 15%;
+    z-index: 301;
+    // right: 50%;
+    // bottom: -10px;
+    // transform: translate(50%, 100%);
+
+}
+
 
 body.no-popup .pop-menu-orders-area  {
     display: none;

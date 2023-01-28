@@ -20,7 +20,7 @@ import { ReactComponent as WhiteLogo } from "../assets/img/lazyerr-logo-white.sv
 import { ReactComponent as BlackLogo } from "../assets/img/lazyerr-logo-black.svg";
 import { LoginSignup } from "./login-signup";
 
-export function AppHeader({ openOrders, setOpenOrders }) {
+export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin }) {
   const navigate = useNavigate();
   let location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -31,7 +31,7 @@ export function AppHeader({ openOrders, setOpenOrders }) {
     location.pathname === "/" ? "fix" : "sticky"
   );
   // const [openOrders, setOpenOrders] = useState(false)
-  const [openSign, setOpenSign] = useState(false);
+  // const [openSign, setOpenSign] = useState(false);
   const [logo, setLogo] = useState(
     location.pathname === "/" ? <WhiteLogo /> : <BlackLogo />
   );
@@ -205,7 +205,7 @@ export function AppHeader({ openOrders, setOpenOrders }) {
                   <span>Orders</span>
                   <div className="pop-menu-orders-area">
                     {openOrders && (
-                      <PopupMenu>
+                      <PopupMenu type="orders">
                         <PopupOrderList />
                       </PopupMenu>
                     )}
@@ -232,14 +232,14 @@ export function AppHeader({ openOrders, setOpenOrders }) {
                   className="orders-link"
                   onClick={(ev) => {
                     ev.stopPropagation();
-                    setOpenSign(!openSign);
+                    setOpenLogin(!openLogin);
                   }}
                 >
                   <span>Sign In</span>
                 </a>
-                <div className="pop-menu-orders-area">
-                  {openSign && (
-                    <PopupMenu>
+                <div className="pop-menu-orders-area login-area-popup">
+                  {openLogin && (
+                    <PopupMenu type="login">
                       <LoginSignup />
                     </PopupMenu>
                   )}

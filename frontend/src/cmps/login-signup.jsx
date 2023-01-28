@@ -75,11 +75,11 @@ export function LoginSignup() {
     }
 
     return (
-        <div className="login-page main-container">
-            <p>
+        <div className="login-page flex">
+            {/* <p>
                 <button onClick={toggleSignup}>{!isSignup ? 'Join' : 'Login'}</button>
-            </p>
-            {!isSignup && <form className="login-form" onSubmit={onLogin}>
+            </p> */}
+            {!isSignup && <form className="login-form " onSubmit={onLogin}>
                 {/* <select
                     name="username"
                     value={credentials.username}
@@ -88,6 +88,8 @@ export function LoginSignup() {
                     <option value="">Select User</option>
                     {users.map(user => <option key={user._id} value={user.username}>{user.fullname}</option>)}
                 </select> */}
+                <div className="main-login-container flex column">
+                    <h2>Sign in to Gigxerr! </h2>
                 <input
                         type="text"
                         name="username"
@@ -105,7 +107,9 @@ export function LoginSignup() {
                         onChange={handleChange}
                         required
                     />
-                <button className='login-page'>Sign In</button>
+                <button className='login-btn' onClick={(ev) => {
+                    ev.stopPropagation()}}>Sign In</button>
+                </div>
             </form>}
             <div className="signup-section">
                 {isSignup && <form className="signup-form" onSubmit={onSignup}>
@@ -135,7 +139,8 @@ export function LoginSignup() {
                     />
                     <ImgUploader onUploaded={onUploaded} />
                     <button className='sign-up-btn'>Signup!</button>
-                </form>}
+                    
+    </form>}
             </div>
         </div>
     )
