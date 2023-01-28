@@ -86,9 +86,9 @@ function getEmptyGig() {
 function getDefaultFilter() {
   return {
     title: "",
-    maxPrice: Infinity,
-    tags: "All",
-    daysToMake: 0,
+    // maxPrice: Infinity,
+    // tags: "",
+    // daysToMake: Infinity,
   };
 }
 
