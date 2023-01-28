@@ -5,9 +5,9 @@ const logger = require('../../services/logger.service')
 async function getGigs(req, res) {
   try {
     logger.debug('Getting Gigs')
-    const filterBy = {
-      // txt: req.query.txt || ''
-    }
+    const filterBy = req.query? {
+      title: req.query.title 
+    } : {}
     const gigs = await gigService.query(filterBy)
     res.json(gigs)
   } catch (err) {
