@@ -537,6 +537,9 @@
   margin-left: 10px;
 }
 
+.react-tabs__tab:focus:after {
+  background:none;
+}
 // .carousel .control-prev.control-arrow {
 //   left: -60px;
 // }

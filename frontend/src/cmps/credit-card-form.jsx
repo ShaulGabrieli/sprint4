@@ -44,7 +44,7 @@ export function CreditCardForm(props) {
         onSubmit={async (values, formikBag) => {
           showSuccessMsg("Your order is being processed. stay tuned!")
           props.setCreditTransaction(true)
-        
+
         }}
         validationSchema={getSchema()}
       >
@@ -55,37 +55,31 @@ export function CreditCardForm(props) {
               values={props.values}
               handleTransition={handleTransition}
             /> */}
-            <div className="form-credit-card-main">
-              <label className="label">Card Number</label>
-              <input
-                type="text"
-                onChange={props.handleChange}
-                // onClick={turnFront}
-                onBlur={props.handleBlur}
-                value={props.values.cardNumber
-                  .replace(/\s/g, "")
-                  .replace(/(\d{4})/g, "$1 ")
-                  .trim()}
-                name="cardNumber"
-                maxlength="19"
-                onKeyDown={e => {
-                  // console.log(e.which);
-                  // if (e.which !== "#")
-                  //   number.current.classList.add("numberTransform");
-                }}
-              />
-              <label className="label">Card Holder</label>
-              <input
-                type="text"
-                onChange={props.handleChange}
-                // onClick={turnFront}
-                onBlur={props.handleBlur}
-                value={props.values.cardHolder}
-                name="cardHolder"
-              />
-              <div className="row">
-                <div className="column">
-                  <label className="label">Expiration Date</label>
+            <div className="form-credit-card-main flex">
+
+              <div className="card-number-date flex column">
+                <div className="card-number flex column">
+                  <label className="card-label">Card Number</label>
+                  <input
+                    type="text"
+                    onChange={props.handleChange}
+                    // onClick={turnFront}
+                    onBlur={props.handleBlur}
+                    value={props.values.cardNumber
+                      .replace(/\s/g, "")
+                      .replace(/(\d{4})/g, "$1 ")
+                      .trim()}
+                    name="cardNumber"
+                    maxlength="19"
+                    onKeyDown={e => {
+                      // console.log(e.which);
+                      // if (e.which !== "#")
+                      //   number.current.classList.add("numberTransform");
+                    }}
+                  /></div>
+
+                <div className="expiration-column flex column">
+                  <label className="card-label">Expiration Date</label>
                   <div>
                     <select
                       type="text"
@@ -131,9 +125,26 @@ export function CreditCardForm(props) {
                       ))}
                     </select>
                   </div>
-                </div>{" "}
-                <div className="column">
-                  <label className="label">CVV</label>
+                </div>
+                </div>       
+
+                <div className="holder-cvv  flex column">
+                  <div className="card-holder flex column">
+                    <label className="card-label">Card Holder</label>
+                    <input
+                      type="text"
+                      onChange={props.handleChange}
+                      // onClick={turnFront}
+                      onBlur={props.handleBlur}
+                      value={props.values.cardHolder}
+                      name="cardHolder"
+                    /></div>
+
+
+
+
+                <div className="cvv-column flex column">
+                  <label className="card-label">Security Code</label>
                   <input
                     type="text"
                     // ref={cvvInput.current}
@@ -144,8 +155,12 @@ export function CreditCardForm(props) {
                     name="cvv"
                   />
                 </div>
-                {/* <button className="btn" type="submit">Validate</button> */}
-              </div>
+                </div>
+
+
+              {/* <button className="btn" type="submit">Validate</button> */}
+
+
               {props.errors.name && (
                 <div id="feedback">{props.errors.name}</div>
               )}
