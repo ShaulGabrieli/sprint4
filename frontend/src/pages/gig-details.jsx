@@ -176,12 +176,12 @@ export function GigDetails() {
               {/* check if metadata is needed here */}
             </div>
           </div>
-          <h2 id="aboutSeller" className="about-the-seller">
-            <span>About The Seller</span>
+          <h2 id="aboutSeller" className="about-the-seller"> 
+            <span>About The Seller</span></h2>
             <div className="about-seller-content">
-              <p>{gig.aboutSeller}</p>
+              <p className="about-seller-details">{gig.aboutSeller}</p>
             </div>
-          </h2>
+         
           <div className="profile-card">
             <div className="seller-card">
               <div className="profile-info flex">

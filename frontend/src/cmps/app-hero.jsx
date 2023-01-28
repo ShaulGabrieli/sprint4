@@ -38,7 +38,7 @@ export function AppHero() {
   function heroImgSwitch() {
     const imgSwitchInterval = setInterval(() => {
       setImgToDisplay((prevImg) => {
-        if (prevImg === 5) {
+        if (prevImg >= 5) {
           setImgToDisplay((prev) => {
             heroTextSwitch(1);
             return (prev = 1);

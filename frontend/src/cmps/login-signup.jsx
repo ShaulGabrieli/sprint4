@@ -5,9 +5,10 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from "../store/user.actions.js";
 import { useNavigate } from 'react-router-dom';
 
-export function LoginSignup() {
+export function LoginSignup({isLogin, isJoin, BlackLogo}) {
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
-    const [isSignup, setIsSignup] = useState(false)
+    // const [isSignup, setIsSignup] = useState(false)
+    // const [isJoin, setIsJoin] = useState(false)
     const [users, setUsers] = useState([])
     const navigate = useNavigate()
 
@@ -22,7 +23,7 @@ export function LoginSignup() {
 
     function clearState() {
         setCredentials({ username: '', password: '', fullname: '', imgUrl: '', wishlist: []})
-        setIsSignup(false)
+        // setIsSignup(false)
     }
 
     function handleChange(ev) {
@@ -43,7 +44,7 @@ export function LoginSignup() {
       async function signupCheck(credentials) {
         try {
           const user = await signup(credentials);
-          showSuccessMsg(`${user.fullname} ,Welcome to Lazyerr!`);
+          showSuccessMsg(`${user.fullname} ,Welcome to Gigxerr!`);
         } catch (err) {
           showErrorMsg("Cannot signup");
         }
@@ -67,7 +68,7 @@ export function LoginSignup() {
     }
 
     function toggleSignup() {
-        setIsSignup(!isSignup)
+        // setIsSignup(!isSignup)
     }
 
     function onUploaded(imgUrl) {
@@ -79,7 +80,7 @@ export function LoginSignup() {
             {/* <p>
                 <button onClick={toggleSignup}>{!isSignup ? 'Join' : 'Login'}</button>
             </p> */}
-            {!isSignup && <form className="login-form " onSubmit={onLogin}>
+            {isLogin && <form className="login-form " onSubmit={onLogin}>
                 {/* <select
                     name="username"
                     value={credentials.username}
@@ -89,7 +90,9 @@ export function LoginSignup() {
                     {users.map(user => <option key={user._id} value={user.username}>{user.fullname}</option>)}
                 </select> */}
                 <div className="main-login-container flex column">
+                
                     <h2>Sign in to Gigxerr! </h2>
+                    
                 <input
                         type="text"
                         name="username"
@@ -109,10 +112,16 @@ export function LoginSignup() {
                     />
                 <button className='login-btn' onClick={(ev) => {
                     ev.stopPropagation()}}>Sign In</button>
+                     <div className="notAMember"></div>
                 </div>
+               
             </form>}
             <div className="signup-section">
-                {isSignup && <form className="signup-form" onSubmit={onSignup}>
+                {isJoin && <form className="signup-form" onSubmit={onSignup}>
+                <div className="main-login-container flex column">
+                
+                    <h2>Join the Gigxerr! </h2>
+                    
                     <input
                         type="text"
                         name="fullname"
@@ -138,7 +147,9 @@ export function LoginSignup() {
                         required
                     />
                     <ImgUploader onUploaded={onUploaded} />
-                    <button className='sign-up-btn'>Signup!</button>
+                    <button className='login-btn'>Join!</button>
+                    {/* <BlackLogo/> */}
+                    </div>
                     
     </form>}
             </div>

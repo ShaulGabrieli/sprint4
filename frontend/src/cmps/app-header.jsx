@@ -20,7 +20,7 @@ import { ReactComponent as WhiteLogo } from "../assets/img/lazyerr-logo-white.sv
 import { ReactComponent as BlackLogo } from "../assets/img/lazyerr-logo-black.svg";
 import { LoginSignup } from "./login-signup";
 
-export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin }) {
+export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin ,  openJoin, setOpenJoin}) {
   const navigate = useNavigate();
   let location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -239,14 +239,24 @@ export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin }
                 </a>
                 <div className="pop-menu-orders-area login-area-popup">
                   {openLogin && (
-                    <PopupMenu type="login">
-                      <LoginSignup />
+                    <PopupMenu onClick={(ev) => {
+                      ev.stopPropagation()}} type="login">
+                      <LoginSignup BlackLogo={BlackLogo} isLogin={true} />
                     </PopupMenu>
                   )}
                 </div>
                 {/* </Link> */}
                 {/* <Link to={'/user/loginsignup'}> */}
-                <button className="join-btn">Join</button> {/* </Link> */}
+                <button    onClick={(ev) => {
+                    ev.stopPropagation();
+                    setOpenJoin(!openJoin);
+                  }} className="join-btn" >Join</button> {/* </Link> */}
+                {
+                openJoin && <PopupMenu onClick={(ev) => {
+                  ev.stopPropagation()}} type="login">
+                   <LoginSignup BlackLogo={BlackLogo} isJoin={true} />
+                 </PopupMenu>
+                }
               </section>
             )}
           </div>
