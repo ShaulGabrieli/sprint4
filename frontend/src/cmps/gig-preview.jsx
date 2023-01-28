@@ -58,7 +58,7 @@ function changeFavColor(id){
                             <div className='likes flex'>
                                 <StarSvg />
                                 <span className='rate'> {gig.owner.rate || 0}</span>
-                                <span className='total-likes'>{`(${gig.totalLikes})`}</span>
+                                <span className='total-likes'>{`(${gig.reviews?.length || 0})`}</span>
                             </div>
                         </div>
                     </Link>
