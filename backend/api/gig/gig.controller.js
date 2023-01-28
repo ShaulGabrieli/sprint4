@@ -1,13 +1,14 @@
 const gigService = require('./gig.service.js')
 
 const logger = require('../../services/logger.service')
+const { userService } = require('../user/user.service.js')
 
 async function getGigs(req, res) {
   try {
     logger.debug('Getting Gigs')
-    const filterBy = {
-      // txt: req.query.txt || ''
-    }
+    const filterBy = req.query? {
+      title: req.query.title 
+    } : {}
     const gigs = await gigService.query(filterBy)
     res.json(gigs)
   } catch (err) {
@@ -32,6 +33,7 @@ async function addGig(req, res) {
   try {
     const gig = req.body
     gig.owner = loggedinUser
+    gig.aboutSeller = await userService.getById(gig.owner._id)?.aboutSeller
     const addedGig = await gigService.add(gig)
     res.json(addedGig)
   } catch (err) {

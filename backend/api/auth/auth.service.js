@@ -18,16 +18,16 @@ async function login(username, password) {
     const user = await userService.getByUsername(username)
     if (!user) return Promise.reject('Invalid username or password')
     // TODO: un-comment for real login
-    // const match = await bcrypt.compare(password, user.password)
-    // if (!match) return Promise.reject('Invalid username or password')
+    const match = await bcrypt.compare(password, user.password)
+    if (!match) return Promise.reject('Invalid username or password')
 
     delete user.password
     user._id = user._id.toString()
     return user
 }
-   
 
-async function signup({username, password, fullname, imgUrl, wishlist}) {
+
+async function signup({ username, password, fullname, imgUrl, wishlist }) {
     const saltRounds = 10
 
     logger.debug(`auth.service - signup with username: ${username}, fullname: ${fullname}`)
@@ -37,23 +37,24 @@ async function signup({username, password, fullname, imgUrl, wishlist}) {
     if (userExist) return Promise.reject('Username already taken')
 
     const hash = await bcrypt.hash(password, saltRounds)
-    return userService.add({ username, password: hash, fullname, imgUrl,wishlist })
+    return userService.add({ username, password: hash, fullname, imgUrl, wishlist })
 }
 
 
 function getLoginToken(user) {
-    const userInfo = {_id : user._id, fullname: user.fullname,imgUrl: user.imgUrl, isAdmin: user.isAdmin}
-    return cryptr.encrypt(JSON.stringify(userInfo))    
+    const userInfo = { _id: user._id, fullname: user.fullname, username: user.username, imgUrl: user.imgUrl }
+    return cryptr.encrypt(JSON.stringify(userInfo))
 }
 
 function validateToken(loginToken) {
     try {
         const json = cryptr.decrypt(loginToken)
         const loggedinUser = JSON.parse(json)
+        console.log("Token : " , JSON.stringify(loggedinUser))
         return loggedinUser
 
-    } catch(err) {
-        console.log('Invalid login token',err)
+    } catch (err) {
+        console.log('Invalid login token', err)
     }
     return null
 }

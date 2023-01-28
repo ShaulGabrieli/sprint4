@@ -18,7 +18,8 @@ export const gigService = {
 window.cs = gigService;
 
 async function query(filterBy = getDefaultFilter()) {
-  return httpService.get('gig');
+  console.log('filterBy', filterBy);
+  return httpService.get('gig', filterBy);
 }
 
 async function getById(gigId) {

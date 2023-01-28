@@ -9,6 +9,7 @@ import { CreditCardForm } from '../cmps/credit-card-form.jsx'
 import { showErrorMsg } from '../services/event-bus.service.js'
 import { PopupMenu } from '../cmps/popup-menu.jsx'
 import { Loading } from '../cmps/loading.jsx'
+import { ReactComponent as CreditCards } from "../assets/img/debit-svgs/credit-cards.svg";
 
 
 export function GigPayment() {
@@ -85,10 +86,26 @@ export function GigPayment() {
     // console.log('order',Object.keys(order).length )
     // if (Object.keys(order).length == 0) { navigate('/gig') 
     // return <div></div>}
-    return (<div className="main-container">{!order && <div className="loading-spinner flex"> <Loading/></div> ||
+    return (<div className="main-container">{!order && <div className="loading-spinner flex"> <Loading /></div> ||
         <div className="main-payment-area ">
 
-            <CreditCardForm className="payment-area" type="submit" buyer={order.buyer} gig={order.gig} setCreditTransaction={setCreditTransaction} triggerSubmit={triggerSubmit} />
+
+            <div className="payment-main-container">
+                <div className="payment-header flex column">
+                    <div className="payment-header-title">Payment Options</div>
+                    <div className="payment-credit-options flex"> <input type="radio" className="radio-credit" checked ></input> <span className="debit-credit"> Credit & Debit Cards</span>
+                        <div className="credit-icons flex row">
+                            <div> <CreditCards/> </div>
+                            {/* <div> card </div>
+                            <div>card </div>
+                            <div>card </div> */}
+                        </div>
+                    </div>
+                </div>
+                <CreditCardForm className="payment-area" type="submit" buyer={order.buyer} gig={order.gig} setCreditTransaction={setCreditTransaction} triggerSubmit={triggerSubmit} />
+            </div>
+
+
             <div className="order-details-container">
                 <div className="payment-summery">
 
@@ -114,18 +131,18 @@ export function GigPayment() {
 
                     <div className="summery-table ">
                         <div className="summery-fee flex  space-between">
-                            <span className="service-fee">Service Fee❔</span>
+                            <span className="service-fee">Service Fee</span>
                             <span className="service-fee-price">$ 3.00</span>
                         </div>
 
                         <div className="summery-vat  flex  space-between">
-                            <span className="service-fee">VAT ❔</span>
+                            <span className="service-fee">VAT </span>
                             <span className="service-fee-price">{getVat()}</span>
                         </div>
 
-                        <hr className="summery-line" />
+                        {/* <hr className="summery-line" /> */}
                         <div className="summery-total flex space-between">
-                            <span className="service-fee">Total  </span>
+                            <span className="service-fee-total">Total  </span>
                             <span className="service-fee-price">${totalPay()} </span>
                         </div>
 

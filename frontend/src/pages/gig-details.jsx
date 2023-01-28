@@ -178,6 +178,10 @@ export function GigDetails() {
           </div>
           <h2 id="aboutSeller" className="about-the-seller">
             <span>About The Seller</span>
+            <div className="about-seller-content">
+
+            <p>{gig.aboutSeller}</p>
+            </div>
           </h2>
           <div className="profile-card">
             <div className="seller-card">

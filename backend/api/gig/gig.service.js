@@ -5,12 +5,13 @@ const ObjectId = require('mongodb').ObjectId
 const asyncLocalStorage = require('../../services/als.service')
 
 async function query(filterBy = {}) {
+    console.log('filterByfilterBy', filterBy);
     try {
-        // const criteria = {
-        //     vendor: { $regex: filterBy.txt, $options: 'i' }
-        // }
+        const criteria = _buildCriteria(filterBy)
+        console.log('criteria', criteria);
         const collection = await dbService.getCollection('gigs')
-        var gigs = await collection.find(filterBy).toArray()
+        var gigs = await collection.find(criteria).toArray()
+        console.log('rrrrrrrrrrrrrrrrrrrrrr', gigs);
         return gigs
     } catch (err) {
         logger.error('cannot find gigs', err)
@@ -89,6 +90,31 @@ async function removeGigMsg(gigId, msgId) {
     }
 }
 
+function _buildCriteria(filterBy) {
+    let criteria = {}
+    if (filterBy.title) {
+        criteria.title = { $regex: new RegExp(filterBy.title, 'ig') }
+    }
+   if(filterBy.daysToMake) {
+    criteria.daysToMake = {$lte: filterBy.daysToMake}
+   }
+   if(filterBy.tags) {
+    criteria.tags = filterBy.tags
+   }
+   if(filterBy.maxPrice && filterBy.maxPrice !== Infinity) {
+    criteria.maxPrice = {$lte: filterBy.maxPrice}
+   }
+    return criteria
+}
+
+// function getDefaultFilter() {
+//     return {
+//       title: "",
+//       maxPrice: Infinity,
+//       tags: "All",
+//       daysToMake: 0,
+//     };
+//   }
 module.exports = {
     remove,
     query,
