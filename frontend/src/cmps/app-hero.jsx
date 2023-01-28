@@ -101,7 +101,7 @@ export function AppHero() {
               name="title"
               value={filterByToEdit.title}
               onChange={handleChange}
-              placeholder="Try 'building mobile app'"
+              placeholder="Try ''building mobile app''"
             />
             <button
               onClick={() => {

@@ -7,8 +7,7 @@ import { useSelector } from "react-redux";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { addOrder } from "../store/order.actions.js";
 
-
-import { gigService } from '../services/gig.service.js'
+import { gigService } from "../services/gig.service.js";
 // import { gigService } from "../services/gig.service.local.js";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js";
 
@@ -28,16 +27,18 @@ import { ReactComponent as Arrow } from "../assets/img/details/arrow.svg";
 import { Loading } from "../cmps/loading";
 
 export function GigDetails() {
-    const [gig, setGig] = useState(null)
-    const { id } = useParams()
-    const navigate = useNavigate()
-    const wishlist = useSelector(storeState => storeState.userModule.user?.wishlist || [])
+  const [gig, setGig] = useState(null);
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const wishlist = useSelector(
+    (storeState) => storeState.userModule.user?.wishlist || []
+  );
 
   useEffect(() => {
-    loadGig()
-    getWishlist()
-    window.scrollTo(0, 0)
-  }, [id])
+    loadGig();
+    getWishlist();
+    window.scrollTo(0, 0);
+  }, [id]);
 
   // useEffect(() => {
   //   document.querySelector(".app-header").classList.remove("sticky");
@@ -67,33 +68,43 @@ export function GigDetails() {
     }
   }
 
-    async function onAddOrder(order, plan) {
-        try {
-            const newOrder = await addOrder(order, plan)
-            console.log('newOrder', newOrder)
-            return newOrder
-        } catch (err) {
-            console.log('GigDetails: err in onAddOrder', err)
-            
-            showErrorMsg('Order not added - please login')
-        }
-    }
+  async function onAddOrder(order, plan) {
+    try {
+      const newOrder = await addOrder(order, plan);
+      console.log("newOrder", newOrder);
+      return newOrder;
+    } catch (err) {
+      console.log("GigDetails: err in onAddOrder", err);
 
-    if (!gig) return <div className="loading-spinner flex"><Loading/></div>
+      showErrorMsg("Order not added - please login");
+    }
+  }
+
+  if (!gig)
     return (
-        <div className="main-content main-container">
-            <div className="top-nav sticky">
-                <DetailsNav gig={gig} wishlist={wishlist || []} addGigToWishlist={addGigToWishlist}  removeGigFromWishlist = {removeFromWishlist}/>
-            </div>
-            <div className="hr-top-details full">
-                <hr /></div>
-            {/* <div className="main-details-container"> */}
-            {/* <div className="hr-details-nav ">
+      <div className="loading-spinner flex">
+        <Loading />
+      </div>
+    );
+  return (
+    <div className="main-content main-container">
+      <div className="top-nav sticky full main-container">
+        <DetailsNav
+          gig={gig}
+          wishlist={wishlist || []}
+          addGigToWishlist={addGigToWishlist}
+          removeGigFromWishlist={removeFromWishlist}
+        />
+        <div className="hr-top-details sticky full">
+          <hr />
+        </div>
+      </div>
+      {/* <div className="main-details-container"> */}
+      {/* <div className="hr-details-nav ">
                 </div> */}
       <section className="gig-details-page flex">
         <div className="gig-details">
           <div id="overview" className="gig-overview">
-            
             <div className="gig-details-breadcrumbs arrow-svg">
               {gig.tags.map((tag) => (
                 <Link to={`/gig?&tags=${tag}`}>
@@ -110,7 +121,10 @@ export function GigDetails() {
               | <StarsRating rate={gig.owner.rate} />
             </div>
           </div>
-          <div className="gig-gallery">
+          <div
+            className="gig-gallery full
+          "
+          >
             <Carousel showIndicators={false}>
               {gig.imgUrls.map((imgUrl) => {
                 return (

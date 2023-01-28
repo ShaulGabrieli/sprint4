@@ -7,18 +7,23 @@ h2 {
 .trustedBy {
   justify-content: center;
   justify-items: center;
-  height: rem(95px);
+  // height: rem(95px);
   background-color: $clr17;
   .trustedByImg {
     display: flex;
-    padding: 26px;
+    padding: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   h3 {
     font-family: Macan-Bold;
     display: flex;
     align-self: center;
-    padding: 26px;
+    // padding: 26px;
+    padding-left: 0;
+    margin: 15px;
+    margin-left: 0;
     color: #b5b6ba;
     line-height: normal;
     font-size: rem(16px);
