@@ -44,7 +44,7 @@ export function LoginSignup({isLogin, isJoin, BlackLogo}) {
       async function signupCheck(credentials) {
         try {
           const user = await signup(credentials);
-          showSuccessMsg(`${user.fullname} ,Welcome to Lazyerr!`);
+          showSuccessMsg(`${user.fullname} ,Welcome to Gigxerr!`);
         } catch (err) {
           showErrorMsg("Cannot signup");
         }
