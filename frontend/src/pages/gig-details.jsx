@@ -221,9 +221,9 @@ export function GigDetails() {
         </div>
 
         <div className="gig-main-payment flex column">
-          {/* <div className="payment-area">
-                    <div className="basic"></div>
-                </div> */}
+          <div className="payment-area">
+            <div className="basic"></div>
+          </div>
           <div className="payment-area-wrapper">
             <div className="main-package-container  ">
               {/* <div className="package-container flex column"> */}
