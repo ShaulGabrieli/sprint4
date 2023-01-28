@@ -78,7 +78,8 @@ function getEmptyGig() {
     ],
     "likedByUsers": [
     ],
-    "totalLikes": 0
+    "totalLikes": 0,
+
   }
 
 }

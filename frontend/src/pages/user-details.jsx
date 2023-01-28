@@ -23,6 +23,7 @@ export function UserDetails() {
     const gigs = useSelector((storeState) => storeState.gigModule.gigs)
     const [sellerGigs, setSellerGigs] = useState(getSellerGigs(user._id))
 
+
     // useEffect(() => {
     //     loadUser(params.id)
 
@@ -35,12 +36,10 @@ export function UserDetails() {
     // }, [])
 
     useEffect(() => {
-        loadOrders()
+        loadOrders()    
         window.scrollTo(0, 0)
-    }, [gigs])
-
-   
-
+    }, [])
+ 
     async function onChangeStatus(order, updatedStatus) {
         try {
             const updatedOrder = { ...order, status: updatedStatus }
