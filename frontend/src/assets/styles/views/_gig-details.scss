@@ -113,7 +113,7 @@
   // position: absolute;
   position: static;
   padding: 16px;
-  border: 1px solid $clr6;
+  // border: 1px solid $clr6;
   // border-left: none;
   justify-content: center;
 }
@@ -147,7 +147,7 @@
   .react-tabs__tab--selected {
     // border: none;
     // border: 1px solid $clr2;
-    // border-bottom: 1px solid $clr2;
+    border-bottom: 1px solid $clr2;
     border-radius: none;
     background: #fff;
     border-color: #aaa;
@@ -160,10 +160,10 @@
 
     /* border-radius: 5px 5px 0 0; */
     // border-top: none;
-    &:blur {
-      // outline: none;
-      border-bottom: 1px solid $clr2;
-    }
+    // &:blur {
+    //   // outline: none;
+    //   border-bottom: 1px solid $clr2;
+    // }
   }
 
   .react-tabs__tab-list {
@@ -571,6 +571,9 @@
   margin-left: 10px;
 }
 
+.react-tabs__tab:focus:after {
+  background:none;
+}
 .carousel .control-prev.control-arrow {
   left: -65px;
 }
