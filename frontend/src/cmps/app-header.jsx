@@ -81,16 +81,16 @@ export function AppHeader({ openOrders, setOpenOrders }) {
   // }
   async function onLogout() {
     try {
-      await logout();
-      showSuccessMsg(`See you soon!`);
+      await logout()
+      showSuccessMsg(`See you soon!`) && navigate("/")
     } catch (err) {
-      showErrorMsg("Cannot logout");
+      showErrorMsg("Cannot logout")
     }
   }
 
   function handleSubmit(ev) {
     ev.preventDefault();
-    onSetFilter(filterByToEdit);
+    onSetFilter(filterByToEdit)
   }
 
   function handleChange({ target }) {

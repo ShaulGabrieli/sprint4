@@ -89,8 +89,9 @@ function saveLocalUser(user) {
     user = {
         _id: user._id,
         fullname: user.fullname,
+        username: user.username,
         imgUrl: user.imgUrl,
-        score: user.score,
+        // score: user.score,
     }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user

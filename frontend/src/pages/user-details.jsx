@@ -136,7 +136,7 @@ export function UserDetails() {
                                 </tr>
                             </thead>
                             <tbody className='seller-orders'>
-                                {sellerOrders.map((order, idx) => {
+                                {sellerOrders?.map((order, idx) => {
                                     return (
                                         <tr id={idx}>
                                             <td>{order.buyer.fullname}</td>
@@ -158,11 +158,11 @@ export function UserDetails() {
                     <div className='seller gigs'>
                         <h1>Seller gigs</h1>
                         <div className='gig-seller-list'>
-                            <ul className='gig-list '>
+                            <ul className='gig-list'>
                                 <Link to={'/gig/edit'}>
                                     <li className='add-gig-btn add-new-gig'> Create a new Gig </li>
                                 </Link>
-                                {sellerGigs.map((gig, idx) => (
+                                {sellerGigs?.map((gig, idx) => (
                                     <GigPreview id={idx} gig={gig} />
                                 ))}
                             </ul>
