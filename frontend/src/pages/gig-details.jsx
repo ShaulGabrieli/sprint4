@@ -88,7 +88,7 @@ export function GigDetails() {
     );
   return (
     <div className="main-content main-container">
-      <div className="top-nav sticky full main-container">
+      <div className="overview-nav top-nav sticky full main-container">
         <DetailsNav
           gig={gig}
           wishlist={wishlist || []}
@@ -179,8 +179,7 @@ export function GigDetails() {
           <h2 id="aboutSeller" className="about-the-seller">
             <span>About The Seller</span>
             <div className="about-seller-content">
-
-            <p>{gig.aboutSeller}</p>
+              <p>{gig.aboutSeller}</p>
             </div>
           </h2>
           <div className="profile-card">

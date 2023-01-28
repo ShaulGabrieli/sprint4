@@ -13,54 +13,61 @@ export function ReviewPreview({ review, detailsReviews }) {
 
   return (
     <div
-      className={detailsReviews ? "review-preview-details" : "review-preview"}
+      className={
+        detailsReviews ? "review-preview-details" : "review-preview flex"
+      }
     >
-      <div className="reviewer flex">
-        <div className="reviewer-img reviewer-item ">
-          <img src={review.imgUrl} />
-        </div>
-        {/* <div className="reviewer-name reviewer-item">{review.by.name}</div> */}
-        <div></div>
-        <div className="review-content flex">
-          {(detailsReviews && (
-            <div className="nickname-review flex column">
-              {" "}
-              <div className="reviewer-name reviewer-item ">{review.name}</div>
-              {/* <div className="reviewer-location reviewer-item">🏳️‍⚧️ Usa </div> */}
-              <div className="reviewer-location reviewer-item flex">
-                <img src={review.flag} />
-                <span className=" reviewer-location-country">
-                  {" "}
-                  {review.country}
-                </span>{" "}
-              </div>
-              <div className="review-date">{review.reviewedAt}</div>
-            </div>
-          )) || (
-            <div className="nickname-review flex">
-              <div className="reviewer-name reviewer-item ">{review.name}</div>
-              {/* <div className="reviewer-location reviewer-item">🏳️‍⚧️ Usa </div> */}
-              <div className="reviewer-location reviewer-item flex">
-                <img src={review.flag} />
-                <span className=" reviewer-location-country">
-                  {" "}
-                  {review.country}
-                </span>{" "}
-              </div>
-            </div>
-          )}
-        </div>
-        {/* <div className="reviewer-rate reviewer-item"><StarsRating rate={review.rate}/></div> */}
+      {" "}
+      <div className="reviewer-img reviewer-item  flex">
+        <img src={review.imgUrl} />
       </div>
-      {/* <hr></hr> */}
-      <div className="reviewer-content flex ">
-        <div className="review-msg">
-          <div>{review.review}</div>
-          {/* <div>{review.txt}</div> */}
-          {!detailsReviews && (
-            <div className="review-date">{review.reviewedAt}</div>
-          )}
-          {/* <div className="review-date">{utilService.formatDate(review.createdAt)}</div> */}
+      <div className="inner-review flex">
+        <div className="reviewer flex">
+          {/* <div className="reviewer-name reviewer-item">{review.by.name}</div> */}
+          <div className="review-content flex">
+            {(detailsReviews && (
+              <div className="nickname-review flex column">
+                <div className="reviewer-name reviewer-item ">
+                  {review.name}
+                </div>
+                {/* <div className="reviewer-location reviewer-item">🏳️‍⚧️ Usa </div> */}
+                <div className="reviewer-location reviewer-item flex">
+                  <img src={review.flag} />
+                  <span className=" reviewer-location-country">
+                    {review.country}
+                  </span>{" "}
+                </div>
+                <div className="review-date">{review.reviewedAt}</div>
+              </div>
+            )) || (
+              <div className="nickname-review flex">
+                <div className="reviewer-name reviewer-item ">
+                  {review.name}
+                </div>
+                {/* <div className="reviewer-location reviewer-item">🏳️‍⚧️ Usa </div> */}
+                <div className="reviewer-location reviewer-item flex">
+                  <img src={review.flag} />
+                  <span className=" reviewer-location-country">
+                    {" "}
+                    {review.country}
+                  </span>{" "}
+                </div>
+              </div>
+            )}
+          </div>
+          {/* <div className="reviewer-rate reviewer-item"><StarsRating rate={review.rate}/></div> */}
+        </div>
+
+        {/* <hr></hr> */}
+        <div className="reviewer-content flex ">
+          <div className="review-msg">
+            <div>{review.review}</div>
+            {/* <div>{review.txt}</div> */}
+            {!detailsReviews && (
+              <div className="review-date">{review.reviewedAt}</div>
+            )}
+            {/* <div className="review-date">{utilService.formatDate(review.createdAt)}</div> */}
+          </div>
         </div>
       </div>
     </div>

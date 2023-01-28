@@ -3,7 +3,13 @@
   color: $clr1;
   margin: 0 50.5px;
 }
-
+.overview-nav {
+  background-color: white;
+}
+.inner-review {
+  flex-direction: column;
+  padding-right: 60px;
+}
 .gig-carousel-card {
   //   zoom: 200%;
   height: 420px;
@@ -44,7 +50,8 @@
 .carousel .thumbs-wrapper {
   padding: 0;
   margin-left: 0;
-  margin-top: 0;
+  margin-top: 18px;
+  margin-bottom: 44px;
 }
 
 .arrow-svg {
@@ -63,7 +70,12 @@
 .responsive-wrapper {
   // margin: 31px 0 31px 0;
   border: 1px solid $clr14;
+  line-height: 2;
   padding: 24px;
+
+  svg {
+    margin-top: 5px;
+  }
 }
 .payment-area,
 .contact-seller {
@@ -123,6 +135,7 @@
   margin-top: 0;
   position: sticky;
   top: 50px;
+  padding-top: 25px;
   flex-shrink: 0;
   // border: 1px solid $clr13;dv
   // border-top:none;
@@ -215,7 +228,7 @@
   background-color: white;
   font-size: em(14px);
   padding-top: 6px;
-  padding-bottom: 24px;
+  // padding-bottom: 24px;
   gap: 10px;
 
   a {
@@ -248,6 +261,10 @@
 
 .review-main-details {
   border: none;
+}
+
+.review-msg {
+  color: $clr4;
 }
 
 .seller-rev-head,
@@ -285,6 +302,8 @@
 
 .about-user-name {
   font-size: em(16px);
+  font-family: Macan-Bold;
+  color: $clr4;
 }
 
 .about-user-name,
@@ -310,10 +329,11 @@
 
 .contact-me-btn {
   padding: 12px 22px;
-  margin-top: 20px;
+  margin-top: 36px;
   font-size: em(14px);
   border: 1px solid $clr1;
   width: 130px;
+
   height: 40px;
   border-radius: 4px;
   font-weight: 600;
@@ -337,13 +357,12 @@
 
 .review-preview {
   border-radius: 5px;
-  padding: 0;
+  padding: 25px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+
   border: 1px solid $clr14;
 }
-
-// .review-preview-details {
-//   // padding: 20px;
-// }
 
 .lightning {
   margin-right: 13px;
