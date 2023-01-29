@@ -12,7 +12,6 @@
 
     .user-info .btn-link {
         color: $clr2;
-        
     }
 
     nav {
@@ -284,6 +283,33 @@
     align-items: center;
     gap: 24px;
 }
+
+.main-screen {
+    position: fixed;
+    inset: 0;
+    background-color: #000;
+    background-color: rgb(0 0 0 / 70%);
+    cursor: pointer;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s;
+}
+
+body.menu-open .main-screen {
+    pointer-events: auto;
+    opacity: 1;
+   
+}
+.menu-toggle-btn {
+    display: none;
+}
+
+.logout-btn{
+    border-radius: 4px;
+    background-color: $clr14;
+    color: $clr1;
+}
+
 @media (max-width: 1300px) {
     .app-header {
         .main-nav {
@@ -295,7 +321,7 @@
             }
         }
         .top-nav {
-            flex-direction: column;
+            flex-direction: row;
             gap: 0;
         }
         .header-logo {
@@ -310,6 +336,45 @@
         justify-content: center;
         flex-wrap: wrap;
     }
+
+    .top-nav .top-nav-actions {
+        position: fixed;
+        top: 0;
+        right: 0;
+        // flex-direction: column;
+        height: 100vh;
+        background-color: white;
+        border-inline-start: 1px solid black;
+        min-width: 200px;
+        transform: translateX(100%);
+        transition: transform 0.6s;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+    }
+    body.menu-open .top-nav .top-nav-actions {
+        transform: translateX(0);
+    }
+    .menu-toggle-btn {
+        display: inline-block;
+        font-size: 20px;
+        color: $clr1;
+        background-color: $clr-1;
+        border-style: none;
+        cursor: pointer;
+    }
+    .user-actions {
+        flex-direction: column-reverse;
+    }
+    .user-info {
+        flex-direction: column;
+        gap: 24px;
+        padding-top: 24px;
+        
+        
+    }
+    .nav-hover-clr {
+        margin: 0;
+    }
+
+    
 }
-
-
