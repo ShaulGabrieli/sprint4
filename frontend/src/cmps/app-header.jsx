@@ -37,14 +37,25 @@ export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin ,
   );
 
   useEffect(() => {
+   
+      switchHeaderStyle(window.pageYOffset);
+    
+  }, [location]);
+  
+  useEffect(() => {
     window.onscroll = function (e) {
       switchHeaderStyle(window.pageYOffset);
     };
-  }, [location]);
+  }, []);
+  useEffect(() => {
+console.log('class',headerStyle);
+  }, [headerStyle]);
 
   useEffect(() => {}, [filterByToEdit]);
 
   function switchHeaderStyle(pageYOffset) {
+    console.log('location.pathname', location.pathname)
+    console.log('pageYOffset', pageYOffset)
     if (location.pathname !== "/") {
       setHeaderStyle("sticky ");
       setLogo(<BlackLogo />);

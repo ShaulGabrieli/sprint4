@@ -170,7 +170,7 @@ export function UserDetails() {
                             </tbody>
                         </table>
                     </div>
-                    <div className='seller gigs'>
+                    <div className='seller-gigs'>
                         <h1>Seller gigs</h1>
                         <div className='gig-seller-list'>
                             <ul className='gig-list'>

@@ -1,3 +1,9 @@
+.seller-options, .seller-gigs {
+    h1 {
+        margin-top: 40px;
+    }
+}
+
 .user-details {
     padding: 50px 0;
     // display: grid;
@@ -25,6 +31,7 @@
         .profile-img-container {
             height: 150px;
             width: 150px;
+
             .profile-img {
                 border-radius: 50%;
                 object-fit: cover;
@@ -60,16 +67,19 @@
         .gig-list {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            // justify-content: space-between;
             // justify-content: space-evenly;
             gap: 34px;
-            // justify-content: flex-start;
+            justify-content: flex-start;
         }
+
         .gig-preview {
             width: em(200px);
+
             .preview-img-container {
                 // width: em(200px);
                 height: em(100px);
+
                 .preview-img {
                     object-fit: cover;
                     height: 100%;
@@ -77,6 +87,7 @@
                     margin: 0;
                 }
             }
+
             .owner-icon-container,
             .owner-info,
             .price-preview {
@@ -88,15 +99,19 @@
     .status-blue {
         color: blue;
     }
+
     .status-green {
         color: green;
     }
+
     .status-yellow {
         color: rgb(189, 189, 0);
     }
+
     .status-orange {
         color: orangered;
     }
+
     .status-red {
         color: red;
     }
@@ -109,6 +124,7 @@
         align-self: stretch;
         padding-top: 18.7px;
         color: $clr4;
+
         .from-icon {
             fill: $clr4;
         }
@@ -146,14 +162,18 @@
         padding-left: 20px;
         text-align: left;
 
-        
+        th {
+            padding: 15px 0 0 0;
+        }
+
         td {
-            padding:15px;
+            padding: 15px 15px 15px 0;
             border-bottom: 1px solid $clr14;
-            button{
+
+            button {
                 margin: 5px;
                 border-radius: 4px;
-               
+
             }
         }
     }
@@ -195,10 +215,11 @@
         }
     }
 }
-.static-charts-main{
+
+.static-charts-main {
     border-radius: 5px;
     border: 1px solid $clr14;
-    width:80%;
+    width: 80%;
     justify-content: space-evenly;
     background-color: $clr-1;
     align-self: center;
