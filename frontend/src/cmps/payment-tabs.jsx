@@ -12,20 +12,28 @@ export function PaymentTabs({ gig, onAddOrder }) {
 
   function checkDaysToDisplay(plan) {
     if (gig.daysToMake <= 1) return " 24H";
-    if (plan === "basic") return `${gig.daysToMake} days`;
-    if (plan === "standard")
-      return `${
-        (gig.daysToMake / 2).toFixed() <= 1
-          ? " 24H"
-          : (gig.daysToMake / 2).toFixed()
-      } days`;
-    if (plan === "premium")
-      return `${
-        (gig.daysToMake / 4).toFixed() <= 1
-          ? " 24H"
-          : (gig.daysToMake / 4).toFixed()
-      } days`;
+    if (plan === "basic") return ` ${gig.daysToMake} days`;
+    if (plan === "standard") {
+      if ((gig.daysToMake / 2).toFixed() <= 1) {
+        return " 24H";
+      } else {
+        return ` ${(gig.daysToMake / 2).toFixed()}
+        days`;
+      }
+    }
+    if (plan === "premium") {
+      if ((gig.daysToMake / 4).toFixed() <= 1) {
+        return " 24H";
+      } else {
+        return ` ${(gig.daysToMake / 4).toFixed()}
+        days`;
+      }
+    }
   }
+
+  //   function getDaysToMake() {
+  //     if (gig.daysToMake > 1) return gig.daysToMake / 2;
+  //   }
 
   async function onBuildOrder() {
     try {

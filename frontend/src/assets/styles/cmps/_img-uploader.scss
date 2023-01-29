@@ -1,24 +1,42 @@
-.upload-preview{
- gap : 10px;
- align-items: center;
+.upload-preview {
+  gap: 10px;
+  align-items: center;
 
- input{
+  input {
     width: 40%;
     border: none;
     // margin: 0px;
     // padding: 0px;
     // align-self: center;
-    align-items: center;
+    // align-items: center;
     // display: flex;
- }
-}
+  }
 
-
-    .uploader-label label{
-        align-self: center;
-        gap: 5px;   
-        // justify-self: center;
-        color: $clr3;
+  .uploader-label label {
+    align-self: center;
+    gap: 5px;
+    font-size: 14px;
+    color: white;
+    // justify-self: center;
+    // font-family: Macan-Regular;
+    background-color: $clr2;
+    margin-top: 15px;
+    // color: $clr3;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    &:hover {
+      background-color: $clr16;
     }
+  }
 
-   
+  input[type="file"] {
+    display: none;
+  }
+  .custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+}

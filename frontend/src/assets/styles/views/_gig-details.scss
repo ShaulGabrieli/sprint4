@@ -401,6 +401,11 @@
   flex-direction: column;
   font-family: Macan-Regular;
   border-radius: 3px;
+
+  svg {
+    fill: #62646a;
+    margin-right: 7px;
+  }
 }
 
 .features li {
@@ -432,6 +437,11 @@
   margin-right: 3px;
   color: $clr2;
 }
+
+// .feature-icon-grey {
+//   margin-right: 3px;
+//   color: $clr4;
+// }
 
 .continue-btn {
   background-color: $clr2;
@@ -619,6 +629,6 @@
   background-color: white;
 }
 
-.about-seller-details{
+.about-seller-details {
   line-height: 24px;
 }
