@@ -53,6 +53,12 @@ export function AppHeader({
       switchHeaderStyle(window.pageYOffset);
     };
   }, []);
+
+  useEffect(() => {
+    window.onscroll = function (e) {
+      switchHeaderStyle(window.pageYOffset);
+    };
+  }, [location.pathname]);
   // useEffect(() => {
   //   console.log("class", headerStyle);
   // }, [headerStyle]);

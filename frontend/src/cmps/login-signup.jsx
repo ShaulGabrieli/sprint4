@@ -20,7 +20,10 @@ export function LoginSignup({ isLogin, isJoin, BlackLogo, setHeaderStyle, setLog
         document.body.classList.add('popup-menu-open')
         return () => {
             document.body.classList.remove('popup-menu-open')
+            setHeaderStyle("sticky")
+             setLogo(<BlackLogo/>)
         }
+       
     }, [])
 
     // async function loadUsers() {
@@ -77,8 +80,8 @@ export function LoginSignup({ isLogin, isJoin, BlackLogo, setHeaderStyle, setLog
                 if (!credentials.username || !credentials.password || !credentials.fullname) return
                 signupCheck(credentials)
                 clearState()
-                setHeaderStyle('fix')
-                setLogo(<BlackLogo />)
+           
+                // setLogo(<BlackLogo />)
                 navigate('/gig')
             }
             catch (err) {
