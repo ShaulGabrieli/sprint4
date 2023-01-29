@@ -5,21 +5,28 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from "../store/user.actions.js";
 import { useNavigate } from 'react-router-dom';
 
-export function LoginSignup({isLogin, isJoin, BlackLogo}) {
+export function LoginSignup({isLogin, isJoin, BlackLogo, setHeaderStyle, setLogo }) {
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
     // const [isSignup, setIsSignup] = useState(false)
     // const [isJoin, setIsJoin] = useState(false)
     const [users, setUsers] = useState([])
     const navigate = useNavigate()
 
+    // useEffect(() => {
+    //     loadUsers()
+    // }, [])
+
     useEffect(() => {
-        loadUsers()
+        document.body.classList.add('popup-menu-open')
+        return () => {
+            document.body.classList.remove('popup-menu-open')
+        }
     }, [])
 
-    async function loadUsers() {
-        const users = await userService.getUsers()
-        setUsers(users)
-    }
+    // async function loadUsers() {
+    //     const users = await userService.getUsers()
+    //     setUsers(users)
+    // }
 
     function clearState() {
         setCredentials({ username: '', password: '', fullname: '', imgUrl: '', wishlist: []})
@@ -64,7 +71,10 @@ export function LoginSignup({isLogin, isJoin, BlackLogo}) {
         if (!credentials.username || !credentials.password || !credentials.fullname) return
         signupCheck(credentials)
         clearState()
+        setHeaderStyle('fix')
+        setLogo(<BlackLogo/>)
         navigate('/gig')
+
     }
 
     function toggleSignup() {
