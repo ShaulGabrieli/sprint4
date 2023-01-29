@@ -132,7 +132,7 @@ export function GigEdit() {
                     </div>
                     <div className='about-inputs'>
                         <label htmlFor='about-info'>About you:</label>
-                        <input className='text-input' name='about' id='about-info' onChange={handleChange} type='text' />
+                        <input className='text-input' name='aboutSeller' id='about-info' onChange={handleChange} type='text' />
                         <label htmlFor='about-country'>Country:</label>
                         <input className='text-input' name='country' id='about-country' onChange={handleChange} type='text' />
                     </div>

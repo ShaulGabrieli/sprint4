@@ -6,9 +6,16 @@ const { userService } = require('../user/user.service.js')
 async function getGigs(req, res) {
   try {
     logger.debug('Getting Gigs')
-    const filterBy = req.query? {
-      title: req.query.title 
-    } : {}
+    let filterBy = {}
+    let {title, daysToMake, maxPrice, tags} = req.query
+      if(title) filterBy = {...filterBy, title}
+      if(daysToMake) {
+        daysToMake = parseInt(daysToMake)
+        filterBy = {...filterBy, daysToMake}
+        }
+      if(maxPrice) filterBy = {...filterBy, maxPrice}
+      if(tags) filterBy = {...filterBy, tags}
+    
     const gigs = await gigService.query(filterBy)
     res.json(gigs)
   } catch (err) {
