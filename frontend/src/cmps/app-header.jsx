@@ -24,8 +24,7 @@ export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin ,
   const navigate = useNavigate();
   let location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
-  const queryFilterBy = gigService.getFilterFromSearchParams(searchParams);
-  const [filterByToEdit, setFilterByToEdit] = useState(queryFilterBy);
+  const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter());
   const user = useSelector((storeState) => storeState.userModule.user);
   const [headerStyle, setHeaderStyle] = useState(
     location.pathname === "/" ? "fix" : "sticky"
@@ -42,7 +41,11 @@ export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin ,
     };
   }, [location]);
 
-  useEffect(() => {}, [filterByToEdit]);
+  useEffect(() => {
+    
+  const queryFilterBy = gigService.getFilterFromSearchParams(searchParams);
+  onSetFilter(queryFilterBy)
+  }, []);
 
   function switchHeaderStyle(pageYOffset) {
     if (location.pathname !== "/") {
@@ -91,6 +94,7 @@ export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin ,
 
   function handleSubmit(ev) {
     ev.preventDefault();
+    setSearchParams(filterByToEdit)
     onSetFilter(filterByToEdit)
   }
 
@@ -102,6 +106,7 @@ export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin ,
   }
 
   function onSetFilter(filterBy) {
+    console.log('filterByfom header', filterBy);
     setSearchParams(filterBy);
     setFilter(filterBy);
     // navigate(`/gig?title=${filterBy.title}`);
@@ -267,7 +272,7 @@ export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin ,
       <nav className="main-nav">
         <ul className="clean list flex space-between jusitfy-center ">
           <li>
-            <a href="/">Graphics & Design</a>
+            <a href="/gig?tags=graphics-design">Graphics & Design</a>
           </li>
           <li>
             <a href="">Digital Marketing</a>
