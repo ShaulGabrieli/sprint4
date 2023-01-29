@@ -508,6 +508,7 @@
 
   & .control-prev {
     transform: translate(90%, -50%);
+    background-color: aquamarine;
   }
 }
 
@@ -593,7 +594,8 @@
   background-color: rgb(255, 255, 255);
   width: 48px;
   height: 48px;
-  right: -36px;
+  right: -16px;
+  margin-left: -60px;
 }
 
 .gig-gallery .carousel .control-next.control-arrow:before {
