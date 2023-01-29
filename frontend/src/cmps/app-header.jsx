@@ -275,28 +275,28 @@ export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin ,
             <a href="/gig?tags=graphics-design">Graphics & Design</a>
           </li>
           <li>
-            <a href="">Digital Marketing</a>
+            <a href="/gig?tags=digital-marketing">Digital Marketing</a>
           </li>
           <li>
-            <a href="">Writing & Translation</a>
+            <a href="/gig?tags=writing-translation">Writing & Translation</a>
           </li>
           <li>
-            <a href="">Video & Animation</a>
+            <a href="/gig?tags=video-animation">Video & Animation</a>
           </li>
           <li>
-            <a href="">Music & Audio</a>
+            <a href="/gig?tags=music-audio">Music & Audio</a>
           </li>
           <li>
-            <a href="">Programming & Tech</a>
+            <a href="/gig?tags=programming-tech">Programming & Tech</a>
           </li>
           <li>
-            <a href="">Business</a>
+            <a href="/gig?tags=business">Business</a>
           </li>
           <li>
-            <a href="">Lifestyle</a>
+            <a href="/gig?tags=lifestyle">Lifestyle</a>
           </li>
           <li>
-            <a href="">Trending</a>
+            <a href="/gig?tags=trending">Trending</a>
           </li>
         </ul>
       </nav>
