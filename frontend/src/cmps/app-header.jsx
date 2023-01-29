@@ -27,6 +27,8 @@ export function AppHeader({
   setOpenLogin,
   openJoin,
   setOpenJoin,
+  openUserDropDown,
+  setOpenUserDropDown,
 }) {
   const navigate = useNavigate();
   let location = useLocation();
@@ -109,15 +111,7 @@ export function AppHeader({
   //         showErrorMsg('Cannot signup')
   //     }
   // }
-  async function onLogout() {
-    try {
-      await logout();
-      showSuccessMsg(`See you soon!`);
-      navigate("/");
-    } catch (err) {
-      showErrorMsg("Cannot logout");
-    }
-  }
+
 
   function handleSubmit(ev) {
     ev.preventDefault();
@@ -248,15 +242,18 @@ export function AppHeader({
             )}
             {user && (
               <div className="user-info flex align-center">
-                <Link className="flex align-center" to={`user/${user._id}`}>
-                  {user.imgUrl && (
+                <Link className="flex align-center" >
+                  {/* {user.imgUrl && (
                     <div className="nav-user-img-container">
                       <img src={user.imgUrl} />
                       <div class="user-modal flex">
                         <div class="modal-tip"></div><a href={`user/${user._id}`} class="light">Profile</a>
                         <a href="{`user/${user._id}`}" class="">Dashboard</a><a onClick={onLogout}>Logout</a></div>
                     </div>
-                  )}
+                  )} */}
+                    <div className="nav-user-img-container" onClick={()=>{setOpenUserDropDown(!openUserDropDown)}}>
+                      <img src={user.imgUrl} />
+                    </div>
                 </Link>
                 {/* <button className="logout-btn" onClick={onLogout}>Logout</button> */}
               </div>

@@ -40,7 +40,7 @@ async function addGig(req, res) {
   try {
     const gig = req.body
     gig.owner = loggedinUser
-    gig.aboutSeller = await userService.getById(gig.owner._id)?.aboutSeller
+    // gig.aboutSeller = await userService.getById(gig.owner._id)?.aboutSeller
     const addedGig = await gigService.add(gig)
     res.json(addedGig)
   } catch (err) {

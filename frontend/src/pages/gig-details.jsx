@@ -98,7 +98,8 @@ export function GigDetails() {
         <div className="hr-top-details sticky full">
           <hr />
         </div>
-      </div>
+      </div>    
+                  
       {/* <div className="main-details-container"> */}
       {/* <div className="hr-details-nav ">
                 </div> */}
