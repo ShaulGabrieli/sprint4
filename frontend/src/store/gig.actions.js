@@ -111,5 +111,6 @@ export async function checkout(total) {
 }
 
 export function setFilter(filterBy) {
+  console.log('filterBy', filterBy);
   store.dispatch({ type: SET_FILTER, filterBy });
 }
