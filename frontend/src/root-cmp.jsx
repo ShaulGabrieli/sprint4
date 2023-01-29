@@ -12,11 +12,13 @@ import { GigPayment } from './pages/gig-payment.jsx'
 import { GigEdit } from './pages/gig-edit'
 import { LoginSignup } from './cmps/login-signup'
 import { HiddenScreen } from './cmps/hidden-screen'
+import { UserDropDownModal } from './cmps/user-dropdown-modal'
 
 export function RootCmp() {
   const [openOrders, setOpenOrders] = useState(false)
   const [openLogin, setOpenLogin] = useState(false)
   const [openJoin, setOpenJoin] = useState(false)
+  const [openUserDropDown, setOpenUserDropDown] = useState(false)
 
   return (
     <div>
@@ -29,6 +31,8 @@ export function RootCmp() {
         setOpenLogin={setOpenLogin} 
         openJoin={openJoin} 
         setOpenJoin={setOpenJoin}
+        openUserDropDown={openUserDropDown} 
+        setOpenUserDropDown={setOpenUserDropDown}
         />
       <Routes>
         {routes.map((route) => (
@@ -49,7 +53,9 @@ export function RootCmp() {
         <Route path="/gig/edit/:gigId" element={<GigEdit />} />
         <Route path="/gig/edit" element={<GigEdit />} />
         <Route path="/user/loginsignup" element={<LoginSignup />} />
+       
       </Routes>
+      <UserDropDownModal openUserDropDown={openUserDropDown} setOpenUserDropDown={setOpenUserDropDown} />
       <AppFooter />
       </div>
     

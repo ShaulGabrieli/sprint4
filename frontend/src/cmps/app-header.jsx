@@ -14,16 +14,31 @@ import { ReactComponent as WhiteLogo } from '../assets/img/lazyerr-logo-white.sv
 import { ReactComponent as BlackLogo } from '../assets/img/lazyerr-logo-black.svg'
 import { LoginSignup } from './login-signup'
 
-export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin, openJoin, setOpenJoin }) {
-    const navigate = useNavigate()
-    let location = useLocation()
-    const [searchParams, setSearchParams] = useSearchParams()
-    const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter())
-    const user = useSelector((storeState) => storeState.userModule.user)
-    const [headerStyle, setHeaderStyle] = useState(location.pathname === '/' ? 'fix' : 'sticky')
-    // const [openOrders, setOpenOrders] = useState(false)
-    // const [openSign, setOpenSign] = useState(false);
-    const [logo, setLogo] = useState(location.pathname === '/' ? <WhiteLogo /> : <BlackLogo />)
+export function AppHeader({
+  openOrders,
+  setOpenOrders,
+  openLogin,
+  setOpenLogin,
+  openJoin,
+  setOpenJoin,
+  openUserDropDown,
+  setOpenUserDropDown,
+}) {
+  const navigate = useNavigate();
+  let location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [filterByToEdit, setFilterByToEdit] = useState(
+    gigService.getDefaultFilter()
+  );
+  const user = useSelector((storeState) => storeState.userModule.user);
+  const [headerStyle, setHeaderStyle] = useState(
+    location.pathname === "/" ? "fix" : "sticky"
+  );
+  // const [openOrders, setOpenOrders] = useState(false)
+  // const [openSign, setOpenSign] = useState(false);
+  const [logo, setLogo] = useState(
+    location.pathname === "/" ? <WhiteLogo /> : <BlackLogo />
+  );
 
     // useEffect(() => {
     //   switchHeaderStyle(window.pageYOffset);
@@ -74,31 +89,23 @@ export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin, 
         }
     }
 
-    // async function onLogin(credentials) {
-    //     try {
-    //         const user = await login(credentials)
-    //         showSuccessMsg(`Welcome ${user.fullname}`)
-    //     } catch (err) {
-    //         showErrorMsg('Cannot login')
-    //     }
-    // }
-    // async function onSignup(credentials) {
-    //     try {
-    //         const user = await signup(credentials)
-    //         showSuccessMsg(`${user.fullname} ,Welcome to Lazyerr!`)
-    //     } catch (err) {
-    //         showErrorMsg('Cannot signup')
-    //     }
-    // }
-    async function onLogout() {
-        try {
-            await logout()
-            showSuccessMsg(`See you soon!`)
-            navigate('/')
-        } catch (err) {
-            showErrorMsg('Cannot logout')
-        }
-    }
+  // async function onLogin(credentials) {
+  //     try {
+  //         const user = await login(credentials)
+  //         showSuccessMsg(`Welcome ${user.fullname}`)
+  //     } catch (err) {
+  //         showErrorMsg('Cannot login')
+  //     }
+  // }
+  // async function onSignup(credentials) {
+  //     try {
+  //         const user = await signup(credentials)
+  //         showSuccessMsg(`${user.fullname} ,Welcome to Lazyerr!`)
+  //     } catch (err) {
+  //         showErrorMsg('Cannot signup')
+  //     }
+  // }
+
 
     function handleSubmit(ev) {
         ev.preventDefault()
@@ -237,15 +244,18 @@ export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin, 
 
             {user && (
               <div className="user-info flex align-center">
-                <Link className="flex align-center" to={`user/${user._id}`}>
-                  {user.imgUrl && (
+                <Link className="flex align-center" >
+                  {/* {user.imgUrl && (
                     <div className="nav-user-img-container">
                       <img src={user.imgUrl} />
                       <div class="user-modal flex">
                         <div class="modal-tip"></div><a href={`user/${user._id}`} class="light">Profile</a>
                         <a href="{`user/${user._id}`}" class="">Dashboard</a><a onClick={onLogout}>Logout</a></div>
                     </div>
-                  )}
+                  )} */}
+                    <div className="nav-user-img-container" onClick={()=>{setOpenUserDropDown(!openUserDropDown)}}>
+                      <img src={user.imgUrl} />
+                    </div>
                 </Link>
                 {/* <button className="logout-btn" onClick={onLogout}>Logout</button> */}
               </div>
