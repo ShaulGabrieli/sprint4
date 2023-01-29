@@ -118,22 +118,31 @@ export function UserDetails() {
                             <span>20.1.2023</span>
                             {/* <span>{user.createdAt}</span> */}
                         </div>
-                        <MyChart chartId="63d5a0cb-d8ca-4eff-8c06-1918755e0bdd" sellerId={user._id} />
-                        <MyChart chartId="63d2e8cb-7df1-415a-8cc0-8dfade37b3a9" sellerId={user._id} />
+                        
+                        <MyChart chartId="63d2e8cb-7df1-415a-8cc0-8dfade37b3a9" sellerId={user._id} height="400px" width="300px" />
+                        {/* <MyChart chartId="63d5a294-d62c-45cb-829a-46fabee1a964" sellerId={user._id} height="400px" width="300px" /> */}
+                        
                         
                     </section>
                 </div>
                 <section className='user-orders-manage-section flex column'>
                     {/* <BasicTabs /> */}
+<div className="static-charts-main flex row">
 
+<MyChart chartId="63d5a0cb-d8ca-4eff-8c06-1918755e0bdd" sellerId={user._id} height="180px" width="150px" />
+<MyChart chartId="63d629fc-64cf-4cdc-8b6c-8225e3ace76d" sellerId={user._id} height="180px" width="150px"/>
+<MyChart chartId="d5f009e2-6f96-4816-9cae-b32a4ed485b7" sellerId={user._id} height="180px" width="150px"/>
+<MyChart chartId="675bc298-3b6c-4019-a500-f201bdbb3044" sellerId={user._id} height="180px" width="150px"/>
+
+</div>
                     <div className='seller-options'>
                         <h1>Seller options</h1>
                         <table className='seller-list'>
                             <thead>
                                 <tr>
                                     <th>Buyer</th>
-                                    <th>Gig Id</th>
-                                    <th>Gig title</th>
+                                    {/* <th>Gig Id</th> */}
+                                    <th>Gig</th>
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
@@ -143,7 +152,7 @@ export function UserDetails() {
                                     return (
                                         <tr id={idx}>
                                             <td>{order.buyer.fullname}</td>
-                                            <td> {order.gig._id}</td>
+                                            {/* <td> {order.gig._id}</td> */}
                                             <td>{order.gig.title}</td>
                                             <td className={changeStatusColor(order.status)}>{order.status}</td>
                                             <td>

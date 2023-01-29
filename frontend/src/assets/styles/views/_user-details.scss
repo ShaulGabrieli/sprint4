@@ -60,8 +60,10 @@
         .gig-list {
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-between;
+            // justify-content: space-evenly;
             gap: 34px;
-            justify-content: flex-start;
+            // justify-content: flex-start;
         }
         .gig-preview {
             width: em(200px);
@@ -146,10 +148,12 @@
 
         
         td {
-            padding: 15px 0;
+            padding:15px;
+            border-bottom: 1px solid $clr14;
             button{
-                margin: 0;
+                margin: 5px;
                 border-radius: 4px;
+               
             }
         }
     }
@@ -190,6 +194,14 @@
             box-shadow: inset 0px 0px 3px 0px rgb(85 85 85 / 53%);
         }
     }
+}
+.static-charts-main{
+    border-radius: 5px;
+    border: 1px solid $clr14;
+    width:80%;
+    justify-content: space-evenly;
+    background-color: $clr-1;
+    align-self: center;
 }
 
 @media (max-width: 1200px) {

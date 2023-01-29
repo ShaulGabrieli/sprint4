@@ -1,6 +1,6 @@
 .popup-menu-orders {
   position: fixed;
-  // position: absolute;
+  // position: static;
     margin: auto;
     overflow-y: scroll;
     background-color: white;
@@ -11,7 +11,7 @@
     border-radius: 5px;
     right: 10%;
     top: 53px;
-    z-index: 301;
+    z-index: 402;
     // right: 50%;
     // bottom: -10px;
     // transform: translate(50%, 100%);
