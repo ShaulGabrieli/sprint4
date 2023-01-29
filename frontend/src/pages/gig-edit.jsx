@@ -74,7 +74,7 @@ export function GigEdit() {
     <section className="gig-edit full">
       <form onSubmit={onAddGig}>
         <section className="edit-section">
-          <div className="gig-edit-title">
+          <div class="gig-edit-title">
             <h1>Gig title</h1>
             <p>
               As your Gig storefront, your title is the most important place to
@@ -82,7 +82,7 @@ export function GigEdit() {
               service like yours.
             </p>
           </div>
-          <div className="gig-title-desc">
+          <div class="gig-title-desc">
             <textarea
               className="text-input-area"
               type="text"
@@ -92,11 +92,11 @@ export function GigEdit() {
               onChange={handleChange}
             ></textarea>
           </div>
-          <div className="gig-category">
+          <div class="gig-category">
             <h1>Category</h1>
             <p>Choose the categories that are most suitable for your Gig.</p>
           </div>
-          <div className="gig-selectors">
+          <div class="gig-selectors">
             <Select
               isMulti
               name="tags"
@@ -174,7 +174,7 @@ export function GigEdit() {
             <label htmlFor="about-info">About you:</label>
             <input
               className="text-input"
-              name="about"
+              name="aboutSeller"
               id="about-info"
               onChange={handleChange}
               type="text"

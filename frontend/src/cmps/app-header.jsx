@@ -101,9 +101,9 @@ export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin ,
   }
 
   function onSetFilter(filterBy) {
-    // setSearchParams(filterBy);
+    setSearchParams(filterBy);
     setFilter(filterBy);
-    navigate(`/gig?title=${filterBy.title}`);
+    // navigate(`/gig?title=${filterBy.title}`);
   }
 
   return (
