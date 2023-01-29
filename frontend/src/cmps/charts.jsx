@@ -5,7 +5,7 @@ import { utilService } from "../services/util.service";
 const BASE_CHARTS_URL = "https://charts.mongodb.com/charts-sprint4-txzkw"
 
 export function MyChart({ chartId, sellerId, height, width }) {
-  const randChartId = utilService.makeId()
+  const randDivId = utilService.makeId()
   const sdk = new ChartsEmbedSDK({
     baseUrl: BASE_CHARTS_URL, // REPLACE with the Base URL from your Embed Chart dialog.
   });
@@ -20,10 +20,10 @@ export function MyChart({ chartId, sellerId, height, width }) {
   });
 
   useEffect(() => {
-    chart.render(document.getElementById(randChartId))
+    chart.render(document.getElementById(randDivId))
   }, [])
   return (
     // id="63d2e8cb-7df1-415a-8cc0-8dfade37b3a9"
-    <div id={randChartId}></div>
+    <div id={randDivId}></div>
   )
 }
