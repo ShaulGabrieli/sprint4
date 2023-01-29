@@ -119,7 +119,9 @@ export function UserDetails() {
                             <span>20.1.2023</span>
                             {/* <span>{user.createdAt}</span> */}
                         </div>
+                        <MyChart chartId="63d5a0cb-d8ca-4eff-8c06-1918755e0bdd" sellerId={user._id} />
                         <MyChart chartId="63d2e8cb-7df1-415a-8cc0-8dfade37b3a9" sellerId={user._id} />
+                        
                     </section>
                 </div>
                 <section className='user-orders-manage-section flex column'>

@@ -82,7 +82,8 @@ export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin ,
   async function onLogout() {
     try {
       await logout()
-      showSuccessMsg(`See you soon!`) && navigate("/")
+      showSuccessMsg(`See you soon!`)
+      navigate("/")
     } catch (err) {
       showErrorMsg("Cannot logout")
     }
@@ -241,7 +242,7 @@ export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin ,
                   {openLogin && (
                     <PopupMenu onClick={(ev) => {
                       ev.stopPropagation()}} type="login">
-                      <LoginSignup BlackLogo={BlackLogo} isLogin={true} />
+                      <LoginSignup setHeaderStyle={setHeaderStyle} setLogo={setLogo} BlackLogo={BlackLogo} isLogin={true} />
                     </PopupMenu>
                   )}
                 </div>
@@ -254,7 +255,7 @@ export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin ,
                 {
                 openJoin && <PopupMenu onClick={(ev) => {
                   ev.stopPropagation()}} type="login">
-                   <LoginSignup BlackLogo={BlackLogo} isJoin={true} />
+                   <LoginSignup setHeaderStyle={setHeaderStyle}  BlackLogo={BlackLogo} isJoin={true} />
                  </PopupMenu>
                 }
               </section>
