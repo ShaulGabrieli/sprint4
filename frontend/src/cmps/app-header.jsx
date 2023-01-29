@@ -252,10 +252,13 @@ export function AppHeader({
                   {user.imgUrl && (
                     <div className="nav-user-img-container">
                       <img src={user.imgUrl} />
+                      <div class="user-modal flex">
+                        <div class="modal-tip"></div><a href={`user/${user._id}`} class="light">Profile</a>
+                        <a href="{`user/${user._id}`}" class="">Dashboard</a><a onClick={onLogout}>Logout</a></div>
                     </div>
                   )}
                 </Link>
-                <button onClick={onLogout}>Logout</button>
+                {/* <button className="logout-btn" onClick={onLogout}>Logout</button> */}
               </div>
             )}
             {!user && (
