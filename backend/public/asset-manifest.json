@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.c4468386.css",
-    "main.js": "/static/js/main.78d39a5b.js",
+    "main.css": "/static/css/main.cd9450aa.css",
+    "main.js": "/static/js/main.cedf19f0.js",
     "static/media/macan-light.ttf": "/static/media/macan-light.75c0fb9306a207ee180f.ttf",
     "static/media/macan-bold.ttf": "/static/media/macan-bold.29c28b1d0173728738dc.ttf",
     "static/media/credit-cards.svg": "/static/media/credit-cards.dc2a5109488a35d64eb0f0fad652d6a5.svg",
@@ -24,17 +24,17 @@
     "index.html": "/index.html",
     "static/media/addToList.svg": "/static/media/addToList.643976d329ace03c404519ad554601b9.svg",
     "static/media/share.svg": "/static/media/share.5555b0e03f038d25ae61e41db79b3073.svg",
-    "static/media/error.svg": "/static/media/error.0feac0c422639ad1a9b8a0e8f6ce51a4.svg",
+    "static/media/error.svg": "/static/media/error.a3300018edd6dd4679682014e6046b23.svg",
     "static/media/flag.svg": "/static/media/flag.0c31b2c90762edccf51b268a66eed034.svg",
     "static/media/arrow.svg": "/static/media/arrow.db8108a1267aca7f505f488aeba9fcd4.svg",
     "static/media/success.svg": "/static/media/success.90cdcda91811446c744e6d7f51e9d1cc.svg",
     "static/media/heart.svg": "/static/media/heart.b56d552a7f0bc500f5f351e6037a5deb.svg",
     "static/media/heart-liked.svg": "/static/media/heart-liked.ab02d2838e3d334eed171781b82d0115.svg",
-    "main.c4468386.css.map": "/static/css/main.c4468386.css.map",
-    "main.78d39a5b.js.map": "/static/js/main.78d39a5b.js.map"
+    "main.cd9450aa.css.map": "/static/css/main.cd9450aa.css.map",
+    "main.cedf19f0.js.map": "/static/js/main.cedf19f0.js.map"
   },
   "entrypoints": [
-    "static/css/main.c4468386.css",
-    "static/js/main.78d39a5b.js"
+    "static/css/main.cd9450aa.css",
+    "static/js/main.cedf19f0.js"
   ]
 }

@@ -138,182 +138,211 @@ export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin, 
                             <path d='m85.3 27c2 0 3.7-1.7 3.7-3.7s-1.7-3.7-3.7-3.7-3.7 1.7-3.7 3.7 1.7 3.7 3.7 3.7z'></path>
                         </g>
                     </svg> */}
-                        {logo}
-                    </Link>
-                    <form className=' flex  align-center search-container' type='submit' onSubmit={handleSubmit}>
-                        <label htmlFor='gigTitle'></label>
-                        <input
-                            className='search-box'
-                            type='text'
-                            id='gigTitle'
-                            name='title'
-                            placeholder='What service are you looking for today?'
-                            value={filterByToEdit.title}
-                            onChange={handleChange}
-                        />
-                        <div
-                            onClick={() => {
-                                onSetFilter(filterByToEdit)
-                            }}
-                            className='search-icon-box'
-                        >
-                            <span className='material-symbols-outlined search-icon'>search</span>
-                        </div>
-                    </form>
-                </section>
-                <section className='top-nav-actions flex'>
-                    <p
-                        onClick={() => {
-                            navigate('/gig')
-                            setHeaderStyle('sticky ')
-                            setLogo(<BlackLogo />)
-                        }}
-                        className='nav-hover-clr'
-                    >
-                        Explore
-                    </p>
-                    {user && (
-                        <section className='header-action-icons'>
-                            <a href=''>
-                                <img src='https://fiverr-res.cloudinary.com/npm-assets/layout-server/bell.78d6546.svg' className='notifications-drawer-bell-trigger' alt='Notifications'></img>
-                            </a>
-                            <a href=''>
-                                <img src='https://fiverr-res.cloudinary.com/npm-assets/layout-server/letter.07c989b.svg' className='notifications-drawer-letter-trigger' alt='Messages'></img>
-                            </a>
-                            <Link to='/wishlist'>
-                                {' '}
-                                <a href=''>
-                                    <span className='XQskgrQ icon-button' aria-hidden='true'>
-                                        <svg width='18' height='18' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'>
-                                            <path d='M14.325 2.00937C12.5188 0.490623 9.72813 0.718748 8 2.47812C6.27188 0.718748 3.48125 0.487498 1.675 2.00937C-0.674996 3.9875 -0.331246 7.2125 1.34375 8.92187L6.825 14.5062C7.1375 14.825 7.55625 15.0031 8 15.0031C8.44688 15.0031 8.8625 14.8281 9.175 14.5094L14.6563 8.925C16.3281 7.21562 16.6781 3.99062 14.325 2.00937ZM13.5875 7.86875L8.10625 13.4531C8.03125 13.5281 7.96875 13.5281 7.89375 13.4531L2.4125 7.86875C1.27188 6.70625 1.04063 4.50625 2.64063 3.15937C3.85625 2.1375 5.73125 2.29062 6.90625 3.4875L8 4.60312L9.09375 3.4875C10.275 2.28437 12.15 2.1375 13.3594 3.15625C14.9563 4.50312 14.7188 6.71562 13.5875 7.86875Z'></path>
-                                        </svg>
-                                    </span>
-                                </a>
-                            </Link>
-                        </section>
-                    )}
-                    <div className='user-actions flex space-between'>
-                        {user && (
-                            <div className='user-visible-icons'>
-                                <a
-                                    className='orders-link'
-                                    onClick={(ev) => {
-                                        ev.stopPropagation()
-                                        setOpenOrders(!openOrders)
-                                    }}
-                                >
-                                    <span>Orders</span>
-                                    <div className='pop-menu-orders-area'>
-                                        {openOrders && (
-                                            <PopupMenu type='orders'>
-                                                <PopupOrderList />
-                                            </PopupMenu>
-                                        )}
-                                    </div>
-                                </a>
-                            </div>
-                        )}
-                        {user && (
-                            <div className='user-info flex align-center'>
-                                <Link className='flex align-center' to={`user/${user._id}`}>
-                                    {user.imgUrl && (
-                                        <div className='nav-user-img-container'>
-                                            <img src={user.imgUrl} />
-                                        </div>
-                                    )}
-                                </Link>
-                                <button className='logout-btn' onClick={onLogout}>
-                                    Logout
-                                </button>
-                            </div>
-                        )}
-                        {!user && (
-                            <section className='user-info'>
-                                {/* <Link to={'/user/loginsignup'}> */}
-                                <a
-                                    className='orders-link'
-                                    onClick={(ev) => {
-                                        ev.stopPropagation()
-                                        setOpenLogin(!openLogin)
-                                    }}
-                                >
-                                    <span>Sign In</span>
-                                </a>
-                                <div className='pop-menu-orders-area login-area-popup'>
-                                    {openLogin && (
-                                        <PopupMenu
-                                            onClick={(ev) => {
-                                                ev.stopPropagation()
-                                            }}
-                                            type='login'
-                                        >
-                                            <LoginSignup setHeaderStyle={setHeaderStyle} setLogo={setLogo} BlackLogo={BlackLogo} isLogin={true} />
-                                        </PopupMenu>
-                                    )}
-                                </div>
-                                {/* </Link> */}
-                                {/* <Link to={'/user/loginsignup'}> */}
-                                <button
-                                    onClick={(ev) => {
-                                        ev.stopPropagation()
-                                        setOpenJoin(!openJoin)
-                                    }}
-                                    className='join-btn'
-                                >
-                                    Join
-                                </button>{' '}
-                                {/* </Link> */}
-                                {openJoin && (
-                                    <PopupMenu
-                                        onClick={(ev) => {
-                                            ev.stopPropagation()
-                                        }}
-                                        type='login'
-                                    >
-                                        <LoginSignup setHeaderStyle={setHeaderStyle} BlackLogo={BlackLogo} isJoin={true} />
-                                    </PopupMenu>
-                                )}
-                            </section>
-                        )}
-                    </div>
-                </section>
-                <button class='menu-toggle-btn' onClick={toggleMenu}>
-                    ☰
-                </button>
+            {logo}
+          </Link>
+          <form
+            className=" flex  align-center search-container"
+            type="submit"
+            onSubmit={handleSubmit}
+          >
+            <label htmlFor="gigTitle"></label>
+            <input
+              className="search-box"
+              type="text"
+              id="gigTitle"
+              name="title"
+              placeholder="What service are you looking for today?"
+              value={filterByToEdit.title}
+              onChange={handleChange}
+            />
+            <div
+              onClick={() => {
+                onSetFilter(filterByToEdit);
+              }}
+              className="search-icon-box"
+            >
+              <span className="material-symbols-outlined search-icon">
+                search
+              </span>
             </div>
-            <hr className='full' />
-            <nav className='main-nav'>
-                <ul className='clean list flex space-between jusitfy-center '>
-                    <li>
-                        <a href='/gig?tags=graphics-design'>Graphics & Design</a>
-                    </li>
-                    <li>
-                        <a href='/gig?tags=digital-marketing'>Digital Marketing</a>
-                    </li>
-                    <li>
-                        <a href='/gig?tags=writing-translation'>Writing & Translation</a>
-                    </li>
-                    <li>
-                        <a href='/gig?tags=video-animation'>Video & Animation</a>
-                    </li>
-                    <li>
-                        <a href='/gig?tags=music-audio'>Music & Audio</a>
-                    </li>
-                    <li>
-                        <a href='/gig?tags=programming-tech'>Programming & Tech</a>
-                    </li>
-                    <li>
-                        <a href='/gig?tags=business'>Business</a>
-                    </li>
-                    <li>
-                        <a href='/gig?tags=lifestyle'>Lifestyle</a>
-                    </li>
-                    <li>
-                        <a href='/gig?tags=trending'>Trending</a>
-                    </li>
-                </ul>
-            </nav>
-            <hr className='full ' />
-        </header>
-    )
+          </form>
+        </section>
+        <button class="menu-toggle-btn" onClick={toggleMenu}>☰</button>
+        <section className="top-nav-actions flex">
+          <p
+            onClick={() => {
+              navigate("/gig");
+              setHeaderStyle("sticky ");
+              setLogo(<BlackLogo />);
+            }}
+            className="nav-hover-clr"
+          >
+            Explore
+          </p>
+          {user && (
+            <section className="header-action-icons">
+              <a href="">
+                <img
+                  src="https://fiverr-res.cloudinary.com/npm-assets/layout-server/bell.78d6546.svg"
+                  className="notifications-drawer-bell-trigger"
+                  alt="Notifications"
+                ></img>
+              </a>
+              <a href="">
+                <img
+                  src="https://fiverr-res.cloudinary.com/npm-assets/layout-server/letter.07c989b.svg"
+                  className="notifications-drawer-letter-trigger"
+                  alt="Messages"
+                ></img>
+              </a>
+              <Link to="/wishlist">
+                {" "}
+                <a href="">
+                  <span className="XQskgrQ icon-button" aria-hidden="true">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M14.325 2.00937C12.5188 0.490623 9.72813 0.718748 8 2.47812C6.27188 0.718748 3.48125 0.487498 1.675 2.00937C-0.674996 3.9875 -0.331246 7.2125 1.34375 8.92187L6.825 14.5062C7.1375 14.825 7.55625 15.0031 8 15.0031C8.44688 15.0031 8.8625 14.8281 9.175 14.5094L14.6563 8.925C16.3281 7.21562 16.6781 3.99062 14.325 2.00937ZM13.5875 7.86875L8.10625 13.4531C8.03125 13.5281 7.96875 13.5281 7.89375 13.4531L2.4125 7.86875C1.27188 6.70625 1.04063 4.50625 2.64063 3.15937C3.85625 2.1375 5.73125 2.29062 6.90625 3.4875L8 4.60312L9.09375 3.4875C10.275 2.28437 12.15 2.1375 13.3594 3.15625C14.9563 4.50312 14.7188 6.71562 13.5875 7.86875Z"></path>
+                    </svg>
+                  </span>
+                </a>
+              </Link>
+            </section>
+          )}
+          <div className="user-actions flex space-between">
+            {user && (
+              <div className="user-visible-icons">
+                <a
+                  className="orders-link"
+                  onClick={(ev) => {
+                    ev.stopPropagation();
+                    setOpenOrders(!openOrders);
+                  }}
+                >
+                  <span>Orders</span>
+                  <div className="pop-menu-orders-area">
+                    {openOrders && (
+                      <PopupMenu type="orders">
+                        <PopupOrderList />
+                      </PopupMenu>
+                    )}
+                  </div>
+                </a>
+              </div>
+            )}
+            
+
+            {user && (
+              <div className="user-info flex align-center">
+                <Link className="flex align-center" to={`user/${user._id}`}>
+                  {user.imgUrl && (
+                    <div className="nav-user-img-container">
+                      <img src={user.imgUrl} />
+                      <div class="user-modal flex">
+                        <div class="modal-tip"></div><a href={`user/${user._id}`} class="light">Profile</a>
+                        <a href="{`user/${user._id}`}" class="">Dashboard</a><a onClick={onLogout}>Logout</a></div>
+                    </div>
+                  )}
+                </Link>
+                {/* <button className="logout-btn" onClick={onLogout}>Logout</button> */}
+              </div>
+            )}
+            {!user && (
+              <section className="user-info">
+                {/* <Link to={'/user/loginsignup'}> */}
+                <a
+                  className="orders-link"
+                  onClick={(ev) => {
+                    ev.stopPropagation();
+                    setOpenLogin(!openLogin);
+                  }}
+                >
+                  <span>Sign In</span>
+                </a>
+                <div className="pop-menu-orders-area login-area-popup">
+                  {openLogin && (
+                    <PopupMenu
+                      onClick={(ev) => {
+                        ev.stopPropagation();
+                      }}
+                      type="login"
+                    >
+                      <LoginSignup
+                        setHeaderStyle={setHeaderStyle}
+                        setLogo={setLogo}
+                        BlackLogo={BlackLogo}
+                        isLogin={true}
+                      />
+                    </PopupMenu>
+                  )}
+                </div>
+                {/* </Link> */}
+                {/* <Link to={'/user/loginsignup'}> */}
+                <button
+                  onClick={(ev) => {
+                    ev.stopPropagation();
+                    setOpenJoin(!openJoin);
+                  }}
+                  className="join-btn"
+                >
+                  Join
+                </button>{" "}
+                {/* </Link> */}
+                {openJoin && (
+                  <PopupMenu
+                    onClick={(ev) => {
+                      ev.stopPropagation();
+                    }}
+                    type="login"
+                  >
+                    <LoginSignup
+                      setHeaderStyle={setHeaderStyle}
+                      BlackLogo={BlackLogo}
+                      isJoin={true}
+                    />
+                  </PopupMenu>
+                )}
+              </section>
+            )}
+          </div>
+        </section>
+      </div>
+      <hr className="full" />
+      <nav className="main-nav">
+        <ul className="clean list flex space-between jusitfy-center ">
+          <li>
+            <a href="/gig?tags=graphics-design">Graphics & Design</a>
+          </li>
+          <li>
+            <a href="/gig?tags=digital-marketing">Digital Marketing</a>
+          </li>
+          <li>
+            <a href="/gig?tags=writing-translation">Writing & Translation</a>
+          </li>
+          <li>
+            <a href="/gig?tags=video-animation">Video & Animation</a>
+          </li>
+          <li>
+            <a href="/gig?tags=music-audio">Music & Audio</a>
+          </li>
+          <li>
+            <a href="/gig?tags=programming-tech">Programming & Tech</a>
+          </li>
+          <li>
+            <a href="/gig?tags=business">Business</a>
+          </li>
+          <li>
+            <a href="/gig?tags=lifestyle">Lifestyle</a>
+          </li>
+          <li>
+            <a href="/gig?tags=trending">Trending</a>
+          </li>
+        </ul>
+      </nav>
+      <hr className="full " />
+    </header>
+  );
 }
