@@ -20,11 +20,20 @@ import { ReactComponent as WhiteLogo } from "../assets/img/lazyerr-logo-white.sv
 import { ReactComponent as BlackLogo } from "../assets/img/lazyerr-logo-black.svg";
 import { LoginSignup } from "./login-signup";
 
-export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin ,  openJoin, setOpenJoin}) {
+export function AppHeader({
+  openOrders,
+  setOpenOrders,
+  openLogin,
+  setOpenLogin,
+  openJoin,
+  setOpenJoin,
+}) {
   const navigate = useNavigate();
   let location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [filterByToEdit, setFilterByToEdit] = useState(gigService.getDefaultFilter());
+  const [filterByToEdit, setFilterByToEdit] = useState(
+    gigService.getDefaultFilter()
+  );
   const user = useSelector((storeState) => storeState.userModule.user);
   const [headerStyle, setHeaderStyle] = useState(
     location.pathname === "/" ? "fix" : "sticky"
@@ -35,30 +44,31 @@ export function AppHeader({ openOrders, setOpenOrders, openLogin, setOpenLogin ,
     location.pathname === "/" ? <WhiteLogo /> : <BlackLogo />
   );
 
-  useEffect(() => {
-   
-      switchHeaderStyle(window.pageYOffset);
-    
-  }, [location]);
-  
+  // useEffect(() => {
+  //   switchHeaderStyle(window.pageYOffset);
+  // }, [location]);
+
   useEffect(() => {
     window.onscroll = function (e) {
       switchHeaderStyle(window.pageYOffset);
     };
   }, []);
+  // useEffect(() => {
+  //   console.log("class", headerStyle);
+  // }, [headerStyle]);
   useEffect(() => {
-console.log('class',headerStyle);
-  }, [headerStyle]);
-
+    window.onscroll = function (e) {
+      switchHeaderStyle(window.pageYOffset);
+    };
+  }, [location]);
   useEffect(() => {
-    
-  const queryFilterBy = gigService.getFilterFromSearchParams(searchParams);
-  onSetFilter(queryFilterBy)
+    const queryFilterBy = gigService.getFilterFromSearchParams(searchParams);
+    onSetFilter(queryFilterBy);
   }, []);
 
   function switchHeaderStyle(pageYOffset) {
-    console.log('location.pathname', location.pathname)
-    console.log('pageYOffset', pageYOffset)
+    console.log("location.pathname", location.pathname);
+    console.log("pageYOffset", pageYOffset);
     if (location.pathname !== "/") {
       setHeaderStyle("sticky ");
       setLogo(<BlackLogo />);
@@ -95,18 +105,18 @@ console.log('class',headerStyle);
   // }
   async function onLogout() {
     try {
-      await logout()
-      showSuccessMsg(`See you soon!`)
-      navigate("/")
+      await logout();
+      showSuccessMsg(`See you soon!`);
+      navigate("/");
     } catch (err) {
-      showErrorMsg("Cannot logout")
+      showErrorMsg("Cannot logout");
     }
   }
 
   function handleSubmit(ev) {
     ev.preventDefault();
-    setSearchParams(filterByToEdit)
-    onSetFilter(filterByToEdit)
+    setSearchParams(filterByToEdit);
+    onSetFilter(filterByToEdit);
   }
 
   function handleChange({ target }) {
@@ -117,7 +127,7 @@ console.log('class',headerStyle);
   }
 
   function onSetFilter(filterBy) {
-    console.log('filterByfom header', filterBy);
+    console.log("filterByfom header", filterBy);
     setSearchParams(filterBy);
     setFilter(filterBy);
     // navigate(`/gig?title=${filterBy.title}`);
@@ -256,24 +266,47 @@ console.log('class',headerStyle);
                 </a>
                 <div className="pop-menu-orders-area login-area-popup">
                   {openLogin && (
-                    <PopupMenu onClick={(ev) => {
-                      ev.stopPropagation()}} type="login">
-                      <LoginSignup setHeaderStyle={setHeaderStyle} setLogo={setLogo} BlackLogo={BlackLogo} isLogin={true} />
+                    <PopupMenu
+                      onClick={(ev) => {
+                        ev.stopPropagation();
+                      }}
+                      type="login"
+                    >
+                      <LoginSignup
+                        setHeaderStyle={setHeaderStyle}
+                        setLogo={setLogo}
+                        BlackLogo={BlackLogo}
+                        isLogin={true}
+                      />
                     </PopupMenu>
                   )}
                 </div>
                 {/* </Link> */}
                 {/* <Link to={'/user/loginsignup'}> */}
-                <button    onClick={(ev) => {
+                <button
+                  onClick={(ev) => {
                     ev.stopPropagation();
                     setOpenJoin(!openJoin);
-                  }} className="join-btn" >Join</button> {/* </Link> */}
-                {
-                openJoin && <PopupMenu onClick={(ev) => {
-                  ev.stopPropagation()}} type="login">
-                   <LoginSignup setHeaderStyle={setHeaderStyle}  BlackLogo={BlackLogo} isJoin={true} />
-                 </PopupMenu>
-                }
+                  }}
+                  className="join-btn"
+                >
+                  Join
+                </button>{" "}
+                {/* </Link> */}
+                {openJoin && (
+                  <PopupMenu
+                    onClick={(ev) => {
+                      ev.stopPropagation();
+                    }}
+                    type="login"
+                  >
+                    <LoginSignup
+                      setHeaderStyle={setHeaderStyle}
+                      BlackLogo={BlackLogo}
+                      isJoin={true}
+                    />
+                  </PopupMenu>
+                )}
               </section>
             )}
           </div>
