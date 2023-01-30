@@ -14,7 +14,7 @@ export function Charts({ chartId, sellerId, height, width }) {
     height: height,
     width: width,
     filter: { "seller._id": sellerId },
-    maxDataAge: 3000,
+    maxDataAge: 600,
     autoRefresh: true,
     showAttribution : false
   });
