@@ -1,15 +1,36 @@
-.pending-status {
-    color: orange;
+// .pending-status {
+//     color: orange;
+// }
+
+// .in-progress-status {
+//     color: green;
+// }
+
+// .done-status {
+//     color: black;
+// }
+
+// .rejected-status{
+//     color: red;
+// }
+
+
+.status-blue {
+    color: $clr7;
 }
 
-.in-progress-status {
-    color: green;
+.status-green {
+    color: $clr2;
 }
 
-.done-status {
-    color: black;
+.status-yellow {
+    color: $clr6;
 }
 
-.rejected-status{
-    color: red;
+.status-pink {
+    color: $clr23;
+}
+
+.status-lightblue {
+    color: $clr22;
 }

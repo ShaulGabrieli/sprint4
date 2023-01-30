@@ -1,4 +1,5 @@
-.seller-options, .seller-gigs {
+.seller-options,
+.seller-gigs {
     h1 {
         margin-top: 40px;
     }
@@ -94,26 +95,6 @@
                 display: none;
             }
         }
-    }
-
-    .status-blue {
-        color: blue;
-    }
-
-    .status-green {
-        color: green;
-    }
-
-    .status-yellow {
-        color: rgb(189, 189, 0);
-    }
-
-    .status-orange {
-        color: orangered;
-    }
-
-    .status-red {
-        color: red;
     }
 
     .user-orders-manage-section {

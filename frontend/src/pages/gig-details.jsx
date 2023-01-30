@@ -98,8 +98,8 @@ export function GigDetails() {
         <div className="hr-top-details sticky full">
           <hr />
         </div>
-      </div>    
-                  
+      </div>
+
       {/* <div className="main-details-container"> */}
       {/* <div className="hr-details-nav ">
                 </div> */}
@@ -177,12 +177,12 @@ export function GigDetails() {
               {/* check if metadata is needed here */}
             </div>
           </div>
-          <h2 id="aboutSeller" className="about-the-seller"> 
+          <h2 id="aboutSeller" className="about-the-seller">
             <span>About The Seller</span></h2>
-            <div className="about-seller-content">
-              <p className="about-seller-details">{gig.aboutSeller}</p>
-            </div>
-         
+          <div className="about-seller-content">
+            <p className="about-seller-details">{gig.aboutSeller}</p>
+          </div>
+
           <div className="profile-card">
             <div className="seller-card">
               <div className="profile-info flex">

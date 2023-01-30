@@ -15,6 +15,7 @@ import { GigPreview } from '../cmps/gig-preview'
 import { sellerActions } from '../cmps/global-const/global-const'
 import { loadGigs } from '../store/gig.actions'
 import { MyChart } from '../cmps/charts'
+import { OrderStatus } from '../cmps/order-status'
 
 export function UserDetails() {
     const params = useParams()
@@ -71,26 +72,6 @@ export function UserDetails() {
         store.dispatch({ type: 'SET_WATCHED_USER', user })
     }
 
-    function changeStatusColor(currStatus) {
-        switch (currStatus) {
-            case 'pending':
-                return 'status-blue'
-            case 'approved':
-                return 'status-green'
-
-            case 'in progress':
-                return 'status-yellow'
-
-            case 'done':
-                return 'status-orange'
-
-            case 'rejected':
-                return 'status-red'
-            default:
-                return ''
-        }
-    }
-
     if (!userOrders)
         return (
             <div className='loading-spinner flex'>
@@ -117,7 +98,9 @@ export function UserDetails() {
                                 </svg>
                                 From
                             </span>
-                            <span>Israel</span>
+                            
+                            <span>Israel{user.country}</span>
+                            
                             {/* <span>{user.country}</span> */}
                         </div>
                         <div className='date-created flex space-between'>
@@ -133,10 +116,11 @@ export function UserDetails() {
                 <section className='user-orders-manage-section flex column'>
                     {/* <BasicTabs /> */}
                     <div className='static-charts-main flex row'>
-                        <MyChart chartId='63d5a0cb-d8ca-4eff-8c06-1918755e0bdd' sellerId={user._id} height='180px' width='150px' />
-                        <MyChart chartId='63d629fc-64cf-4cdc-8b6c-8225e3ace76d' sellerId={user._id} height='180px' width='150px' />
-                        <MyChart chartId='d5f009e2-6f96-4816-9cae-b32a4ed485b7' sellerId={user._id} height='180px' width='150px' />
-                        <MyChart chartId='675bc298-3b6c-4019-a500-f201bdbb3044' sellerId={user._id} height='180px' width='150px' />
+                        <MyChart chartId='63d5a0cb-d8ca-4eff-8c06-1918755e0bdd' sellerId={user._id} height='180px' width='150px' /> {/* total-revenur */}
+                        <MyChart chartId='63d629fc-64cf-4cdc-8b6c-8225e3ace76d' sellerId={user._id} height='180px' width='150px' /> {/* pending */}
+                        <MyChart chartId='675bc298-3b6c-4019-a500-f201bdbb3044' sellerId={user._id} height='180px' width='150px' /> {/* in-progress */}
+                        <MyChart chartId='d5f009e2-6f96-4816-9cae-b32a4ed485b7' sellerId={user._id} height='180px' width='150px' /> {/* done */}
+                    
                     </div>
                     <div className='seller-options'>
                         <h1>Seller options</h1>
@@ -157,7 +141,7 @@ export function UserDetails() {
                                             <td>{order.buyer.fullname}</td>
                                             {/* <td> {order.gig._id}</td> */}
                                             <td>{order.gig.title}</td>
-                                            <td className={changeStatusColor(order.status)}>{order.status}</td>
+                                            <td><OrderStatus status={order.status}/></td>
                                             <td>
                                                 {order.status === 'pending' && <button onClick={() => onChangeStatus(order, 'approved')}>Approved</button>}
                                                 {order.status === 'approved' && <button onClick={() => onChangeStatus(order, 'in progress')}>In progress</button>}

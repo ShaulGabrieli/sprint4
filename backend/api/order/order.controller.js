@@ -53,6 +53,7 @@ async function addOrder(req, res) {
     const { loggedinUser } = asyncLocalStorage.getStore()
     delete order._id
     order.buyer = loggedinUser
+    console.log('order.buyer',order.buyer )
     order.createdAt = Date.now()
     order.changeStatusAt = Date.now()
     const addedOrder = await orderService.add(order)
@@ -72,6 +73,7 @@ async function updateOrder(req, res) {
     delete orderToSave.createdAt
     delete orderToSave.buyer
     delete orderToSave._id
+
     orderToSave.changeStatusAt = Date.now()
     const updatedOrder = await orderService.update(orderToSave,orderId)
     res.json(updatedOrder)
