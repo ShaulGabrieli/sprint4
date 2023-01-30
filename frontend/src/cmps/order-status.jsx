@@ -1,24 +1,44 @@
 
 
 export function OrderStatus({status}) {
-    function getStatusColor(status) {
+    function changeStatusColor(status) {
         switch (status) {
             case 'pending':
-                return 'pending-status'
+                return 'status-yellow'
+            case 'approved':
+                return 'status-lightblue'
+
             case 'in progress':
-                return 'in-progress-status'
+                return 'status-blue'
+
             case 'done':
-                return 'done-status'
+                return 'status-green'
+
             case 'rejected':
-                return 'rejected-status'
+                return 'status-pink'
             default:
-               return ''
+                return ''
         }
     }
+    
+    // function getStatusColor(status) {
+    //     switch (status) {
+    //         case 'pending':
+    //             return 'pending-status'
+    //         case 'in progress':
+    //             return 'in-progress-status'
+    //         case 'done':
+    //             return 'done-status'
+    //         case 'rejected':
+    //             return 'rejected-status'
+    //         default:
+    //            return ''
+    //     }
+    // }
 
 
     return (
-        <div className={`order-status-container ${getStatusColor(status)}`}>
+        <div className={` ${changeStatusColor(status)} order-status-container`}>
             {status}
         </div>)
 }
