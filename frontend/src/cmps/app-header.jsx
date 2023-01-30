@@ -1,24 +1,18 @@
-import {
-  Link,
-  NavLink,
-  useSearchParams,
-  useNavigate,
-  useLocation,
-} from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
-import { login, logout, signup } from "../store/user.actions.js";
-import { GigFilter } from "./gig-filter.jsx";
-import { PopupMenu } from "./popup-menu";
-import { PopupOrderList } from "./popup-order-list.jsx";
-import { GigOrderList } from "./gig-order-list.jsx";
-import { setFilter } from "../store/gig.actions.js";
+import { Link, NavLink, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+import { login, logout, signup } from '../store/user.actions.js'
+import { GigFilter } from './gig-filter.jsx'
+import { PopupMenu } from './popup-menu'
+import { PopupOrderList } from './popup-order-list.jsx'
+import { GigOrderList } from './gig-order-list.jsx'
+import { setFilter } from '../store/gig.actions.js'
 // import { gigService } from '../services/gig.service.local'
-import { gigService } from "../services/gig.service";
-import { ReactComponent as WhiteLogo } from "../assets/img/lazyerr-logo-white.svg";
-import { ReactComponent as BlackLogo } from "../assets/img/lazyerr-logo-black.svg";
-import { LoginSignup } from "./login-signup";
+import { gigService } from '../services/gig.service'
+import { ReactComponent as WhiteLogo } from '../assets/img/lazyerr-logo-white.svg'
+import { ReactComponent as BlackLogo } from '../assets/img/lazyerr-logo-black.svg'
+import { LoginSignup } from './login-signup'
 
 export function AppHeader({
   openOrders,
@@ -46,54 +40,54 @@ export function AppHeader({
     location.pathname === "/" ? <WhiteLogo /> : <BlackLogo />
   );
 
-  // useEffect(() => {
-  //   switchHeaderStyle(window.pageYOffset);
-  // }, [location]);
+    // useEffect(() => {
+    //   switchHeaderStyle(window.pageYOffset);
+    // }, [location]);
 
-  useEffect(() => {
-    window.onscroll = function (e) {
-      switchHeaderStyle(window.pageYOffset);
-    };
-  }, []);
+    useEffect(() => {
+        window.onscroll = function (e) {
+            switchHeaderStyle(window.pageYOffset)
+        }
+    }, [])
 
-  useEffect(() => {
-    window.onscroll = function (e) {
-      switchHeaderStyle(window.pageYOffset);
-    };
-  }, [location.pathname]);
-  // useEffect(() => {
-  //   console.log("class", headerStyle);
-  // }, [headerStyle]);
-  useEffect(() => {
-    window.onscroll = function (e) {
-      switchHeaderStyle(window.pageYOffset);
-    };
-  }, [location]);
-  useEffect(() => {
-    const queryFilterBy = gigService.getFilterFromSearchParams(searchParams);
-    onSetFilter(queryFilterBy);
-  }, []);
+    useEffect(() => {
+        window.onscroll = function (e) {
+            switchHeaderStyle(window.pageYOffset)
+        }
+    }, [location.pathname])
+    // useEffect(() => {
+    //   console.log("class", headerStyle);
+    // }, [headerStyle]);
+    useEffect(() => {
+        window.onscroll = function (e) {
+            switchHeaderStyle(window.pageYOffset)
+        }
+    }, [location])
+    useEffect(() => {
+        const queryFilterBy = gigService.getFilterFromSearchParams(searchParams)
+        onSetFilter(queryFilterBy)
+    }, [])
 
-  function switchHeaderStyle(pageYOffset) {
-    console.log("location.pathname", location.pathname);
-    console.log("pageYOffset", pageYOffset);
-    if (location.pathname !== "/") {
-      setHeaderStyle("sticky ");
-      setLogo(<BlackLogo />);
+    function switchHeaderStyle(pageYOffset) {
+        console.log('location.pathname', location.pathname)
+        console.log('pageYOffset', pageYOffset)
+        if (location.pathname !== '/') {
+            setHeaderStyle('sticky ')
+            setLogo(<BlackLogo />)
+        }
+        if (location.pathname === '/' && pageYOffset === 0) {
+            setHeaderStyle('fix ')
+            setLogo(<WhiteLogo />)
+        }
+        if (location.pathname === '/' && pageYOffset > 0) {
+            setHeaderStyle('fix2 ')
+            setLogo(<BlackLogo />)
+        }
+        if (location.pathname === '/' && pageYOffset > 125) {
+            setHeaderStyle('fix3 ')
+            setLogo(<BlackLogo />)
+        }
     }
-    if (location.pathname === "/" && pageYOffset === 0) {
-      setHeaderStyle("fix ");
-      setLogo(<WhiteLogo />);
-    }
-    if (location.pathname === "/" && pageYOffset > 0) {
-      setHeaderStyle("fix2 ");
-      setLogo(<BlackLogo />);
-    }
-    if (location.pathname === "/" && pageYOffset > 125) {
-      setHeaderStyle("fix3 ");
-      setLogo(<BlackLogo />);
-    }
-  }
 
   // async function onLogin(credentials) {
   //     try {
@@ -113,32 +107,37 @@ export function AppHeader({
   // }
 
 
-  function handleSubmit(ev) {
-    ev.preventDefault();
-    setSearchParams(filterByToEdit);
-    onSetFilter(filterByToEdit);
-  }
+    function handleSubmit(ev) {
+        ev.preventDefault()
+        setSearchParams(filterByToEdit)
+        onSetFilter(filterByToEdit)
+    }
 
-  function handleChange({ target }) {
-    let { value, name: field, type } = target;
-    setFilterByToEdit((prevFilter) => {
-      return { ...prevFilter, [field]: value };
-    });
-  }
+    function handleChange({ target }) {
+        let { value, name: field, type } = target
+        setFilterByToEdit((prevFilter) => {
+            return { ...prevFilter, [field]: value }
+        })
+    }
 
-  function onSetFilter(filterBy) {
-    console.log("filterByfom header", filterBy);
-    setSearchParams(filterBy);
-    setFilter(filterBy);
-    // navigate(`/gig?title=${filterBy.title}`);
-  }
+    function onSetFilter(filterBy) {
+        console.log('filterByfom header', filterBy)
+        setSearchParams(filterBy)
+        setFilter(filterBy)
+        // navigate(`/gig?title=${filterBy.title}`);
+    }
 
-  return (
-    <header className={`app-header main-container full sticky ${headerStyle}`}>
-      <div className="flex align-center top-nav">
-        <section className="top-nav-logo-search flex align-center">
-          <Link className="header-logo" to={`/`}>
-            {/* <svg width='89' height='27' viewBox='0 0 89 27' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    function toggleMenu() {
+        document.body.classList.toggle('menu-open')
+    }
+
+    return (
+        <header className={`app-header main-container full sticky ${headerStyle}`}>
+            <div class='main-screen' onClick={toggleMenu}></div>
+            <div className='flex align-center top-nav'>
+                <section className='top-nav-logo-search flex align-center'>
+                    <Link className='header-logo' to={`/`}>
+                        {/* <svg width='89' height='27' viewBox='0 0 89 27' fill='none' xmlns='http://www.w3.org/2000/svg'>
                         <g className='svg-logo' fill='#404145'>
                             <path d='m81.6 13.1h-3.1c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-13.4h-2.5c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-18.4h6v2.8c1-2.2 2.3-2.8 4.3-2.8h7.3v2.8c1-2.2 2.3-2.8 4.3-2.8h2zm-25.2 5.6h-12.4c.3 2.1 1.6 3.2 3.7 3.2 1.6 0 2.7-.7 3.1-1.8l5.3 1.5c-1.3 3.2-4.5 5.1-8.4 5.1-6.5 0-9.5-5.1-9.5-9.5 0-4.3 2.6-9.4 9.1-9.4 6.9 0 9.2 5.2 9.2 9.1 0 .9 0 1.4-.1 1.8zm-5.7-3.5c-.1-1.6-1.3-3-3.3-3-1.9 0-3 .8-3.4 3zm-22.9 11.3h5.2l6.6-18.3h-6l-3.2 10.7-3.2-10.8h-6zm-24.4 0h5.9v-13.4h5.7v13.4h5.9v-18.4h-11.6v-1.1c0-1.2.9-2 2.2-2h3.5v-5h-4.4c-4.3 0-7.2 2.7-7.2 6.6v1.5h-3.4v5h3.4z'></path>
                         </g>
@@ -175,6 +174,7 @@ export function AppHeader({
             </div>
           </form>
         </section>
+        <button class="menu-toggle-btn" onClick={toggleMenu}>☰</button>
         <section className="top-nav-actions flex">
           <p
             onClick={() => {
@@ -240,6 +240,8 @@ export function AppHeader({
                 </a>
               </div>
             )}
+            
+
             {user && (
               <div className="user-info flex align-center">
                 <Link className="flex align-center" >
