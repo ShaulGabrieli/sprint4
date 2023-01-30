@@ -10,7 +10,7 @@ async function query(filterBy = {}) {
         const criteria = _buildCriteria(filterBy)
         console.log('criteria', criteria);
         const collection = await dbService.getCollection('gigs')
-        var gigs = await collection.find(criteria).toArray()
+        var gigs = await collection.find(criteria).sort({"owner.rate" : -1}).toArray()
         return gigs
     } catch (err) {
         logger.error('cannot find gigs', err)

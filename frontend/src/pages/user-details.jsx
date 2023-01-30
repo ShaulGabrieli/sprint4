@@ -17,7 +17,7 @@ import { Loading } from "../cmps/loading";
 import { GigPreview } from "../cmps/gig-preview";
 import { sellerActions } from "../cmps/global-const/global-const";
 import { loadGigs } from "../store/gig.actions";
-import { MyChart } from "../cmps/charts";
+import { Charts } from "../cmps/charts";
 import Select from "react-select";
 
 export function UserDetails() {
@@ -104,12 +104,12 @@ export function UserDetails() {
     return sellerGigs;
   }
 
-  function onUserUpdate(user) {
-    showSuccessMsg(
-      `This user ${user.fullname} just got updated from socket, new score: ${user.score}`
-    );
-    store.dispatch({ type: "SET_WATCHED_USER", user });
-  }
+  // function onUserUpdate(user) {
+  //   showSuccessMsg(
+  //     `This user ${user.fullname} just got updated from socket, new score: ${user.score}`
+  //   );
+  //   store.dispatch({ type: "SET_WATCHED_USER", user });
+  // }
 
   function changeStatusColor(currStatus) {
     switch (currStatus) {
@@ -173,37 +173,37 @@ export function UserDetails() {
                 {/* <span>{user.createdAt}</span> */}
               </div>
             </div>
-            <MyChart
+            <Charts
               chartId="63d2e8cb-7df1-415a-8cc0-8dfade37b3a9"
               sellerId={user._id}
               height="400px"
               width="300px"
             />
-            {/* <MyChart chartId="63d5a294-d62c-45cb-829a-46fabee1a964" sellerId={user._id} height="400px" width="300px" /> */}
+            {/* <Charts chartId="63d5a294-d62c-45cb-829a-46fabee1a964" sellerId={user._id} height="400px" width="300px" /> */}
           </section>
         </div>
         <section className="user-orders-manage-section flex column">
           {/* <BasicTabs /> */}
           <div className="static-charts-main flex row">
-            <MyChart
+            <Charts
               chartId="63d5a0cb-d8ca-4eff-8c06-1918755e0bdd"
               sellerId={user._id}
               height="180px"
               width="150px"
             />
-            <MyChart
+            <Charts
               chartId="63d629fc-64cf-4cdc-8b6c-8225e3ace76d"
               sellerId={user._id}
               height="180px"
               width="150px"
             />
-            <MyChart
+            <Charts
               chartId="d5f009e2-6f96-4816-9cae-b32a4ed485b7"
               sellerId={user._id}
               height="180px"
               width="150px"
             />
-            <MyChart
+            <Charts
               chartId="675bc298-3b6c-4019-a500-f201bdbb3044"
               sellerId={user._id}
               height="180px"
