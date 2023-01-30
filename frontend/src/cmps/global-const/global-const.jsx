@@ -34,8 +34,8 @@ export const daysToMakeOptions = [
 ]
 
 export const sellerActions = [
-    { value: 'approved', label: 'Approved' },
-    { value: 'in progress', label: 'In progress' },
+    { value: 'approved', label: 'Approved'},
+    { value: 'in progress', label: 'In progress'},
     { value: 'done', label: 'Done' },
     { value: 'rejected', label: 'Rejected' },
 ]

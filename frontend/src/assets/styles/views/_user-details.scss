@@ -229,6 +229,20 @@
       box-shadow: inset 0px 0px 3px 0px rgb(85 85 85 / 53%);
     }
   }
+
+  .dropdown-status{
+  margin: 0;
+  display: flex;
+  min-height: 38px;
+  outline: 0 !important;
+  position: relative;
+  -webkit-transition: all 100ms;
+  transition: all 100ms;
+  width: 100px;
+  //   border-color: hsl(0, 0%, 80%);
+  border-radius: 4px;
+  border: 1px solid hsl(0, 0%, 80%);
+  }
 }
 .user-shoer-info {
   margin: 25px 0;
