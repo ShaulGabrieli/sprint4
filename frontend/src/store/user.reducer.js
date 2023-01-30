@@ -8,7 +8,7 @@ export const SET_USER = 'SET_USER'
 export const SET_WATCHED_USER = 'SET_WATCHED_USER'
 export const REMOVE_USER = 'REMOVE_USER'
 export const SET_USERS = 'SET_USERS'
-export const SET_SCORE = 'SET_SCORE'
+// export const SET_SCORE = 'SET_SCORE'
 export const SET_WISHLIST = 'SET_WISHLIST'
 
 const initialState = {
@@ -45,9 +45,9 @@ export function userReducer(state = initialState, action) {
         case SET_USERS:
             newState = { ...state, users: action.users }
             break
-        case SET_SCORE:
-            newState = { ...state, user: { ...state.user, score: action.score } }
-            break
+        // case SET_SCORE:
+        //     newState = { ...state, user: { ...state.user, score: action.score } }
+        //     break
         case SET_WISHLIST:
             newState = (userService.getLoggedinUser()) ? { ...state, user: { ...state.user, wishlist: action.wishlist } } : { ...state }
         default:

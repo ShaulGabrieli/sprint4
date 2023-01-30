@@ -57,7 +57,7 @@ function remove(userId) {
 
 async function update({_id, score, wishlist}) {
     const user = await storageService.get('user', _id)
-    user.score = score
+    // user.score = score
     user.wishlist = wishlist
     await storageService.put('user', user)
 

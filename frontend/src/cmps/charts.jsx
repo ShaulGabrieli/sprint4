@@ -4,7 +4,7 @@ import { utilService } from "../services/util.service";
 
 const BASE_CHARTS_URL = "https://charts.mongodb.com/charts-sprint4-txzkw"
 
-export function MyChart({ chartId, sellerId, height, width }) {
+export function Charts({ chartId, sellerId, height, width }) {
   const randDivId = utilService.makeId()
   const sdk = new ChartsEmbedSDK({
     baseUrl: BASE_CHARTS_URL, 
@@ -15,7 +15,8 @@ export function MyChart({ chartId, sellerId, height, width }) {
     width: width,
     filter: { "seller._id": sellerId },
     maxDataAge: 3000,
-    autoRefresh: true
+    autoRefresh: true,
+    showAttribution : false
   });
 
   useEffect(() => {

@@ -15,7 +15,7 @@ export const userService = {
     getById,
     remove,
     update,
-    changeScore,
+    // changeScore,
     addToWishlist,
     getWishlist,
     removeFromWishlist,
@@ -41,12 +41,12 @@ function remove(userId) {
     return httpService.delete(`user/${userId}`)
 }
 
-async function update({ _id, score, wishlist }) {
+async function update({ _id,fullname ,score, wishlist }) {
     // const user = await storageService.get('user', _id)
     // user.score = score
     // user.wishlist = wishlist
     // await storageService.put('user', user)
-    const user = await httpService.put(`user/${_id}`, { _id, score, wishlist })
+    const user = await httpService.put(`user/${_id}`, { _id,fullname, score, wishlist })
     // Handle case in which admin updates other user's details
     if (getLoggedinUser()._id === user._id) saveLocalUser(user)
     return user
@@ -76,13 +76,13 @@ async function logout() {
     return await httpService.post('auth/logout')
 }
 
-async function changeScore(by) {
-    const user = getLoggedinUser()
-    if (!user) throw new Error('Not loggedin')
-    user.score = user.score + by || by
-    await update(user)
-    return user.score
-}
+// async function changeScore(by) {
+//     const user = getLoggedinUser()
+//     if (!user) throw new Error('Not loggedin')
+//     user.score = user.score + by || by
+//     await update(user)
+//     return user.score
+// }
 
 
 function saveLocalUser(user) {

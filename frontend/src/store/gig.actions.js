@@ -14,7 +14,7 @@ import {
   UPDATE_GIG,
   SET_ORDERS_PREVIEW,
 } from "./gig.reducer.js";
-import { SET_SCORE } from "./user.reducer.js";
+// import { SET_SCORE } from "./user.reducer.js";
 import { SET_FILTER } from "./filter.reducer.js";
 // Action Creators:
 export function getActionRemoveGig(gigId) {
@@ -98,17 +98,17 @@ export function removeFromCart(gigId) {
   });
 }
 
-export async function checkout(total) {
-  try {
-    const score = await userService.changeScore(-total);
-    store.dispatch({ type: SET_SCORE, score });
-    store.dispatch({ type: CLEAR_CART });
-    return score;
-  } catch (err) {
-    console.log("GigActions: err in checkout", err);
-    throw err;
-  }
-}
+// export async function checkout(total) {
+//   try {
+//     const score = await userService.changeScore(-total);
+//     // store.dispatch({ type: SET_SCORE, score });
+//     store.dispatch({ type: CLEAR_CART });
+//     return score;
+//   } catch (err) {
+//     console.log("GigActions: err in checkout", err);
+//     throw err;
+//   }
+// }
 
 export function setFilter(filterBy) {
   console.log('filterBy', filterBy);
