@@ -232,7 +232,7 @@ export function UserDetails() {
                       <td className="gig-buyer-dash">{order.buyer.fullname}</td>
                       {/* <td> {order.gig._id}</td> */}
                       <td className="gig-title-dash">
-                        {order.gig.title.substring(0, 55) + "..."}
+                        {order.gig.title.substring(0, 75)}
                       </td>
                       {/* <td className={changeStatusColor(order.status)}>
                         {order.status}
@@ -240,7 +240,7 @@ export function UserDetails() {
                       <td>
                       <select className='dropdown-status' onChange={(event)=> onChangeStatus(order, event.target.value)}>
                                                 <option value="" disabled selected>{order.status}</option>
-                                                    <option value='approved'>Approve</option>
+                                                    <option className="option1" value='approved'>Approve</option>
                                                     <option value='in progress'>In progress</option>
                                                     <option value='done'>Done</option>
                                                     <option value='rejected'>Reject</option>
