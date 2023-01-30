@@ -14,7 +14,7 @@ export function ChartsDashboard({ dashboardId, sellerId, height, width }) {
     width: "1100px",
     height: "700px",
     filter: { "seller._id": sellerId },
-    maxDataAge: 60,
+    maxDataAge: 600,
     autoRefresh: true,
     showAttribution : false
   });
