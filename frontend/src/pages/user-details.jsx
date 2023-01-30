@@ -21,88 +21,91 @@ import { Charts } from "../cmps/charts";
 import Select from "react-select";
 
 export function UserDetails() {
-  const params = useParams();
-  const user = useSelector((storeState) => storeState.userModule.user);
-  const userOrders = useSelector(
-    (storeState) => storeState.orderModule.userOrders
-  );
-  const sellerOrders = useSelector(
-    (storeState) => storeState.orderModule.sellerOrders
-  );
-  const gigs = useSelector((storeState) => storeState.gigModule.gigs);
+    const params = useParams()
+    const user = useSelector((storeState) => storeState.userModule.user)
+    const userOrders = useSelector((storeState) => storeState.orderModule.userOrders)
+    const sellerOrders = useSelector((storeState) => storeState.orderModule.sellerOrders)
+    const gigs = useSelector((storeState) => storeState.gigModule.gigs)
 
-  // const [sellerGigs, setSellerGigs] = useState(getSellerGigs(user._id))
+    // const [sellerGigs, setSellerGigs] = useState(getSellerGigs(user._id))
 
-  // useEffect(() => {
-  //     loadUser(params.id)
+    // useEffect(() => {
+    //     loadUser(params.id)
 
-  //     socketService.emit(SOCKET_EMIT_USER_WATCH, params.id)
-  //     socketService.on(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
+    //     socketService.emit(SOCKET_EMIT_USER_WATCH, params.id)
+    //     socketService.on(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
 
-  //     return () => {
-  //         socketService.off(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
-  //     }
-  // }, [])
+    //     return () => {
+    //         socketService.off(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
+    //     }
+    // }, [])
 
-  useEffect(() => {
-    loadOrders();
-    onLoadGigs();
-    window.scrollTo(0, 0);
-  }, []);
+    useEffect(() => {
+        loadOrders()
+        onLoadGigs()
+        window.scrollTo(0, 0)
+    }, [])
 
-  async function onLoadGigs() {
-    try {
-      await loadGigs();
-    } catch (err) {
-      showErrorMsg("Cannot load gigs");
-      console.log(err);
+    async function onLoadGigs() {
+        try {
+            await loadGigs()
+        } catch (err) {
+            showErrorMsg('Cannot load gigs')
+            console.log(err)
+        }
     }
-  }
 
-  async function onChangeStatus(order, updatedStatus) {
-    let { value } = updatedStatus;
-    // console.log(updatedStatus);
+    async function onChangeStatus(order, value) {
+        // let { value } = event.target.value
 
-    try {
-      const updatedOrder = { ...order, status: updatedStatus };
-      //   console.log(updatedOrder, "updatedOrder");
-      await updateOrder(updatedOrder);
-    } catch (err) {
-      console.log("cannot change status", err);
+        try {
+            const updatedOrder = { ...order, status: value }
+              console.log(updatedOrder, "updatedOrder");
+            await updateOrder(updatedOrder)
+        } catch (err) {
+            console.log('cannot change status', err)
+        }
     }
-  }
 
-  async function handleChangeAction(action, order) {
-    let { value } = action;
-    console.log(action, "action");
-    console.log("order", order);
 
-    // try {
-    //   const updatedOrder = { ...order, status: updatedStatus };
-    //   console.log(updatedOrder, "updatedOrder");
-    //   await updateOrder(updatedOrder);
-    // } catch (err) {
-    //   console.log("cannot change status", err);
+//     <select onChange={(event) => onChangeStatus(order, event.target.value)}>
+//   <option value='approved'>Approve</option>
+//   <option value='in progress'>In progress</option>
+//   <option value='done'>Done</option>
+//   <option value='rejected'>Reject</option>
+// </select>
+
+    // async function handleChangeAction(action, order) {
+    //   let { value } = action;
+    //   console.log(action, "action");
+    //   console.log("order", order);
+
+    //   try {
+    //     const updatedOrder = { ...order, status: updatedStatus };
+    //     console.log(updatedOrder, "updatedOrder");
+    //     await updateOrder(updatedOrder);
+    //   } catch (err) {
+    //     console.log("cannot change status", err);
+    //   }
     // }
-  }
-  //   async function handleChangeAction(action) {
-  //     console.log("xxx");
-  //     let { value } = action;
-  //     console.log("value", value);
-  //     try {
-  //       //   const updatedOrder = { ...order, status: updatedStatus };
-  //       await updateOrder(action);
-  //     } catch (err) {
-  //       console.log("cannot change status", err);
-  //     }
-  //   }
+    async function handleChangeAction(action, order) {
+        console.log('xxx', action)
+        let { value } = action
+        // console.log("value", value);
+        // try {
+        //   //   const updatedOrder = { ...order, status: updatedStatus };
+        //   await updateOrder(action);
+        // } catch (err) {
+        //   console.log("cannot change status", err);
+        // }
+    }
 
-  function getSellerGigs(userId) {
-    const sellerGigs = gigs.filter((gig) => gig.owner._id === userId);
-    // const sellerGigs = await loadGigs()
-    //    return  sellerGigs.filter((gig) => gig.owner._id === userId)
-    return sellerGigs;
-  }
+    function getSellerGigs(userId) {
+        const sellerGigs = gigs.filter((gig) => gig.owner._id === userId)
+        // const sellerGigs = await loadGigs()
+        //    return  sellerGigs.filter((gig) => gig.owner._id === userId)
+        return sellerGigs
+    }
 
   // function onUserUpdate(user) {
   //   showSuccessMsg(
@@ -111,41 +114,41 @@ export function UserDetails() {
   //   store.dispatch({ type: "SET_WATCHED_USER", user });
   // }
 
-  function changeStatusColor(currStatus) {
-    switch (currStatus) {
-      case "pending":
-        return "status-blue";
-      case "approved":
-        return "status-green";
+    function changeStatusColor(currStatus) {
+        switch (currStatus) {
+            case 'pending':
+                return 'status-blue'
+            case 'approved':
+                return 'status-green'
 
-      case "in progress":
-        return "status-yellow";
+            case 'in progress':
+                return 'status-yellow'
 
-      case "done":
-        return "status-orange";
+            case 'done':
+                return 'status-orange'
 
-      case "rejected":
-        return "status-red";
-      default:
-        return "";
+            case 'rejected':
+                return 'status-red'
+            default:
+                return ''
+        }
     }
-  }
 
-  if (!userOrders)
+    if (!userOrders)
+        return (
+            <div className='loading-spinner flex'>
+                {' '}
+                <Loading />{' '}
+            </div>
+        )
     return (
-      <div className="loading-spinner flex">
-        {" "}
-        <Loading />{" "}
-      </div>
-    );
-  return (
-    <section className="user-details main-container full">
-      <section className="user-details-section flex">
-        <div className="user-main-details">
-          <div className="profile-img-container">
-            <img className="profile-img" src={user.imgUrl} />
-          </div>
-          <h1>{user.fullname}</h1>
+        <section className='user-details main-container full'>
+            <section className='user-details-section flex'>
+                <div className='user-main-details'>
+                    <div className='profile-img-container'>
+                        <img className='profile-img' src={user.imgUrl} />
+                    </div>
+                    <h1>{user.fullname}</h1>
 
           <hr />
           <section className="user-details-bottom">
@@ -219,7 +222,7 @@ export function UserDetails() {
                   {/* <th>Gig Id</th> */}
                   <th>Gig</th>
                   <th>Status</th>
-                  <th>Actions</th>
+                  {/* <th>Actions</th> */}
                 </tr>
               </thead>
               <tbody className="seller-orders">
@@ -231,69 +234,39 @@ export function UserDetails() {
                       <td className="gig-title-dash">
                         {order.gig.title.substring(0, 55) + "..."}
                       </td>
-                      <td className={changeStatusColor(order.status)}>
+                      {/* <td className={changeStatusColor(order.status)}>
                         {order.status}
-                      </td>
+                      </td> */}
                       <td>
-                        {order.status === "pending" && (
-                          <button
-                            onClick={() => onChangeStatus(order, "approved")}
-                          >
-                            Approved
-                          </button>
-                        )}
-                        {order.status === "approved" && (
-                          <button
-                            onClick={() => onChangeStatus(order, "in progress")}
-                          >
-                            In progress
-                          </button>
-                        )}
-                        {order.status === "in progress" && (
-                          <button onClick={() => onChangeStatus(order, "done")}>
-                            Done
-                          </button>
-                        )}
-                        <button
-                          onClick={() => onChangeStatus(order, "rejected")}
-                        >
-                          Rejected
-                        </button>
-                        <Select
-                          id="user-actions"
-                          name="user-actions"
-                          placeholder="Actions"
-                          options={sellerActions}
-                          theme={(theme) => ({
-                            ...theme,
-                            borderRadius: 4,
-                            colors: { ...theme.colors, primary: "black" },
-                          })}
-                          classNamePrefix="select"
-                          onChange={() => handleChangeAction(order)}
-                        />
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-          <div className="seller-gigs">
-            <h1>Seller gigs</h1>
-            <div className="gig-seller-list">
-              <ul className="gig-list">
-                <Link to={"/gig/edit"}>
-                  <li className="add-gig-btn add-new-gig">Create a new Gig</li>
-                </Link>
-                {getSellerGigs(user._id)?.map((gig, idx) => (
-                  <GigPreview id={idx} gig={gig} />
-                ))}
-              </ul>
-            </div>
-          </div>
+                      <select className='dropdown-status' onChange={(event)=> onChangeStatus(order, event.target.value)}>
+                                                <option value="" disabled selected>{order.status}</option>
+                                                    <option value='approved'>Approve</option>
+                                                    <option value='in progress'>In progress</option>
+                                                    <option value='done'>Done</option>
+                                                    <option value='rejected'>Reject</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    )
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className='seller-gigs'>
+                        <h1>Seller gigs</h1>
+                        <div className='gig-seller-list'>
+                            <ul className='gig-list'>
+                                <Link to={'/gig/edit'}>
+                                    <li className='add-gig-btn add-new-gig'>Create a new Gig</li>
+                                </Link>
+                                {getSellerGigs(user._id)?.map((gig, idx) => (
+                                    <GigPreview id={idx} gig={gig} />
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </section>
         </section>
-      </section>
-    </section>
-  );
+    )
 }
