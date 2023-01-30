@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.cd9450aa.css",
-    "main.js": "/static/js/main.cedf19f0.js",
+    "main.css": "/static/css/main.3a25cc42.css",
+    "main.js": "/static/js/main.bbfc6413.js",
     "static/media/macan-light.ttf": "/static/media/macan-light.75c0fb9306a207ee180f.ttf",
     "static/media/macan-bold.ttf": "/static/media/macan-bold.29c28b1d0173728738dc.ttf",
     "static/media/credit-cards.svg": "/static/media/credit-cards.dc2a5109488a35d64eb0f0fad652d6a5.svg",
@@ -30,11 +30,11 @@
     "static/media/success.svg": "/static/media/success.90cdcda91811446c744e6d7f51e9d1cc.svg",
     "static/media/heart.svg": "/static/media/heart.b56d552a7f0bc500f5f351e6037a5deb.svg",
     "static/media/heart-liked.svg": "/static/media/heart-liked.ab02d2838e3d334eed171781b82d0115.svg",
-    "main.cd9450aa.css.map": "/static/css/main.cd9450aa.css.map",
-    "main.cedf19f0.js.map": "/static/js/main.cedf19f0.js.map"
+    "main.3a25cc42.css.map": "/static/css/main.3a25cc42.css.map",
+    "main.bbfc6413.js.map": "/static/js/main.bbfc6413.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd9450aa.css",
-    "static/js/main.cedf19f0.js"
+    "static/css/main.3a25cc42.css",
+    "static/js/main.bbfc6413.js"
   ]
 }
