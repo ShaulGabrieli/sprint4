@@ -40,6 +40,7 @@
   .reviewer-img img {
     height: 48px;
     width: 48px;
+    object-fit: cover;
     align-self: baseline;
   }
   .nickname-review {
@@ -84,7 +85,7 @@
       width: 32px;
       object-fit: cover;
       align-self: baseline;
-      padding-top: 5px;
+      // padding-top: 5px;
     }
   }
 }
@@ -100,6 +101,7 @@
     border-radius: 50%;
     height: 30px;
     width: 30px;
+    object-fit: cover;
     // margin-right: 16px;
   }
 }

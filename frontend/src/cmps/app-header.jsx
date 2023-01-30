@@ -324,31 +324,31 @@ export function AppHeader({
       <nav className="main-nav">
         <ul className="clean list flex space-between jusitfy-center ">
           <li>
-            <a href="/gig?tags=graphics-design">Graphics & Design</a>
+            <a onClick={()=>onSetFilter({tags: 'graphics-design'})} >Graphics & Design</a>
           </li>
           <li>
-            <a href="/gig?tags=digital-marketing">Digital Marketing</a>
+            <a onClick={()=>onSetFilter({tags: 'digital-marketing'})} >Digital Marketing</a>
           </li>
           <li>
-            <a href="/gig?tags=writing-translation">Writing & Translation</a>
+            <a onClick={()=>onSetFilter({tags: 'writing-translation'})} >Writing & Translation</a>
           </li>
           <li>
-            <a href="/gig?tags=video-animation">Video & Animation</a>
+            <a onClick={()=>onSetFilter({tags: 'video-animation'})} >Video & Animation</a>
           </li>
           <li>
-            <a href="/gig?tags=music-audio">Music & Audio</a>
+            <a onClick={()=>onSetFilter({tags: 'music-audio'})} >Music & Audio</a>
           </li>
           <li>
-            <a href="/gig?tags=programming-tech">Programming & Tech</a>
+            <a onClick={()=>onSetFilter({tags: 'programming-tech'})} >Programming & Tech</a>
           </li>
           <li>
-            <a href="/gig?tags=business">Business</a>
+            <a onClick={()=>onSetFilter({tags: 'business'})} >Business</a>
           </li>
           <li>
-            <a href="/gig?tags=lifestyle">Lifestyle</a>
+            <a onClick={()=>onSetFilter({tags: 'lifestyle'})} >Lifestyle</a>
           </li>
           <li>
-            <a href="/gig?tags=trending">Trending</a>
+            <a onClick={()=>onSetFilter({tags: 'trending'})} >Trending</a>
           </li>
         </ul>
       </nav>

@@ -45,6 +45,7 @@
   // }
 
   .slick-prev {
+    z-index: 1;
     border: solid #62646a;
     border-width: 0 3px 3px 0;
     display: inline-block;
@@ -58,6 +59,7 @@
   }
 
   .slick-next {
+    z-index: 1;
     border: solid #62646a;
     border-width: 0 3px 3px 0;
     display: inline-block;
