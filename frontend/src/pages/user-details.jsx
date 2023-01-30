@@ -239,11 +239,11 @@ export function UserDetails() {
                       </td> */}
                       <td>
                       <select className='dropdown-status' onChange={(event)=> onChangeStatus(order, event.target.value)}>
-                                                <option value="" disabled selected>{order.status}</option>
-                                                    <option className="option1" value='approved'>Approve</option>
-                                                    <option value='in progress'>In progress</option>
-                                                    <option value='done'>Done</option>
-                                                    <option value='rejected'>Reject</option>
+                                                <option value="" disabled selected>{`${order.status.substring(0,1).toUpperCase()}${order.status.substring(1,order.status.length)}`}</option>
+                                                    <option className="status-lightblue" value='approved'>Approve</option>
+                                                    <option className="status-blue" value='in progress'>In progress</option>
+                                                    <option className="status-green" value='done'>Done</option>
+                                                    <option className="status-pink" value='rejected'>Reject</option>
                                                 </select>
                                             </td>
                                         </tr>
