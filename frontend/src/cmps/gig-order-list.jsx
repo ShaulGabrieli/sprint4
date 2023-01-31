@@ -6,17 +6,16 @@ import { GigPreview } from '../cmps/gig-preview.jsx'
 import { showErrorMsg } from '../services/event-bus.service.js'
 import { Loading } from './loading.jsx'
 
-
 export function GigOrderList() {
     let previewList = []
     const orders = useSelector(storeState => storeState.orderModule.userOrders)
-   // const wishlist = useSelector(storeState => storeState.userModule.user.wishlist)
-  
+    // const wishlist = useSelector(storeState => storeState.userModule.user.wishlist)
+
 
     // async function getOrders() {
     //     try {
     //         previewList = await loadOrders()
-           
+
     //     }
     //     catch (err) {
     //         showErrorMsg('Cannot load orders')
@@ -27,7 +26,7 @@ export function GigOrderList() {
     // async function getWishlist() {
     //     try {
     //         previewList = await getWishlist()
-             
+
     //     }
     //     catch (err) {
     //         showErrorMsg('Cannot load wishlist')
@@ -35,16 +34,14 @@ export function GigOrderList() {
     //     }
     // }
 
-
     useEffect(() => {
         loadOrders()
         window.scrollTo(0, 0)
     }, [])
 
-
     return (
         //todo: loading
-        <div> {!orders && <div className="loading-spinner flex"> <Loading/> </div> || 
+        <div> {!orders && <div className="loading-spinner flex"> <Loading /> </div> ||
             <div className="main-order-list-container main-container">
                 <div className="order-list-container">
                     <section className="my-orders-header">
@@ -56,13 +53,11 @@ export function GigOrderList() {
                         <div className="my-orders">
                             <ul className="gig-orders-list gig-list ">
                                 {orders.map((order, idx) => (
-                                 
-                                    <GigPreview 
-                                    orderPagePreview={true} 
+                                    <GigPreview
+                                        orderPagePreview={true}
                                         id={idx}
                                         gig={order.gig}
                                         status={order.status}
-
                                     />
                                 ))}
                             </ul>
@@ -70,33 +65,5 @@ export function GigOrderList() {
                     </section>
                 </div>
             </div>}</div>
-
     )
 }
-
-
-
-
-
-
-
-// import { PopupMenu } from "../cmps/popup-menu";
-{/* <PopupMenu top={<h2>Popup in ABout</h2>}>
-                <span>Lorem ipsum dolor sit amet.</span>
-                <span>Lorem ipsum dolor sit amet.</span>
-                <span>Lorem ipsum dolor sit amet.</span>
-            </PopupMenu> */}
-
-
-            // .popup-menu {
-//     width: 300px;
-//     height: 400px;
-//     position: fixed;
-//     inset: 0;
-//     margin: auto;
-//     background-color: white;
-//     border: red 2px solid;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-between;
-// }

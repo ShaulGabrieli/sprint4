@@ -19,6 +19,10 @@ import { sellerActions } from "../cmps/global-const/global-const";
 import { loadGigs } from "../store/gig.actions";
 import { Charts } from "../cmps/charts";
 import Select from "react-select";
+import { ChartsDashboard } from "../cmps/charts-dashboard";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+
 
 export function UserDetails() {
     const params = useParams()
@@ -185,7 +189,14 @@ export function UserDetails() {
             {/* <Charts chartId="63d5a294-d62c-45cb-829a-46fabee1a964" sellerId={user._id} height="400px" width="300px" /> */}
           </section>
         </div>
-        <section className="user-orders-manage-section flex column">
+        <Tabs >
+    <TabList >
+      <Tab>Seller</Tab>
+      <Tab>Dashboard</Tab>
+    </TabList>
+
+    <TabPanel>
+    <section className="user-orders-manage-section flex column">
           {/* <BasicTabs /> */}
           <div className="static-charts-main flex row">
             <Charts
@@ -266,6 +277,12 @@ export function UserDetails() {
                         </div>
                     </div>
                 </section>
+    </TabPanel>
+    <TabPanel>
+      <ChartsDashboard dashboardId="63d83815-e2e3-4565-8acc-7728e88ce141" sellerId={user._id}/> 
+    </TabPanel>
+  </Tabs>
+        
             </section>
         </section>
     )
