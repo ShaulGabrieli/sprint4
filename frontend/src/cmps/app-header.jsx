@@ -185,6 +185,7 @@ export function AppHeader({
         <section className="top-nav-actions flex">
           <p
             onClick={() => {
+              toggleMenu()
               navigate("/gig");
               setHeaderStyle("sticky ");
               setLogo(<BlackLogo />);
@@ -235,7 +236,11 @@ export function AppHeader({
                   //   ev.stopPropagation();
                   //   setOpenOrders(!openOrders);
                   // }}
-                  onClick={() => navigate("/orders")}
+                  onClick={() => {
+                    toggleMenu()
+                    navigate("/orders")        
+                    }
+                  }
                 >
                   <span>Orders</span>
                   <div className="pop-menu-orders-area">

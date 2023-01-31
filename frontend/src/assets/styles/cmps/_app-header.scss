@@ -286,21 +286,7 @@
   gap: 24px;
 }
 
-.main-screen {
-  position: fixed;
-  inset: 0;
-  background-color: #000;
-  background-color: rgb(0 0 0 / 70%);
-  cursor: pointer;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.6s;
-}
 
-body.menu-open .main-screen {
-  pointer-events: auto;
-  opacity: 1;
-}
 .menu-toggle-btn {
   display: none;
 }
@@ -373,5 +359,21 @@ body.menu-open .main-screen {
   }
   .nav-hover-clr {
     margin: 0;
+  }
+
+  .main-screen {
+    position: fixed;
+    inset: 0;
+    background-color: #000;
+    background-color: rgb(0 0 0 / 70%);
+    cursor: pointer;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s;
+  }
+  
+  body.menu-open .main-screen {
+    pointer-events: auto;
+    opacity: 1;
   }
 }

@@ -60,9 +60,9 @@ export function GigPreview({ gig, orderPagePreview, status }) {
               <div className="likes flex">
                 <StarSvg />
                 <span className="rate"> {gig.owner.rate || 0}</span>
-                <span className="total-likes">{`(${
+                {!orderPagePreview && <span className="total-likes">{`(${
                   gig.reviews?.length || 0
-                })`}</span>
+                })`}</span>}
               </div>
             </div>
           </Link>
