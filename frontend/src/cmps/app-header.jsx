@@ -231,10 +231,11 @@ export function AppHeader({
               <div className="user-visible-icons">
                 <a
                   className="orders-link"
-                  onClick={(ev) => {
-                    ev.stopPropagation();
-                    setOpenOrders(!openOrders);
-                  }}
+                  // onClick={(ev) => {
+                  //   ev.stopPropagation();
+                  //   setOpenOrders(!openOrders);
+                  // }}
+                  onClick={() => navigate("/orders")}
                 >
                   <span>Orders</span>
                   <div className="pop-menu-orders-area">
