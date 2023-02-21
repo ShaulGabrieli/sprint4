@@ -635,3 +635,28 @@
 .about-seller-details {
   line-height: 24px;
 }
+
+@media (max-width: 900px) {
+  .gig-details {
+    width: 100%;
+    // margin-right: 95px;
+  }
+  .overview-nav{
+    display: none;
+  }
+  .gig-details-page{
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+
+  }
+  .gig-main-payment {
+    max-width: 100%;
+  }
+  .payment-area-wrapper{
+    width: 100%;
+  }
+  .gig-details-breadcrumbs{
+    padding-top: 32px;
+  }
+}

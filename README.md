@@ -25,9 +25,9 @@ npm install
 To start both the frontend and backend servers, run the following command in each directory:
 
 ```
-npm run dev
+npm run start
 ```
-This will start the frontend server on http://localhost:3000 and the backend server on http://localhost:3030. The dev script will also watch for changes to both the frontend and backend files and automatically rebuild the application.
+This will start the frontend server on http://localhost:3000 and the backend server on http://localhost:3030. The start script will also watch for changes to both the frontend and backend files and automatically rebuild the application.
 
 ### Configuration
 The backend server uses a configuration file located at backend/config/dev.js to specify the database connection details. By default, the configuration file uses the following values:
