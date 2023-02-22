@@ -3,14 +3,17 @@
   color: $clr1;
   margin: 0 50.5px;
 }
+
 .overview-nav {
   background-color: white;
-  padding-top:9px;
+  padding-top: 9px;
 }
+
 .inner-review {
   flex-direction: column;
   padding-right: 60px;
 }
+
 .gig-carousel-card {
   //   zoom: 200%;
   height: 420px;
@@ -42,6 +45,7 @@
   opacity: 50%;
   cursor: pointer;
 }
+
 .thumbs {
   padding: 0;
   margin-left: 0;
@@ -68,6 +72,7 @@
   // padding: 0;
   // margin: 0;
 }
+
 .responsive-wrapper {
   // margin: 31px 0 31px 0;
   border: 1px solid $clr14;
@@ -78,6 +83,7 @@
     margin-top: 5px;
   }
 }
+
 .payment-area,
 .contact-seller {
   padding: 0 24px;
@@ -107,6 +113,7 @@
     }
   }
 }
+
 .react-tabs__tab-list {
   position: static;
   display: flex;
@@ -117,6 +124,7 @@
   border: none;
   margin-block-end: 16px;
 }
+
 .react-tabs__tab {
   // bottom: 0;
   display: flex;
@@ -284,7 +292,16 @@
 .mini-review-btn {
   font-size: em(14px);
   color: $clr2;
+  text-decoration: none;
+
+  .details-reviews:-webkit-any-link {
+    color: $clr2;
+    // color: initial;
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
+
 
 .section-title {
   font-size: em(20px);
@@ -609,6 +626,7 @@
   width: 3px;
   height: 3px;
 }
+
 .thumb.selected {
   opacity: 90%;
 }
@@ -641,22 +659,27 @@
     width: 100%;
     // margin-right: 95px;
   }
-  .overview-nav{
+
+  .overview-nav {
     display: none;
   }
-  .gig-details-page{
+
+  .gig-details-page {
     flex-direction: column;
     padding: 0;
     margin: 0;
 
   }
+
   .gig-main-payment {
     max-width: 100%;
   }
-  .payment-area-wrapper{
+
+  .payment-area-wrapper {
     width: 100%;
   }
-  .gig-details-breadcrumbs{
+
+  .gig-details-breadcrumbs {
     padding-top: 32px;
   }
 }
