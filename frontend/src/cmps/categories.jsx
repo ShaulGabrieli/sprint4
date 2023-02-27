@@ -61,9 +61,9 @@ export function Categories() {
         <p href="">
           Learn <br /> <small>Online Courses</small>
         </p>
-        <p href="">Working Not Working</p>
+        {/* <p href="">Working Not Working</p> */}
         <p href=""></p>
       </div>
     </section>
-  );
+  )
 }

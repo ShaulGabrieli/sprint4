@@ -31,12 +31,12 @@ export function AppFooter() {
         <div className="title">
           <span className="logo-footer">
             <BlackLogo />
-          </span>{" "}
+          </span>
           <p className="copy-rights">© Gigxerr International Ltd. 2023</p>
         </div>
         <div className="social-links">
           <div>
-            {" "}
+           
             <a>
               <svg
                 width="20"
@@ -115,7 +115,7 @@ export function AppFooter() {
           </div>
           <div>
             <a href="">
-              <span className="material-symbols-outlined">accessibility</span>{" "}
+              <span className="material-symbols-outlined">accessibility</span>
             </a>
           </div> */}
         </div>

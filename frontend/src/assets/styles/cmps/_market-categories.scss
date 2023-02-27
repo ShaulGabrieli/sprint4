@@ -14,6 +14,7 @@
     color: $clr11;
     margin-bottom: 64px;
   }
+
   a {
     text-decoration: none;
     color: #222325;
@@ -26,12 +27,12 @@
     &:hover {
       .home-page-icons-line {
         transition-duration: 200ms;
-
         width: 88px;
         border-top: solid 2px $clr2;
       }
     }
   }
+
   img {
     display: block;
     width: 48px;
@@ -39,10 +40,31 @@
     margin: 0 auto 15px;
   }
 }
+
 .market-categories {
   .home-page-icons-line {
     width: 48px;
     border: none;
     border-top: solid 2px $clr13;
+  }
+}
+
+@media (max-width:900px) {
+  .market-place {
+    margin-top: 0;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    li {
+      padding-bottom: none;
+    }
+  }
+
+  .market-categories {
+    padding: 0 15px;
+
+    h2 {
+      padding-bottom: 20px;
+      margin: 0 0 40px 0;
+    }
   }
 }
