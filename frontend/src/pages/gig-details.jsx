@@ -79,6 +79,11 @@ export function GigDetails() {
       showErrorMsg("Order not added - please login");
     }
   }
+  function handleClickReviews(ev) {
+    ev.preventDefault();
+    const section = document.querySelector('#details-reviews');
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
 
   if (!gig)
     return (
@@ -144,7 +149,7 @@ export function GigDetails() {
               <div className="seller-rev-head">
                 What people loved about this seller
               </div>
-              <div className="mini-review-btn">See all reviews</div>
+              <div className="mini-review-btn"><a href="#details-reviews" className="details-reviews" onClick={handleClickReviews}> See all reviews</a></div>
               {/* </header> */}
             </div>
             <div className="reviews-carusel">
@@ -152,7 +157,7 @@ export function GigDetails() {
                 {gig.reviews?.map((review) => {
                   // console.log("review", review);
                   return (
-                    <div className="reviews-container-cr">
+                    <div id="details-reviews" className="reviews-container-cr">
                       {/* <img src={require(`../assets/img/details/demo-details2.jpg`)} /> */}
                       {/* <p className="review-preview">{review.txt}</p> */}
                       <ReviewPreview review={review} />

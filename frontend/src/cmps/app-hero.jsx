@@ -36,9 +36,9 @@ export function AppHero() {
     navigate(`/gig?title=${filterBy.title}`);
   }
   function heroImgSwitch() {
-    const imgSwitchInterval = setInterval(() => {
+    setInterval(() => {
       setImgToDisplay((prevImg) => {
-        if (prevImg >= 5) {
+        if (prevImg >= 6) {
           setImgToDisplay((prev) => {
             heroTextSwitch(1);
             return (prev = 1);
@@ -69,6 +69,9 @@ export function AppHero() {
       case 5:
         setHeroTextToDisplay("Andrea, Fasion Designer");
         break;
+        case 6:
+          setHeroTextToDisplay("Valentina, AI Artist");
+          break;
       default:
     }
   }
@@ -89,7 +92,8 @@ export function AppHero() {
             className="flex align-center search-container"
           >
             <label htmlFor="gigTitle"></label>
-            <div className="search-icon-box">
+            <div className="search-hero-section flex">
+            <div className="search-icon-box flex">
               <span className="material-symbols-outlined search-icon">
                 search
               </span>
@@ -103,6 +107,7 @@ export function AppHero() {
               onChange={handleChange}
               placeholder="Try ''building mobile app''"
             />
+            </div>
             <button
               className="search-btn"
               onClick={() => {
